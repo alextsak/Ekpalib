@@ -9,7 +9,7 @@
 ?>
 <html>
 <head>
-<base href="http://localhost:5555/Libtest/">
+<base href="http://localhost:5555/Ekpalib/">
 <meta charset='utf-8'>
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1">
