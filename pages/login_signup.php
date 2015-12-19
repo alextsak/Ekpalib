@@ -1,4 +1,30 @@
+<?php 
+include_once '../database/Model/User.php';
+session_start();
 
+if(isset($_POST['login-form'])){
+	$username = $_POST['username'];
+	$password = $_POST['password'];
+	//echo $username;
+	$_SESSION['username'] = $username;
+	$user = new User();
+	$message = $user->Login($username, $password);
+	if($message == "User found"){
+		//echo "Welcome " . $username . " ! ";
+		header("Location: ../index.php");
+	}
+	else {
+		echo $message;
+	}
+}
+if(isset($_POST['register-form'])){
+	$reg_array = array();
+	array_push($reg_array,$_POST['username'], $_POST['email'],$_POST['password'], $_POST['firstName'], $_POST['lastName']);
+	$user = new User();
+	$user->RegisterUser($reg_array);
+}
+
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -29,7 +55,7 @@
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-lg-12">
-										<form id="login-form" style="display: block;">
+										<form id="login-form" style="display: block;" method="POST" action="">
 											<div class="form-group">
 												<input type="text" name="username" id="log-in-username" tabindex="1" class="form-control" placeholder="Username" value="">
 											</div>
@@ -39,7 +65,8 @@
 											<div class="form-group">
 												<div class="row">
 													<div class="col-sm-6 col-sm-offset-3">
-														<button  name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-primary ">Log In</button>
+														
+														 <input type="submit" name="login-form" value="Log in" tabindex="4" class="form-control btn btn-primary"/> 
 													</div>
 												</div>
 											</div>
@@ -140,7 +167,7 @@
 											<div class="form-group">
 												<div class="row">
 													<div class="col-sm-6 col-sm-offset-3">
-														<button name="register-submit" id="register-submit" tabindex="4" class="btn btn-primary form-control">Register Now</button>
+														<input type="submit" name="register-form" tabindex="4" value="Register" class="btn btn-primary form-control"/>
 													</div>
 												</div>
 											</div>
