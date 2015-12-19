@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+#container{
+   margin: 0 auto;
+   max-width: 1200px;
+}
+.logo
+{
+text-align:center;
+display:block;
+}
