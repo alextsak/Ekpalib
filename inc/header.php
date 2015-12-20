@@ -31,7 +31,7 @@
 <div id='cssmenu'>
 <ul>
    <li><a href='#'>Home</a></li>
-   <li class='active has-sub'><a href='#'>Products</a>
+   <li class='active has-sub'><a href='./pages/login_signup.php'>Login-SignUp</a>
       <ul>
          <li class='has-sub'><a href='#'>Product 1</a>
             <ul>
