@@ -1,5 +1,6 @@
 <?php 
 include_once '../database/Model/User.php';
+
 session_start();
 
 if(isset($_POST['login-form'])){
@@ -47,10 +48,8 @@ if(isset($_POST['register-form'])){
 	</head>
 	
 	<body>
-	
 		<div class="container">
-		
-		
+		    	<?php include_once '../inc/header.php';?>
 		    	<div class="row">
 					<div class="col-md-6 col-md-offset-3">
 						<div class="panel panel-login">
@@ -100,25 +99,25 @@ if(isset($_POST['register-form'])){
 											<div class="row">
 											  	<div class="col-md-12" role="form">
 												  	<div class="form-group">
-														<input type="text" name="username" id="sign-up-username" tabindex="1" class="form-control" placeholder="Username" value="">
+														<input type="text" name="username" id="sign-up-username" tabindex="1" class="form-control" placeholder="Username*" value="">
 													</div>
 											  	</div>
 											  
 											  	<div class="col-md-6" role="form">
 													<div class="form-group">
-														<input type="password" name="password" id="sign-up-password" tabindex="2" class="form-control" placeholder="Password">
+														<input type="password" name="password" id="sign-up-password" tabindex="2" class="form-control" placeholder="Password*">
 													</div>
 												</div>
 												
 												<div class="col-md-6" role="form">
 													<div class="form-group">
-														<input type="password" name="confirm-password" id="sign-up-confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+														<input type="password" name="confirm-password" id="sign-up-confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password*">
 													</div>
 												</div>
 												
 											  	<div class="col-md-6" role="form">
 												  	<div class="form-group">
-														<input type="email" name="email" id="sign-up-email" tabindex="2" class="form-control" placeholder="Email Address" value="">
+														<input type="email" name="email" id="sign-up-email" tabindex="2" class="form-control" placeholder="Email Address*" value="">
 													</div>
 											  	</div>
 											  <div class="col-md-6" role="form">
@@ -151,12 +150,12 @@ if(isset($_POST['register-form'])){
 											<div class="row">
 												<div class="col-md-6" role="form">
 													<div class="form-group">
-														<input type="text" name="academicID" id="sign-up-street" tabindex="2" class="form-control" placeholder="Academic ID">
+														<input type="text" name="academicID" id="sign-up-street" tabindex="2" class="form-control" placeholder="Academic ID*">
 													</div>
 												</div>
 												<div class="col-md-6" role="form">
 													<div class="form-group">
-														<input type="password" name="academicPass" id="sign-up-street" tabindex="2" class="form-control" placeholder="Academic Password">
+														<input type="password" name="academicPass" id="sign-up-street" tabindex="2" class="form-control" placeholder="Academic Password*">
 													</div>
 												</div>
 												

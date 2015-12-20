@@ -1,6 +1,7 @@
 @CHARSET "UTF-8";
 #container{
    margin: 0 auto;
+   margin-bottom: 40px;
    max-width: 1200px;
 }
 .logo
