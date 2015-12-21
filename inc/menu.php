@@ -21,28 +21,69 @@
 </head>
 <body>
 <div id="container">
-	
-<div id='cssmenu'>
-<ul>
-   <li><a href='#'>Home</a></li>
-   <li class='active has-sub'><a href='./pages/login_signup.php'>Login-SignUp</a>
-      <ul>
-         <li class='has-sub'><a href='#'>Product 1</a>
-            <ul>
-               <li><a href='#'>Sub Product</a></li>
-               <li><a href='#'>Sub Product</a></li>
-            </ul>
-         </li>
-         <li class='has-sub'><a href='#'>Product 2</a>
-            <ul>
-               <li><a href='#'>Sub Product</a></li>
-               <li><a href='#'>Sub Product</a></li>
-            </ul>
-         </li>
-      </ul>
-   </li>
-   <li><a href='#'>About</a></li>
-   <li><a href='#'>Contact</a></li>
-</ul>
+	<div>
+		  <!-- Nav tabs -->
+		  <ul class="nav nav-tabs" role="tablist">
+		    <li class="dropdown"> 
+		  		<a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents">
+		  			About 
+		  			<span class="caret"></span>
+		  		</a> 
+		  		<ul class="dropdown-menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents"> 
+		  			<li><a href="#dropdown1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">
+		  				Welcome from the University Library</a>
+		  			</li> 
+		  			<li><a href="#dropdown2" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">
+		  				Library Employment</a>
+		  			</li>
+		  			<li><a href="#dropdown3" role="tab" id="dropdown3-tab" data-toggle="tab" aria-controls="dropdown3">
+		  				Library Policy</a>
+		  			</li>  
+		  		</ul> 
+		  	</li>
+		    
+		    <li class="dropdown"> 
+		  		<a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents">
+		  			Contact 
+		  			<span class="caret"></span>
+		  		</a> 
+		  		<ul class="dropdown-menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents"> 
+		  			<li><a href="#dropdown1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">
+		  				Feedback and Suggestions</a>
+		  			</li> 
+		  		</ul> 
+		  	</li>
+		    <li class="dropdown"> 
+		  		<a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents">
+		  			Help 
+		  			<span class="caret"></span>
+		  		</a> 
+		  		<ul class="dropdown-menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents"> 
+		  			<li><a href="#dropdown1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">
+		  				FAQ</a>
+		  			</li> 
+		  			<li><a href="#dropdown2" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">
+		  				Find books,articles and more</a>
+		  			</li>
+		  			<li><a href="#dropdown3" role="tab" id="dropdown3-tab" data-toggle="tab" aria-controls="dropdown3">
+		  				Ask a Librarian</a>
+		  			</li>  
+		  		</ul> 
+		  	</li>
+		  	<!-- <li class="dropdown"> 
+		  		<a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents">
+		  			Services 
+		  			<span class="caret"></span>
+		  		</a> 
+		  		<ul class="dropdown-menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents"> 
+		  			<li><a href="#dropdown1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">@fat</a>
+		  			</li> 
+		  			<li><a href="#dropdown2" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">@mdo</a>
+		  			</li> 
+		  		</ul> 
+		  	</li> -->
+		  </ul>
+		</div>
 </div>
-</div>
+</body>
+</html>

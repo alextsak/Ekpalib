@@ -77,8 +77,7 @@ if(isset($_POST['register-form'])){
 											<div class="form-group">
 												<div class="row">
 													<div class="col-sm-6 col-sm-offset-3">
-														
-														 <input type="submit" name="login-form" value="Log in" tabindex="4" class="form-control btn btn-primary"/> 
+														 <input id="login-submit" type="submit" name="login-form" value="Log in" tabindex="4" class="form-control btn btn-primary"/> 
 													</div>
 												</div>
 											</div>
@@ -88,9 +87,9 @@ if(isset($_POST['register-form'])){
 														<div class="form-group text-center">
 															<label>Alternatively, you can enter as guest!</label> 
 														</div>
-														<div class="col-sm-4 col-sm-offset-4">
+														<!-- <div class="col-sm-4 col-sm-offset-4">
 															<button  name="guest-submit" id="guest-submit" tabindex="4" class="form-control btn btn-primary ">Enter as guest</button>
-														</div>
+														</div> -->
 													</div>
 												</div>
 											</div>
@@ -151,11 +150,14 @@ if(isset($_POST['register-form'])){
 												<div class="col-md-6" role="form">
 													<div class="form-group">
 														<input type="text" name="academicID" id="sign-up-street" tabindex="2" class="form-control" placeholder="Academic ID*">
+											
 													</div>
 												</div>
 												<div class="col-md-6" role="form">
 													<div class="form-group">
 														<input type="password" name="academicPass" id="sign-up-street" tabindex="2" class="form-control" placeholder="Academic Password*">
+														
+
 													</div>
 												</div>
 												
@@ -165,7 +167,7 @@ if(isset($_POST['register-form'])){
 											<div class="form-group">
 												<div class="row">
 													<div class="col-sm-6 col-sm-offset-3">
-														<input type="submit" name="register-form" tabindex="4" value="Register" class="btn btn-primary form-control"/>
+														<input id="register-submit" type="submit" name="register-form" tabindex="4" value="Register" class="btn btn-primary form-control"/>
 													</div>
 												</div>
 											</div>
