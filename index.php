@@ -150,22 +150,26 @@
 			  <!-- Nav tabs -->
 			  <ul class="nav nav-tabs" role="tablist">
 			    <li class="active"><a href="#Libraries" data-toggle="tab">
-			    <i class="glyphicon glyphicon-time"></i>
-			    Libraries and Hours</a></li>
+			    	<i class="glyphicon glyphicon-time"></i>
+			    	Libraries and Hours</a>
+			    </li>
+			    
 			    <li><a href="#StudyRooms"  data-toggle="tab">
-			    <i class="glyphicon glyphicon-edit"></i>
-			    Study Rooms</a></li>
+			    	<i class="glyphicon glyphicon-edit"></i>
+			    	Study Rooms</a>
+			    </li>
+			    
 			    <li><a href="#NewsAndEvents"  data-toggle="tab">
-			    <i class="glyphicon glyphicon-calendar"></i>
-			    News and Events</a></li>
+			    	<i class="glyphicon glyphicon-calendar"></i>
+			    	News and Events</a>
+			    </li>
 			  </ul>
 			  <!-- Tab panes -->
 			  <div  class="tab-content">
 		            <div class="tab-pane active" class="tab-pane" id="Libraries">
 			              	<div id="libraries-table" class="panel panel-default" >
-						    	<div class="panel-body">
+						    	<div class="panel-body" id="libraries-tab">
 						    			<table id="libraries-grid" class="display" cellspacing="0" width="100%">
-						    			 
 							    			 <thead>
 									            <tr>
 									                <th>Name</th>
@@ -187,7 +191,27 @@
 		           	</div>
 			    	
 			    	<div class="tab-pane" id="StudyRooms">
-			    		
+			    			<div id="studyRooms-table" class="panel panel-default" >
+						    	<div class="panel-body" id="studyRooms-tab">
+						    			<table id="studyRooms-grid" class="display" cellspacing="0" width="100%">
+							    			 <thead>
+									            <tr>
+									                <th>Name</th>
+									                <th>Address</th>
+									                <th>Hours</th>
+									            </tr>
+									        </thead>
+									        <tbody>
+									        	<?php /* include php code for rows */ ?>
+									            <tr>
+									                <th></th>
+									                <th></th>
+									                <th></th>
+									            </tr>
+									        </tbody>
+						    			</table>
+								</div>
+					   		</div>
 			    	</div>
 			    	<div class="tab-pane" id="NewsAndEvents">
 			    		

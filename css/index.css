@@ -5,10 +5,10 @@
 	margin-bottom:15px;
 }
 
-#Search_Argument,#artclSubject,#jnltitle{
-	margin-left: 15px;
+.panel-body#libraries-tab,#studyRooms-tab{
+	background-color: beige;
 }
 
-#booksSearch_Code{
-	
+#Search_Argument,#artclSubject,#jnltitle{
+	margin-left: 15px;
 }
