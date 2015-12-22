@@ -1,0 +1,13 @@
+@CHARSET "ISO-8859-1";
+
+.panel-body#search-book,#search-article,#search-journal{
+	background-color: beige;
+}
+
+#Search_Argument,#artclSubject,#jnltitle{
+	margin-left: 15px;
+}
+
+#booksSearch_Code{
+	
+}

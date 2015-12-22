@@ -4,7 +4,6 @@ $(document).ready(function(){
 
 
 function init(){
-	$('[data-toggle="tooltip"]').tooltip();
 	
 	$('#login-form-link').click(function(e) {
 		$("#login-form").delay(100).fadeIn(100);
@@ -20,4 +19,7 @@ function init(){
 		$(this).addClass('active');
 		e.preventDefault();
 	});
+	
+	 $('[data-toggle="tooltip"]').tooltip(); 
+	
 }

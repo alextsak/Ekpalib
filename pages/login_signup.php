@@ -150,7 +150,8 @@ if(isset($_POST['register-form'])){
 												<div class="col-md-6" role="form">
 													<div class="form-group">
 														<input type="text" name="academicID" id="sign-up-street" tabindex="2" class="form-control" placeholder="Academic ID*">
-											
+															<i id="questionMark" class="glyphicon glyphicon-question-sign form-control-feedback" 
+																		data-toggle="tooltip" title="first tooltip"></i>
 													</div>
 												</div>
 												<div class="col-md-6" role="form">
