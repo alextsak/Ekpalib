@@ -1,5 +1,5 @@
 <?php /*include some functions */require 'functions.php';?> 
-<?php session_start();	
+<?php //session_start();	
 /* if(isset($_SESSION['username'])){
 	echo "<h1>Welcome ";
 	echo $_SESSION['username'];
@@ -7,27 +7,12 @@
 	echo '<a href="./pages/logout.php">Logout</a>';
 } */
 ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<base href="http://localhost:5555/Ekpalib/">
-	 	<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-	 	<link href="css/index.css" rel="stylesheet">
-	 	
- 	
-  		<script src="js/jquery/jquery-2.1.4.min.js"></script>
-  		<script src="js/Login-Signup.js"></script>
-  		<script src="bootstrap/bootstrap.js"></script>
-  		<script src="js/index.js"></script>
-  		<script type="text/javascript" src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css"/>
-	</head>
-	
-	<body>
+<?php 
+	include_once './inc/header.php';
+	include_once './inc/menu.php';
+
+	?> 
 		<div class="container">
-		    	<?php include_once './inc/header.php';
-						include_once './inc/menu.php';?> 
-		
 			<div>
 			  <!-- Nav tabs -->
 			  <ul class="nav nav-tabs" role="tablist">
@@ -180,9 +165,9 @@
 									        <tbody>
 									        	<?php /* include php code for rows */ ?>
 									            <tr>
-									                <th>Αγγλικης Γλωσσας και Φιλολογιας</th>
-									                <th>Κτίριο Φιλοσοφικής Σχολής 9ος όροφος κυψέλη 929 Παν/πολη Ζωγράφου</th>
-									                <th>Δε-Πε 9-6 Πα 9-3 (χειμερινό) και Ιούλιο-Αύγουστο Δε-Πα 9-3</th>
+									                <th>Ξ‘Ξ³Ξ³Ξ»ΞΉΞΊΞ·Ο‚ Ξ“Ξ»Ο‰ΟƒΟƒΞ±Ο‚ ΞΊΞ±ΞΉ Ξ¦ΞΉΞ»ΞΏΞ»ΞΏΞ³ΞΉΞ±Ο‚</th>
+									                <th>Ξ�Ο„Ξ―Ο�ΞΉΞΏ Ξ¦ΞΉΞ»ΞΏΟƒΞΏΟ†ΞΉΞΊΞ®Ο‚ Ξ£Ο‡ΞΏΞ»Ξ®Ο‚ 9ΞΏΟ‚ Ο�Ο�ΞΏΟ†ΞΏΟ‚ ΞΊΟ…Ο�Ξ­Ξ»Ξ· 929 Ξ Ξ±Ξ½/Ο€ΞΏΞ»Ξ· Ξ–Ο‰Ξ³Ο�Ξ¬Ο†ΞΏΟ…</th>
+									                <th>Ξ”Ξµ-Ξ Ξµ 9-6 Ξ Ξ± 9-3 (Ο‡ΞµΞΉΞΌΞµΟ�ΞΉΞ½Ο�) ΞΊΞ±ΞΉ Ξ™ΞΏΟ�Ξ»ΞΉΞΏ-Ξ‘Ο�Ξ³ΞΏΟ…ΟƒΟ„ΞΏ Ξ”Ξµ-Ξ Ξ± 9-3</th>
 									            </tr>
 									        </tbody>
 						    			</table>
@@ -218,10 +203,9 @@
 			    	</div>
 			  </div>
 			</div>
-			<?php  include_once './inc/footer.php';  ?>  
-		</div>
-	</body>
-</html>
+
+<?php  include_once './inc/footer.php';  ?>  
+		
 
 
 

@@ -19,7 +19,8 @@ function init(){
 		$(this).addClass('active');
 		e.preventDefault();
 	});
+	//$("[rel=popover]").popover('show');
+	// $('[data-toggle="tooltip"]').tooltip();
 	
-	 $('[data-toggle="tooltip"]').tooltip(); 
 	
 }

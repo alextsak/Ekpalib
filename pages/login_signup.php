@@ -9,15 +9,14 @@ if(isset($_POST['login-form'])){
 	//echo $username;
 	
 	$user = new User();
+	$message = "";
 	$message = $user->Login($username, $password);
 	if($message == "User found"){
 		$_SESSION['username'] = $username;
 		//echo "Welcome " . $username . " ! ";
 		header("Location: ../index.php");
 	}
-	else {
-		echo $message;
-	}
+
 }
 if(isset($_POST['register-form'])){
 	$reg_array = array();
@@ -42,14 +41,34 @@ if(isset($_POST['register-form'])){
 		<base href="http://localhost:5555/Ekpalib/">
 	 	<link rel="stylesheet" href="css/login-signup.css" type="text/css" media="all">
 	 	<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-	 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  		<script src="js/Login-Signup.js"></script>
-  		<script src="bootstrap/bootstrap.js"></script>
+	 	
+	 	<script src="js/jquery/jquery-2.1.4.min.js" type="text/javascript"></script>
+	 	<script src="bootstrap/bootstrap.js"></script>
+	 	<script src="js/Login-Signup.js"></script>
+  <style type="text/css">
+  .add-on .input-group-btn > .btn {
+  border-left-width:0;left:-2px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+/* stop the glowing blue shadow */
+.add-on .form-control:focus {
+ box-shadow:none;
+ -webkit-box-shadow:none; 
+ border-color:#cccccc; 
+}</style>
+  		
 	</head>
 	
 	<body>
 		<div class="container">
-		    	<?php include_once '../inc/header.php';?>
+		<header>
+			<div class="logo">
+				<a href="./index.php"> <img  src="images/ekpalib-logo.png" alt="Smiley face"></a>
+				<h3>University Libraries</h3>
+				<h4>Login or Register to our Community</h4>
+			</div>
+		</header>
 		    	<div class="row">
 					<div class="col-md-6 col-md-offset-3">
 						<div class="panel panel-login">
@@ -85,7 +104,11 @@ if(isset($_POST['register-form'])){
 												<div class="row">
 													<div class="col-lg-12">
 														<div class="form-group text-center">
-															<label>Alternatively, you can enter as guest!</label> 
+														<?php if(isset($message) && $message != 'User found') {
+															echo '<label style="color:red;">'.  $message . '</label>';
+															}
+														?>
+															 
 														</div>
 														<!-- <div class="col-sm-4 col-sm-offset-4">
 															<button  name="guest-submit" id="guest-submit" tabindex="4" class="form-control btn btn-primary ">Enter as guest</button>
@@ -148,11 +171,14 @@ if(isset($_POST['register-form'])){
 											<!-- row2 -->
 											<div class="row">
 												<div class="col-md-6" role="form">
-													<div class="form-group">
-														<input type="text" name="academicID" id="sign-up-street" tabindex="2" class="form-control" placeholder="Academic ID*">
-															<i id="questionMark" class="glyphicon glyphicon-question-sign form-control-feedback" 
-																		data-toggle="tooltip" title="first tooltip"></i>
-													</div>
+													
+													<div class="input-group add-on">
+     			 <input type="text" name="academicID" id="sign-up-street" tabindex="2" class="form-control" placeholder="Academic ID*">
+      <div class="input-group-btn">
+      	<button class="btn btn-default" type="button" data-toggle="popover" data-placement="right" data-content="Hello popover content."><i class="glyphicon glyphicon-question-sign"></i></button>
+      </div>
+    </div>
+    										
 												</div>
 												<div class="col-md-6" role="form">
 													<div class="form-group">
@@ -173,6 +199,7 @@ if(isset($_POST['register-form'])){
 												</div>
 											</div>
 										</form>
+
 									</div>
 								</div>
 							</div>
@@ -180,5 +207,14 @@ if(isset($_POST['register-form'])){
 					</div>
 				</div>
 		</div>
+		
+		<script>
+
+  		$(document).ready(function(){
+  		    $('[data-toggle="popover"]').popover(); 
+  			//$("[rel='popover']").popover();  
+  		});   
+
+</script>
 	</body>
 </html>

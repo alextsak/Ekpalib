@@ -47,7 +47,7 @@ class User{
 		
 		
 		if($st->execute()){
-			echo 'Values were inserted';
+			//echo 'Values were inserted';
 			return 'registered';
 		}
 		else {

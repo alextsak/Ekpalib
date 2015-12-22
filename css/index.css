@@ -12,3 +12,41 @@
 #Search_Argument,#artclSubject,#jnltitle{
 	margin-left: 15px;
 }
+
+.upper-nav ul li {
+	display:inline-block;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.upper-nav ul li:last-child {
+  padding-right: 0;
+}
+
+
+.upper-nav ul li a {
+  background: #FFFFFF;
+  color: #696763;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  padding:0;
+  padding-right: 0;
+  margin-top: 10px;
+}
+
+
+.upper-nav ul li a i{
+	margin-right:3px;
+}
+
+
+.upper-nav ul li a:hover {
+	color:#3071a9;
+	background:#fff;
+}
+
+#lang {
+	border: solid 3px #3071a9;
+	margin-top:10px;
+}
