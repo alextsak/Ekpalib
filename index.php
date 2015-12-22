@@ -13,10 +13,14 @@
 		<base href="http://localhost:5555/Ekpalib/">
 	 	<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 	 	<link href="css/index.css" rel="stylesheet">
-	 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	 	
+ 	
+  		<script src="js/jquery/jquery-2.1.4.min.js"></script>
   		<script src="js/Login-Signup.js"></script>
   		<script src="bootstrap/bootstrap.js"></script>
   		<script src="js/index.js"></script>
+  		<script type="text/javascript" src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css"/>
 	</head>
 	
 	<body>
@@ -139,6 +143,59 @@
 			    	</div>
 			  </div>
 			</div>
+			
+			
+			<div>
+			
+			  <!-- Nav tabs -->
+			  <ul class="nav nav-tabs" role="tablist">
+			    <li class="active"><a href="#Libraries" data-toggle="tab">
+			    <i class="glyphicon glyphicon-time"></i>
+			    Libraries and Hours</a></li>
+			    <li><a href="#StudyRooms"  data-toggle="tab">
+			    <i class="glyphicon glyphicon-edit"></i>
+			    Study Rooms</a></li>
+			    <li><a href="#NewsAndEvents"  data-toggle="tab">
+			    <i class="glyphicon glyphicon-calendar"></i>
+			    News and Events</a></li>
+			  </ul>
+			  <!-- Tab panes -->
+			  <div  class="tab-content">
+		            <div class="tab-pane active" class="tab-pane" id="Libraries">
+			              	<div id="libraries-table" class="panel panel-default" >
+						    	<div class="panel-body">
+						    			<table id="libraries-grid" class="display" cellspacing="0" width="100%">
+						    			 
+							    			 <thead>
+									            <tr>
+									                <th>Name</th>
+									                <th>Address</th>
+									                <th>Hours</th>
+									            </tr>
+									        </thead>
+									        <tbody>
+									        	<?php /* include php code for rows */ ?>
+									            <tr>
+									                <th>Αγγλικης Γλωσσας και Φιλολογιας</th>
+									                <th>Κτίριο Φιλοσοφικής Σχολής 9ος όροφος κυψέλη 929 Παν/πολη Ζωγράφου</th>
+									                <th>Δε-Πε 9-6 Πα 9-3 (χειμερινό) και Ιούλιο-Αύγουστο Δε-Πα 9-3</th>
+									            </tr>
+									        </tbody>
+						    			</table>
+								</div>
+					   		</div>
+		           	</div>
+			    	
+			    	<div class="tab-pane" id="StudyRooms">
+			    		
+			    	</div>
+			    	<div class="tab-pane" id="NewsAndEvents">
+			    		
+			    	</div>
+			  </div>
+			</div>
+			
+			 
 			  <?php /* include_once './inc/footer.php'; */ ?>  
 		</div>
 	</body>

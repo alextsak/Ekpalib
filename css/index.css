@@ -2,6 +2,7 @@
 
 .panel-body#search-book,#search-article,#search-journal{
 	background-color: beige;
+	margin-bottom:15px;
 }
 
 #Search_Argument,#artclSubject,#jnltitle{

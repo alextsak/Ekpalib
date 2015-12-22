@@ -7,9 +7,8 @@ $(document).ready(function(){
 
 
 function init(){
-	
-
-	
+	 
+	$('#libraries-grid').dataTable({});
 }
 
 
