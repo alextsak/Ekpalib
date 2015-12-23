@@ -5,7 +5,7 @@
 	margin-bottom:15px;
 }
 
-.panel-body#libraries-tab,#studyRooms-tab{
+.panel-body#libraries-tab,#studyRooms-tab,#searchResults{
 	background-color: beige;
 }
 

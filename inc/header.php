@@ -4,12 +4,14 @@
 		<base href="http://localhost:5555/Ekpalib/">
 	 	<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 	 	<link href="css/index.css" rel="stylesheet">
+	 	<link href="css/searchpage.css" rel="stylesheet">
 	 	
  	
   		<script src="js/jquery/jquery-2.1.4.min.js"></script>
   		<script src="js/Login-Signup.js"></script>
   		<script src="bootstrap/bootstrap.js"></script>
   		<script src="js/index.js"></script>
+  		<script src="js/searchPage.js"></script>
   		<script type="text/javascript" src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css"/>
 </head>

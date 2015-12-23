@@ -149,53 +149,27 @@
 			  </ul>
 			  <!-- Tab panes -->
 			  <div  class="tab-content">
+		            
 		            <div class="tab-pane active" class="tab-pane" id="Libraries">
-			              	<div id="libraries-table" class="panel panel-default" >
-						    	<div class="panel-body" id="libraries-tab">
-						    			<table id="libraries-grid" class="display" cellspacing="0" width="100%">
-							    			 <thead>
-									            <tr>
-									                <th>Name</th>
-									                <th>Address</th>
-									                <th>Hours</th>
-									            </tr>
-									        </thead>
-									        <tbody>
-									        	<?php /* include php code for rows */ ?>
-									            <tr>
-									                <th></th>
-									                <th></th>
-									                <th></th>
-									            </tr>
-									        </tbody>
-						    			</table>
-								</div>
-					   		</div>
+		              	<div id="libraries-table" class="panel panel-default" >
+					    	<div class="panel-body" id="libraries-tab">
+				    			<table id="libraries-grid" class="display" cellspacing="0" width="100%">	
+							        	<?php /* include php code for rows */ ?> 
+				    			</table>
+							</div>
+				   		</div>
 		           	</div>
 			    	
 			    	<div class="tab-pane" id="StudyRooms">
-			    			<div id="studyRooms-table" class="panel panel-default" >
-						    	<div class="panel-body" id="studyRooms-tab">
-						    			<table id="studyRooms-grid" class="display" cellspacing="0" width="100%">
-							    			 <thead>
-									            <tr>
-									                <th>Name</th>
-									                <th>Address</th>
-									                <th>Hours</th>
-									            </tr>
-									        </thead>
-									        <tbody>
-									        	<?php /* include php code for rows */ ?>
-									            <tr>
-									                <th></th>
-									                <th></th>
-									                <th></th>
-									            </tr>
-									        </tbody>
-						    			</table>
-								</div>
-					   		</div>
+		    			<div id="studyRooms-table" class="panel panel-default" >
+					    	<div class="panel-body" id="studyRooms-tab">
+				    			<table id="studyRooms-grid" class="display" cellspacing="0" width="100%">
+				    				<?php /* include php code for rows */ ?> 
+				    			</table>
+							</div>
+				   		</div>
 			    	</div>
+			    	
 			    	<div class="tab-pane" id="NewsAndEvents">
 			    		
 			    	</div>

@@ -2,15 +2,18 @@
  * 
  */
 $(document).ready(function(){
-	init();
-});
+	$('#libraries-grid').dataTable({
+		columns: [
+	       { title: "Name" },
+	       { title: "Address" },
+	       { title: "Hours" },
+   ]});
 
-
-function init(){
-	 
-	$('#libraries-grid').dataTable({});
-	$('#studyRooms-grid').dataTable({});
+	$('#studyRooms-grid').dataTable({
+		columns: [
+           { title: "Name" },
+           { title: "Address" },
+           { title: "Hours" },
+   ]});
 	
-}
-
-
+});
