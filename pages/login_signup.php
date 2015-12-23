@@ -45,18 +45,18 @@ if(isset($_POST['register-form'])){
 	 	<script src="js/jquery/jquery-2.1.4.min.js" type="text/javascript"></script>
 	 	<script src="bootstrap/bootstrap.js"></script>
 	 	<script src="js/Login-Signup.js"></script>
-  <style type="text/css">
-  .add-on .input-group-btn > .btn {
-  border-left-width:0;left:-2px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-}
-/* stop the glowing blue shadow */
-.add-on .form-control:focus {
- box-shadow:none;
- -webkit-box-shadow:none; 
- border-color:#cccccc; 
-}</style>
+		  <style type="text/css">
+		  .add-on .input-group-btn > .btn {
+		  border-left-width:0;left:-2px;
+		  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+		  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+		}
+		/* stop the glowing blue shadow */
+		.add-on .form-control:focus {
+		 box-shadow:none;
+		 -webkit-box-shadow:none; 
+		 border-color:#cccccc; 
+		}</style>
   		
 	</head>
 	
@@ -171,19 +171,23 @@ if(isset($_POST['register-form'])){
 											<!-- row2 -->
 											<div class="row">
 												<div class="col-md-6" role="form">
-													
-													<div class="input-group add-on">
-     			 <input type="text" name="academicID" id="sign-up-street" tabindex="2" class="form-control" placeholder="Academic ID*">
-      <div class="input-group-btn">
-      	<button class="btn btn-default" type="button" data-toggle="popover" data-placement="right" data-content="Hello popover content."><i class="glyphicon glyphicon-question-sign"></i></button>
-      </div>
-    </div>
-    										
+												    <div class="input-group add-on">
+													    <input type="text" name="academicID" id="sign-up-street" tabindex="2" class="form-control" placeholder="Academic ID*">
+													        <span class="input-group-addon">
+													            <a class='my-tool-tip' data-toggle="tooltip" data-placement="top" title="Tooltip here">
+													                <i class='glyphicon glyphicon-question-sign'></i>
+													            </a>
+													        </span>
+													</div>
 												</div>
 												<div class="col-md-6" role="form">
-													<div class="form-group">
+													<div class="input-group add-on">
 														<input type="password" name="academicPass" id="sign-up-street" tabindex="2" class="form-control" placeholder="Academic Password*">
-														
+															<span class="input-group-addon">
+													            <a class='my-tool-tip' data-toggle="tooltip" data-placement="top" title="Tooltip here">
+													                <i class='glyphicon glyphicon-question-sign'></i>
+													            </a>
+													        </span>
 
 													</div>
 												</div>

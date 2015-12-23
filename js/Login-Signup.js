@@ -19,8 +19,20 @@ function init(){
 		$(this).addClass('active');
 		e.preventDefault();
 	});
-	//$("[rel=popover]").popover('show');
-	// $('[data-toggle="tooltip"]').tooltip();
 	
+	
+	$("a.my-tool-tip").tooltip();
+	
+	$("#register-submit").on("click",function(event){
+    	event.preventDefault();
+    	var input = {};
+    	
+    	var password = $("#sign-up-password").val();
+    	var verifiedPassword = $("#sign-up-confirm-password").val();
+    	
+    	if(verifiedPassword != password){
+    		alert("Password is not verified!");
+    	}
+    });	
 	
 }

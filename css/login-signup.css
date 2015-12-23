@@ -1,19 +1,29 @@
 body {
    padding-top: 0px;
 }
+
+a.my-tool-tip, a.my-tool-tip:hover, a.my-tool-tip:visited {
+
+    color: black;
+}
+
 .logo
 {
-text-align:center;
-display:block;
+	text-align:center;
+	display:block;
 }
-input#register-submit,#login-submit,#guest-submit{
+
+
+input#register-submit{
+	margin-top:20px;
 	background: -webkit-gradient(linear,left top,left bottom,from(#0079bc),to(#00509d));
 }
 
-#questionMark{
-	margin-right: 20px;
-    margin-top: 5px;
+
+input#login-submit,#guest-submit{
+	background: -webkit-gradient(linear,left top,left bottom,from(#0079bc),to(#00509d));
 }
+
 i.icon {
       display:inline-block; /* chrome-fix */
   }
