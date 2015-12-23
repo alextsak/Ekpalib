@@ -10,10 +10,8 @@
 <?php 
 	include_once './inc/header.php';
 	include_once './inc/menu.php';
-
-	?> 
-		<div class="container">
-			<div>
+?> 
+		<div >
 			  <!-- Nav tabs -->
 			  <ul class="nav nav-tabs" role="tablist">
 			    <li class="active"><a href="#Books" data-toggle="tab">Books</a></li>
@@ -165,9 +163,9 @@
 									        <tbody>
 									        	<?php /* include php code for rows */ ?>
 									            <tr>
-									                <th>Ξ‘Ξ³Ξ³Ξ»ΞΉΞΊΞ·Ο‚ Ξ“Ξ»Ο‰ΟƒΟƒΞ±Ο‚ ΞΊΞ±ΞΉ Ξ¦ΞΉΞ»ΞΏΞ»ΞΏΞ³ΞΉΞ±Ο‚</th>
-									                <th>Ξ�Ο„Ξ―Ο�ΞΉΞΏ Ξ¦ΞΉΞ»ΞΏΟƒΞΏΟ†ΞΉΞΊΞ®Ο‚ Ξ£Ο‡ΞΏΞ»Ξ®Ο‚ 9ΞΏΟ‚ Ο�Ο�ΞΏΟ†ΞΏΟ‚ ΞΊΟ…Ο�Ξ­Ξ»Ξ· 929 Ξ Ξ±Ξ½/Ο€ΞΏΞ»Ξ· Ξ–Ο‰Ξ³Ο�Ξ¬Ο†ΞΏΟ…</th>
-									                <th>Ξ”Ξµ-Ξ Ξµ 9-6 Ξ Ξ± 9-3 (Ο‡ΞµΞΉΞΌΞµΟ�ΞΉΞ½Ο�) ΞΊΞ±ΞΉ Ξ™ΞΏΟ�Ξ»ΞΉΞΏ-Ξ‘Ο�Ξ³ΞΏΟ…ΟƒΟ„ΞΏ Ξ”Ξµ-Ξ Ξ± 9-3</th>
+									                <th></th>
+									                <th></th>
+									                <th></th>
 									            </tr>
 									        </tbody>
 						    			</table>

@@ -20,8 +20,7 @@
    <title>EKPA Libraries</title>
 </head>
 <body>
-<div id="container">
-	<div>
+	<div id="menu-tab">
 		  <!-- Nav tabs -->
 		  <ul class="nav nav-tabs" role="tablist">
 		    <li class="dropdown"> 
@@ -83,7 +82,7 @@
 		  		</ul> 
 		  	</li> -->
 		  </ul>
-		</div>
-</div>
+		
+	</div>
 </body>
 </html>

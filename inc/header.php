@@ -15,32 +15,28 @@
 </head>
 <body>
 	<div class="container">
-	<div class=row>
-	<div class="col-sm-8">
-		<header>
-			<div class="logo">
-				<a href="./index.php"> <img  src="images/ekpalib-logo.png" alt="Smiley face"></a>
-				<h3>University Libraries</h3>
-				<h4>National and Kapodistrian University of Athens</h4>
-			</div>
-		</header>
-	</div>
-			<div class="col-sm-4">
-						<div class="upper-nav pull-right">
-							<ul class="nav navbar-nav">
-
-								<li><a href="./pages/login_signup.php"><i class="glyphicon glyphicon-lock"></i> Login</a></li>
-								
-								<li><select id="lang">
-   									 <option>English</option>
-    								<option>Greek</option>
-   
-									</select></li>
-								
-							</ul>
-						</div>
+		<div class=row>
+			<div class="col-sm-8">
+				<header>
+					<div class="logo">
+						<a href="./index.php"> <img  src="images/ekpalib-logo.png" alt="Smiley face"></a>
+						<h3>University Libraries</h3>
+						<h4>National and Kapodistrian University of Athens</h4>
 					</div>
-		
-	</div>
-	</div>
+				</header>
+			</div>
+			<div class="col-sm-4">
+				<div class="upper-nav pull-right">
+					<ul class="nav navbar-nav">
+						<li><a href="./pages/login_signup.php"><i class="glyphicon glyphicon-lock"></i> Login</a></li>
+						<li><select id="lang">
+   							<option>English</option>
+    						<option>Greek</option>
+							</select>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	
 		
