@@ -17,5 +17,5 @@ include_once '../inc/menu.php';
 		</div>
    	</div>
 	
-	
 </div>
+<?php  include_once '../inc/footer.php';  ?>
