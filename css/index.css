@@ -1,4 +1,26 @@
 @CHARSET "ISO-8859-1";
+.body .html{
+	
+	background-color: #000;
+	
+}
+
+#container{
+   margin: 0 auto;
+   margin-bottom: 40px;
+   max-width: 1200px;
+}
+.logo
+{
+text-align:center;
+display:block;
+}
+
+#footer{
+	margin-left: 500px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
 
 .panel-body#search-book,#search-article,#search-journal{
 	background-color: beige;
