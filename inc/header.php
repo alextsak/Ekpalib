@@ -9,25 +9,14 @@
 	 	<link href="css/index.css" rel="stylesheet">
 	 	<link href="css/searchpage.css" rel="stylesheet">
 	 	<link href="css/main.css" rel="stylesheet">
-
+	 	<link href="css/header.css" rel="stylesheet">
+		
   		<script src="js/jquery/jquery-2.1.4.min.js"></script>
+  		<script src="js/jquery.polyglot.language.switcher.js" type="text/javascript"></script>
   		<script src="js/Login-Signup.js"></script>
   		<script src="js/header.js"></script>
   		<script src="bootstrap/bootstrap.js"></script>
-  		<script src="js/index.js"></script>
-  		<script src="js/searchPage.js"></script>
-  		<script type="text/javascript" src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css"/>
-
-		<style>
-			option.avatar {
-	      		background-repeat: no-repeat !important;
-	     		padding-left: 20px;
-	    	}
-    		.avatar .ui-icon {
-      			background-position: left top;
-    		}
-    	</style>
+  		
 
 </head>
 <body>
@@ -43,12 +32,24 @@
 				</header>
 			</div>
 			<div class="col-sm-4">
-				<div class="upper-nav pull-right">
-					<ul class="nav navbar-nav">
-						<li><a href="./pages/login_signup.php"><i class="glyphicon glyphicon-lock"></i> Login</a></li>
-						
-
-					</ul>
+				<div class="col-sm-6">
+					<div class="upper-nav pull-right">
+						<ul class="nav navbar-nav">
+							<li><a href="./pages/login_signup.php"><i class="glyphicon glyphicon-lock"></i> Login</a></li>
+							
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div id="polyglotLanguageSwitcher">
+						<form action="#">
+							<select id="polyglot-language-options">
+								<option id="gr" value="gr">Greek</option>
+								<option id="en" value="en" selected>English</option>
+								<option id="fr" value="fr">Fran&ccedil;ais</option>
+							</select>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
