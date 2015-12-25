@@ -11,7 +11,7 @@
 	
 	include './inc/header.php';
 	include './inc/menu.php';
-
+//sxolio
 if(isset($_GET['page'])) {
 	getPage('pages', $_GET['page'], 'main');
 } else {
