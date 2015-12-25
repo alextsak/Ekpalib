@@ -45,18 +45,7 @@ if(isset($_POST['register-form'])){
 	 	<script src="js/jquery/jquery-2.1.4.min.js" type="text/javascript"></script>
 	 	<script src="bootstrap/bootstrap.js"></script>
 	 	<script src="js/Login-Signup.js"></script>
-		  <style type="text/css">
-		  .add-on .input-group-btn > .btn {
-		  border-left-width:0;left:-2px;
-		  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-		  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-		}
-		/* stop the glowing blue shadow */
-		.add-on .form-control:focus {
-		 box-shadow:none;
-		 -webkit-box-shadow:none; 
-		 border-color:#cccccc; 
-		}</style>
+		
   		
 	</head>
 	

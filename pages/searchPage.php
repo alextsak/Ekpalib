@@ -1,10 +1,4 @@
-<?php
-include_once '../inc/header.php';
-include_once '../inc/menu.php';
-?>
-
 <div>
-
 	<div>
 		<h3 id="reasultsHeader">Search Results</h3>
 	</div>
@@ -18,4 +12,3 @@ include_once '../inc/menu.php';
    	</div>
 	
 </div>
-<?php  include_once '../inc/footer.php';  ?>

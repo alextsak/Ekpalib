@@ -1,5 +1,4 @@
 <?php
-
 function getPage($dir, $filename, $default = false) {
 	$root = $_SERVER['DOCUMENT_ROOT'];
 	$basename = '/Ekpalib/';
