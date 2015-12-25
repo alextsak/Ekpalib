@@ -38,5 +38,4 @@ if(isset($_POST['searchbutton'])){
 			
 		</table>
    	</div>
-	
 </div>
