@@ -5,9 +5,14 @@
 	
 	<div id="searchResults-table" class="panel panel-default" >
     	<div class="panel-body" id="searchResults">
-    		<table id="searchResults-grid" class="display" cellspacing="0" width="100%">
-			       <?php /* include php code for rows */ ?>            
-	    	</table>
+    		<table>
+					<tr>
+						<th>Name</th>
+						<th>Address</th>
+						<th>Hours</th>
+					</tr>
+			</table>
+    		
 		</div>
    	</div>
 	

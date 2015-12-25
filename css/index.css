@@ -5,6 +5,10 @@
 	
 }
 
+#main-tabs a{
+	color:black;
+}
+
 #container{
    margin: 0 auto;
    margin-bottom: 40px;

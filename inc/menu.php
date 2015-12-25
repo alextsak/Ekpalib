@@ -11,7 +11,7 @@
  	background:beige;
  }
  
- a{
+ #tabs a{
  	color:black;
  }
 

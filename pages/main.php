@@ -1,6 +1,6 @@
 <div >
 	  <!-- Nav tabs -->
-	  <ul class="nav nav-tabs" role="tablist">
+	  <ul id="main-tabs" class="nav nav-tabs" role="tablist">
 	    <li class="active"><a href="#Books" data-toggle="tab">Books</a></li>
 	    <li><a href="#Articles"  data-toggle="tab">Articles</a></li>
 	    <li><a href="#Journals"  data-toggle="tab">Journals</a></li>
@@ -118,47 +118,52 @@
 			<div>
 			
 			  <!-- Nav tabs -->
-	  <ul class="nav nav-tabs" role="tablist">
-	    <li class="active"><a href="#Libraries" data-toggle="tab">
-	    	<i class="glyphicon glyphicon-time"></i>
-	    	Libraries and Hours</a>
+	  <ul id="main-tabs" class="nav nav-tabs" role="tablist">
+	   	
+	   	<li class="active"><a href="#NewsAndEvents"  data-toggle="tab">
+	    	<i class="glyphicon glyphicon-calendar"></i>
+	    	News and Events</a>
 	    </li>
 	    
 	    <li><a href="#StudyRooms"  data-toggle="tab">
 	    	<i class="glyphicon glyphicon-edit"></i>
 	    	Study Rooms</a>
 	    </li>
-	    
-	    <li><a href="#NewsAndEvents"  data-toggle="tab">
-	    	<i class="glyphicon glyphicon-calendar"></i>
-	    	News and Events</a>
+	   
+	     <li ><a href="#Libraries" data-toggle="tab">
+	    	<i class="glyphicon glyphicon-time"></i>
+	    	Libraries and Hours</a>
 	    </li>
 	  </ul>
+	  
 	  <!-- Tab panes -->
 	  <div  class="tab-content">
-            
-            <div class="tab-pane active" class="tab-pane" id="Libraries">
-              	<div id="libraries-table" class="panel panel-default" >
-			    	<div class="panel-body" id="libraries-tab">
-		    			<table id="libraries-grid" class="display" cellspacing="0" width="100%">	
-					        	<?php /* include php code for rows */ ?> 
-		    			</table>
-					</div>
-		   		</div>
+            <div class="tab-pane active" id="NewsAndEvents">
+            </div>
+              
+            <div class="tab-pane" id="StudyRooms">
+    			<table>
+					<tr>
+						<th>Name</th>
+						<th>Address</th>
+						<th>Hours</th>
+					</tr>
+				</table>
+	    	</div>
+	    	
+            <div class="tab-pane" id="Libraries">
+              	<table>
+					<tr>
+						<th>Name</th>
+						<th>Address</th>
+						<th>Hours</th>
+					</tr>
+				</table>
            	</div>
 	    	
-	    	<div class="tab-pane" id="StudyRooms">
-    			<div id="studyRooms-table" class="panel panel-default" >
-			    	<div class="panel-body" id="studyRooms-tab">
-		    			<table id="studyRooms-grid" class="display" cellspacing="0" width="100%">
-		    				<?php /* include php code for rows */ ?> 
-		    			</table>
-					</div>
-		   		</div>
-	    	</div>
 	    	
-	    	<div class="tab-pane" id="NewsAndEvents">
+	    	
 	    		
-	    	</div>
+	    	
 	  </div>
 </div>
