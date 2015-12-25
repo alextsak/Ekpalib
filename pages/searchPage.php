@@ -3,8 +3,7 @@
 		<h3 id="reasultsHeader">Search Results</h3>
 	</div>
 	
-	<div id="searchResults-table" class="panel panel-default" >
-    	<div class="panel-body" id="searchResults">
+	<div >
     		<table>
 					<tr>
 						<th>Name</th>
@@ -12,8 +11,6 @@
 						<th>Hours</th>
 					</tr>
 			</table>
-    		
-		</div>
    	</div>
 	
 </div>
