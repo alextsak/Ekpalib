@@ -12,9 +12,15 @@
 	include './inc/header.php';
 	include './inc/menu.php';
 //sxolio
-if(isset($_GET['page'])) {
+if(isset($_GET['page']) && !isset($_GET['page_no'])) {
+	
 	getPage('pages', $_GET['page'], 'main');
-} else {
+} 
+elseif (isset($_GET['page_no'])) {
+	
+	getPage('pages', $_GET['page'], 'search_pagination');
+}
+else {
 	getPage('pages', 'main');
 }
 

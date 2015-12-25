@@ -19,17 +19,17 @@
 	                    	</div>
 	                  	</div>
 		                <div class="row">
-		                  <form class="form-inline" id="search_books" action="#" method="get">
-		                    <label class="sr-only" for="Search_Argument">Enter Search Terms</label>
-		                    <input id="Search_Argument" class="form-control easy-search-text-input" type="text" placeholder="Enter search terms" maxlength="255" size="25" name="keyword" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter search terms'">
-		                    <label class="sr-only" for="booksSearch_Code">Book Search</label>
-		                    <select id="booksSearch_Code" class="form-control" name="booksSearch_Code" aria-required="true">
-		                      <option value="FT*">Keyword</option>
-		                      <option value="TALL">Title words</option>
-		                      <option value="NAME+">Author (last name, first)</option>
-		                    </select>
-		                    <input type="submit" class="btn btn-primary" alt="submit" value="Search" name="searchbutton">
-		                  </form>
+		                  <form class="form-inline" id="search_books" action="?page=searchPage" method="POST">
+				                    <label class="sr-only" for="Search_Argument">Enter Search Terms</label>
+				                    <input id="Search_Argument" class="form-control easy-search-text-input" type="text" placeholder="Enter search terms" maxlength="255" size="25" name="term" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter search terms'">
+				                    <label class="sr-only" for="booksSearch_Code">Book Search</label>
+				                    <select id="booksSearch_Code" class="form-control" name="keyword" aria-required="true">
+				                      <option value="FT*">Keyword</option>
+				                      <option value="TALL">Title words</option>
+				                      <option value="NAME+">Author (last name, first)</option>
+				                    </select>
+				                    <input type="submit" class="btn btn-primary" alt="submit" value="Search" name="searchbutton">
+				                  </form>
 		    	        </div>
 		                <div class="row hidden-xs">
 		                  <div class="col-sm-6">

@@ -14,7 +14,11 @@ function getPage($dir, $filename, $default = false) {
 		}
 		
 		if($default) {
-			if(file_exists($path . '/' . $default . '.php')){
+			if($default == 'search_pagination'){
+				include $path . '/' . $default . '.php';
+				return true;
+			}
+			elseif(file_exists($path . '/' . $default . '.php')){
 				include $path . '/' . $default . '.php';
 				return true;
 			}
