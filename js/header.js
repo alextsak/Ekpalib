@@ -10,9 +10,7 @@ $(document).ready(function(){
 	    onSelected: function (data) {
 	        console.log(data);
 	    }
-	});
-
-	
+	});	
 });
 
 var ddData = [
