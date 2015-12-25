@@ -101,7 +101,7 @@ class Material{
         $url_path = '?' .  $url_path;
         
         //check the url_path to avoid duplicate page number
-        // if we find the character & eliminate everything after it
+        // if we find the character & eliminate everything after it 
        	if(strpos( $url_path, '&')){
         	$last_amber = strrpos( $url_path, '&');
         	$last_word = substr( $url_path, $last_amber);
