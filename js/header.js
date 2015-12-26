@@ -7,7 +7,7 @@ $(document).ready(function(){
 		effect: 'fade',
         testMode: true,
         onChange: function(evt){
-            alert("The selected language is: "+evt.selectedItem);
+            //alert("The selected language is: "+evt.selectedItem);
         }
 	});
 

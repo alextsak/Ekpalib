@@ -19,22 +19,16 @@ if(isset($_POST['searchbutton'])){
 		<h3 id="reasultsHeader">Search Results</h3>
 	</div>
 	<div >
-    	<table>
-    	<?php 
-			      
-			       
-			       
-			       		
-			       		$material = new Material();
-			       		$records_per_page=5;
-			       		
-			       		$query = $material->create_query($_SESSION['term'], $_SESSION['genre'],$_SESSION['keyword']);
-			       		$newquery = $material->paging($query,$records_per_page);
-			       		$material->dataview($newquery, $_SESSION['term']);
-			       		$material->paginglink($query,$_SESSION['term'],$records_per_page);
-			       
-			     
-			       ?> 
+    	<table id="results-grid">
+    	<?php   		
+       		$material = new Material();
+       		$records_per_page=5;
+       		
+       		$query = $material->create_query($_SESSION['term'], $_SESSION['genre'],$_SESSION['keyword']);
+       		$newquery = $material->paging($query,$records_per_page);
+       		$material->dataview($newquery, $_SESSION['term']);
+       		$material->paginglink($query,$_SESSION['term'],$records_per_page);
+ 		?> 
 			
 		</table>
    	</div>

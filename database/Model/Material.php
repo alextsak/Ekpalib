@@ -35,30 +35,31 @@ class Material{
          if($stmt->rowCount()>0)
          {
          	?><thead>
-         	<tr>
-         	<th><?php echo 'Title';?></th>
+         		<tr>
+         			<th><?php echo 'Title';?></th>
          	      					<th><?php echo 'Category';?></th>
          	      					<th><?php echo 'Author(s)';?></th>
          	      					<th><?php echo 'ISBN';?></th>
-         	      					<th><?php echo 'Science Library';?></th>
+         	      					<th><?php echo 'Library';?></th>
          	      					<th><?php echo 'Availability';?></th>
-         	   					</tr>
-         	  					</thead>
+         	      					<th><?php echo 'Add to cart';?></th>
+         	   	</tr>
+         	  </thead>
          	  <?php 
                 while($row=$stmt->fetch(PDO::FETCH_ASSOC))
                 {
                    ?>
-                   
   					<tbody>
-                   	<tr>
-                   	<td><?php echo $row['title']; ?></td>
-                   	<td><?php echo $row['category']; ?></td>
-                    <td><?php echo $row['author']; ?></td>
-                   	<td><?php echo $row['isbn']; ?></td>
-                   	<td>Science Library </td>
-                  
-                   <td><?php echo $row['availability']; ?></td>
-                   </tr>
+	                   	<tr>
+		                   	<td><?php echo $row['title']; ?></td>
+		                   	<td><?php echo $row['category']; ?></td>
+		                    <td><?php echo $row['author']; ?></td>
+		                   	<td><?php echo $row['isbn']; ?></td>
+		                   	<td>Science Library</td>
+	                 		<td><?php echo $row['availability']; ?></td>
+		                   	<td><?php echo '<button class="glyphicon glyphicon-shopping-cart" style="color:red">
+							</button>';?></td>
+	                   </tr>
                    </tbody>
                    <?php
                 }
@@ -120,7 +121,7 @@ class Material{
   
         if($total_no_of_records > 0)
         {
-            ?><tr><td colspan="6"><?php
+            ?><tr><td colspan="7" style="text-align: left; "><?php
             $total_no_of_pages=ceil($total_no_of_records/$records_per_page);
             $current_page=1;
             if(isset($_GET["page_no"]))

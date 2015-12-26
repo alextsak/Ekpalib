@@ -15,6 +15,7 @@
   		<script src="js/jquery.polyglot.language.switcher.js" type="text/javascript"></script>
   		<script src="js/Login-Signup.js"></script>
   		<script src="js/header.js"></script>
+  		<script src="js/searchPage.js"></script>
   		<script src="bootstrap/bootstrap.js"></script>
   		
 
@@ -42,7 +43,7 @@
 				</div>
 				<div class="col-sm-6">
 					<div id="polyglotLanguageSwitcher">
-						<form action="#">
+						<form action="">
 							<select id="polyglot-language-options">
 								<option id="gr" value="gr">Greek</option>
 								<option id="en" value="en" selected>English</option>
