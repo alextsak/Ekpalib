@@ -11,18 +11,13 @@ $(document).ready(function(){
 		var row = $(this).closest('tr');
 		var button = row.find("button");
 		
-		if (button.css('color') == 'rgb(255, 0, 0)') 
-			button.css('color','green');		    
+		if (button.css('color') == 'rgb(255, 0, 0)') {
+			button.css('color','green');
+			//window.location = window.location.href + "&action=add" + "&materialID=" + this.id;
+		}
+					    
 		else 
 		    button.css('color','red');
-		/*if(button.css('color') == "rgb(255,0,0)") {
-			console.log("hiii");
-			button.css('color','green');
-			var test = window.location.href + "?id=" + this.id;
-			console.log(test);
-		} else {
-			button.css('color','red');
-		}*/
 		
 		
 		
@@ -39,7 +34,7 @@ $(document).ready(function(){
     } );
 	
 	
-	$("#confirmLoan-Button").click(function(e) {
+	/*$("#confirmLoan-Button").click(function(e) {
 		e.preventDefault();
 		var jsonArray = {};
 		jsonArray.cart_func = JSON.stringify(data);
@@ -57,6 +52,6 @@ $(document).ready(function(){
 			success:function(response){},
 			dataType:'json'
 		});
-	})
+	})*/
 	
 });

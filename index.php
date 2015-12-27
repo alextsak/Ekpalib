@@ -15,7 +15,12 @@
 //sxolio
 if(isset($_GET['page']) && !isset($_GET['page_no'])) {
 	
-	getPage('pages', $_GET['page'], 'main');
+	if($_GET['page'] == 'confirmLoan' && !isset($_SESSION['username'])) {
+		header('Location: ./pages/login_signup.php');
+	} else {
+		getPage('pages', $_GET['page'], 'main');
+	}
+	
 } 
 elseif (isset($_GET['page_no'])) {
 	

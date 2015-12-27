@@ -1,3 +1,7 @@
+<?php 
+
+
+?>
 <div >
 	  <!-- Nav tabs -->
 	  <ul id="main-tabs" class="nav nav-tabs" role="tablist">

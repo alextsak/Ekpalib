@@ -20,6 +20,101 @@ class Material{
 		return self::$instance;
 	}
 	
+	public function add_to_sidebar_cart($genre) {
+		$query = 'select * from ' . $genre . ' where MaterialID IN (';
+		foreach($_SESSION['cart'] as $id => $value) {
+			$query.=$id.",";
+		}
+		$query=substr($query, 0, -1).") order by title ASC";
+		$stmt = $this->db->prepare($query);
+		$stmt->execute();
+		if($stmt->rowCount()>0)
+		{
+			while($row=$stmt->fetch(PDO::FETCH_ASSOC))
+			{
+				?>
+				<tbody>
+				<tr>
+					<td><?php echo $row['title']; ?></td>
+					<td>Remove</td>	                   	
+				</tr>
+				</tbody>
+				<?php
+			}
+		}
+	}
+	
+	
+	public function create_mycart($genre) {
+		$query = 'select * from ' . $genre . ' where MaterialID IN (';
+		foreach($_SESSION['cart'] as $id => $value) {
+			$query.=$id.",";
+		}
+		$query=substr($query, 0, -1).") order by title ASC";
+		$stmt = $this->db->prepare($query);
+		$stmt->execute();
+		
+		if($stmt->rowCount()>0)
+		{
+			?><thead>
+		         		<tr>
+		         			<th><?php echo 'Title';?></th>
+		         	      					<th><?php echo 'Category';?></th>
+		         	      					<th><?php echo 'Author(s)';?></th>
+		         	      					<th><?php echo 'ISBN';?></th>
+		         	      					<th><?php echo 'Library';?></th>
+		         	      					<th><?php echo 'Availability';?></th>
+		         	      					<th><?php echo 'Options'?></th>
+		         	   	</tr>
+		         	  </thead>
+		         	  <?php 
+		                while($row=$stmt->fetch(PDO::FETCH_ASSOC))
+		                {
+		                   ?>
+		  					<tbody>
+			                   	<tr>
+				                   	<td><?php echo $row['title']; ?></td>
+				                   	<td><?php echo $row['category']; ?></td>
+				                    <td><?php echo $row['author']; ?></td>
+				                   	<td><?php echo $row['isbn']; ?></td>
+				                   	<td>Science Library</td>
+			                 		<td><?php echo $row['availability']; ?></td>
+									<td><?php echo '<h5><a href="#">View</a>&nbsp | &nbsp<a href="#">Details</a></h5>'?></td>
+			                   </tr>
+		                   </tbody>
+		                   <?php
+		                }
+		      }
+		
+	}
+	
+	public function query_data_to_cart($materialID, $genre) {
+		if(!empty($materialID)){
+			$query = 'select * from ' . $genre . ' where MaterialID=?';
+			$stmt = $this->db->prepare($query);
+			$stmt->bindParam(1, $materialID);
+			$stmt->execute();
+			if($stmt->rowCount() != 0) {
+				while($row=$stmt->fetch(PDO::FETCH_ASSOC)) {
+					 
+					$_SESSION['cart'][$row['MaterialID']]=array(
+							"title" => $row['title'],
+							"category" => $row['category'],
+							"author" => $row['author'],
+							"ISBN" => $row['isbn'],
+							"Library" => 'Science Library',
+							"availability" => $row['availability']
+					);
+					 
+				}
+			}
+			else {
+				$message="This product id it's invalid!";
+			}
+				
+				
+		}
+	}
 	
 	
 	public function dataview($query,$term)
@@ -58,8 +153,10 @@ class Material{
 		                   	<td><?php echo $row['isbn']; ?></td>
 		                   	<td>Science Library</td>
 	                 		<td><?php echo $row['availability']; ?></td>
-	                 		<td><button id=<?php echo $row['MaterialID']?> class="glyphicon glyphicon-shopping-cart" style="color:rgb(255,0,0);">
-							</button></td>
+	                 		<?php $url_path = $_SERVER['QUERY_STRING'];
+        						$url_path = '?' .  $url_path;?>
+	                 		<td><a href="<?php echo $url_path."&action=add&materialID=" . $row['MaterialID']?>" class="glyphicon glyphicon-shopping-cart" style="color:rgb(255,0,0);">
+							</a></td>
 		                   	
 							<td><?php echo '<h5><a href="#">View</a>&nbsp | &nbsp<a href="#">Details</a></h5>'?></td>
 	                   </tr>
@@ -78,13 +175,14 @@ class Material{
   
  	}
  
- public function create_query($term, $genre, $keyword) {
+ public function query_easy_search($term, $genre, $keyword) {
 	if(!empty($term)) {
 		
 		$query = 'select * from '  . $genre . ' where ' . $keyword . ' LIKE ' . '?';
 		return $query;
 	}
  }
+ 
  	
  public function paging($query,$records_per_page)
  {
