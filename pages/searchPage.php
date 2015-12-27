@@ -32,9 +32,9 @@ if(isset($_POST['searchbutton'])){
 			
 		</table>
 		<div>
-			<button id="confirmLoan-Button" type="button" class="btn btn-default">Confirm Loan
+			<a href="?page=confirmLoan"   id="confirmLoan-Button" type="button" class="btn btn-default">Confirm Loan
       			<span class="glyphicon glyphicon-chevron-right"></span> 
-    		</button>
+    		</a>
 		</div>
    	</div>
 </div>

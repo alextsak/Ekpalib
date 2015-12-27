@@ -2,6 +2,9 @@
  * 
  */
 $(document).ready(function(){
+	
+	$('#confirmLoan-Button').attr("disabled", true);
+	
 	$('#results-grid tbody').on('click', 'td button', function () {
 		var row = $(this).closest('tr');
 		var button = row.find("button");
@@ -12,6 +15,6 @@ $(document).ready(function(){
 			console.log(data);
 		}
 		
-		//active button on click
+		$('#confirmLoan-Button').attr("disabled", false);
     } );
 });
