@@ -35,28 +35,57 @@ session_start();
 					</div>
 				</header>
 			</div>
-			<div class="col-sm-4">
+			<div class="col-sm-4" style="padding-left: 150px;">
 				<div class="col-sm-6">
 					<div class="upper-nav pull-right">
 						<ul class="nav navbar-nav">
 							<?php if(isset($_SESSION['username'])) {
-							echo '<li>
-								<ul class="nav navbar-nav">
-        						<li class="dropdown">
-          						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Iasmani Pinazo <span class="glyphicon glyphicon-user pull-right"></span></a>
-          						<ul class="dropdown-menu">
-            						<li><a href="#">Account Settings <span class="glyphicon glyphicon-cog pull-right"></span></a></li>
-            						<li class="divider"></li>
-            						<li><a href="#">User stats <span class="glyphicon glyphicon-stats pull-right"></span></a></li>
-            						<li class="divider"></li>
-            						<li><a href="#">Messages <span class="badge pull-right"> 42 </span></a></li>
-           			 				<li class="divider"></li>
-            						<li><a href="#">Favourites Snippets <span class="glyphicon glyphicon-heart pull-right"></span></a></li>
-            						<li class="divider"></li>
-            						<li><a href="#">Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
-          						</ul>
-        						</li>
-     							</ul>
+							
+							echo '<li style="
+									    width:  150px;
+									    border: 1px solid #E5E5E5;
+										margin-top:6px;
+										border-radius: 3px;
+										"
+									> 
+									<ul class="nav navbar-nav">
+        								<li class="dropdown">
+	          								<a href="#" class="dropdown-toggle" data-toggle="dropdown" 
+													style="
+															font-size:12px;
+															margin-top:6px;
+															position: relative;
+														    bottom: 4px;
+														    right: 20px;
+														  "
+											>
+												<span class="glyphicon glyphicon-user"  ></span>	
+												Takis Kanakakis
+												<span class="glyphicon glyphicon-chevron-down" style="left:16px;font-size: 10px;"   >
+											</a>
+									
+		          						<ul class="dropdown-menu" style="border-radius: 3px;" >
+		            						<li style="width:100%;"><a href="#" style="font-size:12px;">Profile 
+													<span class="glyphicon glyphicon-cog" style="left:8px;"></span>
+												</a>
+											</li>
+		            						
+											<li class="divider" style="width:100%"></li>
+		            						
+											<li style="width:100%;"><a href="#" style="font-size:12px;">History
+													<span class="glyphicon glyphicon-stats" style="left:8px;"></span>
+												</a>
+											</li>
+		            						
+											<li class="divider" style="width:100%"></li>
+											
+											<li style="width:100%;"><a href="#" style="font-size:12px;">Sign Out 
+													<span class="glyphicon glyphicon-log-out" style="left:8px;"></span>
+												</a>
+											</li>
+		          						</ul>
+        							</li>
+     								</ul>
 								</li>';
 							//echo '<li><a href="./pages/logout.php"><i class="glyphicon glyphicon-log-out"></i> Logout</a></li>';
 							}
