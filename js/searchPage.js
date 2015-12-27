@@ -12,7 +12,7 @@ $(document).ready(function(){
 		var button = row.find("button");
 		button.css('color','green');
 		console.log(window.location.href);
-		//window.location = 
+		//window.location = window.location.href
 		
 		/*var array = [];
 		for( var i=0;i<6;i++)
