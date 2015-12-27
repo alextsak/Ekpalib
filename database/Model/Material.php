@@ -43,6 +43,7 @@ class Material{
          	      					<th><?php echo 'Library';?></th>
          	      					<th><?php echo 'Availability';?></th>
          	      					<th><?php echo 'Add to cart';?></th>
+         	      					<th><?php echo 'Options'?></th>
          	   	</tr>
          	  </thead>
          	  <?php 
@@ -59,6 +60,7 @@ class Material{
 	                 		<td><?php echo $row['availability']; ?></td>
 		                   	<td><?php echo '<button class="glyphicon glyphicon-shopping-cart" style="color:red">
 							</button>';?></td>
+							<td><?php echo '<h5><a href="#">View</a>&nbsp | &nbsp<a href="#">Details</a></h5>'?></td>
 	                   </tr>
                    </tbody>
                    <?php
@@ -121,7 +123,7 @@ class Material{
   
         if($total_no_of_records > 0)
         {
-            ?><tr><td colspan="7" style="text-align: left; "><?php
+            ?><tr><td colspan="8" style="text-align: left; "><?php
             $total_no_of_pages=ceil($total_no_of_records/$records_per_page);
             $current_page=1;
             if(isset($_GET["page_no"]))

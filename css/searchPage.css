@@ -9,3 +9,9 @@
 .panel-body#searchResults{
 	background-color: beige;
 }
+
+#confirmLoan-Button{
+	margin-left: 1024px;
+    margin-top: 20px;
+}
+    

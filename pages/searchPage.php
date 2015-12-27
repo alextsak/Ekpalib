@@ -31,5 +31,10 @@ if(isset($_POST['searchbutton'])){
  		?> 
 			
 		</table>
+		<div>
+			<button id="confirmLoan-Button" type="button" class="btn btn-default">Confirm Loan
+      			<span class="glyphicon glyphicon-chevron-right"></span> 
+    		</button>
+		</div>
    	</div>
 </div>
