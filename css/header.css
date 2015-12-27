@@ -1,5 +1,30 @@
 @charset "utf-8";
 
+#cart{
+	border: 1px solid #E5E5E5;
+	margin-top:6px;
+	border-radius: 3px;
+	margin-left: -40px;
+	font-size:12px;
+}
+
+.title{
+	position:relative;
+	top:3px;
+	left:10px;
+}
+
+#icon{
+	position:relative;
+	left:50px;
+}
+
+#cart-menu{
+	position:relative;
+	left:-40px;
+}
+
+
 #polyglotLanguageSwitcher, #polyglotLanguageSwitcher * {
 	margin: 0;
 	padding: 0; 

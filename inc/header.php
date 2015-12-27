@@ -35,8 +35,9 @@ session_start();
 					</div>
 				</header>
 			</div>
+			
 			<div class="col-sm-4" style="padding-left: 150px;">
-				<div class="col-sm-6">
+				<div class="col-sm-3">
 					<div class="upper-nav pull-right">
 						<ul class="nav navbar-nav">
 							<?php if(isset($_SESSION['username'])) {
@@ -46,6 +47,7 @@ session_start();
 									    border: 1px solid #E5E5E5;
 										margin-top:6px;
 										border-radius: 3px;
+										margin-right: 25px;
 										"
 									> 
 									<ul class="nav navbar-nav">
@@ -64,7 +66,7 @@ session_start();
 												<span class="glyphicon glyphicon-chevron-down" style="left:16px;font-size: 10px;"   >
 											</a>
 									
-		          						<ul class="dropdown-menu" style="border-radius: 3px;" >
+		          						<ul class="dropdown-menu" style="border-radius: 3px; left: -16px;" >
 		            						<li style="width:100%;"><a href="#" style="font-size:12px;">Profile 
 													<span class="glyphicon glyphicon-cog" style="left:8px;"></span>
 												</a>
@@ -96,6 +98,7 @@ session_start();
 									    border: 1px solid #E5E5E5;
 										margin-top:6px;
 										border-radius: 3px;
+										margin-right: 25px;
 										">
 										<a href="./pages/login_signup.php" style="font-size:12px;
 														  						margin-top:6px;
@@ -109,7 +112,32 @@ session_start();
 						</ul>
 					</div>
 				</div>
-				<div class="col-sm-6">
+				<div class="col-sm-3">
+					<div class="dropdown">
+						 <button id="cart" class="btn btn-default " type="button" data-toggle="dropdown" >
+						    Cart 
+						    <i>(2)</i>
+						    <i class="glyphicon glyphicon-shopping-cart"></i>
+						 </button>
+						  <ul id="cart-menu" class="dropdown-menu" aria-labelledby="dropdownMenu1">
+						    <li>
+				                <div class="title">
+				                    <a href="#">Physics 1</a>
+				                    <a id="icon" class="glyphicon glyphicon-trash" href="#"></a>    
+				                </div>  
+					        </li>
+						    
+						    <li role="separator" class="divider"></li>
+						    <li>
+				                <div class="title">
+				                    <a href="#">Physics 2</a>
+				                    <a id="icon" class="glyphicon glyphicon-trash" href="#"></a>    
+				                </div>  
+					        </li>
+						  </ul>
+					</div>
+				</div>
+				<div class="col-sm-3">
 					<div id="polyglotLanguageSwitcher">
 						<form action="">
 							<select id="polyglot-language-options">
