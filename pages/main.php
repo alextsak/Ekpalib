@@ -24,11 +24,11 @@
 				                    <input id="Search_Argument" class="form-control easy-search-text-input" type="text" placeholder="Enter search terms" maxlength="255" size="25" name="term" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter search terms'">
 				                    <label class="sr-only" for="booksSearch_Code">Book Search</label>
 				                    <select id="booksSearch_Code" class="form-control" name="keyword" aria-required="true">
-				                      <option value="FT*">Keyword</option>
-				                      <option value="TALL">Title words</option>
-				                      <option value="NAME+">Author (last name, first)</option>
+				                      <option value="key">Keyword</option>
+				                      <option value="title">Title</option>
+				                      <option value="author">Author</option>
 				                    </select>
-				                    <input type="submit" class="btn btn-primary" alt="submit" value="Search" name="searchbutton">
+				                    <input type="submit" class="btn btn-primary" alt="submit" value="Search" name="searchbooks">
 				                  </form>
 		    	        </div>
 		                <div class="row hidden-xs">
@@ -74,7 +74,7 @@
 	                        <option value="Physsci">Physical Sciences/Math</option>
 	                        <option value="Socsci">Social Sciences</option>
 	                      </select>
-	                      <input type="submit" class="btn btn-primary" alt="submit" value="Search" name="searchbutton">
+	                      <input type="submit" class="btn btn-primary" alt="submit" value="Search" name="searcharticles">
 	                  </form>
 	                </div>
 	                <div class="row hidden-xs">
@@ -101,7 +101,7 @@
 		                    <label for="jnltitle" class="sr-only">Journal Title</label>
 		                    <input id="jnltitle" class="form-control easy-search-text-input es-text-no-select" type="text" placeholder="Enter journal title" maxlength="255" size="25" name="jnltitle" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter journal title'" aria-required="true">
 				                    <input type="hidden" alt="submit" value="gatewayjnltitle" name="project">
-				                    <input type="submit" class="btn btn-primary" alt="submit" value="Search" name="searchbutton">
+				                    <input type="submit" class="btn btn-primary" alt="submit" value="Search" name="searchjournal">
 				                  </form>
 				                </div>
 				                <div class="row hidden-xs">
