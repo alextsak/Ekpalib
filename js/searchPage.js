@@ -11,15 +11,16 @@ $(document).ready(function(){
 		var row = $(this).closest('tr');
 		var button = row.find("button");
 		button.css('color','green');
+		console.log(window.location.href);
+		//window.location = 
 		
-		
-		var array = [];
+		/*var array = [];
 		for( var i=0;i<6;i++)
 			array.push(row.find("td").eq(i).html());
 		
 		data.push(array);
 		console.log(data);
-		
+		*/
 		$('#confirmLoan-Button').attr("disabled", false);
     } );
 	

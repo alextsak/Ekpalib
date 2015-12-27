@@ -59,8 +59,8 @@ session_start();
 														    right: 20px;
 														  "
 											>
-												<span class="glyphicon glyphicon-user"  ></span>	
-												Takis Kanakakis
+												<span class="glyphicon glyphicon-user"  ></span>' . 	
+												$_SESSION['username'] . '
 												<span class="glyphicon glyphicon-chevron-down" style="left:16px;font-size: 10px;"   >
 											</a>
 									
@@ -79,7 +79,7 @@ session_start();
 		            						
 											<li class="divider" style="width:100%"></li>
 											
-											<li style="width:100%;"><a href="#" style="font-size:12px;">Sign Out 
+											<li style="width:100%;"><a href="./pages/logout.php" style="font-size:12px;">Sign Out 
 													<span class="glyphicon glyphicon-log-out" style="left:8px;"></span>
 												</a>
 											</li>

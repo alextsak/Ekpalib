@@ -1,5 +1,5 @@
 <?php
-session_start(); 
+//session_start(); 
 error_reporting(E_ALL);
 include_once './database/Model/Material.php';
 
@@ -19,14 +19,7 @@ if(isset($_POST['searchbooks'])){
 
 
 ?>
-<script type="text/javascript">
-console.log("document.URL : "+document.URL);
-console.log("document.location.href : "+document.location.href);
-console.log("document.location.origin : "+document.location.origin);
-console.log("document.location.hostname : "+document.location.hostname);
-console.log("document.location.host : "+document.location.host);
-console.log("document.location.pathname : "+document.location.pathname);
-</script>
+
 <div>
 	<div>
 		<h3 id="reasultsHeader">Search Results</h3>
