@@ -11,13 +11,10 @@ $(document).ready(function(){
 		var row = $(this).closest('tr');
 		var button = row.find("button");
 		
-		if (window.getComputedStyle(button).color == 'rgb(255, 0, 0)') {
-			console.log("hiii");
-			button.css('color','green');
-		   }
-		    else {
-		    	button.css('color','rgb(255,0,0)');
-		    }
+		if (button.css('color') == 'rgb(255, 0, 0)') 
+			button.css('color','green');		    
+		else 
+		    button.css('color','red');
 		/*if(button.css('color') == "rgb(255,0,0)") {
 			console.log("hiii");
 			button.css('color','green');
