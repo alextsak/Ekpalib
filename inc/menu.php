@@ -19,6 +19,9 @@
 
 <div class="borderline"></div>
            <ul id="tabs"  class="nav nav-pills">
+           	   <li>
+           	   		<a href="#">Home</a>
+           	   </li>
                <li class="dropdown">
                		<a href="#" data-toggle="dropdown" class="dropdown-toggle">About <b class="caret"></b></a>
                         <ul class="dropdown-menu">
