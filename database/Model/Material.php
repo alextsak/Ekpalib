@@ -58,8 +58,9 @@ class Material{
 		                   	<td><?php echo $row['isbn']; ?></td>
 		                   	<td>Science Library</td>
 	                 		<td><?php echo $row['availability']; ?></td>
-		                   	<td><?php echo '<button class="glyphicon glyphicon-shopping-cart" style="color:red">
-							</button>';?></td>
+	                 		<td><button id=<?php echo $row['MaterialID']?> class="glyphicon glyphicon-shopping-cart" style="color:rgb(255,0,0);">
+							</button></td>
+		                   	
 							<td><?php echo '<h5><a href="#">View</a>&nbsp | &nbsp<a href="#">Details</a></h5>'?></td>
 	                   </tr>
                    </tbody>

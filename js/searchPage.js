@@ -10,8 +10,25 @@ $(document).ready(function(){
 	$('#results-grid tbody').on('click', 'td button', function () {
 		var row = $(this).closest('tr');
 		var button = row.find("button");
-		button.css('color','green');
-		console.log(window.location.href);
+		
+		if (window.getComputedStyle(button).color == 'rgb(255, 0, 0)') {
+			console.log("hiii");
+			button.css('color','green');
+		   }
+		    else {
+		    	button.css('color','rgb(255,0,0)');
+		    }
+		/*if(button.css('color') == "rgb(255,0,0)") {
+			console.log("hiii");
+			button.css('color','green');
+			var test = window.location.href + "?id=" + this.id;
+			console.log(test);
+		} else {
+			button.css('color','red');
+		}*/
+		
+		
+		
 		//window.location = window.location.href
 		
 		/*var array = [];
