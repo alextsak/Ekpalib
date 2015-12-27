@@ -59,8 +59,8 @@ session_start();
 														    right: 20px;
 														  "
 											>
-												<span class="glyphicon glyphicon-user"  ></span>' . 	
-												$_SESSION['username'] . '
+												<span class="glyphicon glyphicon-user"  ></span>	'.
+												$_SESSION['username'].'
 												<span class="glyphicon glyphicon-chevron-down" style="left:16px;font-size: 10px;"   >
 											</a>
 									
@@ -91,7 +91,18 @@ session_start();
 							}
 							else {
 								//echo $_SESSION['username'];
-								echo '<li><a href="./pages/login_signup.php"><i class="	glyphicon glyphicon-log-in"></i> Login</a></li>';
+								echo '<li style="
+									    width:  80px;
+									    border: 1px solid #E5E5E5;
+										margin-top:6px;
+										border-radius: 3px;
+										">
+										<a href="./pages/login_signup.php" style="font-size:12px;
+														  						margin-top:6px;
+															position: relative;
+														    bottom: 4px;
+														    right: 5px;">Login
+										<i class="glyphicon glyphicon-log-in" style="right:-5px;"></i></a></li>';
 							}?>
 							
 							
