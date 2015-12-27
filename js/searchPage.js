@@ -12,7 +12,7 @@ $(document).ready(function(){
 		var button = row.find("button");
 		
 		if (window.getComputedStyle(button).color == 'rgb(255, 0, 0)') {
-			console.log("hiii");
+			//console.log("hiii");
 			button.css('color','green');
 		   }
 		    else {
