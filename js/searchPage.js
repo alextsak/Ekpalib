@@ -5,7 +5,7 @@
 var data = [];
 $(document).ready(function(){
 	
-	$('#confirmLoan-Button').attr("disabled", true);
+	//$('#confirmLoan-Button').attr("disabled", true);
 	
 	$('#results-grid tbody').on('click', 'td button', function () {
 		var row = $(this).closest('tr');

@@ -157,7 +157,7 @@ include './database/Model/Material.php';
 					<?php 
 					
 				}
-				elseif(isset($_SESSION['cart'])) {
+				if(isset($_SESSION['cart'])) {
 				
 				?><div class="col-sm-3">
 				<div class="dropdown">
@@ -182,21 +182,21 @@ include './database/Model/Material.php';
 				<?php 
 				
 				
-					if(isset($_POST['removeBtn']) && $_POST['id_to_remove']!=""){
-						$materialID=intval($_POST['id_to_remove']);
-						if(count($_SESSION['cart']) == 0) {
-							//if the cart is empty unset the cart session variable
-							unset($_SESSION['cart']);
-						}
-						else {
-						
-							unset($_SESSION['cart'][$materialID]);
-							//sort($_SESSION['cart']);
-						} 
-					}
+					
 				
 				}
-			
+				if(isset($_POST['removeBtn']) && $_POST['id_to_remove']!=""){
+					$materialID=intval($_POST['id_to_remove']);
+					if(count($_SESSION['cart']) == 0) {
+						//if the cart is empty unset the cart session variable
+						unset($_SESSION['cart']);
+					}
+					else {
+				
+						unset($_SESSION['cart'][$materialID]);
+						//sort($_SESSION['cart']);
+					}
+				}
 				?>
 				<div class="col-sm-3">
 					<div id="polyglotLanguageSwitcher">

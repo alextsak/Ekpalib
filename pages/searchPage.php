@@ -26,7 +26,7 @@ if(isset($_POST['searchbooks'])){
 ?>
 
 <div>
-<?php //echo $_SERVER['REQUEST_URI'];?>
+<?php echo $_SERVER['REQUEST_URI'];?>
 	<div>
 		<h3 id="reasultsHeader">Search Results</h3>
 		<?php  if(isset($message)){ 

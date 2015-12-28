@@ -53,7 +53,7 @@ class Material{
 								}
 								
         						?>
-        				<form method="post" action="">
+        				<form method="post" action="<?php echo $_SERVER['REQUEST_URI']?>">
         					<!--  <input type="submit" name="removeBtn" value="x"/> -->
         					<button type="submit" name="removeBtn" class="btn btn-primary btn-xs">
   								<i class="glyphicon glyphicon-trash"></i> 

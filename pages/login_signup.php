@@ -14,7 +14,21 @@ if(isset($_POST['login-form'])){
 	if($message == "User found"){
 		$_SESSION['username'] = $username;
 		//echo "Welcome " . $username . " ! ";
-		header("Location: ../index.php");
+		if(isset($_SESSION['cart'])){
+			if(count($_SESSION['cart']) > 0) {
+				//$response = http_get("?page=confirmLoan");
+				require_once '../controller/pageController.php';
+				include '../inc/header.php';
+				include '../inc/menu.php';
+				getPage('pages', 'confirmLoan', 'main');
+				include './inc/footer.php';
+			}
+			
+		}
+		else {
+			header("Location: ../index.php");
+		}
+		
 	}
 
 }
