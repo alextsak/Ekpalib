@@ -1,6 +1,5 @@
 <?php 
 session_start();
-require './database/Model/Material.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -49,10 +48,11 @@ require './database/Model/Material.php';
 										margin-top:6px;
 										border-radius: 3px;
 										margin-right: 25px;
+										
 										"
 									> 
 									<ul class="nav navbar-nav">
-        								<li class="dropdown">
+        								<li class="dropdown" style="width: 150px;">
 	          								<a href="#" class="dropdown-toggle" data-toggle="dropdown" 
 													style="
 															font-size:12px;
@@ -60,11 +60,22 @@ require './database/Model/Material.php';
 															position: relative;
 														    bottom: 4px;
 														    right: 20px;
+															padding-left:0px;
 														  "
 											>
-												<span class="glyphicon glyphicon-user"  ></span>	'.
+												<span class="glyphicon glyphicon-user" style="float:left;top: 3px;margin-right: 5px;" ></span>	
+												<div style="    float: left;
+															    width: 100px;
+															    overflow: hidden;
+															    text-overflow: ellipsis;
+															    height: 20px;
+															    white-space: nowrap;">'.
 												$_SESSION['username'].'
-												<span class="glyphicon glyphicon-chevron-down" style="left:16px;font-size: 10px;"   >
+												</div>
+												<span class="glyphicon glyphicon-chevron-down" style="font-size: 10px;
+																									  float: right;
+																									  top: 5px;
+																									right:7px;">
 											</a>
 									
 		          						<ul class="dropdown-menu" style="border-radius: 3px; left: -16px;" >
@@ -113,73 +124,31 @@ require './database/Model/Material.php';
 						</ul>
 					</div>
 				</div>
-			
-			<?php 
-			
-			if(isset($_SESSION['cart'])){
-				
-				?><div class="col-sm-3">
-				<div class="dropdown">
-				<button id="cart" class="btn btn-default " type="button" data-toggle="dropdown" >
-				Cart 
-				<i><?php echo '( '.count($_SESSION['cart']) . ' )';?></i>
-				<i class="glyphicon glyphicon-shopping-cart"></i>
-				</button>
-				<ul id="cart-menu" class="dropdown-menu" aria-labelledby="dropdownMenu1">
-				<?php 
-					
-					$material = new Material();
-					$material->add_to_upper_cart($_SESSION['genre']);
-				?>
-				</ul>
+				<div class="col-sm-3">
+					<div class="dropdown">
+						 <button id="cart" class="btn btn-default " type="button" data-toggle="dropdown" >
+						    Cart 
+						    <i>(2)</i>
+						    <i class="glyphicon glyphicon-shopping-cart"></i>
+						 </button>
+						  <ul id="cart-menu" class="dropdown-menu" aria-labelledby="dropdownMenu1">
+						    <li>
+				                <div class="title">
+				                    <a href="#">Physics 1</a>
+				                    <a id="icon" class="glyphicon glyphicon-trash" href="#"></a>    
+				                </div>  
+					        </li>
+						    
+						    <li role="separator" class="divider"></li>
+						    <li>
+				                <div class="title">
+				                    <a href="#">Physics 2</a>
+				                    <a id="icon" class="glyphicon glyphicon-trash" href="#"></a>    
+				                </div>  
+					        </li>
+						  </ul>
+					</div>
 				</div>
-				</div>
-				<?php 
-				/*if(isset($_GET['action']) && $_GET['action']=="remove-from-cart") {
-					//remove current item from cart and refresh the upper cart
-					//echo 'deleting';
-					$materialID=intval($_GET['materialID']);
-					
-					$max=count($_SESSION['cart']);
-					foreach($_SESSION['cart'] as $key => $value) {
-						if($materialID == $_SESSION['cart'][$i]){
-							unset($_SESSION['cart'][$key]);
-							echo 'deleted id' . $materialID . ' from cart';
-							break;
-						}
-							
-					}
-					if(count($_SESSION['cart']) == 0) {
-						//if the cart is empty unset the cart session variable
-						unset($_SESSION['cart']);
-					} else {
-						//refresh cart
-						//print_r($_SESSION['cart']);
-						//$material->add_to_upper_cart($_SESSION['genre']);
-					}
-						
-				}*/
-				
-				if(isset($_POST['id_to_remove']) && $_POST['id_to_remove']!=""){
-					$materialID=intval($_POST['id_to_remove']);
-					if(count($_SESSION['cart']) == 0) {
-						//if the cart is empty unset the cart session variable
-						unset($_SESSION['cart']);
-					}
-					else {
-						
-						unset($_SESSION['cart']['id_to_remove']);
-						//sort($_SESSION['cart']);
-					} 
-				}
-				
-			}
-			
-			
-			
-			
-			?>
-				
 				<div class="col-sm-3">
 					<div id="polyglotLanguageSwitcher">
 						<form action="">
