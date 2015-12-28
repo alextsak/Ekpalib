@@ -30,7 +30,7 @@ $(document).ready(function(){
 		data.push(array);
 		console.log(data);
 		*/
-		$('#confirmLoan-Button').attr("disabled", false);
+		//$('#confirmLoan-Button').attr("disabled", false);
     } );
 	
 	

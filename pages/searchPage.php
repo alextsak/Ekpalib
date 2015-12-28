@@ -18,18 +18,7 @@ if(isset($_POST['searchbooks'])){
 }
 
 
-if(isset($_GET['action']) && $_GET['action']=="add"){
 
-	$materialID=intval($_GET['materialID']);
-
-	if(!isset($_SESSION['cart'][$materialID])){
-
-		/* make query to database and set the session accordingly */
-		$material = new Material();
-		$material->query_data_to_cart($materialID, $_SESSION['genre']);
-	}
-
-}
 
 
 
@@ -37,7 +26,7 @@ if(isset($_GET['action']) && $_GET['action']=="add"){
 ?>
 
 <div>
-<?php echo $_SERVER['REQUEST_URI'];?>
+<?php //echo $_SERVER['REQUEST_URI'];?>
 	<div>
 		<h3 id="reasultsHeader">Search Results</h3>
 		<?php  if(isset($message)){ 
