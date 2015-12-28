@@ -140,7 +140,24 @@ include './database/Model/Material.php';
 					}
 				
 				}
-				if(isset($_SESSION['cart'])) {
+				if(!isset($_SESSION['cart'])){
+					
+					?><div class="col-sm-3">
+					<div class="dropdown">
+					<button id="cart" class="btn btn-default " type="button" data-toggle="dropdown" >
+					Cart
+					<i><?php echo '( 0 )';?></i>
+									<i class="glyphicon glyphicon-shopping-cart"></i>
+									</button>
+									<ul id="cart-menu" class="dropdown-menu" aria-labelledby="dropdownMenu1">
+									<li><p style="text-align: center;color:blue;">Your Cart is empty</p></li>
+					</ul>
+					</div>
+					</div>
+					<?php 
+					
+				}
+				elseif(isset($_SESSION['cart'])) {
 				
 				?><div class="col-sm-3">
 				<div class="dropdown">
@@ -151,9 +168,13 @@ include './database/Model/Material.php';
 				</button>
 				<ul id="cart-menu" class="dropdown-menu" aria-labelledby="dropdownMenu1">
 				<?php 
+				if(count($_SESSION['cart']) > 0){
 					
 					$material = new Material();
 					$material->add_to_upper_cart($_SESSION['genre']);
+				} else {
+					unset($_SESSION['cart']);
+				}
 				?>
 				</ul>
 				</div>
@@ -161,25 +182,22 @@ include './database/Model/Material.php';
 				<?php 
 				
 				
-				if(isset($_POST['removeBtn']) && $_POST['id_to_remove']!=""){
-					$materialID=intval($_POST['id_to_remove']);
-					if(count($_SESSION['cart']) == 0) {
-						//if the cart is empty unset the cart session variable
-						unset($_SESSION['cart']);
+					if(isset($_POST['removeBtn']) && $_POST['id_to_remove']!=""){
+						$materialID=intval($_POST['id_to_remove']);
+						if(count($_SESSION['cart']) == 0) {
+							//if the cart is empty unset the cart session variable
+							unset($_SESSION['cart']);
+						}
+						else {
+						
+							unset($_SESSION['cart'][$materialID]);
+							//sort($_SESSION['cart']);
+						} 
 					}
-					else {
-						echo $materialID;
-						unset($_SESSION['cart']['id_to_remove']);
-						//sort($_SESSION['cart']);
-					} 
-				}
 				
-			}
+				}
 			
-			
-			
-			
-			?>
+				?>
 				<div class="col-sm-3">
 					<div id="polyglotLanguageSwitcher">
 						<form action="">

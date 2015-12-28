@@ -8,8 +8,14 @@
 <div id="console-debug">
 <pre>
 <?php 
+error_reporting(E_ALL);
 if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])){
-	print_r($_SESSION['cart']);
+	//print_r($_SESSION['cart']);
+	if(isset($_POST['removeBtn']) && $_POST['id_to_remove']!="") {
+		//echo 'id to remove: ' . $_POST['id_to_remove'];
+		$materialID=intval($_POST['id_to_remove']);
+		print_r($_SESSION['cart'][$materialID]) ;
+	}
 }
 ?>
 </pre>
