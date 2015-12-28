@@ -51,7 +51,7 @@ if(isset($_POST['searchbooks'])){
 			
 		</table>
 		<div>
-			<a href="?page=confirmLoan"   id="confirmLoan-Button" type="button" class="btn btn-default">Confirm Loan
+			<a href="?page=confirmLoan" id="confirmLoan-Button" type="button" class="btn btn-default">Confirm Loan
       			<span class="glyphicon glyphicon-chevron-right"></span> 
     		</a>
 		</div>

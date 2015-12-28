@@ -1,5 +1,24 @@
 @charset "utf-8";
 
+/* temporary debug button. Delete it at the end of the project */
+#btn-primary {
+	position:absolute;
+}
+
+#console-debug {
+	position:absolute;
+	top: 50px;
+	left:0px;
+	width:30%;
+	height:500px;
+	
+}
+
+#console-debug pre {
+	height:500px;
+	overflow-y:scroll;
+}
+
 #cart{
 	border: 1px solid #E5E5E5;
 	margin-top:6px;

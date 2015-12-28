@@ -28,6 +28,7 @@ include './database/Model/Material.php';
 	<div class="container">
 		<div class=row>
 			<div class="col-sm-8">
+			<button id="btn-debug" class="btn btn-default"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></button>
 				<header>
 					<div class="logo">
 						<a href=""> <img  src="images/ekpalib-logo.png" alt="Smiley face"></a>
@@ -139,7 +140,7 @@ include './database/Model/Material.php';
 					}
 				
 				}
-			if(isset($_SESSION['cart'])){
+				if(isset($_SESSION['cart'])) {
 				
 				?><div class="col-sm-3">
 				<div class="dropdown">
@@ -158,39 +159,16 @@ include './database/Model/Material.php';
 				</div>
 				</div>
 				<?php 
-				/*if(isset($_GET['action']) && $_GET['action']=="remove-from-cart") {
-					//remove current item from cart and refresh the upper cart
-					//echo 'deleting';
-					$materialID=intval($_GET['materialID']);
-					
-					$max=count($_SESSION['cart']);
-					foreach($_SESSION['cart'] as $key => $value) {
-						if($materialID == $_SESSION['cart'][$i]){
-							unset($_SESSION['cart'][$key]);
-							echo 'deleted id' . $materialID . ' from cart';
-							break;
-						}
-							
-					}
-					if(count($_SESSION['cart']) == 0) {
-						//if the cart is empty unset the cart session variable
-						unset($_SESSION['cart']);
-					} else {
-						//refresh cart
-						//print_r($_SESSION['cart']);
-						//$material->add_to_upper_cart($_SESSION['genre']);
-					}
-						
-				}*/
 				
-				if(isset($_POST['id_to_remove']) && $_POST['id_to_remove']!=""){
+				
+				if(isset($_POST['removeBtn']) && $_POST['id_to_remove']!=""){
 					$materialID=intval($_POST['id_to_remove']);
 					if(count($_SESSION['cart']) == 0) {
 						//if the cart is empty unset the cart session variable
 						unset($_SESSION['cart']);
 					}
 					else {
-						
+						echo $materialID;
 						unset($_SESSION['cart']['id_to_remove']);
 						//sort($_SESSION['cart']);
 					} 
