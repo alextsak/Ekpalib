@@ -5,7 +5,9 @@ if(isset($_POST['empty_cart'])){
 	foreach($_SESSION['cart'] as $key => $val) {
 		unset($_SESSION['cart'][$key]);
 	}
-
+	if(count($_SESSION['cart']) == 0) {
+		unset($_SESSION['cart']);
+	}
 }
 ?>
 

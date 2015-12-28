@@ -1,7 +1,7 @@
 <?php
 //session_start(); 
 error_reporting(E_ALL);
-include_once './database/Model/Material.php';
+
 
 if(isset($_POST['searchbooks'])){
 
@@ -33,9 +33,11 @@ if(isset($_GET['action']) && $_GET['action']=="add"){
 
 
 
+
 ?>
 
 <div>
+<?php echo $_SERVER['REQUEST_URI'];?>
 	<div>
 		<h3 id="reasultsHeader">Search Results</h3>
 		<?php  if(isset($message)){ 
@@ -43,25 +45,8 @@ if(isset($_GET['action']) && $_GET['action']=="add"){
         	}  
         ?>
 	</div>
-	<div>
-		<table id="sidebar-table">
-			<?php 
-			echo "<h4>My Cart</h4>";
-			if(isset($_SESSION['cart'])){
-				$material = new Material();
-				$material->add_to_sidebar_cart($_SESSION['genre']);
-			}
-			else { 
-          
-        		echo "<p>Your Cart is empty. Please add some products.</p>"; 
-          	} 
-			
-			
-			
-			?>
-		</table>
+
 	
-	</div>
 	<div style="border-style: solid; border-top: thick double #000000;"></div>
 	<div >
     	<table id="results-grid">

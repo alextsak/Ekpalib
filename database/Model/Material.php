@@ -20,7 +20,7 @@ class Material{
 		return self::$instance;
 	}
 	
-	public function add_to_sidebar_cart($genre) {
+	public function add_to_upper_cart($genre) {
 		$query = 'select * from ' . $genre . ' where MaterialID IN (';
 		foreach($_SESSION['cart'] as $id => $value) {
 			$query.=$id.",";
@@ -32,14 +32,41 @@ class Material{
 		{
 			while($row=$stmt->fetch(PDO::FETCH_ASSOC))
 			{
+				
 				?>
-				<tbody>
-				<tr>
-					<td><?php echo $row['title']; ?></td>
-					<td>Remove</td>	                   	
-				</tr>
-				</tbody>
-				<?php
+				<li>
+					<div class="title">
+						<a href="#"><?php echo $row['title'];?></a>
+						<?php $url_path = $_SERVER['QUERY_STRING'];
+								
+								$url_path = '?' .  $url_path;
+								
+								$action="";
+								if(strpos( $url_path, '&action')){
+									$last_amber = strrpos( $url_path, '&action');
+									$last_word = substr( $url_path, $last_amber);
+									$url_path = substr( $url_path, 0, $last_amber);
+									$action = "&action=remove&materialID=";
+								}
+								else {
+									$action = "action=remove-from-cart&materialID=";
+								}
+								
+        						?>
+        				<form method="post" action=<?php echo $_SERVER['REQUEST_URI'];?>>
+        					<input type="submit" name="removeBtn"  value="X"/> 
+        					 <input name="id_to_remove" type="hidden" value="<?php echo $row['MaterialID'];?>"/>
+        					<!--  <a id="icon" class="glyphicon glyphicon-trash" href=""></a>  
+        				-->
+        				</form>
+						  
+					</div>  
+				</li>
+				<li role="separator" class="divider"></li>
+				
+				<?php 
+				
+				
 			}
 		}
 	}
@@ -154,7 +181,16 @@ class Material{
 		                   	<td>Science Library</td>
 	                 		<td><?php echo $row['availability']; ?></td>
 	                 		<?php $url_path = $_SERVER['QUERY_STRING'];
-        						$url_path = '?' .  $url_path;?>
+        						$url_path = '?' .  $url_path;
+        						if(strpos( $url_path, '&action')){
+        							$last_amber = strrpos( $url_path, '&action');
+        							$last_word = substr( $url_path, $last_amber);
+        							$url_path = substr( $url_path, 0, $last_amber);
+        							//echo $url_path;
+        						}
+        						
+        						
+        						?>
 	                 		<td><a href="<?php echo $url_path."&action=add&materialID=" . $row['MaterialID']?>" class="glyphicon glyphicon-shopping-cart" style="color:rgb(255,0,0);">
 							</a></td>
 		                   	
@@ -204,8 +240,8 @@ class Material{
         
         //check the url_path to avoid duplicate page number
         // if we find the character & eliminate everything after it 
-       	if(strpos( $url_path, '&')){
-        	$last_amber = strrpos( $url_path, '&');
+       	if(strpos( $url_path, '&page_no')){
+        	$last_amber = strrpos( $url_path, '&page_no');
         	$last_word = substr( $url_path, $last_amber);
         	$self = substr( $url_path, 0, $last_amber);
        	}
