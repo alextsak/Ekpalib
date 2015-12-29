@@ -1,6 +1,6 @@
 <?php 
 error_reporting(E_ALL);
-session_start();
+
 require './database/ConnectionDB/dbConnection.php';
 include './database/Model/Material.php';
 include './database/Model/User.php';
