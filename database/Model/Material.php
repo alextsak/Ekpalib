@@ -1,5 +1,5 @@
 <?php
-require './database/ConnectionDB/dbConnection.php';
+//require './database/ConnectionDB/dbConnection.php';
 
 class Material{
 
@@ -37,7 +37,7 @@ class Material{
 				<li>
 					<div class="title">
 						<a href="#"><?php echo $row['title'];?></a>
-						<?php $url_path = $_SERVER['QUERY_STRING'];
+						<?php/* $url_path = $_SERVER['QUERY_STRING'];
 								
 								$url_path = '?' .  $url_path;
 								
@@ -50,10 +50,11 @@ class Material{
 								}
 								else {
 									$action = "action=remove-from-cart&materialID=";
-								}
+								}*/
 								
         						?>
-        				<form method="post" action="<?php echo $_SERVER['REQUEST_URI']?>">
+        						
+							<form method="post" action="<?php echo $_SERVER['REQUEST_URI']?>">
         					<!--  <input type="submit" name="removeBtn" value="x"/> -->
         					<button type="submit" name="removeBtn" class="btn btn-primary btn-xs">
   								<i class="glyphicon glyphicon-trash"></i> 
@@ -62,6 +63,7 @@ class Material{
         					<!--  <a id="icon" class="glyphicon glyphicon-trash" href=""></a>  
         				-->
         				</form>
+        				
 						  
 					</div>  
 				</li>

@@ -17,6 +17,11 @@ if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])){
 		print_r($_SESSION['cart'][$materialID]) ;
 	}
 }
+if(isset($_POST['login-form'])){
+	$username = $_POST['username'];
+	
+	echo $username;
+}
 ?>
 </pre>
 
@@ -29,6 +34,24 @@ $(document).ready(function(){
 		$('#console-debug').toggle();
 		});
 });
+
+
+function deletefromCart(material_id){
+	//alert(material_id);
+	var page_url = window.location.href;
+	var data = {"material_id": material_id};
+	jQuery.ajax({
+			url: page_url,
+			method: "post",
+			data: data,
+			success: function(){
+
+				},
+			error: function(){
+				alert("Something went wrong");
+				}
+		});
+}
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?php
-require '../database/ConnectionDB/dbConnection.php';
+//require $_SERVER['DOCUMENT_ROOT'].'/Ekpalib/database/ConnectionDB/dbConnection.php';
 
 class User{
 	

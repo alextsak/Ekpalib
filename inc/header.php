@@ -1,6 +1,9 @@
 <?php 
+error_reporting(E_ALL);
 session_start();
+require './database/ConnectionDB/dbConnection.php';
 include './database/Model/Material.php';
+include './database/Model/User.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,6 +17,7 @@ include './database/Model/Material.php';
 	 	<link href="css/searchpage.css" rel="stylesheet">
 	 	<link href="css/main.css" rel="stylesheet">
 	 	<link href="css/header.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/login-signup.css" type="text/css" media="all">
 		
   		<script src="js/jquery/jquery-2.1.4.min.js"></script>
   		<script src="js/jquery.polyglot.language.switcher.js" type="text/javascript"></script>
@@ -21,6 +25,7 @@ include './database/Model/Material.php';
   		<script src="js/header.js"></script>
   		<script src="js/searchPage.js"></script>
   		<script src="bootstrap/bootstrap.js"></script>
+  		<script src="js/Login-Signup.js"></script>
   		
 
 </head>
@@ -37,7 +42,14 @@ include './database/Model/Material.php';
 					</div>
 				</header>
 			</div>
+			<?php 
+			if(isset($_GET['page']) && $_GET['page'] == 'login_signup') {
+				getPage('pages', $_GET['page'], 'main');
+				
+			} else {
+			?>
 			
+		
 			<div class="col-sm-4" style="padding-left: 150px;">
 				<div class="col-sm-3">
 					<div class="upper-nav pull-right">
@@ -114,7 +126,7 @@ include './database/Model/Material.php';
 										border-radius: 3px;
 										margin-right: 25px;
 										">
-										<a href="./pages/login_signup.php" style="font-size:12px;
+										<a href="?page=login_signup" style="font-size:12px;
 														  						margin-top:6px;
 															position: relative;
 														    bottom: 4px;
@@ -127,6 +139,7 @@ include './database/Model/Material.php';
 					</div>
 				</div>
 				<?php 
+				// create session cart and add the item given
 				if(isset($_GET['action']) && $_GET['action']=="add"){
 				
 					$materialID=intval($_GET['materialID']);
@@ -140,7 +153,10 @@ include './database/Model/Material.php';
 					}
 				
 				}
+				// if there is no session for the cart the echo just 0
 				if(!isset($_SESSION['cart'])){
+					
+		
 					
 					?><div class="col-sm-3">
 					<div class="dropdown">
@@ -159,44 +175,50 @@ include './database/Model/Material.php';
 				}
 				if(isset($_SESSION['cart'])) {
 				
+					if(isset($_POST['removeBtn']) && $_POST['id_to_remove']!=""){
+						$materialID=intval($_POST['id_to_remove']);
+						if(count($_SESSION['cart']) == 0) {
+							//if the cart is empty unset the cart session variable
+							unset($_SESSION['cart']);
+						 
+						}
+						else {
+					
+							unset($_SESSION['cart'][$materialID]);
+					
+						}
+					}
+					
 				?><div class="col-sm-3">
 				<div class="dropdown">
 				<button id="cart" class="btn btn-default " type="button" data-toggle="dropdown" >
 				Cart 
-				<i><?php echo '( '.count($_SESSION['cart']) . ' )';?></i>
+				<i><?php 
+					if(!isset($_SESSION['cart'])) {
+						echo '( 0 )';
+					}
+					else {
+						echo '( '.count($_SESSION['cart']) . ' )';
+					}
+				?></i>
 				<i class="glyphicon glyphicon-shopping-cart"></i>
 				</button>
 				<ul id="cart-menu" class="dropdown-menu" aria-labelledby="dropdownMenu1">
 				<?php 
-				if(count($_SESSION['cart']) > 0){
+					if(count($_SESSION['cart']) > 0){
 					
-					$material = new Material();
-					$material->add_to_upper_cart($_SESSION['genre']);
-				} else {
-					unset($_SESSION['cart']);
-				}
+						$material = new Material();
+						$material->add_to_upper_cart($_SESSION['genre']);
+					} else {
+						unset($_SESSION['cart']);
+					}
 				?>
 				</ul>
 				</div>
 				</div>
 				<?php 
-				
-				
-					
-				
 				}
-				if(isset($_POST['removeBtn']) && $_POST['id_to_remove']!=""){
-					$materialID=intval($_POST['id_to_remove']);
-					if(count($_SESSION['cart']) == 0) {
-						//if the cart is empty unset the cart session variable
-						unset($_SESSION['cart']);
-					}
-					else {
 				
-						unset($_SESSION['cart'][$materialID]);
-						//sort($_SESSION['cart']);
-					}
-				}
 				?>
 				<div class="col-sm-3">
 					<div id="polyglotLanguageSwitcher">
@@ -211,5 +233,5 @@ include './database/Model/Material.php';
 				</div>
 			</div>
 		</div>
-	
+	<?php }?>
 		

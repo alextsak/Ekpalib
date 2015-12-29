@@ -1,12 +1,21 @@
 <?php 
-include_once '../database/Model/User.php';
 
-session_start();
+function abspath()
+{
+	return $_SERVER['DOCUMENT_ROOT'];
+}
+
+function directory()
+{
+	return '/Ekpalib/index.php';
+}
 
 if(isset($_POST['login-form'])){
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 	//echo $username;
+	
+	// check here if the user  is already logged in 
 	
 	$user = new User();
 	$message = "";
@@ -16,17 +25,15 @@ if(isset($_POST['login-form'])){
 		//echo "Welcome " . $username . " ! ";
 		if(isset($_SESSION['cart'])){
 			if(count($_SESSION['cart']) > 0) {
-				//$response = http_get("?page=confirmLoan");
-				require_once '../controller/pageController.php';
-				include '../inc/header.php';
-				include '../inc/menu.php';
-				getPage('pages', 'confirmLoan', 'main');
-				include './inc/footer.php';
+				
 			}
 			
 		}
+		
 		else {
-			header("Location: ../index.php");
+			
+			
+			header('Location: index.php');
 		}
 		
 	}
@@ -41,7 +48,7 @@ if(isset($_POST['register-form'])){
 	if($message == "registered"){
 		//echo "Welcome " . $username . " ! ";
 		$_SESSION['username'] = $username;
-		header("Location: ../index.php");
+		header('Location: index.php');
 	}
 	else {
 		echo 'Something went wrong :(';
@@ -49,29 +56,7 @@ if(isset($_POST['register-form'])){
 }
 
 ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<base href="http://localhost:5555/Ekpalib/">
-	 	<link rel="stylesheet" href="css/login-signup.css" type="text/css" media="all">
-	 	<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-	 	
-	 	<script src="js/jquery/jquery-2.1.4.min.js" type="text/javascript"></script>
-	 	<script src="bootstrap/bootstrap.js"></script>
-	 	<script src="js/Login-Signup.js"></script>
-		
-  		
-	</head>
-	
-	<body>
-		<div class="container">
-		<header>
-			<div class="logo">
-				<a href="./index.php"> <img  src="images/ekpalib-logo.png" alt="Smiley face"></a>
-				<h3>University Libraries</h3>
-				<h4>Login or Register to our Community</h4>
-			</div>
-		</header>
+
 		    	<div class="row">
 					<div class="col-md-6 col-md-offset-3">
 						<div class="panel panel-login">
@@ -213,7 +198,7 @@ if(isset($_POST['register-form'])){
 						</div>
 					</div>
 				</div>
-		</div>
+		
 		
 		<script>
 
@@ -223,5 +208,4 @@ if(isset($_POST['register-form'])){
   		});   
 
 </script>
-	</body>
-</html>
+	

@@ -28,7 +28,11 @@ if(isset($_GET['page']) && !isset($_GET['page_no'])) {
 			include './inc/menu.php';
 			getPage('pages', $_GET['page'], 'main');
 		}
-	} else {
+	} 
+	elseif($_GET['page'] == 'login_signup'){
+		include './inc/header.php';
+	}
+	else {
 		include './inc/header.php';
 		include './inc/menu.php';
 		getPage('pages', $_GET['page'], 'main');
