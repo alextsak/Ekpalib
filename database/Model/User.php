@@ -6,7 +6,8 @@ class User{
 	private $db;
 	
 	public function __construct(){
-		$this->db = new Connection();
+		//$this->db = new Connection();
+		$this->db = Connection::getInstance();
 		$this->db->ini_parser();
 		$this->db = $this->db->dbConnect();
 	}
@@ -19,9 +20,7 @@ class User{
 			$st->execute();
 			
 			if($st->rowCount() == 1){
-				//$message = array($username,$password);
-				//$this->db->dbClose();
-				//echo 'User found';
+				
 				return "User found";
 			}
 			else{
@@ -34,6 +33,8 @@ class User{
 	}
 	
 	public function RegisterUser(array $params){
+		
+		// it might need another insertion
 		
 		$st = $this->db->prepare("INSERT INTO User (User, Password, Name, Surname, Phone_Number, Email, academicID, academicPass) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 		$st->bindParam(1, $params[0]);
