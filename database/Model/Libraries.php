@@ -55,6 +55,28 @@ class Libraries{
 		}
 	}
 	
+	public function Add_New_Lib(array $params){
+	
+		// it might need another insertion
+	
+		$st = $this->db->prepare("INSERT INTO Libraries (`idLibraries`,`Name`,`Site`,`Address`,`Telephone`,`Fax`,`Informations`) VALUES (?,?‚?‚?,?,?,?);");
+		$st->bindParam(1, $params[0]);
+		$st->bindParam(2, $params[1]);
+		$st->bindParam(3, $params[2]);
+		$st->bindParam(4, $params[3]);
+		$st->bindParam(5, $params[4]);
+		$st->bindParam(6, $params[5]);
+		$st->bindParam(7, $params[6]);
+	
+	
+		if($st->execute()){
+			$message="New Library Inserted successfully!";
+		}
+		else {
+			echo 'Values did NOT insert correctly';
+		}
+	}
+	
 	
 	
 }
