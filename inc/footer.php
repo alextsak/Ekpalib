@@ -10,7 +10,9 @@
 
 <script>
 
-
+/**
+ * detailsbook creates an ajax call to show a modal for the book details
+ */
 function detailsbook(id){
 	
 	var data = {"id" : id};
@@ -20,7 +22,7 @@ function detailsbook(id){
 		data : data,
 		success : function(data){
 			jQuery('body').append(data);
-			jQuery('#details-modal').modal('toggle');
+			jQuery('#details-material-modal').modal('toggle');
 			},
 		error : function(){
 		alert("Something went wrong");

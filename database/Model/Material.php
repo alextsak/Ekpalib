@@ -8,6 +8,7 @@ class Material{
 	
 	public function __construct(){
 		self::$instance = $this;
+		//$this->db = Connection::getInstance();
 		$this->db = new Connection();
 		$this->db->ini_parser();
 		$this->db = $this->db->dbConnect();
@@ -15,7 +16,7 @@ class Material{
 	
 	public static function get() {
 		if (self::$instance === null) {
-			self::$instance = new self();
+			self::$instance = new Material();
 		}
 		return self::$instance;
 	}
@@ -325,5 +326,22 @@ class Material{
   		}
   
  }
+	
+//}
+
+
+	public function fetch_material_details($material_id, $genre){
+	
+		$query = 'SELECT * FROM ' . $genre . ' where MaterialID=?';
+		$stmt = $this->db->prepare($query);
+		$stmt->bindParam(1, $material_id);
+		$stmt->execute();
+		if($stmt->rowCount() == 1){
+			return $stmt->fetch(PDO::FETCH_ASSOC);
+		}
+		return -1;
+	}
+	
+	
 	
 }
