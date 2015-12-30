@@ -29,5 +29,10 @@ if(isset($_POST['empty_cart'])){
         			$material->create_mycart($_SESSION['genre']);
        		 ?> 
 		</table>
+		<div>
+			<a href="?page=confirmLoan" id="confirmLoan-Button" type="button" class="btn btn-default">Loan Books
+      			<span class="glyphicon glyphicon-chevron-right"></span> 
+    		</a>
+		</div>
    	</div>
 </div>
