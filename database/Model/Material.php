@@ -20,6 +20,42 @@ class Material{
 		return self::$instance;
 	}
 	
+	public function QuickSearch($params){
+	
+		// it might need another insertion
+	
+		$st = $this->db->prepare("SELECT * FROM books WHERE title LIKE (?)");
+		$st->bindParam(1, $params);
+	
+	
+		if($st->execute()){
+			return $st->get_result();
+		}
+		else {
+			echo 'Values did NOT insert correctly';
+		}
+	}
+	
+	public function Search(array $params){
+	
+		// it might need another insertion
+	
+		$st = $this->db->prepare("SELECT * FROM books WHERE `isbn`=?,`author`=?,`title`=?,`publisher`=?,`category`=? ");
+		$st->bindParam(1, $params[0]);
+		$st->bindParam(2, $params[1]);
+		$st->bindParam(3, $params[2]);
+		$st->bindParam(4, $params[3]);
+		$st->bindParam(5, $params[4]);
+	
+	
+		if($st->execute()){
+			return $st->get_result();
+		}
+		else {
+			echo 'Values did NOT insert correctly';
+		}
+	}
+	
 	public function add_to_upper_cart($genre) {
 		$query = 'select * from ' . $genre . ' where MaterialID IN (';
 		foreach($_SESSION['cart'] as $id => $value) {
