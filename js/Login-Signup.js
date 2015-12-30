@@ -23,7 +23,7 @@ function init(){
 	
 	$("a.my-tool-tip").tooltip();
 	
-	$("#register-submit").on("click",function(event){
+	/*$("#register-submit").on("click",function(event){
     	event.preventDefault();
     	var input = {};
     	
@@ -33,6 +33,6 @@ function init(){
     	if(verifiedPassword != password){
     		alert("Password is not verified!");
     	}
-    });	
+    });	*/
 	
 }

@@ -7,14 +7,14 @@ class User{
 	
 	public function __construct(){
 		//$this->db = new Connection();
-		$this->db = Connection::getInstance();
+		$this->db = new Connection();
 		$this->db->ini_parser();
 		$this->db = $this->db->dbConnect();
 	}
 	
 	public function Login($username, $password){
 		if(!empty($username) && !empty($password)){
-			$st = $this->db->prepare("select * from User where User=? and Password=?");
+			$st = $this->db->prepare("select * from user where User=? and Password=?");
 			$st->bindParam(1, $username);
 			$st->bindParam(2, $password);
 			$st->execute();
@@ -36,7 +36,7 @@ class User{
 		
 		// it might need another insertion
 		
-		$st = $this->db->prepare("INSERT INTO User (User, Password, Name, Surname, Phone_Number, Email, academicID, academicPass) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+		$st = $this->db->prepare("INSERT INTO user (User, Password, Name, Surname, Phone_Number, Email, academicID, academicPass) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 		$st->bindParam(1, $params[0]);
 		$st->bindParam(2, $params[1]);
 		$st->bindParam(3, $params[2]);

@@ -37,7 +37,7 @@ if($book == -1) {
 						</div>
 
 						<div class="col-sm-6">
-							<h4 style="color:navy;">Details</h4>
+							<h4 style="color:navy;text-align:center;">Details</h4>
 							<p>Title: <?php echo $book['isbn'];?></p>
 							<p>Author(s): <?php echo $book['author'];?></p>
 							<hr>

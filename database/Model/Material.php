@@ -221,7 +221,7 @@ class Material{
         						
         						
         						?>
-	                 		<td><a href="<?php echo $url_path."&action=add&materialID=" . $row['MaterialID']?>" class="glyphicon glyphicon-shopping-cart" style="color:rgb(255,0,0);">
+	                 		<td><a href="<?php echo $url_path."&action=add&materialID=" . $row['MaterialID']?>" class="glyphicon glyphicon-shopping-cart"></span>
 							</a></td>
 		                   	
 							<td>
