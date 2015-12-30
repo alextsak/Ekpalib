@@ -21,3 +21,39 @@ td, th {
 	border: 1px solid #ccc; 
 	text-align: center; 
 }
+
+
+hr.styled {
+	background:url(../images/hr_design.png) no-repeat top center;
+	height:30px;
+	width:100%;
+	border:none !important;
+}
+
+hr.style-seven {
+    height: 30px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+}
+hr.style-seven:before { /* Not really supposed to work, but does */
+    display: block;
+    content: "";
+    height: 30px;
+    margin-top: -31px;
+    border-style: solid;
+    border-color: black;
+    border-width: 0 0 1px 0;
+    border-radius: 20px;
+}
+
+img.details{
+	width:33%;
+	margin: 15px auto;
+}
+
+#copyright {
+	margin-top: 40px;
+	text-align:center;
+}

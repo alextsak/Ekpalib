@@ -33,7 +33,7 @@ include './database/Model/User.php';
 	<div class="container">
 		<div class=row>
 			<div class="col-sm-8">
-			<button id="btn-debug" class="btn btn-default"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></button>
+			<!--  <button id="btn-debug" class="btn btn-default"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></button>-->
 				<header>
 					<div class="logo">
 						<a href=""> <img  src="images/ekpalib-logo.png" alt="Smiley face"></a>

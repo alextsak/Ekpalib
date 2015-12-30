@@ -52,6 +52,7 @@ else {
 	getPage('pages', 'main');
 }
 
+
 include './inc/footer.php';
 
 ?>

@@ -37,23 +37,7 @@ class Material{
 				<li>
 					<div class="title">
 						<a href="#"><?php echo $row['title'];?></a>
-						<?php/* $url_path = $_SERVER['QUERY_STRING'];
-								
-								$url_path = '?' .  $url_path;
-								
-								$action="";
-								if(strpos( $url_path, '&action')){
-									$last_amber = strrpos( $url_path, '&action');
-									$last_word = substr( $url_path, $last_amber);
-									$url_path = substr( $url_path, 0, $last_amber);
-									$action = "&action=remove&materialID=";
-								}
-								else {
-									$action = "action=remove-from-cart&materialID=";
-								}*/
-								
-        						?>
-        						
+			
 							<form method="post" action="<?php echo $_SERVER['REQUEST_URI']?>">
         					<!--  <input type="submit" name="removeBtn" value="x"/> -->
         					<button type="submit" name="removeBtn" class="btn btn-primary btn-xs">
@@ -111,7 +95,11 @@ class Material{
 				                   	<td><?php echo $row['isbn']; ?></td>
 				                   	<td>Science Library</td>
 			                 		<td><?php echo $row['availability']; ?></td>
-									<td><?php echo '<h5><a href="#">View</a>&nbsp | &nbsp<a href="#">Details</a></h5>'?></td>
+									<td>
+										<button class="btn btn-default" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>)">Details</button>
+										&nbsp | &nbsp<h5><a href="#">View</a></h5>
+										
+									</td>
 			                   </tr>
 		                   </tbody>
 		                   <?php
@@ -199,7 +187,11 @@ class Material{
 	                 		<td><a href="<?php echo $url_path."&action=add&materialID=" . $row['MaterialID']?>" class="glyphicon glyphicon-shopping-cart" style="color:rgb(255,0,0);">
 							</a></td>
 		                   	
-							<td><?php echo '<h5><a href="#">View</a>&nbsp | &nbsp<a href="#">Details</a></h5>'?></td>
+							<td>
+								<button class="btn btn-primary btn-xs" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>)">Details</button>
+								&nbsp | &nbsp<button class="btn btn-warning btn-xs" type="button">View</button
+										
+							</td>
 	                   </tr>
                    </tbody>
                    <?php

@@ -36,7 +36,7 @@ if(isset($_POST['searchbooks'])){
 	</div>
 
 	
-	<div style="border-style: solid; border-top: thick double #000000;"></div>
+	<hr class="style-seven">
 	<div >
     	<table id="results-grid">
     	<?php   		
