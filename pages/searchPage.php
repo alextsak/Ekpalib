@@ -28,7 +28,7 @@ if(isset($_POST['searchbooks'])){
 <div>
 <?php //echo $_SERVER['REQUEST_URI'];?>
 	<div>
-		<h3 id="reasultsHeader">Search Results</h3>
+		<h3 id="reasultsHeader">Αποτελέσματα Αναζήτησης</h3>
 		<?php  if(isset($message)){ 
             echo "<h3 style=\"color:red;\">$message</h3>"; 
         	}  
@@ -51,7 +51,7 @@ if(isset($_POST['searchbooks'])){
 			
 		</table>
 		<div>
-			<a href="?page=confirmLoan" id="confirmLoan-Button" type="button" class="btn btn-default">Confirm Loan
+			<a href="?page=confirmLoan" id="confirmLoan-Button" type="button" class="btn btn-default">Επιβεβαίωση Δανεισμού
       			<span class="glyphicon glyphicon-chevron-right"></span> 
     		</a>
 		</div>

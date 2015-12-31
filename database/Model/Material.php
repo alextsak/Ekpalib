@@ -111,13 +111,13 @@ class Material{
 		{
 			?><thead>
 		         		<tr>
-		         			<th><?php echo 'Title';?></th>
-		         	      					<th><?php echo 'Category';?></th>
-		         	      					<th><?php echo 'Author(s)';?></th>
+		         			<th><?php echo 'Τίτλος';?></th>
+		         	      					<th><?php echo 'Κατηγορία';?></th>
+		         	      					<th><?php echo 'Συγγραφέας(εις)';?></th>
 		         	      					<th><?php echo 'ISBN';?></th>
-		         	      					<th><?php echo 'Library';?></th>
-		         	      					<th><?php echo 'Availability';?></th>
-		         	      					<th><?php echo 'Options'?></th>
+		         	      					<th><?php echo 'Βιβλιοθήκη';?></th>
+		         	      					<th><?php echo 'Διαθεσιμότητα';?></th>
+		         	      					<th><?php echo 'Επιλογές'?></th>
 		         	   	</tr>
 		         	  </thead>
 		         	  <?php 
@@ -133,8 +133,8 @@ class Material{
 				                   	<td>Science Library</td>
 			                 		<td><?php echo $row['availability']; ?></td>
 									<td>
-										<button class="btn btn-default" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>)">Details</button>
-										&nbsp | &nbsp<h5><a href="#">View</a></h5>
+										<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>)"><span class="glyphicon glyphicon-info-sign"></span></button>
+								&nbsp | &nbsp<button class="btn btn-warning btn-sm" type="button"><span class="glyphicon glyphicon-new-window"></span></button>
 										
 									</td>
 			                   </tr>
@@ -198,14 +198,14 @@ class Material{
          {
          	?><thead>
          		<tr>
-         			<th><?php echo 'Title';?></th>
-         	      					<th><?php echo 'Category';?></th>
-         	      					<th><?php echo 'Author(s)';?></th>
+         			<th><?php echo 'Τίτλος';?></th>
+         	      					<th><?php echo 'Κατηγορία';?></th>
+         	      					<th><?php echo 'Συγγραφέας(εις)';?></th>
          	      					<th><?php echo 'ISBN';?></th>
-         	      					<th><?php echo 'Library';?></th>
-         	      					<th><?php echo 'Availability';?></th>
-         	      					<th><?php echo 'Add to cart';?></th>
-         	      					<th><?php echo 'Options'?></th>
+         	      					<th><?php echo 'Βιβλιοθήκη';?></th>
+         	      					<th><?php echo 'Διαθεσιμότητα';?></th>
+         	      					<th><?php echo 'Προσθήκη στο Καλάθι';?></th>
+         	      					<th><?php echo 'Επιλογές'?></th>
          	   	</tr>
          	  </thead>
          	  <?php 
@@ -231,12 +231,12 @@ class Material{
         						
         						
         						?>
-	                 		<td><a href="<?php echo $url_path."&action=add&materialID=" . $row['MaterialID']?>" class="glyphicon glyphicon-shopping-cart"></span>
+	                 		<td><a href="<?php echo $url_path."&action=add&materialID=" . $row['MaterialID']?>"><span class="glyphicon glyphicon-shopping-cart"></span>
 							</a></td>
 		                   	
 							<td>
-								<button class="btn btn-primary btn-xs" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>)">Details</button>
-								&nbsp | &nbsp<button class="btn btn-warning btn-xs" type="button">View</button
+								<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>)"><span class="glyphicon glyphicon-info-sign"></span></button>
+								&nbsp | &nbsp<button class="btn btn-warning btn-sm" type="button"><span class="glyphicon glyphicon-new-window"></span></button>
 										
 							</td>
 	                   </tr>
@@ -312,8 +312,8 @@ class Material{
             if($current_page!=1)
             {
                $previous =$current_page-1;
-               echo "<a href='".$self."&page_no=1'>First</a>&nbsp;&nbsp;";
-               echo "<a href='".$self."&page_no=".$previous."'>Previous</a>&nbsp;&nbsp;";
+               echo "<a href='".$self."&page_no=1'>Πρώτο</a>&nbsp;&nbsp;";
+               echo "<a href='".$self."&page_no=".$previous."'>Προηγούμενο</a>&nbsp;&nbsp;";
             }
             for($i=1;$i<=$total_no_of_pages;$i++)
             {
@@ -329,8 +329,8 @@ class Material{
    			if($current_page!=$total_no_of_pages)
    			{
         		$next=$current_page+1;
-        		echo "<a href='".$self."&page_no=".$next."'>Next</a>&nbsp;&nbsp;";
-       		 	echo "<a href='".$self."&page_no=".$total_no_of_pages."'>Last</a>&nbsp;&nbsp;";
+        		echo "<a href='".$self."&page_no=".$next."'>Επόμενο</a>&nbsp;&nbsp;";
+       		 	echo "<a href='".$self."&page_no=".$total_no_of_pages."'>Τελευταίο</a>&nbsp;&nbsp;";
    			}
    		?></td></tr><?php
   		}

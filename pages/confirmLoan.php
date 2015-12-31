@@ -14,9 +14,9 @@ if(isset($_POST['empty_cart'])){
 
 <div>
 	<div>
-		<h3 id="reasultsHeader">Confirm Loan</h3>
+		<h3 id="reasultsHeader">Επιβεβαίωση Δανεισμού</h3>
 		<form method="post" action="?page=searchPage"> 
-		<button type="submit" name="empty_cart">Empty Cart</button> 
+		<button type="submit" class="btn btn-primary" name="empty_cart">Καθαρισμός Καροτσιού</button> 
 		</form> 		 
 		
 	</div>
@@ -30,7 +30,7 @@ if(isset($_POST['empty_cart'])){
        		 ?> 
 		</table>
 		<div>
-			<a href="?page=confirmLoan" id="confirmLoan-Button" type="button" class="btn btn-default">Loan Books
+			<a href="?page=confirmLoan" id="confirmLoan-Button" type="button" class="btn btn-default">Δανεισμός
       			<span class="glyphicon glyphicon-chevron-right"></span> 
     		</a>
 		</div>
