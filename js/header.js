@@ -12,3 +12,23 @@ $(document).ready(function(){
 	});
 
 });
+
+function error_messages(message){
+
+	var data = {"message" : message};
+	jQuery.ajax({
+		url : "/Ekpalib/inc/error.php",
+		method: "post",
+		data : data,
+		success : function(data){
+			jQuery('body').append(data);
+			jQuery('#error-modal').modal('toggle');
+			},
+		error : function(){
+		alert("Something went wrong");
+			}
+
+		});
+}
+
+

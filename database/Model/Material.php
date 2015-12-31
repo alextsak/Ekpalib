@@ -153,20 +153,31 @@ class Material{
 			$stmt->execute();
 			if($stmt->rowCount() != 0) {
 				while($row=$stmt->fetch(PDO::FETCH_ASSOC)) {
-					 
-					$_SESSION['cart'][$row['MaterialID']]=array(
-							"title" => $row['title'],
-							"category" => $row['category'],
-							"author" => $row['author'],
-							"ISBN" => $row['isbn'],
-							"Library" => 'Science Library',
-							"availability" => $row['availability']
-					);
+
+					if(intval($row['availability']) == 0) {
+						$message = "This Material is not available.";
+						return $message;
+							
+					} 
+					else {
+						$_SESSION['cart'][$row['MaterialID']]=array(
+								"title" => $row['title'],
+								"category" => $row['category'],
+								"author" => $row['author'],
+								"ISBN" => $row['isbn'],
+								"Library" => 'Science Library',
+								"availability" => $row['availability']
+						);
+						return "ok";
+					}
+					
 					 
 				}
+				
 			}
 			else {
-				$message="This product id it's invalid!";
+				$message="This material id is invalid!";
+				return $message;
 			}
 				
 				
@@ -174,14 +185,13 @@ class Material{
 	}
 	
 	
-	public function dataview($query,$term)
+	public function results_view($query,$term)
     {
          $stmt = $this->db->prepare($query);
-        // $quoted_term = $this->db->quote($term);
-         //echo $query . ' - ' . $quoted_term;
+       
          $term = '%'.$term.'%';
          $stmt->bindParam(1,$term);
-         //echo $stmt;
+        
          $stmt->execute();
         
          if($stmt->rowCount()>0)
@@ -216,7 +226,7 @@ class Material{
         							$last_amber = strrpos( $url_path, '&action');
         							$last_word = substr( $url_path, $last_amber);
         							$url_path = substr( $url_path, 0, $last_amber);
-        							//echo $url_path;
+        							
         						}
         						
         						

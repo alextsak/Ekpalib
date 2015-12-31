@@ -45,7 +45,7 @@ if(isset($_POST['searchbooks'])){
        		
        		$query = $material->query_easy_search($_SESSION['term'], $_SESSION['genre'],$_SESSION['keyword']);
        		$newquery = $material->paging($query,$records_per_page);
-       		$material->dataview($newquery, $_SESSION['term']);
+       		$material->results_view($newquery, $_SESSION['term']);
        		$material->paginglink($query,$_SESSION['term'],$records_per_page);
  		?> 
 			

@@ -9,7 +9,7 @@ include './database/Model/User.php';
 <html>
 <head>
 		<base href="http://localhost:5555/Ekpalib/">
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
    		<meta http-equiv="X-UA-Compatible" content="IE=edge">
    		<meta name="viewport" content="width=device-width, initial-scale=1">
 	 	<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -148,7 +148,11 @@ include './database/Model/User.php';
 				
 						/* make query to database and set the session accordingly */
 						$material = new Material();
-						$material->query_data_to_cart($materialID, $_SESSION['genre']);
+						$message = $material->query_data_to_cart($materialID, $_SESSION['genre']);
+						if($message != "ok") {
+							echo "<script>error_messages('$message');</script>";
+							
+						}
 						
 					}
 				

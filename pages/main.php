@@ -144,6 +144,7 @@
 	  <div  class="tab-content">
 	  
             <div class="tab-pane active" id="NewsAndEvents">
+           
             </div>
               
             <div class="tab-pane" id="StudyRooms">
