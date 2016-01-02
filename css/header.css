@@ -5,6 +5,18 @@
 	position:absolute;
 }
 
+.popcart {
+    z-index: 999999;
+    background: url(images/f-bg.png);
+    display: none;
+    position: absolute;
+    right: 13%;
+    width: 420px;
+    padding: 15px;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 1px 1px 0px rgba(0,0,0, .2);
+}
+
 #console-debug {
 	position:absolute;
 	top: 50px;
@@ -23,7 +35,7 @@
 	border: 1px solid #E5E5E5;
 	margin-top:6px;
 	border-radius: 3px;
-	margin-left: -40px;
+	margin-left: -60px;
 	font-size:12px;
 	height: 28px;
 }

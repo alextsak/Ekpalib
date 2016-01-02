@@ -69,30 +69,12 @@ class Material{
 		{
 			while($row=$stmt->fetch(PDO::FETCH_ASSOC))
 			{
-				
-				?>
+			?>
 				<li>
-					<div class="title">
-						<a href="#"><?php echo $row['title'];?></a>
-			
-							<form method="post" action="<?php echo $_SERVER['REQUEST_URI']?>">
-        					<!--  <input type="submit" name="removeBtn" value="x"/> -->
-        					<button type="submit" name="removeBtn" class="btn btn-primary btn-xs">
-  								<i class="glyphicon glyphicon-trash"></i> 
-							</button>
-        					 <input name="id_to_remove" type="hidden" value="<?php echo $row['MaterialID'];?>"/>
-        					<!--  <a id="icon" class="glyphicon glyphicon-trash" href=""></a>  
-        				-->
-        				</form>
-        				
-						  
-					</div>  
+					
 				</li>
 				<li role="separator" class="divider"></li>
-				
-				<?php 
-				
-				
+			<?php 	
 			}
 		}
 	}

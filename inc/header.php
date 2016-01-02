@@ -60,7 +60,7 @@ include './database/Model/User.php';
 							<?php if(isset($_SESSION['username'])) {
 							
 							?><li
-								style="width: 150px; border: 1px solid #E5E5E5; margin-top: 6px; border-radius: 3px; margin-right: 25px;">
+								style="width: 150px; border: 1px solid #E5E5E5; margin-top: 6px; border-radius: 3px; margin-right: 40px;">
 								<ul class="nav navbar-nav">
 									<li class="dropdown" style="width: 150px;"><a href="#"
 										class="dropdown-toggle" data-toggle="dropdown"
@@ -68,7 +68,7 @@ include './database/Model/User.php';
 											<span class="glyphicon glyphicon-user"
 											style="float: left; top: 3px; margin-right: 5px;"></span>
 											<div
-												style="float: left; width: 100px; overflow: hidden; text-overflow: ellipsis; height: 20px; white-space: nowrap;"><?php $_SESSION['username']?>
+												style="float: left; width: 100px; overflow: hidden; text-overflow: ellipsis; height: 20px; white-space: nowrap;"><?php echo $_SESSION['username']?>
 												</div> <span class="glyphicon glyphicon-chevron-down"
 											style="font-size: 10px; float: right; top: 5px; right: 7px;">
 									
@@ -98,15 +98,15 @@ include './database/Model/User.php';
 								<?php
 					
 				} else {
-					
+					/* <i class="glyphicon glyphicon-log-in" style="right: -5px;"></i> */
 					?><li
-								style="width: 80px; border: 1px solid #E5E5E5; margin-top: 6px; border-radius: 3px; margin-right: 25px;">
-								<a href="?page=login_signup"
-								style="font-size: 12px; margin-top: 6px; position: relative; bottom: 4px; right: 5px;">Είσοδος
-									<i class="glyphicon glyphicon-log-in" style="right: -5px;"></i>
-							</a>
-							</li>
-							<?php
+						style="width: 120px; border: 1px solid #E5E5E5; margin-top: 6px; border-radius: 3px; margin-right: 40px;">
+						<a href="?page=login_signup"
+							style="font-size: 12px; margin-top: 6px; position: relative; bottom: 4px; right: 5px;">
+							Είσοδος | Εγγραφή
+						</a>
+					</li>
+					<?php
 				}
 				?>
 							
@@ -172,27 +172,39 @@ include './database/Model/User.php';
 					<div class="dropdown">
 						<button id="cart" class="btn btn-default " type="button"
 							data-toggle="dropdown">
-							Καρότσι <i><?php 
-					if(!isset($_SESSION['cart'])) {
-						echo '( 0 )';
-					}
-					else {
-						echo '( '.count($_SESSION['cart']) . ' )';
-					}
-				?></i> <i class="glyphicon glyphicon-shopping-cart"></i>
+							Καρότσι 
+							<i><?php 
+								if(!isset($_SESSION['cart'])) {
+									echo '( 0 )';
+								}
+								else {
+									echo '( '.count($_SESSION['cart']) . ' )';
+								}
+							?></i> 
+							<i class="glyphicon glyphicon-shopping-cart"></i>
 						</button>
-						<ul id="cart-menu" class="dropdown-menu"
-							aria-labelledby="dropdownMenu1">
-				<?php 
-					if(count($_SESSION['cart']) > 0){
-					
-						$material = new Material();
-						$material->add_to_upper_cart($_SESSION['genre']);
-					} else {
-						unset($_SESSION['cart']);
-					}
-				?>
-				</ul>
+						
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+							<li>
+								<div class="popcart" style="display: block;">
+									<table class="table table-condensed popcart-inner">
+										<tbody>
+											
+											<tr>
+												<td>
+												<a href="product.html"><img src="images/dummy-1.png" alt="" class="img-responsive"></a>
+												</td>
+												<td><a href="product.html">Casio Exilim Zoom</a><br><span>Color: green</span></td>
+												<td>1X</td>
+												<td>$138.80</td>
+												<td><a href=""><i class="fa fa-times-circle fa-2x"></i></a></td>
+											</tr>
+											
+										</tbody>
+									</table>
+								</div>
+							</li>
+						</ul>
 					</div>
 				</div>
 				<?php 
