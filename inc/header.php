@@ -188,7 +188,7 @@ include './database/Model/User.php';
 							<div class="modal-dialog">
 							      <div id="cart-window" class="modal-content">
 							        <div class="modal-header">
-							          <button id="header-close-button" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+							         <!--  <button id="header-close-button" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> -->
 							        </div>
 							        <div class="modal-body">
 							          <table class="table table-striped" id="tblGrid">
@@ -215,8 +215,8 @@ include './database/Model/User.php';
 							          </table>
 									</div>
 							        <div class="modal-footer">
-							          <button type="button" class="btn btn-default " data-dismiss="modal">Close</button>
-							          <button type="button" class="btn btn-primary">Save Changes</button>
+							          <button type="button" class="btn btn-default " data-dismiss="modal">Κλείσιμο</button>
+							          <button type="button" class="btn btn-primary">Επιβεβαίωση Δανεισμού</button>
 							        </div>
 											
 							      </div><!-- /.modal-content -->

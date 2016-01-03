@@ -43,6 +43,10 @@
 	height: 28px;
 }
 
+#tblGrid{
+	box-shadow:0px 0px;
+}
+
 .title{
 	position:relative;
 	top:3px;

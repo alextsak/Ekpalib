@@ -81,8 +81,10 @@ class Material{
 						<?php echo $row['isbn']; ?>
 					</td>
 					<td>
-						<button class="btn btn-primary btn-sm ">
-							<span class="glyphicon glyphicon-remove-circle"></span>
+						<button class="btn btn-link ">
+							<span class="glyphicon glyphicon-remove-circle" style="
+							    font-size: large;
+							"></span>
 						</button>
 					</td>
 				</tr>					
@@ -120,16 +122,22 @@ class Material{
 		                   ?>
 		  					<tbody>
 			                   	<tr>
-				                   	<td><?php echo $row['title']; ?></td>
+				                   	<td>
+				                   			<?php echo $row['title']; ?>
+				                   	</td>
 				                   	<td><?php echo $row['category']; ?></td>
 				                    <td><?php echo $row['author']; ?></td>
 				                   	<td><?php echo $row['isbn']; ?></td>
 				                   	<td>Science Library</td>
 			                 		<td><?php echo $row['availability']; ?></td>
 									<td>
-										<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>)"><span class="glyphicon glyphicon-info-sign"></span></button>
-								&nbsp | &nbsp<button class="btn btn-warning btn-sm" type="button"><span class="glyphicon glyphicon-new-window"></span></button>
-										
+										<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>)">
+											<span class="glyphicon glyphicon-info-sign" ></span></button>
+											&nbsp | &nbsp
+										<button class="btn btn-warning btn-sm" type="button">
+											<span class="glyphicon glyphicon-new-window" >
+											</span>
+										</button>
 									</td>
 			                   </tr>
 		                   </tbody>
@@ -208,7 +216,11 @@ class Material{
                    ?>
   					<tbody>
 	                   	<tr>
-		                   	<td><?php echo $row['title']; ?></td>
+		                   	<td>
+		                   		<div style="width:100px; text-align:center;">
+		                   			<?php echo $row['title']; ?>
+		                   		</div>		
+		                   	</td>
 		                   	<td><?php echo $row['category']; ?></td>
 		                    <td><?php echo $row['author']; ?></td>
 		                   	<td><?php echo $row['isbn']; ?></td>
@@ -225,12 +237,17 @@ class Material{
         						
         						
         						?>
-	                 		<td><a href="<?php echo $url_path."&action=add&materialID=" . $row['MaterialID']?>"><span class="glyphicon glyphicon-shopping-cart"></span>
+	                 		<td><a href="<?php echo $url_path."&action=add&materialID=" . $row['MaterialID']?>"><span class="glyphicon glyphicon-shopping-cart"  style="font-size:larger;"></span>
 							</a></td>
 		                   	
 							<td>
-								<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>)"><span class="glyphicon glyphicon-info-sign"></span></button>
-								&nbsp | &nbsp<button class="btn btn-warning btn-sm" type="button"><span class="glyphicon glyphicon-new-window"></span></button>
+								<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>)">
+									<span class="glyphicon glyphicon-info-sign" ></span>
+								</button>
+								&nbsp | &nbsp
+								<button class="btn btn-warning btn-sm" type="button">
+									<span class="glyphicon glyphicon-new-window"  ></span>
+								</button>
 										
 							</td>
 	                   </tr>

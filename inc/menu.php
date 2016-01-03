@@ -3,8 +3,13 @@
  	border-top: 3px solid #ddd
  }
  
- #botton_bordeline{
+ #bottom_bordeline{
  	margin-bottom:30px;
+ }
+ 
+ #site-path{
+ 	background:beige;
+ 	height:40px;
  }
  
  #tabs{
@@ -49,4 +54,12 @@
                
               
           	</ul> 
-<div id="botton_bordeline" class="borderline"></div>   	
+<div  id="bottom_bordeline" class="borderline"></div>
+
+<div  class="borderline"></div>
+	<div id="site-path">
+	
+	</div>
+<div id="bottom_bordeline" class="borderline"></div> 
+
+   	
