@@ -53,13 +53,24 @@
                </li>
                
               
-          	</ul> 
-<div  id="bottom_borderline" class="borderline"></div>
+          	</ul>
+          	<div  id="bottom_borderline" class="borderline"></div>
+          	<?php 
+          	if(!empty($_SERVER['QUERY_STRING'])) {
+          		
+          	
+          	?> 
+		
 
-<div  class="borderline"></div>
-	<div id="site-path">
-	
-	</div>
-<div id="bottom_borderline" class="borderline"></div> 
-
-   	
+		<div  class="borderline"></div>
+			<div id="site-path">
+			<?php 
+				$sitepath = sitepath_constructor();
+				echo $sitepath;
+			?>
+			</div>
+		<div id="bottom_borderline" class="borderline"></div>
+<?php 
+          	}
+?>
+    	

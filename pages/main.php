@@ -23,7 +23,7 @@
 	                    	</div>
 	                  	</div>
 		                <div class="row">
-		                  <form class="form-inline" id="search_books" action="?page=searchPage" method="POST">
+		                  <form class="form-inline" id="search_books" action="?page=resultsPage" method="POST">
 				                    <label class="sr-only" for="Search_Argument">Εισάγετε όρους αναζήτησης</label>
 				                    <input id="Search_Argument" class="form-control easy-search-text-input" type="text" placeholder="Εισάγετε όρους αναζήτησης" maxlength="255" size="25" name="term" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter search terms'">
 				                    <label class="sr-only" for="booksSearch_Code">Book Search</label>
@@ -57,7 +57,7 @@
 	                    </div> -->
 	                  </div>
 	                <div class="row">   
-	                  <form id="search_articles" class="form-inline" action="#" method="get">
+	                  <form id="search_articles" class="form-inline" action="?page=resultsPage" method="get">
 	                    <label for="artclSubject" class="sr-only">article</label>
 	                    <input id="artclSubject" class="form-control easy-search-text-input" type="text" placeholder="Εισαγωγή θέματος άρθρου" maxlength="255" size="25" name="keyword" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter article subject'">
 	                    <input type="hidden" alt="submit" value="direct" name="s2">
@@ -101,7 +101,7 @@
 	                    </div>
 	                  </div>
 		                <div class="row">   
-		                  <form class="form-inline" id="search_journals" action="#" method="get">
+		                  <form class="form-inline" id="search_journals" action="?page=resultsPage" method="get">
 		                    <label for="jnltitle" class="sr-only">Journal Title</label>
 		                    <input id="jnltitle" class="form-control easy-search-text-input es-text-no-select" type="text" placeholder="Enter journal title" maxlength="255" size="25" name="jnltitle" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter journal title'" aria-required="true">
 				                    <input type="hidden" alt="submit" value="gatewayjnltitle" name="project">
