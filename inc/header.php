@@ -170,7 +170,7 @@ include './database/Model/User.php';
 					
 				?><div class="col-sm-3">
 					<div class="dropdown">
-						<button id="cart" class="btn btn-default " type="button"
+						<button id="cart" class="btn btn-default " 
 							data-toggle="dropdown">
 							Καρότσι 
 							<i><?php 
@@ -183,26 +183,44 @@ include './database/Model/User.php';
 							?></i> 
 							<i class="glyphicon glyphicon-shopping-cart"></i>
 						</button>
-						
-						<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-							<li>
-								<div class="popcart" style="display: block;">
-									<table class="table table-condensed popcart-inner">
-										<tbody>
+						<ul class="dropdown-menu" id="dropdown">
+						<li>	
+							<div class="modal-dialog">
+							      <div id="cart-window" class="modal-content">
+							        <div class="modal-header">
+							          <button id="header-close-button" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+							        </div>
+							        <div class="modal-body">
+							          <table class="table table-striped" id="tblGrid">
+							            <thead id="tblHead">
+							              <tr>
+							                <th>Τίτλος</th>
+							                <th>Βιβλιοθήκη</th>
+							                <th>Isbn</th>
+							                <th>Επιλογή</th>
+							              </tr>
+							            </thead>
+							            
+							            <tbody>
+							              <?php 
+											if(count($_SESSION['cart']) > 0){
 											
-											<tr>
-												<td>
-												<a href="product.html"><img src="images/dummy-1.png" alt="" class="img-responsive"></a>
-												</td>
-												<td><a href="product.html">Casio Exilim Zoom</a><br><span>Color: green</span></td>
-												<td>1X</td>
-												<td>$138.80</td>
-												<td><a href=""><i class="fa fa-times-circle fa-2x"></i></a></td>
-											</tr>
+												$material = new Material();
+												$material->add_to_upper_cart($_SESSION['genre']);
+											} else {
+												unset($_SESSION['cart']);
+											}
+											?>
+							            </tbody>
+							          </table>
+									</div>
+							        <div class="modal-footer">
+							          <button type="button" class="btn btn-default " data-dismiss="modal">Close</button>
+							          <button type="button" class="btn btn-primary">Save Changes</button>
+							        </div>
 											
-										</tbody>
-									</table>
-								</div>
+							      </div><!-- /.modal-content -->
+							    </div><!-- /.modal-dialog -->
 							</li>
 						</ul>
 					</div>

@@ -5,16 +5,19 @@
 	position:absolute;
 }
 
-.popcart {
-    z-index: 999999;
-    background: url(images/f-bg.png);
-    display: none;
-    position: absolute;
-    right: 13%;
+#dropdown{
+	height: 320px;
     width: 420px;
-    padding: 15px;
-    border-radius: 0 0 5px 5px;
-    box-shadow: 1px 1px 0px rgba(0,0,0, .2);
+    left:-370px;
+}
+
+#header-close-button{
+	margin-top: -10px;	
+}
+
+#cart-window{
+	bottom:35px;
+	right: 75px;
 }
 
 #console-debug {

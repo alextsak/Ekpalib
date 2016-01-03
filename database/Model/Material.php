@@ -70,10 +70,22 @@ class Material{
 			while($row=$stmt->fetch(PDO::FETCH_ASSOC))
 			{
 			?>
-				<li>
-					
-				</li>
-				<li role="separator" class="divider"></li>
+				<tr>
+					<td>
+						<?php echo $row['title']; ?>
+					</td>
+					<td>
+						Science Library
+					</td>
+					<td>
+						<?php echo $row['isbn']; ?>
+					</td>
+					<td>
+						<button class="btn btn-primary btn-sm ">
+							<span class="glyphicon glyphicon-remove-circle"></span>
+						</button>
+					</td>
+				</tr>					
 			<?php 	
 			}
 		}
