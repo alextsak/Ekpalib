@@ -3,7 +3,7 @@
  	border-top: 3px solid #ddd
  }
  
- #bottom_bordeline{
+ #bottom_borderline{
  	margin-bottom:30px;
  }
  
@@ -54,12 +54,12 @@
                
               
           	</ul> 
-<div  id="bottom_bordeline" class="borderline"></div>
+<div  id="bottom_borderline" class="borderline"></div>
 
 <div  class="borderline"></div>
 	<div id="site-path">
 	
 	</div>
-<div id="bottom_bordeline" class="borderline"></div> 
+<div id="bottom_borderline" class="borderline"></div> 
 
    	

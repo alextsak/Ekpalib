@@ -19,13 +19,13 @@
 	                      		<h3><span class="glyphicon glyphicon-search"></span> Γρήγορη Αναζήτηση</h3>
 	                    	</div>
 	                    	<div class="col-sm-6">  
-	                      		<a class="pull-right hidden-xs" href="#">Σύνθετη Αναζήτηση</a>
+	                      		<a class="pull-right hidden-xs" href="?page=advancedSearch">Σύνθετη Αναζήτηση</a>
 	                    	</div>
 	                  	</div>
 		                <div class="row">
 		                  <form class="form-inline" id="search_books" action="?page=searchPage" method="POST">
-				                    <label class="sr-only" for="Search_Argument">Enter Search Terms</label>
-				                    <input id="Search_Argument" class="form-control easy-search-text-input" type="text" placeholder="Enter search terms" maxlength="255" size="25" name="term" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter search terms'">
+				                    <label class="sr-only" for="Search_Argument">Εισάγετε όρους αναζήτησης</label>
+				                    <input id="Search_Argument" class="form-control easy-search-text-input" type="text" placeholder="Εισάγετε όρους αναζήτησης" maxlength="255" size="25" name="term" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter search terms'">
 				                    <label class="sr-only" for="booksSearch_Code">Book Search</label>
 				                    <select id="booksSearch_Code" class="form-control" name="keyword" aria-required="true">
 				                      <option value="key">Λέξη-Κλειδί</option>
@@ -52,14 +52,14 @@
 	                    <div class="col-sm-6">
 	                      <h3><span class="glyphicon glyphicon-search"></span> Γρήγορη Αναζήτηση</h3>
 	                    </div>
-	                    <div class="col-sm-6">  
-	                      <a class="pull-right hidden-xs" href="#">Σύνθετη Αναζήτηση</a>
-	                    </div>
+	                    <!-- <div class="col-sm-6">  
+	                      <a class="pull-right hidden-xs" href="?page=advancedSearch">Σύνθετη Αναζήτηση</a>
+	                    </div> -->
 	                  </div>
 	                <div class="row">   
 	                  <form id="search_articles" class="form-inline" action="#" method="get">
 	                    <label for="artclSubject" class="sr-only">article</label>
-	                    <input id="artclSubject" class="form-control easy-search-text-input" type="text" placeholder="Enter article subject" maxlength="255" size="25" name="keyword" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter article subject'">
+	                    <input id="artclSubject" class="form-control easy-search-text-input" type="text" placeholder="Εισαγωγή θέματος άρθρου" maxlength="255" size="25" name="keyword" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter article subject'">
 	                    <input type="hidden" alt="submit" value="direct" name="s2">
 	                    <input type="hidden" alt="submit" value="gatewayjnlarticle" name="project">
 	                      <label for="selection2" class="sr-only">choose the subject</label>
