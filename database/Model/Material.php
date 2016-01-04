@@ -81,11 +81,16 @@ class Material{
 						<?php echo $row['isbn']; ?>
 					</td>
 					<td>
-						<button class="btn btn-link ">
-							<span class="glyphicon glyphicon-remove-circle" style="
-							    font-size: large;
-							"></span>
-						</button>
+					<form method="post" action="<?php echo $_SERVER['REQUEST_URI']?>">
+        					
+							<button type="submit" name="removeBtn" class="btn btn-link">
+								<span class="glyphicon glyphicon-remove-circle" style="
+							    font-size: large;"></span>
+							</button>
+        					 <input name="id_to_remove" type="hidden" value="<?php echo $row['MaterialID'];?>"/>
+        					
+        				</form>
+						
 					</td>
 				</tr>					
 			<?php 	
