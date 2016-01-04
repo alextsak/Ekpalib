@@ -27,7 +27,7 @@ require_once './utilities/helpers.php';
 	type="text/javascript"></script>
 <script src="js/Login-Signup.js"></script>
 <script src="js/header.js"></script>
-<script src="js/searchPage.js"></script>
+<script src="js/confirmLoan.js"></script>
 <script src="bootstrap/bootstrap.js"></script>
 <script src="js/Login-Signup.js"></script>
 <title>Βιβλιοθήκες ΕΚΠΑ</title>

@@ -12,6 +12,11 @@ if(isset($_POST['empty_cart'])){
 ?>
 <style>
 
+#loan-Button{
+    position: relative;
+    float: right;
+}
+
 </style>
 
 <h3 style="margin-left:450px;">Επιβεβαίωση Δανεισμού</h3>
@@ -26,21 +31,16 @@ if(isset($_POST['empty_cart'])){
        	</tbody>
 		</table>
 		
-</div>
-
-
-	<!-- <div>
-		<h3 id="reasultsHeader">Επιβεβαίωση Δανεισμού</h3>
-		<form method="post" action="?page=searchPage"> 
-		<button type="submit" class="btn btn-primary" name="empty_cart">Καθαρισμός Καροτσιού</button> 
-		</form> 		 
+		<div class="checkbox" style="position: relative;left: 450px;top: 30px;">
+		  <label>
+		  	<input id="terms" type="checkbox" value=""><a href="#"> Αποδοχέχομαι τους όρους δανεισμού</a>
+		  </label>
+		</div>
 		
-	</div> -->
-	<!-- <div >
-    	
 		<div>
-			<a href="?page=confirmLoan" id="confirmLoan-Button" type="button" class="btn btn-default">Δανεισμός
+			<a href="#" id="loan-Button" type="button" class="btn btn-default">Δανεισμός
       			<span class="glyphicon glyphicon-chevron-right"></span> 
     		</a>
 		</div>
-   	</div> -->
+		
+</div>
