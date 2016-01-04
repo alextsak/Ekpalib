@@ -1,5 +1,5 @@
 <?php
-require '../database/ConnectionDB/dbConnection.php';
+
 
 class Libraries{
 	
@@ -18,6 +18,27 @@ class Libraries{
 			self::$instance = new self();
 		}
 		return self::$instance;
+	}
+	
+	
+	public function get_libraries_names(){
+	
+		
+	
+		$st = $this->db->prepare("SELECT Name FROM libraries");
+		
+		$st->execute();
+		if($st->rowCount()>0){
+			
+			while($row=$st->fetch(PDO::FETCH_ASSOC)){
+				
+				echo '<option>'.$row['Name'].'</option>';
+			}
+			
+		}
+		else {
+			echo '<script>alert(\"Errror\")</script>';
+		}
 	}
 	
 	public function QuickSearch($params){
@@ -59,7 +80,7 @@ class Libraries{
 	
 		// it might need another insertion
 	
-		$st = $this->db->prepare("INSERT INTO Libraries (`idLibraries`,`Name`,`Site`,`Address`,`Telephone`,`Fax`,`Informations`) VALUES (?,?‚?‚?,?,?,?);");
+		$st = $this->db->prepare("INSERT INTO Libraries (`idLibraries`,`Name`,`Site`,`Address`,`Telephone`,`Fax`,`Informations`) VALUES (?,?ï¿½?ï¿½?,?,?,?);");
 		$st->bindParam(1, $params[0]);
 		$st->bindParam(2, $params[1]);
 		$st->bindParam(3, $params[2]);

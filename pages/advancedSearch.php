@@ -39,34 +39,36 @@
 </style>
 
 
+
+
 <h4 style="margin-left:400px;text-decoration: underline;margin-bottom: 25px;">Αναζήτηση βιβλίων, περιοδικών και άρθρων</h4>
 
 <div id="searchContainer" class="col-xs-12">		
 	
-	<div class="col-md-2" >
+	<div class="col-md-2">
 			<form class="form-horizontal">
 			<h5 style="text-decoration: underline;">1. Τύπος αντικειμένου</h5>
 				<div class="radio">
 	  				<label>
-	    				<input type="radio" name="all" >
+	    				<input type="checkbox" name="all" id="all"checked>
 					    Όλα
 					</label>
 				</div>
 				<div class="radio">
 	  				<label>
-	    				<input type="radio" name="books" >
+	    				<input type="checkbox" name="books" id="books">
 					    Συγγράματα
 					</label>
 				</div>
 				<div class="radio">
 	  				<label>
-	    				<input type="radio" name="articles" >
+	    				<input type="checkbox" name="articles" id="articles">
 					    Άρθρα
 					</label>
 				</div>
 				<div class="radio">
 	  				<label>
-	    				<input type="radio" name="magazines">
+	    				<input type="checkbox" name="magazines" id="magazines">
 					    Περιοδικά
 					</label>
 				</div>
@@ -81,16 +83,7 @@
 				  <option>
 				  		Όλες
 				  </option>
-				  <option>2</option>
-				  <option>3</option>
-				  <option>4</option>
-				  <option>5</option>
-				  <option>5</option>
-				  <option>5</option>
-				  <option>5</option>
-				  <option>5</option>
-				  <option>5</option>
-				  <option>5</option>
+				  
 				</select>
 			</form>
 	</div>
@@ -141,19 +134,14 @@
 			<form class="form-horizontal">
 			<h5 style="text-decoration: underline;">4. Επιλογή Βιβλιοθήκης</h5>
 				<select id="options"  class="form-control">
-				  <option>
-				  		Όλες
-				  </option>
-				  <option>2</option>
-				  <option>3</option>
-				  <option>4</option>
-				  <option>5</option>
-				  <option>5</option>
-				  <option>5</option>
-				  <option>5</option>
-				  <option>5</option>
-				  <option>5</option>
-				  <option>5</option>
+				  <option>Όλες</option>
+				 <?php
+				 if($_GET['page'] == 'advancedSearch') { 
+				 	
+				 	$libraries = new Libraries();
+				 	$libraries->get_libraries_names();
+				 }
+				?>
 				</select>
 			</form>
 	</div>

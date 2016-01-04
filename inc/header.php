@@ -4,6 +4,7 @@ error_reporting(E_ALL);
 require './database/ConnectionDB/dbConnection.php';
 include './database/Model/Material.php';
 include './database/Model/User.php';
+include './database/Model/Libraries.php';
 require_once './utilities/helpers.php';
 
 ?>
@@ -28,6 +29,7 @@ require_once './utilities/helpers.php';
 <script src="js/Login-Signup.js"></script>
 <script src="js/header.js"></script>
 <script src="js/confirmLoan.js"></script>
+<script src="js/advancedSearch.js"></script>
 <script src="bootstrap/bootstrap.js"></script>
 <script src="js/Login-Signup.js"></script>
 <title>Βιβλιοθήκες ΕΚΠΑ</title>
