@@ -57,6 +57,24 @@ class Material{
 		}
 	}
 	
+	function get_categories($material){
+		
+		if($material == "all"){
+			$query = 'SELECT DISTINCT(category) FROM books,articles';
+		}
+		else {
+			$query = 'SELECT DISTINCT(category) FROM ' . $material;
+		}
+		
+		$stmt = $this->db->prepare($query);
+		$stmt->execute();
+		if($stmt->rowCount()>0)
+		{
+			return $stmt->fetch(PDO::FETCH_ASSOC);
+		}
+		return -1;
+	}
+	
 	public function add_to_upper_cart($genre) {
 		$query = 'select * from ' . $genre . ' where MaterialID IN (';
 		foreach($_SESSION['cart'] as $id => $value) {

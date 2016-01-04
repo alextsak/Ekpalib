@@ -80,10 +80,7 @@
 			<form class="form-horizontal">
 			<h5 style="text-decoration: underline;">2. Επιλογή Κατηγορίας</h5>
 				<select id="options"  class="form-control">
-				  <option>
-				  		Όλες
-				  </option>
-				  
+				 
 				</select>
 			</form>
 	</div>
