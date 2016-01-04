@@ -1,15 +1,27 @@
 <style>
-
-#modal_1{
-    width:initial;
-}
-
-#modal_2{
-	width:initial;
-}
-
 #options{
-	height:150px;
+	height: 30px;
+    width: 100%
+}
+
+#searchContainer{
+	margin-bottom:30px;
+	border: 1px solid black;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	height:200px;
+	border-style: double
+}
+
+.col-md-2,.col-md-6{
+	margin-top:5px;
+}
+
+#searchButton{
+    position: relative;
+    float: right;
+    margin-top: 80px;
 }
 
 #verticalLine{
@@ -27,108 +39,127 @@
 </style>
 
 
-<h4 style="margin-left:280px;">Αναζήτηση βιβλίων, περιοδικών και άρθρων με πολλαπλά κριτήρια</h4>
-<hr class="style-seven">
+<h4 style="margin-left:400px;text-decoration: underline;margin-bottom: 25px;">Αναζήτηση βιβλίων, περιοδικών και άρθρων</h4>
 
-<div class="col-xs-12" style="background: beige; margin-bottom:30px; ">		
+<div id="searchContainer" class="col-xs-12">		
 	
-	<div class="col-md-3">
-		<div id="modal_1" class="modal-dialog">
-	        <div class="modal-content" style="width:90%">
-	            <div class="modal-header">
-	                <h5 class="modal-title" style="text-align: center;text-decoration: underline;">1.Επιλογή ερευνητικού πεδίου </h5>
-	            </div>
-	            <div class="modal-body" style="oveflow-y:auto; max-height: calc(100vh - 210px);">
-		             	<select id="options" multiple class="form-control">
-						  <option>
-						  		Φυσική
-						  </option>
-						  <option>2</option>
-						  <option>3</option>
-						  <option>4</option>
-						  <option>5</option>
-						  <option>5</option>
-						  <option>5</option>
-						  <option>5</option>
-						  <option>5</option>
-						  <option>5</option>
-						  <option>5</option>
-						</select>
-	            </div>
-	        </div>
-   		</div>
+	<div class="col-md-2" >
+			<form class="form-horizontal">
+			<h5 style="text-decoration: underline;">1. Τύπος αντικειμένου</h5>
+				<div class="radio">
+	  				<label>
+	    				<input type="radio" name="all" >
+					    Όλα
+					</label>
+				</div>
+				<div class="radio">
+	  				<label>
+	    				<input type="radio" name="books" >
+					    Συγγράματα
+					</label>
+				</div>
+				<div class="radio">
+	  				<label>
+	    				<input type="radio" name="articles" >
+					    Άρθρα
+					</label>
+				</div>
+				<div class="radio">
+	  				<label>
+	    				<input type="radio" name="magazines">
+					    Περιοδικά
+					</label>
+				</div>
+			</form>
 	</div>
-	
-	<div class="col-md-7">
-		<div id="modal_2" class="modal-dialog">
-	        <div  class="modal-content"  style="width:90%;height:230px;">
-	            <div class="modal-header">
-	                <h5 class="modal-title" style="text-align: center;text-decoration: underline;">2.Εισαγωγή όρων αναζήτησης </h5>
-	            </div>
-	            <div class="modal-body">
-	            	<form class="form-horizontal"> 
-						<div class="col-sm-12" style="margin-top: 15px;left: 20px;">
-							<div class="col-md-6">
-					        	<div class="form-group">
-									    <div class="col-sm-10">
-									      <input type="email" class="form-control" id="keyword" placeholder="Λέξη κλειδί ή Φράση">
-									    </div>
-								</div>
-							</div>
-							
-							<div class="col-md-6">
-								<div class="form-group">
-									<!-- <label for="inputEmail3" class="col-sm-2 control-label">Όνομα Συγγραφέα</label> -->
-									    <div class="col-sm-10">
-									      <input type="email" class="form-control" id="inputEmail3" placeholder="Συγγραφέας">
-									    </div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-sm-12" style="left: 20px;">
-							<div class="col-md-6">
-								<div class="form-group">
-							    	<div class="col-sm-10">
-							      		<input type="email" class="form-control" id="inputEmail3" placeholder="Βιβλιοθήκη">
-							    	</div>
-							  	</div>
-							</div>
-							
-							<div class="col-md-6">
-								<div class="form-group">
-							    	<div class="col-sm-10">
-							      		<input type="email" class="form-control" id="inputEmail3" placeholder="ISBN">
-							    	</div>
-							  	</div>
-							</div>
-						</div>
-						
-						
-					</form>
-	            </div>
-	        </div>
-    	</div> 
-	</div>
+    
     
     <div class="col-md-2">
-		<div id="modal_1" class="modal-dialog">
-	        <div class="modal-content" style="height:230px;width: 140%;right: 55px;">
-	            <div class="modal-header">
-	                <h5 class="modal-title" style="text-align: center;text-decoration: underline;">3.Ολοκλήρωση αναζήτησης </h5>
-	            </div>
-	            <div class="modal-body" >
-             		<button type="button" class="btn btn-default" style="position: relative;left: 45px;top: 30px;">
-      					<span class="glyphicon glyphicon-search"></span> Search
-    				</button>
-	            </div>
-	        </div>
-   		</div>
+			<form class="form-horizontal">
+			<h5 style="text-decoration: underline;">2. Επιλογή Κατηγορίας</h5>
+				<select id="options"  class="form-control">
+				  <option>
+				  		Όλες
+				  </option>
+				  <option>2</option>
+				  <option>3</option>
+				  <option>4</option>
+				  <option>5</option>
+				  <option>5</option>
+				  <option>5</option>
+				  <option>5</option>
+				  <option>5</option>
+				  <option>5</option>
+				  <option>5</option>
+				</select>
+			</form>
 	</div>
-    <!-- <hr id="verticalLine" class="style-seven" > -->
-    
-    
-     
+	
+	<div class="col-md-6">
+		<form class="form-horizontal">
+			<h5 style="text-decoration: underline;padding-left:30px;">3.Όροι αναζήτησης</h5> 
+				<div class="col-sm-12">
+					<div class="col-md-6">
+			        	<div class="form-group">
+							    <div class="col-sm-10">
+							      <input class="form-control" id="keyword" placeholder="Λέξη κλειδί">
+							    </div>
+						</div>
+					</div>
+					
+					<div class="col-md-6">
+						<div class="form-group">
+							<!-- <label for="inputEmail3" class="col-sm-2 control-label">???µa S????af?a</label> -->
+							    <div class="col-sm-10">
+							      <input  class="form-control" id="name" placeholder="Συγγαφέας">
+							    </div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-sm-12" >
+					<div class="col-md-6">
+						<div class="form-group">
+					    	<div class="col-sm-10">
+					      		<input class="form-control" id="publisher" placeholder="Εκδότης">
+					    	</div>
+					  	</div>
+					</div>
+					
+					<div class="col-md-6">
+						<div class="form-group">
+					    	<div class="col-sm-10">
+					      		<input class="form-control" id="isbn" placeholder="ISBN">
+					    	</div>
+					  	</div>
+					</div>
+				</div>	
+			</form>
+	</div>
+	
+	<div class="col-md-2">
+			<form class="form-horizontal">
+			<h5 style="text-decoration: underline;">4. Επιλογή Βιβλιοθήκης</h5>
+				<select id="options"  class="form-control">
+				  <option>
+				  		Όλες
+				  </option>
+				  <option>2</option>
+				  <option>3</option>
+				  <option>4</option>
+				  <option>5</option>
+				  <option>5</option>
+				  <option>5</option>
+				  <option>5</option>
+				  <option>5</option>
+				  <option>5</option>
+				  <option>5</option>
+				</select>
+			</form>
+	</div>
+    <button id="searchButton" type="button" class="btn btn-primary" >
+      	<span class="glyphicon glyphicon-search"></span> Search
+    </button> 
 </div>
 
 <!-- <div id="bottom_borderline" class="borderline"></div> -->
