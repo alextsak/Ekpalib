@@ -9,7 +9,7 @@ function getPage($dir, $filename, $default = false) {
 			include $path . '/' . $filename . '.php';
 			return true;
 		}
-		
+	
 		if($default) {
 			if($default == 'search_pagination'){
 				include $path . '/' . $default . '.php';

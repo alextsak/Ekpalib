@@ -1,7 +1,22 @@
-<?php 
+<script type="text/javascript">
+function checkSubmit(){
+	
+	var term = $("#Search_Argument").val();
+	if(term == ""){
+		console.log("bad");
+		$('#search_books').attr('action', '');
+		var message = "Παρακαλώ εισάγετε όρο αναζήτησης";
+		error_messages(message);
+	} else {
+		$('#search_books').attr('action', '?page=resultsPage');
+		console.log("good");
+		$('#search_books').submit();
+	}
+}
 
 
-?>
+
+</script>
 <div >
 	  <!-- Nav tabs -->
 	  <ul id="main-tabs" class="nav nav-tabs" role="tablist">
@@ -37,6 +52,7 @@
 		    	        </div>
 		                <div class="row hidden-xs">
 		                  <div class="col-sm-6">
+		                  
 		                    <p>Αναζητήστε Βιβλίο με βάση Λέξη-Κλειδί, Τίτλο ή Συγγραφέα</p>
 		                  </div>
 		                </div>

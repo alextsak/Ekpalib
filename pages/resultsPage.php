@@ -1,5 +1,4 @@
 <?php
-//session_start(); 
 error_reporting(E_ALL);
 
 
@@ -8,13 +7,13 @@ if(isset($_POST['searchbooks'])){
 
 	$_SESSION['genre'] = 'books';
 	$_SESSION['term'] = $_POST['term'];
-
-
+	
 	if($_POST['keyword'] == 'key'){
 		$_SESSION['keyword'] = 'title';
 	} else {
 		$_SESSION['keyword'] = $_POST['keyword'];
 	}
+
 }
 
 
@@ -51,9 +50,27 @@ if(isset($_POST['searchbooks'])){
 			
 		</table>
 		<div>
-			<a href="?page=confirmLoan" id="confirmLoan-Button" type="button" class="btn btn-default">Επιβεβαίωση Δανεισμού
-      			<span class="glyphicon glyphicon-chevron-right"></span> 
-    		</a>
+		<?php 
+		if(!isset($_SESSION['username'])) {
+			?>
+			<a href="?page=login_signup" id="confirmLoan-Button" type="button" class="btn btn-default">Επιβεβαίωση Δανεισμού
+			<span class="glyphicon glyphicon-chevron-right"></span>
+			</a>
+		<?php }
+		elseif(isset($_SESSION['username']) && !isset($_SESSION['cart'])) {
+			$message = "Παρκαλώ εισάγετε αντικείμενα στο καρότσι σας";
+			echo "<script>error_messages('$message');</script>";
+		}
+		else {
+			
+			?><a href="?page=confirmLoan" id="confirmLoan-Button" type="button" class="btn btn-default">Επιβεβαίωση Δανεισμού
+			<span class="glyphicon glyphicon-chevron-right"></span>
+			</a>
+			
+		<?php 
+		}
+		?> 
+			
 		</div>
    	</div>
 </div>

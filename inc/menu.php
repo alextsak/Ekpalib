@@ -75,8 +75,6 @@
 <?php 
           	} else {
           		init_sitepath();
-          		
-          		
           	}
 ?>
     	

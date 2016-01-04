@@ -14,7 +14,7 @@ $(document).ready(function(){
 });
 
 function error_messages(message){
-
+	console.log(message);
 	var data = {"message" : message};
 	jQuery.ajax({
 		url : "/Ekpalib/inc/error.php",
@@ -30,5 +30,6 @@ function error_messages(message){
 
 		});
 }
+
 
 
