@@ -1,18 +1,34 @@
 <script type="text/javascript">
-function checkSubmit(){
-	
-	var term = $("#Search_Argument").val();
-	if(term == ""){
-		console.log("bad");
-		$('#search_books').attr('action', '');
-		var message = "Παρακαλώ εισάγετε όρο αναζήτησης";
-		error_messages(message);
-	} else {
-		$('#search_books').attr('action', '?page=resultsPage');
-		console.log("good");
-		$('#search_books').submit();
-	}
-}
+
+$(document).ready(function(){
+
+	$('#search_books').on('submit', function(e){
+		var term = $("#Search_Argument").val();
+		if(term == ""){
+			
+			e.preventDefault();
+			var message = "Παρακαλώ εισάγετε όρο αναζήτησης, π.χ. Φυσική";
+			error_messages(message);
+			
+		} else {
+			// do nothing here and let the form submit
+		}
+	});
+
+
+	$('#search_articles').on('submit', function(e){
+		var term = $("#artclSubject").val();
+		if(term == ""){
+			
+			e.preventDefault();
+			var message = "Παρακαλώ εισάγετε κάποια λέξη κλειδί για το άρθρο, π.χ. Φυσική";
+			error_messages(message);
+			
+		} else {
+			// do nothing here and let the form submit
+		}
+	});
+});
 
 
 
@@ -73,7 +89,7 @@ function checkSubmit(){
 	                    </div> -->
 	                  </div>
 	                <div class="row">   
-	                  <form id="search_articles" class="form-inline" action="?page=resultsPage" method="get">
+	                  <form id="search_articles" class="form-inline" action="?page=resultsPage" method="POST">
 	                    <label for="artclSubject" class="sr-only">article</label>
 	                    <input id="artclSubject" class="form-control easy-search-text-input" type="text" placeholder="Εισαγωγή θέματος άρθρου" maxlength="255" size="25" name="keyword" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter article subject'">
 	                    <input type="hidden" alt="submit" value="direct" name="s2">
