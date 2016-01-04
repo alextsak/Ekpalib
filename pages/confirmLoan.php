@@ -22,8 +22,6 @@ if(isset($_POST['empty_cart'])){
 	</div>
 	<div >
     	<table>
-			
-			
 			<?php 
         			$material = new Material();
         			$material->create_mycart($_SESSION['genre']);

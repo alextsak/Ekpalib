@@ -219,7 +219,7 @@ require_once './utilities/helpers.php';
 									</div>
 							        <div class="modal-footer">
 							          <button type="button" class="btn btn-default " data-dismiss="modal">Κλείσιμο</button>
-							          <button type="button" class="btn btn-primary">Επιβεβαίωση Δανεισμού</button>
+							          <a href="?page=confirmLoan" class="btn btn-primary">Επιβεβαίωση Δανεισμού</a>
 							        </div>
 											
 							      </div><!-- /.modal-content -->

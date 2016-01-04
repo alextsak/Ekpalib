@@ -157,9 +157,10 @@
 				</select>
 			</form>
 	</div>
-    <button id="searchButton" type="button" class="btn btn-primary" >
-      	<span class="glyphicon glyphicon-search"></span> Search
-    </button> 
+     <a id="searchButton" href="?page=resultsPage" class="btn btn-primary">
+     	<span class="glyphicon glyphicon-search"></span>
+     	Αναζήτηση
+     </a> 
 </div>
 
 <!-- <div id="bottom_borderline" class="borderline"></div> -->
