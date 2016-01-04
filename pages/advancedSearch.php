@@ -11,7 +11,7 @@
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 	height:200px;
-	border-style: double
+	border-style: double;
 }
 
 .col-md-2,.col-md-6{
