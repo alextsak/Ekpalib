@@ -224,12 +224,18 @@ $(document).ready(function(){
 							</div>
 						</form>
 	              	</div>
+	              	<div class="col-md-2">
+		              	<a href="#" class="btn btn-primary" style="position: relative;top: 45px;float: right;">
+					     	<span class="glyphicon glyphicon-search"></span>
+					     	Αναζήτηση
+					     </a>
+	              	</div>
 				</div>
 				<table>
 					<tr>
 						<th>Όνομα</th>
 						<th>Διεύθυνση</th>
-						<th>Ώρες Λειτουργίας</th>
+						<th>Τηλέφωνο</th>
 					</tr>
 				</table>
            	</div>

@@ -86,7 +86,7 @@ require_once './utilities/helpers.php';
 
 											<li class="divider" style="width: 100%"></li>
 
-											<li style="width: 100%;"><a href="#" style="font-size: 12px;">Ιστορικό
+											<li style="width: 100%;"><a href="?page=history" style="font-size: 12px;">Ιστορικό
 													<span class="glyphicon glyphicon-stats" style="left: 8px;"></span>
 											</a></li>
 
