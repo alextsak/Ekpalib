@@ -11,26 +11,21 @@ if(isset($_POST['empty_cart'])){
 }
 ?>
 <style>
-#searchContainer{
-	margin-bottom:30px;
-	border: 1px solid black;
-	border-radius: 10px;
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
-	height:200px;
-	border-style: double
-}
+
 </style>
 
-<h4 style="margin-left:400px;text-decoration: underline;margin-bottom: 25px;">Αναζήτηση βιβλίων, περιοδικών και άρθρων</h4>
-
-<div id="searchContainer" class="col-xs-12">
+<h3 style="margin-left:450px;">Επιβεβαίωση Δανεισμού</h3>
+<hr class="style-seven">
+<div>
 		<table>
+		<tbody>
 			<?php 
         			$material = new Material();
         			$material->create_mycart($_SESSION['genre']);
        		 ?> 
+       	</tbody>
 		</table>
+		
 </div>
 
 

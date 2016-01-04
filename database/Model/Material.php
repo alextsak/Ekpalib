@@ -125,7 +125,7 @@ class Material{
 		                while($row=$stmt->fetch(PDO::FETCH_ASSOC))
 		                {
 		                   ?>
-		  					<tbody>
+		  					
 			                   	<tr>
 				                   	<td>
 				                   			<?php echo $row['title']; ?>
@@ -135,7 +135,7 @@ class Material{
 				                   	<td><?php echo $row['isbn']; ?></td>
 				                   	<td>Science Library</td>
 			                 		<td><?php echo $row['availability']; ?></td>
-									<td>
+									<td style="width:120px;">
 										<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>)">
 											<span class="glyphicon glyphicon-info-sign" ></span></button>
 											&nbsp | &nbsp
@@ -145,7 +145,7 @@ class Material{
 										</button>
 									</td>
 			                   </tr>
-		                   </tbody>
+		                   
 		                   <?php
 		                }
 		      }
@@ -219,7 +219,6 @@ class Material{
                 while($row=$stmt->fetch(PDO::FETCH_ASSOC))
                 {
                    ?>
-  					<tbody>
 	                   	<tr>
 		                   	<td>
 		                   		<div style="width:100px; text-align:center;">
@@ -245,7 +244,7 @@ class Material{
 	                 		<td><a href="<?php echo $url_path."&action=add&materialID=" . $row['MaterialID']?>"><span class="glyphicon glyphicon-shopping-cart"  style="font-size:larger;"></span>
 							</a></td>
 		                   	
-							<td>
+							<td style="width:120px;">
 								<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>)">
 									<span class="glyphicon glyphicon-info-sign" ></span>
 								</button>
@@ -256,7 +255,6 @@ class Material{
 										
 							</td>
 	                   </tr>
-                   </tbody>
                    <?php
                 }
          }

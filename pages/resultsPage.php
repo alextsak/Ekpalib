@@ -32,6 +32,7 @@ if(isset($_POST['searchbooks'])){
 	<hr class="style-seven">
 	<div >
     	<table id="results-grid">
+    	<tbody>
     	<?php   		
        		$material = new Material();
        		$records_per_page=5;
@@ -41,7 +42,7 @@ if(isset($_POST['searchbooks'])){
        		$material->results_view($newquery, $_SESSION['term']);
        		$material->paginglink($query,$_SESSION['term'],$records_per_page);
  		?> 
-			
+		</tbody>	
 		</table>
 		<div>
 		<?php
