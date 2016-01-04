@@ -5,7 +5,7 @@ require './database/ConnectionDB/dbConnection.php';
 include './database/Model/Material.php';
 include './database/Model/User.php';
 require_once './utilities/helpers.php';
-$_SESSION['sitepath'] = array('Αρχική');
+
 ?>
 <!DOCTYPE html>
 <html>

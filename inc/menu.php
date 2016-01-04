@@ -25,7 +25,7 @@
 <div class="borderline"></div>
            <ul id="tabs"  class="nav nav-pills">
            	   <li>
-           	   		<a href="#">Αρχική</a>
+           	   		<a href="">Αρχική</a>
            	   </li>
                <li class="dropdown">
                		<a href="#" data-toggle="dropdown" class="dropdown-toggle">Πληροφορίες <b class="caret"></b></a>
@@ -64,13 +64,19 @@
 
 		<div  class="borderline"></div>
 			<div id="site-path">
-			<?php 
+			<?php
+			
 				$sitepath = sitepath_constructor();
 				echo $sitepath;
+				//echo var_dump($_SESSION['sitepath']);
 			?>
 			</div>
 		<div id="bottom_borderline" class="borderline"></div>
 <?php 
+          	} else {
+          		init_sitepath();
+          		
+          		
           	}
 ?>
     	
