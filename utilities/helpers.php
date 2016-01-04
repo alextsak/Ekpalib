@@ -61,9 +61,9 @@ function sitepath_constructor(){
 	foreach ( $_SESSION ['sitepath'] as $key => $value ) {
 		if ($key == 'Αρχική') {
 			
-			$sitepath = '<a href="">' . $key . '</a>';
+			$sitepath = '<a href="" style="position:relative;top:10px;left:14px;text-decoration:underline;">' . $key . '</a>';
 		} else {
-			$sitepath = $sitepath . ' <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> ' . "<a href='$value'>" . $key . '</a>';
+			$sitepath = $sitepath . ' <span class="glyphicon glyphicon-chevron-right" style="color: gray;position:relative;top:12px;left:14px;" aria-hidden="true"></span> ' . "<a href='$value' style=position:relative;top:10px;left:14px;text-decoration:underline;>" . $key . '</a>';
 		}
 	}
 	

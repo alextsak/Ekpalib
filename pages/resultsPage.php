@@ -16,12 +16,6 @@ if(isset($_POST['searchbooks'])){
 
 }
 
-
-
-
-
-
-
 ?>
 
 <div>
@@ -50,7 +44,7 @@ if(isset($_POST['searchbooks'])){
 			
 		</table>
 		<div>
-		<?php 
+		<?php
 		if(!isset($_SESSION['username'])) {
 			?>
 			<a href="?page=login_signup" id="confirmLoan-Button" type="button" class="btn btn-default">Επιβεβαίωση Δανεισμού

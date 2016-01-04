@@ -171,9 +171,9 @@ require_once './utilities/helpers.php';
 					}
 					
 				?><div class="col-sm-3">
-					<div class="dropdown">
-						<button id="cart" class="btn btn-default " 
-							data-toggle="dropdown">
+					<!-- <div class="dropdown"> -->
+						<button id="cart" class="btn btn-default" href="#cartModal"  data-toggle="modal"> 
+							<!-- data-toggle="dropdown" -->
 							Καρότσι 
 							<i><?php 
 								if(!isset($_SESSION['cart'])) {
@@ -185,8 +185,9 @@ require_once './utilities/helpers.php';
 							?></i> 
 							<i class="glyphicon glyphicon-shopping-cart"></i>
 						</button>
-						<ul class="dropdown-menu" id="dropdown">
-						<li>	
+						<!-- <ul class="dropdown-menu" id="dropdown">
+						<li> -->
+						<div class="modal fade" id="cartModal">	
 							<div class="modal-dialog">
 							      <div id="cart-window" class="modal-content">
 							        <div class="modal-header">
@@ -223,9 +224,10 @@ require_once './utilities/helpers.php';
 											
 							      </div><!-- /.modal-content -->
 							    </div><!-- /.modal-dialog -->
-							</li>
-						</ul>
-					</div>
+							</div>
+							<!-- </li>
+						</ul> -->
+					<!-- </div> -->
 				</div>
 				<?php 
 				}

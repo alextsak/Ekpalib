@@ -8,7 +8,6 @@
  }
  
  #site-path{
- 	background:beige;
  	height:40px;
  }
  
@@ -62,7 +61,7 @@
           	?> 
 		
 
-		<div  class="borderline"></div>
+		
 			<div id="site-path">
 			<?php
 			
@@ -71,7 +70,7 @@
 				//echo var_dump($_SESSION['sitepath']);
 			?>
 			</div>
-		<div id="bottom_borderline" class="borderline"></div>
+		
 <?php 
           	} else {
           		init_sitepath();
