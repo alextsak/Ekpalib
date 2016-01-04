@@ -11,6 +11,11 @@ if(isset($_GET['page']) && !isset($_GET['page_no'])) {
 		if(!isset($_SESSION['username']) || !isset($_SESSION['cart'])){
 			echo "Πρόσβαση χωρίς δικαιώματα. Παρακαλώ επιστρέψτε " . "<a href=\"index.php\">πίσω</a>";
 		}
+		else {
+			include './inc/header.php';
+			include './inc/menu.php';
+			getPage('pages', $_GET['page'], 'main');
+		}
 	}
 	else {
 		include './inc/header.php';

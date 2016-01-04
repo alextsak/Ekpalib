@@ -51,10 +51,10 @@ if(isset($_POST['searchbooks'])){
 			<span class="glyphicon glyphicon-chevron-right"></span>
 			</a>
 		<?php }
-		elseif(isset($_SESSION['username']) && !isset($_SESSION['cart'])) {
+		/*elseif(isset($_SESSION['username']) && !isset($_SESSION['cart'])) {
 			$message = "Παρκαλώ εισάγετε αντικείμενα στο καρότσι σας";
 			echo "<script>error_messages('$message');</script>";
-		}
+		}*/
 		else {
 			
 			?><a href="?page=confirmLoan" id="confirmLoan-Button" type="button" class="btn btn-default">Επιβεβαίωση Δανεισμού
