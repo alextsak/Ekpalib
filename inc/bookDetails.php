@@ -76,10 +76,10 @@ if($book == -1) {
 		//console.log(window.location.href);
 		$.ajax({
 			  url: window.location.href,
-			  type: "GET", //send it through get method
+			  type: "POST", //send it through get method
 			  data:{action : "add", materialID : id},
 			  success: function(response) {
-				  //location.reload(true);
+				  location.reload(true);
 				  closeModal();
 			  },
 			  error: function(xhr) {

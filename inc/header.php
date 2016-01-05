@@ -120,7 +120,21 @@ require_once './utilities/helpers.php';
 				</div>
 				<?php
 				// create session cart and add the item given
-				if (isset ( $_GET ['action'] ) && $_GET ['action'] == "add") {
+				if(isset($_POST['action']) && $_POST['action'] == "add"){
+					$materialID = intval ( $_POST ['materialID'] );
+						
+					if (! isset ( $_SESSION ['cart'] [$materialID] )) {
+					
+						/* make query to database and set the session accordingly */
+						$material = new Material ();
+						$message = $material->query_data_to_cart ( $materialID, $_SESSION ['genre'] );
+						if ($message != "ok") {
+							echo "<script>error_messages('$message');</script>";
+						}
+					}
+				}
+				if ((isset ( $_GET ['action'] ) && $_GET ['action'] == "add")) {
+					
 					
 					$materialID = intval ( $_GET ['materialID'] );
 					
