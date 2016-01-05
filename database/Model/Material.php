@@ -385,5 +385,23 @@ class Material{
 	}
 	
 	
+	/***************************************************************************************************/
+	public function confirmLoan($material_id, $user_id){
+		// insert the material_id and the user_id to history table 
+		$query = '';
+		$stmt = $this->db->prepare($query);
+		$stmt->bindParam(1, $material_id);
+		$stmt->execute();
+		
+		
+	}
+	
+	public function get_materials_from_library($lib_id){
+		// get the materials that the library with the specific id has
+		
+		
+	}
+	
+	
 	
 }

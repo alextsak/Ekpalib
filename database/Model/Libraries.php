@@ -99,5 +99,17 @@ class Libraries{
 	}
 	
 	
+	/********************************************************************************************************************/
+	
+	public function get_library_by_param($param){
+		// get's library name, address, email/site according to the parameter given, e.g. address, department
+		
+	}
+	
+	public function get_library_details($lib_id){
+		// get's for the specified lib_id, the libraries info to present the in a modal
+		
+	}
+	
 	
 }

@@ -134,7 +134,7 @@ require_once './utilities/helpers.php';
 						}
 					}
 				}
-				// if there is no session for the cart the echo just 0
+				// if there is no session for the cart then echo just 0
 				if (! isset ( $_SESSION ['cart'])){
 					
 		

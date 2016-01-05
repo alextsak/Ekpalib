@@ -7,7 +7,9 @@ $material = new Material();
 $book = $material->fetch_material_details($material_id, 'books');
 
 if($book == -1) {
-	echo "Error bookdetails line 10";
+	//echo "Error bookdetails line 10";
+	$message = "Πρόβλημα με τις λεπτομέρειες του Υλικού";
+	echo "<script>error_messages('$message');</script>";
 }
 
 
@@ -31,7 +33,7 @@ if($book == -1) {
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="center-block">
-								<img src="/Ekpalib/images/fr.png" alt="something"
+								<img src="<?php echo $book['image']?>" alt="something"
 									class="details img-responsive">
 							</div>
 						</div>
@@ -51,7 +53,7 @@ if($book == -1) {
 			</div>
 			<div class="modal-footer">
 				<button class="btn btn-default"  onclick="closeModal()">Κλείσιμο</button>
-				<button class="btn btn-warning" type="submit">
+				<button class="btn btn-warning" type="submit" onClick="addToCart(<?php echo $book['MaterialID'];?>)">
 					<span class="glyphicon glyphicon-shoppinng-cart"></span>Add To Cart
 				</button>
 			</div>
@@ -66,6 +68,24 @@ if($book == -1) {
 			jQuery('#details-material-modal').remove();
 			jQuery('.modal-backdrop').remove();
 			},500);
+		}
+
+
+	function addToCart(id){
+		//console.log("book id: " + id);
+		//console.log(window.location.href);
+		$.ajax({
+			  url: window.location.href,
+			  type: "GET", //send it through get method
+			  data:{action : "add", materialID : id},
+			  success: function(response) {
+				  //location.reload(true);
+				  closeModal();
+			  },
+			  error: function(xhr) {
+			    //Do Something to handle error
+			  }
+			});
 		}
 
 </script>

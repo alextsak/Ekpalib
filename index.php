@@ -2,6 +2,7 @@
 session_start();
 require_once 'controller/pageController.php';
 
+$problem = 0;
 if(isset($_GET['page']) && !isset($_GET['page_no'])) {
 	
 	if($_GET['page'] == 'login_signup'){
@@ -9,7 +10,7 @@ if(isset($_GET['page']) && !isset($_GET['page_no'])) {
 	}
 	elseif($_GET['page'] == 'confirmLoan'){
 		if(!isset($_SESSION['username']) || !isset($_SESSION['cart'])){
-			echo "Πρόσβαση χωρίς δικαιώματα. Παρακαλώ επιστρέψτε " . "<a href=\"index.php\">πίσω</a>";
+			$problem = 1;
 		}
 		else {
 			include './inc/header.php';
@@ -37,7 +38,12 @@ else {
 	getPage('pages', 'main');
 }
 
+if($problem == 1){
+	echo "Πρόσβαση χωρίς δικαιώματα. Παρακαλώ επιστρέψτε " . "<a href=\"index.php\">πίσω</a>";
+} 
+else {
+	include './inc/footer.php';
+}
 
-include './inc/footer.php';
 
 ?>
