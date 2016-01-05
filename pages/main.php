@@ -206,7 +206,7 @@ $(document).ready(function(){
 	              	<div class="col-md-4">
 		              	<form class="form-horizontal">
 		              		<h5 style="position:relative;top:15px;right: 15px;text-decoration: underline;">Επιλογή τμήματος</h5>
-							<select  class="form-control" style="position:relative;top:10px;margin-bottom:25px;right:15px;width:inherit">
+							<select id="lib-dep" class="form-control" style="position:relative;top:10px;margin-bottom:25px;right:15px;width:inherit">
 								  <option>Θετικών Επιστημών</option>
 								  <option>Βιολογίας-Χημείας-Φαρμακευτικής</option>
 								  <option>3</option>
@@ -219,24 +219,25 @@ $(document).ready(function(){
 		              	<form class="form-horizontal" >
 		              		<div class="form-group" style="position:relative;top:45px;margin-bottom:25px;right:110px;width:inherit">
 								    <div class="col-sm-10">
-								      <input class="form-control" id="keyword" placeholder="Διεύθυνση">
+								      <input class="form-control" id="lib-addr" placeholder="Διεύθυνση">
 								    </div>
 							</div>
 						</form>
 	              	</div>
 	              	<div class="col-md-2">
-		              	<a href="#" class="btn btn-primary" style="position: relative;top: 45px;float: right;">
+		              	<a id="lib-search" href="#" class="btn btn-primary" style="position: relative;top: 45px;float: right;">
 					     	<span class="glyphicon glyphicon-search"></span>
 					     	Αναζήτηση
 					     </a>
 	              	</div>
 				</div>
 				<table>
-					<tr>
-						<th>Όνομα</th>
-						<th>Διεύθυνση</th>
-						<th>Τηλέφωνο</th>
-					</tr>
+					<tbody>
+				    	<?php   		
+				       		$material = new Material();
+				       		$material->getAllLibraries();
+				 		?> 
+					</tbody>	
 				</table>
            	</div>
 	  </div>
