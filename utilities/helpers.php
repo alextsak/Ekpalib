@@ -47,7 +47,10 @@ function sitepath_constructor(){
 			$page = 'Σύνθετη Αναζήτηση';
 			$href = '?page=advancedSearch';
 			break;
-		
+		case "history" :
+			$page = 'Ιστορικό Χρήστη';
+			$href = '?page=history';
+			break;
 		default :
 			$page = 'no path :(';
 	}

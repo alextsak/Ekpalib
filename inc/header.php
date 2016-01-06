@@ -132,6 +132,10 @@ require_once './utilities/helpers.php';
 						if ($message != "ok") {
 							echo "<script>error_messages('$message');</script>";
 						}
+					}else {
+						$message = "Το βιβλίο " . "<span style=\"color:black;font-weight:bold;text-decoration: underline;\">".$_SESSION ['cart'] [$materialID]['title'] ."</span> περιέχεται ήδη στο καλάθι σας";
+						
+						echo "<script>error_messages('$message');</script>";
 					}
 				}
 				if ((isset ( $_GET ['action'] ) && $_GET ['action'] == "add")) {
@@ -147,6 +151,9 @@ require_once './utilities/helpers.php';
 						if ($message != "ok") {
 							echo "<script>error_messages('$message');</script>";
 						}
+					}else {
+						$message = "Το βιβλίο " . "<span style=\"color:black;font-weight:bold;text-decoration: underline;\">".$_SESSION ['cart'] [$materialID]['title'] ."</span> περιέχεται ήδη στο καλάθι σας";
+						echo "<script>error_messages('$message');</script>";
 					}
 				}
 				// if there is no session for the cart then echo just 0

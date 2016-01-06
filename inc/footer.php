@@ -33,7 +33,6 @@ function detailsbook(id){
 
 
 
-
 </script>
 </body>
 </html>

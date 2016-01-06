@@ -40,13 +40,13 @@ if($book == -1) {
 
 						<div class="col-sm-6">
 							<h4 style="color:navy;text-align:center;">Λεπτομέρειες</h4>
-							<p>Τίτλος: <?php echo $book['isbn'];?></p>
-							<p>Συγγραφέας-εις: <?php echo $book['author'];?></p>
+							<p><span style="color:navy;font-weight: bold;">Τίτλος:</span> <?php echo $book['isbn'];?></p>
+							<p><span style="color:navy;font-weight: bold;">Συγγραφέας-εις:</span> <?php echo $book['author'];?></p>
 							<hr>
 							
-							<p>Εκδόσεις: <?php echo $book['publisher'];?></p>
-							<p>Κατηγορία: <?php echo $book['category'];?></p>
-							<p>Διαθεσιμότητα: <?php echo $book['availability'];?></p>
+							<p><span style="color:navy;font-weight: bold;">Εκδόσεις:</span> <?php echo $book['publisher'];?></p>
+							<p><span style="color:navy;font-weight: bold;">Κατηγορία:</span> <?php echo $book['category'];?></p>
+							<p><span style="color:navy;font-weight: bold;">Διαθεσιμότητα:</span> <?php echo $book['availability'];?></p>
 						</div>
 					</div>
 				</div>

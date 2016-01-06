@@ -11,7 +11,7 @@ $message = $_POST['message'];
 				<button class="close" type="button" aria-label="Close"  onclick="closeModal()">
 					<span aria-hidden="true">&times;</span>
 				</button>
-				<h3 class="modal-title text-center" >Προσοχή</h3>
+				<h3 class="modal-title text-center" >Επιτυχία</h3>
 				
 				
 			</div>
@@ -20,7 +20,7 @@ $message = $_POST['message'];
 					<div class="row">
 
 						<div class="col-sm-12">
-							<h4 class="bg-danger text-primary text-center"><?php echo $message;?></h4>
+							<h4 class="bg-success text-center"><?php echo $message;?></h4>
 							
 						</div>
 					</div>

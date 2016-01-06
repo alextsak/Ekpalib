@@ -33,7 +33,7 @@ if(isset($_POST['empty_cart'])){
 		
 		<div class="checkbox" style="position: relative;left: 450px;top: 30px;">
 		  <label>
-		  	<input id="terms" type="checkbox" value=""><a href="#"> Αποδοχέχομαι τους όρους δανεισμού</a>
+		  	<input id="terms" type="checkbox" value=""><a href="#"> Αποδέχομαι τους όρους δανεισμού</a>
 		  </label>
 		</div>
 		
