@@ -21,6 +21,7 @@ function detailsbook(id){
 		method: "post",
 		data : data,
 		success : function(data){
+			console.log(data);
 			jQuery('body').append(data);
 			jQuery('#details-material-modal').modal('toggle');
 			},
@@ -41,7 +42,7 @@ function detailsLibrary(id){
 		success : function(data){
 			console.log(data);
 			$('body').append(data);
-			$('#library-modal').modal('toggle');
+			$('#library-details-modal').modal('toggle');
 			},
 		error : function(){
 		alert("Something went wrong");

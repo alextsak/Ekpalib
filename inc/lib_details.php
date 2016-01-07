@@ -15,8 +15,9 @@ $lib_id = (int)$lib_id;
 }
 
 </style>
+<div class="modal fade library-details-modal" id="library-details-modal" tabindex="-1"
+	role="dialog"  aria-labelledby="windowTitleLabel"> aria-hidden="true">
 
-<div id="library-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel">
     <div class="modal-header">
         <h3>Task List</h3>
         </div>
@@ -43,9 +44,9 @@ $lib_id = (int)$lib_id;
 <script type="text/javascript">
 
 	function closeModal(){
-		jQuery('#library-modal').modal('hide');
+		jQuery('#library-details-modal').modal('hide');
 		setTimeout(function(){
-			jQuery('#library-modal').remove();
+			jQuery('#library-details-modal').remove();
 			jQuery('.modal-backdrop').remove();
 			},500);
 		}
