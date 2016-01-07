@@ -96,6 +96,7 @@ $(document).ready(function(){
 		              	<form class="form-horizontal">
 		              		<h5 style="position:relative;top:15px;right: 15px;text-decoration: underline;">Επιλογή τμήματος</h5>
 							<select id="lib-dep" class="form-control" style="position:relative;top:10px;margin-bottom:25px;right:15px;width:250px">
+								  <option>Όλα</option>
 								  <?php   		
 				       				$libraries = new Libraries();
 				       				$libraries->get_department_names();

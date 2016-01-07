@@ -87,14 +87,18 @@ class Material{
 		{
 			while($row=$stmt->fetch(PDO::FETCH_ASSOC))
 			{
-			?>
+				
+				$library = $this->get_material_library($row['MaterialID']);
+				$lib_name = '';
+				if($library != -1) {
+					$lib_name = $library['Name'];
+				}
+				?>
 				<tr>
 					<td>
 						<?php echo $row['title']; ?>
 					</td>
-					<td>
-						Science Library
-					</td>
+					<td><a href="javascript:detailsLibrary(<?php echo $lib_name; ?>)"><?php echo $lib_name; ?></a></td>
 					<td>
 						<?php echo $row['isbn']; ?>
 					</td>
@@ -142,7 +146,13 @@ class Material{
 		         	  <?php 
 		                while($row=$stmt->fetch(PDO::FETCH_ASSOC))
 		                {
-		                   ?>
+		                	$library = $this->get_material_library($row['MaterialID']);
+		                	$lib_name = '';
+		                	if($library != -1) {
+		                		$lib_name = $library['Name'];
+		                	}
+		                	
+		                	?>
 		  					
 			                   	<tr>
 				                   	<td>
@@ -151,7 +161,7 @@ class Material{
 				                   	<td><?php echo $row['category']; ?></td>
 				                    <td><?php echo $row['author']; ?></td>
 				                   	<td><?php echo $row['isbn']; ?></td>
-				                   	<td>Science Library</td>
+				                   	<td><a href="javascript:detailsLibrary(<?php echo $lib_name; ?>)"><?php echo $lib_name; ?></a></td>
 			                 		<td><?php echo $row['availability']; ?></td>
 									<td style="width:120px;">
 										<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>)">
@@ -185,12 +195,19 @@ class Material{
 							
 					} 
 					else {
+						
+						$library = $this->get_material_library($row['MaterialID']);
+						$lib_name = '';
+						if($library != -1) {
+							$lib_name = $library['Name'];
+						}
+						
 						$_SESSION['cart'][$row['MaterialID']]=array(
 								"title" => $row['title'],
 								"category" => $row['category'],
 								"author" => $row['author'],
 								"ISBN" => $row['isbn'],
-								"Library" => 'Science Library',
+								"Library" => $lib_name,
 								"availability" => $row['availability']
 						);
 						return "ok";
