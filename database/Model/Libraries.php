@@ -106,11 +106,11 @@ class Libraries{
 	public function searchLibraries($lib_addr,$lib_dep){
 		$query = 'SELECT libraries.Name,libraries.Address,libraries.Telephone'. 
 				 ' FROM   libraries,universitydepartment'. 
-				 ' where  libraries.idLibraries = universitydepartment.idLibraries and'.
+				 ' where  libraries.idLibraries = universitydepartment.idLibraries and '.
 				         'universitydepartment.Name = ?';
 		
 		if($lib_addr != "")
-			$query+= 'and libraries.Address LIKE ?';
+			$query+= ' and libraries.Address LIKE ?';
 			
 			
 		
@@ -118,7 +118,7 @@ class Libraries{
 		$stmt->bindParam(1, $lib_dep);
 		if($lib_addr != ""){
 			//$lib_addr = '%{$lib_addr}%';
-			//$lib_addr = '%'.$lib_addr.'%';
+			$lib_addr = '%'.$lib_addr.'%';
 			$stmt->bindParam(2, $lib_addr);
 		}
 		
