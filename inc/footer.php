@@ -39,6 +39,7 @@ function detailsLibrary(id){
 		method: "post",
 		data : data,
 		success : function(data){
+			console.log(data);
 			jQuery('body').append(data);
 			jQuery('#details-library-modal').modal('toggle');
 			},
