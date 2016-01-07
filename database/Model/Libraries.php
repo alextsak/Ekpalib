@@ -21,24 +21,16 @@ class Libraries{
 	}
 	
 	
-	public function get_libraries_names(){
-	
-		
-	
-		$st = $this->db->prepare("SELECT Name FROM libraries");
+	public function get_department_names(){
+		$st = $this->db->prepare("SELECT Name FROM universitydepartment");
 		
 		$st->execute();
-		if($st->rowCount()>0){
-			
-			while($row=$st->fetch(PDO::FETCH_ASSOC)){
-				
+		if($st->rowCount()>0)
+			while($row=$st->fetch(PDO::FETCH_ASSOC))				
 				echo '<option>'.$row['Name'].'</option>';
-			}
-			
-		}
-		else {
+		else 
 			echo '<script>alert(\"Errror\")</script>';
-		}
+		
 	}
 	
 	public function QuickSearch($params){
@@ -112,17 +104,34 @@ class Libraries{
 	}
 	
 	public function searchLibraries($lib_addr,$lib_dep){
-		echo $lib_addr;
+		$query = 'SELECT libraries.Name,libraries.Address,libraries.Telephone'. 
+				 ' FROM   libraries,universitydepartment'. 
+				 ' where  libraries.idLibraries = universitydepartment.idLibraries and'.
+				         'universitydepartment.Name = ?';
+		
+		if($lib_addr != "")
+			$query+= 'and libraries.Address LIKE ?';
+			
+			
+		
+		$stmt = $this->db->prepare($query);
+		$stmt->bindParam(1, $lib_dep);
+		if($lib_addr != ""){
+			//$lib_addr = '%{$lib_addr}%';
+			//$lib_addr = '%'.$lib_addr.'%';
+			$stmt->bindParam(2, $lib_addr);
+		}
+		
+		$stmt->execute();
+		if($stmt->rowCount() > 0)
+			return $stmt;
+		
+		return -1;
 	
 	}
 	
 	public function getAllLibraries(){
-		?><tr>
-				<th>Όνομα</th>
-				<th>Διεύθυνση</th>
-				<th>Τηλέφωνο</th>
-			</tr>
-			<?php
+		
 			$query = 'SELECT * FROM libraries';
 			$stmt = $this->db->prepare($query);
 			$stmt->execute();

@@ -186,11 +186,18 @@ $(document).ready(function(){
               
             <div class="tab-pane" id="StudyRooms">
     			<table>
-					<tr>
+					<thead>
 						<th>Όνομα</th>
 						<th>Διεύθυνση</th>
 						<th>Ώρες Λειτουργίας</th>
-					</tr>
+					</thead>
+					
+					<tbody >
+				    	<?php   		
+				       		$studyRooms = new StudyRooms();
+				       		$studyRooms->getAllStudyRooms();
+				 		?> 
+					</tbody>	
 				</table>
 	    	</div>
 	    	
@@ -206,12 +213,11 @@ $(document).ready(function(){
 	              	<div class="col-md-4">
 		              	<form class="form-horizontal">
 		              		<h5 style="position:relative;top:15px;right: 15px;text-decoration: underline;">Επιλογή τμήματος</h5>
-							<select id="lib-dep" class="form-control" style="position:relative;top:10px;margin-bottom:25px;right:15px;width:inherit">
-								  <option>Θετικών Επιστημών</option>
-								  <option>Βιολογίας-Χημείας-Φαρμακευτικής</option>
-								  <option>3</option>
-								  <option>4</option>
-								  <option>5</option>
+							<select id="lib-dep" class="form-control" style="position:relative;top:10px;margin-bottom:25px;right:15px;width:250px">
+								  <?php   		
+				       				$libraries = new Libraries();
+				       				$libraries->get_department_names();
+				 				   ?> 
 							</select>
 						</form>
 	              	</div>
@@ -231,8 +237,14 @@ $(document).ready(function(){
 					     </a>
 	              	</div>
 				</div>
-				<table>
-					<tbody id="lib-body">
+				<table id="lib-grid">
+					<thead>
+						<th>Όνομα</th>
+						<th>Διεύθυνση</th>
+						<th>Τηλέφωνο</th>
+					</thead>
+					
+					<tbody >
 				    	<?php   		
 				       		$libraries = new Libraries();
 				       		$libraries->getAllLibraries();
