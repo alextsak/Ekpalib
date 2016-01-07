@@ -7,22 +7,29 @@ $(document).ready(function(){
     	console.log($( "#lib-dep option:selected" ).text());
     	searchLibraries($("#lib-addr").val() ,$( "#lib-dep option:selected" ).text() );
 	});
-
+	$('#lib-dep').on('change', function() {
+		  if($( "#lib-dep option:selected" ).text() == "Όλα"){
+			  window.reload(true);
+		  }
+		});
 });
 
 function searchLibraries(address,department){
 	
-	if(department == "'Ολα"){
+	if(department == "Κανένα"){
 		department = '';
 	}
-	var data = {"address" :address,"department":department};
+	var data = {"search_libs" : "search_libs", "address" :address,"department":department};
 	$.ajax({
 		url : "/Ekpalib/inc/lib_requests.php",
 		method: "post",
 		data : data,
 		success : function(data){
-			$("#lib-grid").find("tbody").empty();
-			$("#lib-grid tbody").append(data);
+			var myObj = $.parseJSON(data);
+			console.log(myObj);
+			
+			//$("#lib-grid").find("tbody").empty();
+			//$("#lib-grid tbody").append(data);
 		},
 		error : function(){
 			alert("Something went wrong");

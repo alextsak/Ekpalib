@@ -105,7 +105,7 @@ class Libraries{
 	
 	public function searchLibraries($lib_addr,$lib_dep){
 		
-		if($lib_addr == "" && lib_dep != ""){
+		if($lib_addr == "" && $lib_dep != ""){
 			$query1 = 'SELECT libraries.idLibraries,libraries.Name,libraries.Address,libraries.Telephone'.
 					' FROM   libraries,universitydepartment'.
 					' where  libraries.idLibraries = universitydepartment.idLibraries and'.
@@ -114,7 +114,7 @@ class Libraries{
 			$stmt = $this->db->prepare($query1);
 			$stmt->bindParam(1, $lib_dep);
 		}
-		elseif($lib_addr != "" && lib_dep == ""){
+		elseif($lib_addr != "" && $lib_dep == ""){
 			$query2 = 'SELECT libraries.idLibraries,libraries.Name,libraries.Address,libraries.Telephone'.
 					' FROM   libraries,universitydepartment'.
 					' where  libraries.idLibraries = universitydepartment.idLibraries and'.
