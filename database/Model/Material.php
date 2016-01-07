@@ -267,7 +267,7 @@ class Material{
 		                   	<td><?php echo $row['category']; ?></td>
 		                    <td><?php echo $row['author']; ?></td>
 		                   	<td><?php echo $row['isbn']; ?></td>
-		                   	<td><?php echo $lib_name; ?></td>
+		                   	<td><a href="javascript:detailsLibrary(<?php echo $lib_name; ?>)"><?php echo $lib_name; ?></a></td>
 	                 		<td><?php echo $row['availability']; ?></td>
 	                 		<?php $url_path = $_SERVER['QUERY_STRING'];
         						$url_path = '?' .  $url_path;
