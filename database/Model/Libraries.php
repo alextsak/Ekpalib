@@ -104,7 +104,7 @@ class Libraries{
 	}
 	
 	public function searchLibraries($lib_addr,$lib_dep){
-		$query = 'SELECT libraries.Name,libraries.Address,libraries.Telephone'. 
+		$query = 'SELECT libraries.idLibraries,libraries.Name,libraries.Address,libraries.Telephone'. 
 				 ' FROM   libraries,universitydepartment'. 
 				 ' where  libraries.idLibraries = universitydepartment.idLibraries and'.
 				         ' universitydepartment.Name = ?';
@@ -154,6 +154,11 @@ class Libraries{
 	                   		<?php echo $row['Telephone'];?>
 	                   	</div>		
 	                </td>
+	                <td style="width:120px;">
+						<button class="btn btn-primary btn-sm" type="button" onclick="detailsLibrary(<?php echo $row['idLibraries'];?>)">
+							<span class="glyphicon glyphicon-info-sign" ></span>
+						</button>
+					</td>
 	            </tr> 
 	        <?php
 	        }
