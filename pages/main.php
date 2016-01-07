@@ -72,6 +72,7 @@ $(document).ready(function(){
 						<th>Όνομα</th>
 						<th>Διεύθυνση</th>
 						<th>Ώρες Λειτουργίας</th>
+						<th>Λεπτομέρειες</th>
 					</thead>
 					
 					<tbody >
@@ -124,6 +125,7 @@ $(document).ready(function(){
 						<th>Όνομα</th>
 						<th>Διεύθυνση</th>
 						<th>Τηλέφωνο</th>
+						<th>Λεπτομέρειες</th>
 					</thead>
 					
 					<tbody >

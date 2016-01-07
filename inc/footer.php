@@ -40,8 +40,8 @@ function detailsLibrary(id){
 		data : data,
 		success : function(data){
 			console.log(data);
-			jQuery('body').append(data);
-			jQuery('#details-library-modal').modal('toggle');
+			$('body').append(data);
+			$('#library-modal').modal('toggle');
 			},
 		error : function(){
 		alert("Something went wrong");
