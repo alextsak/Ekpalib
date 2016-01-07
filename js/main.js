@@ -12,6 +12,9 @@ $(document).ready(function(){
 
 function searchLibraries(address,department){
 	
+	if(department == "'Ολα"){
+		department = '';
+	}
 	var data = {"address" :address,"department":department};
 	$.ajax({
 		url : "/Ekpalib/inc/lib_requests.php",
