@@ -70,7 +70,7 @@
 				//echo var_dump($_SESSION['sitepath']);
 			?>
 			</div>
-		
+			
 <?php 
           	} else {
           		init_sitepath();
