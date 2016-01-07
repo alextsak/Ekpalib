@@ -106,8 +106,8 @@ class Libraries{
 	public function searchLibraries($lib_addr,$lib_dep){
 		$query = 'SELECT libraries.Name,libraries.Address,libraries.Telephone'. 
 				 ' FROM   libraries,universitydepartment'. 
-				 ' where  libraries.idLibraries = universitydepartment.idLibraries and '.
-				         'universitydepartment.Name = ?';
+				 ' where  libraries.idLibraries = universitydepartment.idLibraries and'.
+				         ' universitydepartment.Name = ?';
 		
 		if($lib_addr != "")
 			$query+= ' and libraries.Address LIKE ?';
