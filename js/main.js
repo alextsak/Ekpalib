@@ -19,15 +19,18 @@ function searchLibraries(address,department){
 	if(department == "Κανένα"){
 		department = '';
 	}
-	var data = {"search_libs" : "search_libs", "address" :address,"department":department};
+	var data = {"address" :address,"department":department};
 	$.ajax({
 		url : "/Ekpalib/inc/lib_requests.php",
 		method: "post",
 		data : data,
+		
 		success : function(data){
+			//var myObj = JSON.stringify(data);
 			var myObj = $.parseJSON(data);
-			
-			$("#lib-grid").find("tbody").empty();
+			console.log(myObj);
+			//console.log(data);
+			/*$("#lib-grid").find("tbody").empty();
 			console.log(myObj);
 			//for(var i=0;i<myObj.length;i++){
 				var html =  "<tr> " +
@@ -41,7 +44,7 @@ function searchLibraries(address,department){
 									myObj.Telephone
 								+ "</td> " +
 							"</tr>";
-				$("#lib-grid tbody").append(html);
+				$("#lib-grid tbody").append(html);*/
 			//}
 			
 			

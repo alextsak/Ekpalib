@@ -106,7 +106,7 @@ class Libraries{
 	public function searchLibraries($lib_addr,$lib_dep){
 		
 		if($lib_addr == "" && $lib_dep != ""){
-			$query1 = 'SELECT libraries.idLibraries,libraries.Name,libraries.Address,libraries.Telephone'.
+			$query1 = 'SELECT DISTINCT(libraries.idLibraries),libraries.Name,libraries.Address,libraries.Telephone'.
 					' FROM   libraries,universitydepartment'.
 					' where  libraries.idLibraries = universitydepartment.idLibraries and'.
 					' universitydepartment.Name = ?';
@@ -115,7 +115,7 @@ class Libraries{
 			$stmt->bindParam(1, $lib_dep);
 		}
 		elseif($lib_addr != "" && $lib_dep == ""){
-			$query2 = 'SELECT libraries.idLibraries,libraries.Name,libraries.Address,libraries.Telephone'.
+			$query2 = 'SELECT DISTINCT(libraries.idLibraries),libraries.Name,libraries.Address,libraries.Telephone'.
 					' FROM   libraries,universitydepartment'.
 					' where  libraries.idLibraries = universitydepartment.idLibraries and'.
 					' libraries.Address LIKE ?';
@@ -126,7 +126,7 @@ class Libraries{
 			
 		}
 		else {
-			$query = 'SELECT libraries.idLibraries,libraries.Name,libraries.Address,libraries.Telephone'.
+			$query = 'SELECT DISTINCT(libraries.idLibraries),libraries.Name,libraries.Address,libraries.Telephone'.
 					' FROM   libraries,universitydepartment'.
 					' where  libraries.idLibraries = universitydepartment.idLibraries and'.
 					' universitydepartment.Name = ? and libraries.Address LIKE ?';
