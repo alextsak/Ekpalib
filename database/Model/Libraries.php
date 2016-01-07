@@ -104,24 +104,41 @@ class Libraries{
 	}
 	
 	public function searchLibraries($lib_addr,$lib_dep){
-		$query = 'SELECT libraries.idLibraries,libraries.Name,libraries.Address,libraries.Telephone'. 
-				 ' FROM   libraries,universitydepartment'. 
-				 ' where  libraries.idLibraries = universitydepartment.idLibraries and'.
-				         ' universitydepartment.Name = ?';
 		
-		if($lib_addr != "")
-			$query+= ' and libraries.Address LIKE ?';
+		if($lib_addr == "" && lib_dep != ""){
+			$query1 = 'SELECT libraries.idLibraries,libraries.Name,libraries.Address,libraries.Telephone'.
+					' FROM   libraries,universitydepartment'.
+					' where  libraries.idLibraries = universitydepartment.idLibraries and'.
+					' universitydepartment.Name = ?';
 			
-			
-		
-		$stmt = $this->db->prepare($query);
-		$stmt->bindParam(1, $lib_dep);
-		if($lib_addr != ""){
-			//$lib_addr = '%{$lib_addr}%';
+			$stmt = $this->db->prepare($query1);
+			$stmt->bindParam(1, $lib_dep);
+		}
+		elseif($lib_addr != "" && lib_dep == ""){
+			$query2 = 'SELECT libraries.idLibraries,libraries.Name,libraries.Address,libraries.Telephone'.
+					' FROM   libraries,universitydepartment'.
+					' where  libraries.idLibraries = universitydepartment.idLibraries and'.
+					' libraries.Address LIKE ?';
+				
+			$stmt = $this->db->prepare($query2);
 			$lib_addr = '%'.$lib_addr.'%';
+			$stmt->bindParam(1, $lib_addr);
+			
+		}
+		else {
+			$query = 'SELECT libraries.idLibraries,libraries.Name,libraries.Address,libraries.Telephone'.
+					' FROM   libraries,universitydepartment'.
+					' where  libraries.idLibraries = universitydepartment.idLibraries and'.
+					' universitydepartment.Name = ? and libraries.Address LIKE ?';
+			
+			$stmt = $this->db->prepare($query);
+			$lib_addr = '%'.$lib_addr.'%';
+			$stmt->bindParam(1, $lib_dep);
 			$stmt->bindParam(2, $lib_addr);
+			
 		}
 		
+	
 		$stmt->execute();
 		if($stmt->rowCount() > 0)
 			return $stmt;
