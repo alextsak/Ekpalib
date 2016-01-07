@@ -232,10 +232,10 @@ $(document).ready(function(){
 	              	</div>
 				</div>
 				<table>
-					<tbody>
+					<tbody id="lib-body">
 				    	<?php   		
-				       		$material = new Material();
-				       		$material->getAllLibraries();
+				       		$libraries = new Libraries();
+				       		$libraries->getAllLibraries();
 				 		?> 
 					</tbody>	
 				</table>

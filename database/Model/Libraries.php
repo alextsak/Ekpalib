@@ -111,5 +111,43 @@ class Libraries{
 		
 	}
 	
+	public function searchLibraries($lib_addr,$lib_dep){
+		echo $lib_addr;
+	
+	}
+	
+	public function getAllLibraries(){
+		?><tr>
+				<th>Όνομα</th>
+				<th>Διεύθυνση</th>
+				<th>Τηλέφωνο</th>
+			</tr>
+			<?php
+			$query = 'SELECT * FROM libraries';
+			$stmt = $this->db->prepare($query);
+			$stmt->execute();
+			while($row=$stmt->fetch(PDO::FETCH_ASSOC))
+			{
+				?>
+	            <tr>
+		            <td>
+		               	<div >
+	                   		<?php echo $row['Name'];?>
+	                   	</div>		
+	                </td>
+	                <td>
+		               	<div >
+	                   		<?php echo $row['Address'];?>
+	                   	</div>		
+	                </td>
+	                <td>
+		               	<div>
+	                   		<?php echo $row['Telephone'];?>
+	                   	</div>		
+	                </td>
+	            </tr> 
+	        <?php
+	        }
+		}
 	
 }
