@@ -40,7 +40,7 @@ if($book == -1) {
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="center-block">
-								<img src="<?php echo $book['image']?>" alt="something"
+								<img src="" alt="Library Image Not Available"
 									class="details img-responsive">
 							</div>
 						</div>
@@ -84,22 +84,7 @@ if($book == -1) {
 		}
 
 
-	function addToCart(id){
-		//console.log("book id: " + id);
-		//console.log(window.location.href);
-		$.ajax({
-			  url: window.location.href,
-			  type: "POST", //send it through get method
-			  data:{action : "add", materialID : id},
-			  success: function(response) {
-				  location.reload(true);
-				  closeModal();
-			  },
-			  error: function(xhr) {
-			    //Do Something to handle error
-			  }
-			});
-		}
+
 
 </script>
 

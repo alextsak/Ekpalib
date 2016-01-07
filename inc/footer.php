@@ -31,6 +31,24 @@ function detailsbook(id){
 		});
 }
 
+function detailsLibrary(id){
+	
+	var data = {"id" : id};
+	jQuery.ajax({
+		url : "/Ekpalib/inc/lib_details.php",
+		method: "post",
+		data : data,
+		success : function(data){
+			jQuery('body').append(data);
+			jQuery('#details-library-modal').modal('toggle');
+			},
+		error : function(){
+		alert("Something went wrong");
+			}
+
+		});
+}
+
 
 
 </script>

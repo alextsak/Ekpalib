@@ -210,6 +210,22 @@ class Material{
 	}
 	
 	
+	public function get_material_library($material_id){
+		
+		$query = 'select libraries.Name, libraries.idLibraries
+ 		from material,libraries_has_material,libraries
+ 		where material.MaterialID = ? and libraries_has_material.MaterialID = material.MaterialID
+ 		and libraries_has_material.idLibraries=libraries.idLibraries';
+
+		$stmt = $this->db->prepare($query);
+		$stmt->bindParam(1, $material_id);
+		$stmt->execute();
+		if($stmt->rowCount()>0){
+			return $stmt->fetch(PDO::FETCH_ASSOC);
+		}
+		return -1;
+	}
+	
 	public function results_view($query,$term)
     {
          $stmt = $this->db->prepare($query);
@@ -236,7 +252,12 @@ class Material{
          	  <?php 
                 while($row=$stmt->fetch(PDO::FETCH_ASSOC))
                 {
-                   ?>
+                	$library = $this->get_material_library($row['MaterialID']);
+                	$lib_name = '';
+                	if($library != -1) {
+                		$lib_name = $library['Name'];
+                	}
+                	?>
 	                   	<tr>
 		                   	<td>
 		                   		<div style="width:100px; text-align:center;">
@@ -246,7 +267,7 @@ class Material{
 		                   	<td><?php echo $row['category']; ?></td>
 		                    <td><?php echo $row['author']; ?></td>
 		                   	<td><?php echo $row['isbn']; ?></td>
-		                   	<td>Science Library</td>
+		                   	<td><?php echo $lib_name; ?></td>
 	                 		<td><?php echo $row['availability']; ?></td>
 	                 		<?php $url_path = $_SERVER['QUERY_STRING'];
         						$url_path = '?' .  $url_path;
@@ -294,6 +315,10 @@ class Material{
 		return $query;
 	}
  }
+ 
+ 
+
+ 
  
  	
  public function paging($query,$records_per_page)

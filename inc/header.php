@@ -107,7 +107,7 @@ require_once './utilities/helpers.php';
 					?><li
 						style="width: 120px; border: 1px solid #E5E5E5; margin-top: 6px; border-radius: 3px; margin-right: 40px;">
 						<a href="?page=login_signup"
-							style="font-size: 12px; margin-top: 6px; position: relative; bottom: 4px; right: 5px;">
+							style="color:navy; font-size: 12px; margin-top: 6px; position: relative; bottom: 4px; right: 5px;">
 							Είσοδος | Εγγραφή
 						</a>
 					</li>
