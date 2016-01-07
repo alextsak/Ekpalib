@@ -26,10 +26,25 @@ function searchLibraries(address,department){
 		data : data,
 		success : function(data){
 			var myObj = $.parseJSON(data);
-			console.log(myObj);
 			
-			//$("#lib-grid").find("tbody").empty();
-			//$("#lib-grid tbody").append(data);
+			$("#lib-grid").find("tbody").empty();
+			console.log(myObj);
+			//for(var i=0;i<myObj.length;i++){
+				var html =  "<tr> " +
+								"<td>" + 
+									myObj.Name
+								+ "</td> " 
+								+ " <td> " +
+									myObj.Address
+								+ "</td> " +
+								+ " <td> " +
+									myObj.Telephone
+								+ "</td> " +
+							"</tr>";
+				$("#lib-grid tbody").append(html);
+			//}
+			
+			
 		},
 		error : function(){
 			alert("Something went wrong");

@@ -3,7 +3,8 @@ require_once '../database/ConnectionDB/dbConnection.php';
 require_once '../database/Model/Libraries.php';
 $lib_id = $_POST['id'];
 $lib_id = (int)$lib_id;
-
+$libraries = new Libraries();
+$libs = $libraries->get_library_details($lib_id);
 ?>
 
 
@@ -15,31 +16,42 @@ $lib_id = (int)$lib_id;
 }
 
 </style>
-<div class="modal fade library-details-modal" id="library-details-modal" tabindex="-1"
-	role="dialog"  aria-labelledby="windowTitleLabel"> aria-hidden="true">
-
-    <div class="modal-header">
-        <h3>Task List</h3>
-        </div>
-    <div class="modal-body">
-        <div class="tabbable"> <!-- Only required for left/right tabs -->
-        <ul class="nav nav-tabs">
-        <li class="active"><a href="#tab1" data-toggle="tab">Section 1</a></li>
-        <li><a href="#tab2" data-toggle="tab">Section 2</a></li>
-        </ul>
-        <div class="tab-content">
-        <div class="tab-pane active" id="tab1">
-            Data 1
-        </div>
-        <div class="tab-pane" id="tab2">
-        	<p>Data 2.</p>
-        </div>
-        </div>
-        </div>
-   </div>
-   <div class="modal-footer">
-         <a href="#" class="btn btn-primary" onclick="CloseTaskList();">Close</a>
-   </div>
+<div class="modal fade" id="library-details-modal" >
+	<div class="modal-dialog">
+		<div class="modal-content">
+		    <div class="modal-header">
+		        <h3>'Ονομα βιβλιοθηκης</h3>
+		    </div>
+		    <div class="modal-body">
+		        <div class="tabbable"> 
+			        <ul class="nav nav-tabs">
+			        	<li class="active"><a href="#tab1" data-toggle="tab">Προσωπικό</a></li>
+			        	<li><a href="#tab2" data-toggle="tab">Γενικές Πληροφορίες</a></li>
+			        	<li><a href="#tab3" data-toggle="tab">Συλλογή</a></li>
+			        	<li><a href="#tab4" data-toggle="tab">Υπηρεσίες</a></li>
+			        </ul>
+			        
+			        <div class="tab-content">
+			        	<div class="tab-pane active" id="tab1">
+			            	Data 1
+			        	</div>
+			        	<div class="tab-pane" id="tab2">
+			        		<p>Data 2</p>
+			        	</div>
+			        	<div class="tab-pane" id="tab3">
+			        		<p>Data 3</p>
+			        	</div>
+			        	<div class="tab-pane" id="tab4">
+			        		<p>Data 4</p>
+			        	</div>
+			        </div>
+		        </div>
+		   </div>
+		   <div class="modal-footer">
+		         <a href="#" class="btn btn-primary" onclick="closeModal();">Close</a>
+		   </div>
+		</div>
+	</div>
 </div>
 <script type="text/javascript">
 
