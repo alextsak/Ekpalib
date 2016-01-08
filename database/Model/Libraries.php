@@ -99,8 +99,15 @@ class Libraries{
 	}
 	
 	public function get_library_details($lib_id){
-		// get's for the specified lib_id, the libraries info to present the in a modal
+		$query = 'select * from libraries where idlibraries =  ?';
+			
+		$stmt = $this->db->prepare($query);
+		$stmt->bindParam(1, $lib_id);
+		$stmt->execute();
+		if($stmt->rowCount() > 0)
+			return $stmt;
 		
+			return -1;
 	}
 	
 	public function searchLibraries($lib_addr,$lib_dep){

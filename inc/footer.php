@@ -35,6 +35,7 @@ function detailsbook(id){
 function detailsLibrary(id){
 	
 	var data = {"id" : id};
+
 	jQuery.ajax({
 		url : "/Ekpalib/inc/lib_details.php",
 		method: "post",

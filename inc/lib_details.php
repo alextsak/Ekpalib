@@ -5,6 +5,7 @@ $lib_id = $_POST['id'];
 $lib_id = (int)$lib_id;
 $libraries = new Libraries();
 $libs = $libraries->get_library_details($lib_id);
+$row=$libs->fetch(PDO::FETCH_ASSOC);
 ?>
 
 
@@ -20,7 +21,7 @@ $libs = $libraries->get_library_details($lib_id);
 	<div class="modal-dialog">
 		<div class="modal-content">
 		    <div class="modal-header">
-		        <h3>'Ονομα βιβλιοθηκης</h3>
+		        <h3><?php echo $row['Name'] ?></h3>
 		    </div>
 		    <div class="modal-body">
 		        <div class="tabbable"> 
@@ -33,16 +34,16 @@ $libs = $libraries->get_library_details($lib_id);
 			        
 			        <div class="tab-content">
 			        	<div class="tab-pane active" id="tab1">
-			            	Data 1
+			            	<?php echo $row['faculty'] ?>
 			        	</div>
 			        	<div class="tab-pane" id="tab2">
-			        		<p>Data 2</p>
+			        		<?php echo $row['information'] ?>
 			        	</div>
 			        	<div class="tab-pane" id="tab3">
-			        		<p>Data 3</p>
+			        		<?php echo $row['collection'] ?>
 			        	</div>
 			        	<div class="tab-pane" id="tab4">
-			        		<p>Data 4</p>
+			        		<?php echo $row['services'] ?>
 			        	</div>
 			        </div>
 		        </div>

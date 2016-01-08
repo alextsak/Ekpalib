@@ -42,8 +42,8 @@ function searchLibraries(address,department){
 			    	if(key == "id"){
 			    		html = html +
 			    		"<td style=\"width:120px;\">"+
-						"<button class=\"btn btn-primary btn-sm\" type=\"button\" onclick=\"detailsLibrary(" + data[i][key] + ")>" +
-								"<span class=\"glyphicon glyphicon-info-sign\"></span>"+
+						"<button class='btn btn-primary btn-sm' type='button' onclick=detailsLibrary(" + data[i][key] + ")>" +
+								"<span class='glyphicon glyphicon-info-sign'></span>"+
 						"</button></td>"
 			    	} else {
 			    		html = html +
