@@ -58,13 +58,25 @@ $(document).ready(function(){
 	  <div  class="tab-content">
 	  
             <div class="tab-pane active" id="NewsAndEvents">
-           <p>Με την υψηλότερη διάκριση ―worthy of merit― αξιολογήθηκε από τους εξωτερικούς αξιολογητές το 
+            	<div class="col-md-6">
+            		<h4 style="text-decoration: underline; text-align: center;">Νέα</h4>
+            		 <p>Με την υψηλότερη διάκριση ―worthy of merit― αξιολογήθηκε από τους εξωτερικούς αξιολογητές το 
            Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών κατά την τελική φάση της διαδικασίας της εξωτερικής 
-           ιδρυματικής αξιολόγησης, σύμφωνα με την ισχύουσα νομοθεσία και την εφαρμογή της σε συνεργασία με την 
-           ΑΔΙΠ (Αρχή Διασφάλισης Ποιότητας). Πιο συγκεκριμένα η Έκθεση, μεταξύ άλλων, μνημονεύει:
+           ιδρυματικής αξιολόγησης
 
-«An admirable effort by the academic units and the administration has been made towards establishing a mission and its goals. Fortunately, in the context of the current financial crisis, the long standing tradition of excellence of UOA inherently addresses its immediate mission and goals». 
-            </p></div>
+ 
+            		</p>
+            	</div>
+            	<div class="col-md-6">
+            		<h4 style="text-decoration: underline; text-align: center;">Εκδηλώσεις</h4>
+          			<p>Πρόσκληση σε ομιλία του Καθηγητή και Ακαδημαϊκού κ. Δ. Νανόπουλου 
+Τετάρτη 13 Ιανουαρίου 2016, ώρα 12:00
+
+          			</p>
+            	</div>
+            	 
+            </div>
+          
               
             <div class="tab-pane" id="StudyRooms">
     			<table>
@@ -93,7 +105,9 @@ $(document).ready(function(){
 												-webkit-border-radius: 10px;
 												height:inherit;
 												border-style: double;">
+												<p class="bg-warning text-center">Εάν επιλέξετε "Κανένα" Τμήμα τότε αναζητείτε βιβλιοθήκες με βάση την διεύθυνση</p>
 	              	<div class="col-md-4">
+	              	 
 		              	<form class="form-horizontal">
 		              		<h5 style="position:relative;top:15px;right: 15px;text-decoration: underline;">Επιλογή τμήματος</h5>
 							<select id="lib-dep" class="form-control" style="position:relative;top:10px;margin-bottom:25px;right:15px;width:250px">

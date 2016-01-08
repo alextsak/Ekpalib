@@ -11,7 +11,7 @@ while($row=$libs->fetch(PDO::FETCH_ASSOC)){
 	
 	
 	
-	$retlib[] = array('id'=> $row['idLibraries'],'name'=> $row['Name'], 'address' => $row['Address'], 'tel' => $row['Telephone'], 'rowCount' => $libs->rowCount());
+	$retlib[] = array('name'=> $row['Name'], 'address' => $row['Address'], 'tel' => $row['Telephone'],'id'=> $row['idLibraries']);
 }
 
 echo json_encode($retlib);

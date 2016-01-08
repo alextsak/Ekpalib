@@ -27,7 +27,7 @@ if(isset($_POST['login-form'])){
 			if(count($_SESSION['cart']) > 0) {
 				
 			}
-			
+			header('Location: index.php');
 		}
 		
 		else {
