@@ -51,7 +51,7 @@ class Libraries{
 	
 	public function Search(array $params){
 	
-		// Advanced Search
+		// Advanced Search to categories
 	
 		$st = $this->db->prepare("SELECT * FROM libraries WHERE `Name` LIKE '%?%' or `Address` LIKE '%?%' or `Telephone` LIKE '%?%' or `Fax` LIKE '%?%'");
 		$st->bindParam(1, $params[0]);
