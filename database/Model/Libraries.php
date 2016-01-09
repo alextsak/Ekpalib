@@ -35,9 +35,9 @@ class Libraries{
 	
 	public function QuickSearch($params){
 	
-		// it might need another insertion
+		// Search to all columns for given parameter
 	
-		$st = $this->db->prepare("SELECT * FROM libraries WHERE Name LIKE (?)");
+		$st = $this->db->prepare("SELECT * FROM libraries WHERE Concat(`Name`,`Site`,`Address`,`Telephone`,`Fax`,`Informations`) LIKE ('%?%')");
 		$st->bindParam(1, $params);
 	
 	
@@ -51,9 +51,9 @@ class Libraries{
 	
 	public function Search(array $params){
 	
-		// it might need another insertion
+		// Advanced Search
 	
-		$st = $this->db->prepare("SELECT * FROM libraries WHERE `Name`=?,`Address`=?,`Telephone`=?,`Fax`=?");
+		$st = $this->db->prepare("SELECT * FROM libraries WHERE `Name` LIKE '%?%' or `Address` LIKE '%?%' or `Telephone` LIKE '%?%' or `Fax` LIKE '%?%'");
 		$st->bindParam(1, $params[0]);
 		$st->bindParam(2, $params[1]);
 		$st->bindParam(3, $params[2]);
