@@ -60,18 +60,27 @@ class Material{
 	function get_categories($material){
 		
 		if($material == "all"){
-			$query = 'SELECT DISTINCT(category) FROM books,articles';
-		}
-		else {
-			$query = 'SELECT DISTINCT(category) FROM ' . $material;
-		}
+			$query = '  SELECT DISTINCT(t1.category) 
+						from 
+						(
+						    SELECT DISTINCT(category) from books
+						    UNION
+						    SELECT DISTINCT(category) from articles
+						    UNION
+						    SELECT DISTINCT(category) from magazines
+						) as t1';
 		
+			
+		
+		}else {
+			$query = 'SELECT DISTINCT(category) FROM '.$material;
+			
+		}
+			
 		$stmt = $this->db->prepare($query);
 		$stmt->execute();
 		if($stmt->rowCount()>0)
-		{
-			return $stmt->fetch(PDO::FETCH_ASSOC);
-		}
+			return $stmt;
 		return -1;
 	}
 	
@@ -203,6 +212,7 @@ class Material{
 						}
 						
 						$_SESSION['cart'][$row['MaterialID']]=array(
+								"id"	=> $row['MaterialID'],
 								"title" => $row['title'],
 								"category" => $row['category'],
 								"author" => $row['author'],
