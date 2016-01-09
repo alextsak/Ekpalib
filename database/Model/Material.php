@@ -212,6 +212,7 @@ class Material{
 						}
 						
 						$_SESSION['cart'][$row['MaterialID']]=array(
+								"id"	=> $row['MaterialID'],
 								"title" => $row['title'],
 								"category" => $row['category'],
 								"author" => $row['author'],
