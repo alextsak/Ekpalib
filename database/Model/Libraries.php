@@ -107,7 +107,7 @@ class Libraries{
 		if($stmt->rowCount() > 0)
 			return $stmt;
 		
-			return -1;
+		return -1;
 	}
 	
 	public function searchLibraries($lib_addr,$lib_dep){
@@ -144,8 +144,6 @@ class Libraries{
 			$stmt->bindParam(2, $lib_addr);
 			
 		}
-		
-	
 		$stmt->execute();
 		if($stmt->rowCount() > 0)
 			return $stmt;

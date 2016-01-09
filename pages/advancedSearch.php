@@ -24,18 +24,6 @@
     margin-top: 80px;
 }
 
-#verticalLine{
-    transform: rotate(90deg);
-    height: 19px;
-    position: relative;
-    right: 300px;
-    width: 280px;
-    bottom: 170px;
-    border-radius:0px;
-}
-#verticalLine:before{
-	border-radius:0px;
-}
 </style>
 
 
@@ -46,32 +34,26 @@
 <div id="searchContainer" class="col-xs-12">		
 	
 	<div class="col-md-2">
-			<form class="form-horizontal">
+			<form id="radioButton-From" class="from-horizontical">
 			<h5 style="text-decoration: underline;">1. Τύπος αντικειμένου</h5>
-				<div class="radio">
-	  				<label>
-	    				<input type="checkbox" name="all" id="all"checked>
-					    Όλα
-					</label>
-				</div>
-				<div class="radio">
-	  				<label>
-	    				<input type="checkbox" name="books" id="books">
-					    Συγγράματα
-					</label>
-				</div>
-				<div class="radio">
-	  				<label>
-	    				<input type="checkbox" name="articles" id="articles">
-					    Άρθρα
-					</label>
-				</div>
-				<div class="radio">
-	  				<label>
-	    				<input type="checkbox" name="magazines" id="magazines">
-					    Περιοδικά
-					</label>
-				</div>
+				<div >
+			        <div >
+			            <input type="radio" name="radio" id="all" value="all" checked>
+			            Όλα
+			        </div>
+			        <div >
+			            <input type="radio" name="radio" id="books" value="books">
+			            Συγγράματα
+			        </div>
+			        <div>
+			            <input type="radio" name="radio" id="articles" value="articles">
+			           	Άρθρα
+			        </div>
+			        <div >
+			            <input type="radio" name="radio" id="magazines" value="magazines">
+			            Περιοδικά
+			        </div>
+			    </div>
 			</form>
 	</div>
     
