@@ -1,5 +1,5 @@
 <?php
-//require $_SERVER['DOCUMENT_ROOT'].'/Ekpalib/database/ConnectionDB/dbConnection.php';
+
 
 class User{
 	
@@ -57,11 +57,20 @@ class User{
 	}
 	
 	
-	public function get_user_transactions($user){
+	public function get_user_transactions($username){
 		
 		$query = 'SELECT MaterialID, StartDate, EndDate FROM academiccommunitymembers_makesrequestfor_material where User=? and Approved=1';
 		$stmt = $this->db->prepare($query);
 		$stmt->bindParam(1, $user);
+		if($stmt->execute()){
+			if($stmt->rowCount() > 0){
+				return $stmt->fetch(PDO::FETCH_ASSOC);
+			}
+		}
+		else {
+			echo 'No data found';
+		}
+		
 		
 	}
 	 
