@@ -130,64 +130,7 @@ class Material{
 	}
 	
 	
-	public function create_mycart($genre) {
-		$query = 'select * from ' . $genre . ' where MaterialID IN (';
-		foreach($_SESSION['cart'] as $id => $value) {
-			$query.=$id.",";
-		}
-		$query=substr($query, 0, -1).") order by title ASC";
-		$stmt = $this->db->prepare($query);
-		$stmt->execute();
-		
-		if($stmt->rowCount()>0)
-		{
-			?><thead>
-		         		<tr>
-		         			<th><?php echo 'Τίτλος';?></th>
-		         	      					<th><?php echo 'Κατηγορία';?></th>
-		         	      					<th><?php echo 'Συγγραφέας(εις)';?></th>
-		         	      					<th><?php echo 'ISBN';?></th>
-		         	      					<th><?php echo 'Βιβλιοθήκη';?></th>
-		         	      					<th><?php echo 'Διαθεσιμότητα';?></th>
-		         	      					<th><?php echo 'Επιλογές'?></th>
-		         	   	</tr>
-		         	  </thead>
-		         	  <?php 
-		                while($row=$stmt->fetch(PDO::FETCH_ASSOC))
-		                {
-		                	$library = $this->get_material_library($row['MaterialID']);
-		                	$lib_name = '';
-		                	if($library != -1) {
-		                		$lib_name = $library['Name'];
-		                	}
-		                	
-		                	?>
-		  					
-			                   	<tr>
-				                   	<td>
-				                   			<?php echo $row['title']; ?>
-				                   	</td>
-				                   	<td><?php echo $row['category']; ?></td>
-				                    <td><?php echo $row['author']; ?></td>
-				                   	<td><?php echo $row['isbn']; ?></td>
-				                   	<td><a href="javascript:detailsLibrary(<?php echo $lib_name; ?>)"><?php echo $lib_name; ?></a></td>
-			                 		<td><?php echo $row['availability']; ?></td>
-									<td style="width:120px;">
-										<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>)">
-											<span class="glyphicon glyphicon-info-sign" ></span></button>
-											&nbsp | &nbsp
-										<button class="btn btn-warning btn-sm" type="button">
-											<span class="glyphicon glyphicon-new-window" >
-											</span>
-										</button>
-									</td>
-			                   </tr>
-		                   
-		                   <?php
-		                }
-		      }
-		
-	}
+	
 	
 	public function query_data_to_cart($materialID, $genre) {
 		if(!empty($materialID)){

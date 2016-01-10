@@ -55,5 +55,14 @@ class User{
 			echo 'Values did NOT insert correctly';
 		}
 	}
+	
+	
+	public function get_user_transactions($user){
+		
+		$query = 'SELECT MaterialID, StartDate, EndDate FROM academiccommunitymembers_makesrequestfor_material where User=? and Approved=1';
+		$stmt = $this->db->prepare($query);
+		$stmt->bindParam(1, $user);
+		
+	}
 	 
 }
