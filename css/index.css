@@ -76,3 +76,27 @@ display:block;
 	border: solid 3px #3071a9;
 	margin-top:10px;
 }
+
+
+#reasultsHeader{
+	margin-top:30px;
+	margin-left:420px;
+}
+
+.panel-body#searchResults{
+	background-color: beige;
+}
+
+#confirmLoan-Button{
+	margin-left: 955px;
+    margin-top: 20px;
+}
+  
+  
+#sidebar-table { 
+    width: 200px !important; 
+    float: left !important; 
+}  
+
+
+

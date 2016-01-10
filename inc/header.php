@@ -18,7 +18,6 @@ require_once './utilities/helpers.php';
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 <link href="css/index.css" rel="stylesheet">
-<link href="css/searchpage.css" rel="stylesheet">
 <link href="css/main.css" rel="stylesheet">
 <link href="css/header.css" rel="stylesheet">
 <link rel="stylesheet" href="css/login-signup.css" type="text/css"
@@ -166,12 +165,12 @@ require_once './utilities/helpers.php';
 					<div class="dropdown">
 						<button id="cart" class="btn btn-default " type="button"
 							data-toggle="dropdown">
-							Καρότσι <i><?php echo '( 0 )';?></i> <i
+							Καλάθι <i><?php echo '( 0 )';?></i> <i
 								class="glyphicon glyphicon-shopping-cart"></i>
 						</button>
 						<ul id="cart-menu" class="dropdown-menu"
 							aria-labelledby="dropdownMenu1">
-							<li><p style="text-align: center; color: blue;">Το καρότσι είναι
+							<li><p style="text-align: center; color: blue;">Το καλάθι είναι
 									άδειο</p></li>
 						</ul>
 					</div>
@@ -206,9 +205,9 @@ require_once './utilities/helpers.php';
 					
 				?><div class="col-sm-3">
 					<!-- <div class="dropdown"> -->
-						<button id="cart" class="btn btn-default" href="#cartModal"  data-toggle="modal"> 
+						<button id="cart" class="btn btn-default" data-toggle="modal"> 
 							<!-- data-toggle="dropdown" -->
-							Καρότσι 
+							Καλάθι 
 							<i><?php 
 								if(!isset($_SESSION['cart'])) {
 									echo '( 0 )';
