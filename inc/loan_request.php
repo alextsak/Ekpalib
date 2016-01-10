@@ -1,10 +1,34 @@
 <?php
+require_once '../database/ConnectionDB/dbConnection.php';
+require_once '../database/Model/Material.php';
 
-
-
+$idArray = $_POST['idArray'];
+$user = $_POST['user'];
+$material = new Material();
+$result = $material->confirmLoan($idArray, $user);
+$flag = 0;
+$message = '';
+switch ($result) {
+	case "empty": $message = "Οι παράμετροι που υποβλήθηκαν είναι κενές";
+					echo "<script>error_messages('$message');</script>";
+					break;
+					
+	case "problem": $message = "Πρόβλημα στην καταχώρηση της αίτησης";
+					echo "<script>error_messages('$message');</script>";
+					break;
+					
+	case "inserted": $flag = 1;
+					$message = "Η υποβολή του αιτήματος έγινε με επιτυχία";
+					break;
+					
+	default: 
+}
+if($flag == 1){
+	
+	ob_start();
 ?>
 
-<div class="modal fade success-loan-modal" id="error-modal" tabindex="-1"
+<div class="modal fade success-loan-modal" id="success-loan-modal" tabindex="-1"
 		role="dialog" aria-labelledby="success-loan-modal" aria-hidden="true">
 		<div class="modal-dialog modal-lg">
 		<div class="modal-content">
@@ -22,13 +46,15 @@
 
 					<div class="col-sm-12">
 							<h4 class="bg-success text-center"><?php echo $message;?></h4>
-							
+							<h5 class="text-info text-center"><?php echo "Πατώντας το κουμπί <b>Συνέχεια</b> μπορείτε να μεταφερθείτε στην αρχική σελίδα σας"?></h5>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button class="btn btn-default"  onclick="closeModal()">Συνέχεια</button>
+			<form method="post" action="<?php echo $_SERVER['REQUEST_URI']?>">
+				<button class="btn btn-default"  onclick="homeRedirect()">Συνέχεια</button>
+			</form>
 			</div>
 		</div>
 	</div>
@@ -36,12 +62,22 @@
 
 <script type="text/javascript">
 
-	function closeModal(){
-		jQuery('#error-modal').modal('hide');
+	function homeRedirect(){
+		jQuery('#success-loan-modal').modal('hide');
 		setTimeout(function(){
-			jQuery('#error-modal').remove();
+			jQuery('#success-loan-modal').remove();
 			jQuery('.modal-backdrop').remove();
 			},500);
+		//window.location.replace("");
+		$.get( "" );
+		//$.get( "/Ekpalib/", function( data ) {
+			 //console.log("load was perfrmed");
+			  //alert( "Load was performed." );
+			//});
 		}
 
 </script>
+
+<?php 
+echo ob_get_clean();
+}?>

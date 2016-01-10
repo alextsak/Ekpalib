@@ -16,7 +16,17 @@ $(document).ready(function(){
 
 function loan_request(idArray, user){
 	
-	var data = {"id" : idArray, "user" : user};
+	
+	var json_id_array = jQuery.parseJSON(idArray);
+	
+	
+	if(json_id_array == null || user == null){
+		alert("NUUUUULLLL");
+	}else {
+		console.log("confirm loan send: " + json_id_array + " and " + user);
+	}
+	
+	var data = {"idArray" : json_id_array, "user" : user};
 	jQuery.ajax({
 		url : "/Ekpalib/inc/loan_request.php",
 		method: "post",

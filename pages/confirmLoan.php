@@ -1,14 +1,26 @@
 <?php 
 //session_start();
 error_reporting(E_ALL);
-if(isset($_POST['empty_cart'])){
-	foreach($_SESSION['cart'] as $key => $val) {
-		unset($_SESSION['cart'][$key]);
+
+
+if(isset($_SESSION['cart'])){
+	$id_array = array();
+	
+	foreach ($_SESSION['cart'] as $item_array) {
+		foreach($item_array as $key=>$value){
+			if($key == "id"){
+				array_push($id_array, $value);
+			}
+		}
 	}
-	if(count($_SESSION['cart']) == 0) {
-		unset($_SESSION['cart']);
-	}
+	
+	
 }
+
+
+
+
+
 ?>
 <style>
 
@@ -38,23 +50,12 @@ if(isset($_POST['empty_cart'])){
 		</div>
 		
 		<div>
-			<a href="javascript:loan_request()" id="loan-Button" type="button" class="btn btn-default">Δανεισμός
+			<a href="javascript:loan_request('<?php echo htmlspecialchars(json_encode($id_array)); ?>','<?php echo htmlspecialchars($_SESSION['username']); ?>');" id="loan-Button" type="button" class="btn btn-default">Δανεισμός
       			<span class="glyphicon glyphicon-chevron-right"></span> 
     		</a>
 		</div>
 		<div>
-		<?php 
-		$id_array = array();
-		
-			foreach ($_SESSION['cart'] as $item_array) {
-				foreach($item_array as $key=>$value){
-					if($key == "id"){
-						array_push($id_array, $value);
-					}
-				}
-			}
-		
-		?>
+	
 		
 		</div>
 		

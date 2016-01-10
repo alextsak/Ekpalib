@@ -3,8 +3,8 @@ $message = $_POST['message'];
 
 ?>
 <?php ob_start(); ?>
-<div class="modal fade error-modal" id="error-modal" tabindex="-1"
-	role="dialog" aria-labelledby="error-modal" aria-hidden="true">
+<div class="modal fade success-modal" id="success-modal" tabindex="-1"
+	role="dialog" aria-labelledby="success-modal" aria-hidden="true">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -36,9 +36,9 @@ $message = $_POST['message'];
 <script type="text/javascript">
 
 	function closeModal(){
-		jQuery('#error-modal').modal('hide');
+		jQuery('#success-modal').modal('hide');
 		setTimeout(function(){
-			jQuery('#error-modal').remove();
+			jQuery('#success-modal').remove();
 			jQuery('.modal-backdrop').remove();
 			},500);
 		}

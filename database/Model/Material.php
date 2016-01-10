@@ -237,21 +237,7 @@ class Material{
 	}
 	
 	
-	public function get_material_library($material_id){
-		
-		$query = 'select libraries.Name, libraries.idLibraries
- 		from material,libraries_has_material,libraries
- 		where material.MaterialID = ? and libraries_has_material.MaterialID = material.MaterialID
- 		and libraries_has_material.idLibraries=libraries.idLibraries';
-
-		$stmt = $this->db->prepare($query);
-		$stmt->bindParam(1, $material_id);
-		$stmt->execute();
-		if($stmt->rowCount()>0){
-			return $stmt->fetch(PDO::FETCH_ASSOC);
-		}
-		return -1;
-	}
+	
 	
 	public function results_view($query,$term)
     {
@@ -343,10 +329,85 @@ class Material{
 	}
  }
  
+ public function get_material_library($material_id){
  
+ 	$query = 'select libraries.Name, libraries.idLibraries
+ 		from material,libraries_has_material,libraries
+ 		where material.MaterialID = ? and libraries_has_material.MaterialID = material.MaterialID
+ 		and libraries_has_material.idLibraries=libraries.idLibraries';
+ 
+ 	$stmt = $this->db->prepare($query);
+ 	$stmt->bindParam(1, $material_id);
+ 	$stmt->execute();
+ 	if($stmt->rowCount()>0){
+ 		return $stmt->fetch(PDO::FETCH_ASSOC);
+ 	}
+ 	return -1;
+ }
 
  
+
+ public function fetch_material_details($material_id, $genre){
  
+ 	$query = 'SELECT * FROM ' . $genre . ' where MaterialID=?';
+ 	$stmt = $this->db->prepare($query);
+ 	$stmt->bindParam(1, $material_id);
+ 	$stmt->execute();
+ 	if($stmt->rowCount() == 1){
+ 		return $stmt->fetch(PDO::FETCH_ASSOC);
+ 	}
+ 	return -1;
+ }
+ 
+ 
+ /**************************************** LOAN REQUEST AND CONFIRMATION **************************************************/
+ public function confirmLoan($idArray, $user){
+ 	// insert the material_id and the user_id to history table
+ 	if(!empty($idArray) && !empty($user)){
+ 		$query = 'INSERT INTO academiccommunitymembers_makesrequestfor_material(User, MaterialID, StartDate, EndDate, Approved) VALUES (?, ?, NOW(), DATE_ADD(NOW(), INTERVAL 30 DAY), 1)';
+ 		
+		$stmt = $this->db->prepare($query);
+		$flag = 0;
+		foreach($idArray as $material_id){
+			$stmt->bindParam(1, $user);
+			$stmt->bindParam(2, intval($material_id));
+			if($stmt->execute()) {
+				$flag = 1;
+			} else {
+				return "problem";
+		}
+		
+			
+			/*$err = $sth->errorInfo();
+			$err;
+			return $err;*/
+		}
+		if($flag == 1) {
+
+			// return the success but first discard the items from the cart
+			
+			
+			
+			return "inserted";
+		}
+		
+ 	} 
+ 	else {
+ 		return "empty";
+ 	}
+ 	
+ 
+ 
+ }
+ 
+ public function get_materials_from_library($lib_id){
+ 	// get the materials that the library with the specific id has
+ 
+ }
+ 
+ 
+ 
+ /****************************************** START OF PAGINATION ***********************************************/
  	
  public function paging($query,$records_per_page)
  {
@@ -421,38 +482,9 @@ class Material{
   
  }
 	
-//}
+ /****************************************** END OF PAGINATION ***********************************************/
 
 
-	public function fetch_material_details($material_id, $genre){
-	
-		$query = 'SELECT * FROM ' . $genre . ' where MaterialID=?';
-		$stmt = $this->db->prepare($query);
-		$stmt->bindParam(1, $material_id);
-		$stmt->execute();
-		if($stmt->rowCount() == 1){
-			return $stmt->fetch(PDO::FETCH_ASSOC);
-		}
-		return -1;
-	}
-	
-	
-	/***************************************************************************************************/
-	public function confirmLoan($material_id, $user_id){
-		// insert the material_id and the user_id to history table 
-		$query = '';
-		$stmt = $this->db->prepare($query);
-		$stmt->bindParam(1, $material_id);
-		$stmt->execute();
-		
-		
-	}
-	
-	public function get_materials_from_library($lib_id){
-		// get the materials that the library with the specific id has
-		
-	}
-	
 	
 	
 	
