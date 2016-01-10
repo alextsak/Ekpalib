@@ -288,8 +288,6 @@ class Material{
  	return -1;
  }
 
- 
-
  public function fetch_material_details($material_id, $genre){
  
  	$query = 'SELECT * FROM ' . $genre . ' where MaterialID=?';
@@ -302,6 +300,10 @@ class Material{
  	return -1;
  }
  
+ public function advancedSearch($type,$category,$keyword,$author,$publisher,$isbn,$library){
+ 
+ 
+ }
  
  /**************************************** LOAN REQUEST AND CONFIRMATION **************************************************/
  public function confirmLoan($idArray, $user){
@@ -343,11 +345,7 @@ class Material{
  
  }
  
- public function get_materials_from_library($lib_id){
- 	// get the materials that the library with the specific id has
- 
- }
- 
+
  
  
  /****************************************** START OF PAGINATION ***********************************************/

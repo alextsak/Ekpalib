@@ -93,9 +93,16 @@ class Libraries{
 	
 	/********************************************************************************************************************/
 	
-	public function get_library_by_param($param){
-		// get's library name, address, email/site according to the parameter given, e.g. address, department
-		
+	public function get_libraries($param){
+		$query = 'SELECT * FROM libraries';
+		$stmt = $this->db->prepare($query);
+		$stmt->execute();
+		while($row=$stmt->fetch(PDO::FETCH_ASSOC))
+		{
+			?>
+			<option><?php echo $row['Name'] ?></option>
+			<?php
+		}
 	}
 	
 	public function get_library_details($lib_id){
