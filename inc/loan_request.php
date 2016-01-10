@@ -52,9 +52,9 @@ if($flag == 1){
 				</div>
 			</div>
 			<div class="modal-footer">
-			<form method="post" action="<?php echo $_SERVER['REQUEST_URI']?>">
+		
 				<button class="btn btn-default"  onclick="homeRedirect()">Συνέχεια</button>
-			</form>
+			
 			</div>
 		</div>
 	</div>
@@ -63,17 +63,27 @@ if($flag == 1){
 <script type="text/javascript">
 
 	function homeRedirect(){
+		// clear first the modal and the send a request to clear the cart
 		jQuery('#success-loan-modal').modal('hide');
 		setTimeout(function(){
 			jQuery('#success-loan-modal').remove();
 			jQuery('.modal-backdrop').remove();
 			},500);
-		//window.location.replace("");
-		$.get( "" );
-		//$.get( "/Ekpalib/", function( data ) {
-			 //console.log("load was perfrmed");
-			  //alert( "Load was performed." );
-			//});
+		
+		var data = {"action" : "removeAll"};
+		jQuery.ajax({
+			url : "/Ekpalib/index.php",
+			method: "post",
+			data : data,
+			success : function(data){
+				window.location.replace("");
+			},
+			error : function(){
+				alert("Something went wrong");
+			}
+
+			});
+		
 		}
 
 </script>

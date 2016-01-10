@@ -160,7 +160,7 @@ require_once './utilities/helpers.php';
 				// if there is no session for the cart then echo just 0
 				if (! isset ( $_SESSION ['cart'])){
 					
-					echo 'I was called after the success';
+					
 					
 					?><div class="col-sm-3">
 					<div class="dropdown">
@@ -193,6 +193,15 @@ require_once './utilities/helpers.php';
 							unset($_SESSION['cart'][$materialID]);
 					
 						}
+					}
+					else if(isset($_POST['action']) && $_POST['action'] == "removeAll"){
+						foreach($_SESSION['cart'] as $key => $val) {
+							unset($_SESSION['cart'][$key]);
+						}
+						if(count($_SESSION['cart']) == 0) {
+							unset($_SESSION['cart']);
+						}
+
 					}
 					
 				?><div class="col-sm-3">
