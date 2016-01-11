@@ -33,7 +33,8 @@
 <form id="advancedSearch" action="?page=resultsPage" method="POST">
 	<div id="searchContainer" class="col-xs-12">		
 			<div class="col-md-2">
-					<form id="radioButton-From" class="from-horizontical" >
+					<!-- <form id="radioButton-From" class="from-horizontical" > -->
+					<div id="radioButton-From">
 						<h5 style="text-decoration: underline;">1. Τύπος αντικειμένου</h5>
 						<div >
 					        <div >
@@ -53,7 +54,8 @@
 					            Περιοδικά
 					        </div>
 					    </div>
-					</form>
+					</div>
+					<!-- </form> -->
 			</div>
     
     
