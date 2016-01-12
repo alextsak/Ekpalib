@@ -34,7 +34,7 @@ if(isset($_POST['searchbooks'])){
 	    	<?php
 	    		if(isset($_POST['searchbooks'])){
 		       		$material = new Material();
-		       		$records_per_page=5;
+		       		$records_per_page=1;
 		       		
 		       		$query = $material->query_easy_search($_SESSION['term'], $_SESSION['genre'],$_SESSION['keyword']);
 		       		$newquery = $material->paging($query,$records_per_page);
@@ -57,7 +57,7 @@ if(isset($_POST['searchbooks'])){
 	    							$_POST['publisher'],$_POST['isbn']);
 	    			
 	    			$material->results_view($newquery, $terms);
-	    			$material->paginglink($newquery,$terms,$records_per_page);
+	    			$material->paginglink($query,$terms,$records_per_page);
 	    		}
 	 		?> 
 			</tbody>	

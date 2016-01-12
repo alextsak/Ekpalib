@@ -210,18 +210,13 @@ class Material{
          	   	</tr>
          	  </thead>
          	  <?php 
-                while($row=$stmt->fetch(PDO::FETCH_ASSOC))
+                 while($row=$stmt->fetch(PDO::FETCH_ASSOC))
                 {
-                	$library = $this->get_material_library($row['MaterialID']);
-                	$lib_name = '';
-                	if($library != -1) {
-                		$lib_name = $library['Name'];
-                	}
                 	?>
 	                   	<tr>
 		                   	<td><?php echo $row['title']; ?></td>
 		                   	<td><?php echo $row['category']; ?></td>
-		                   	<td><a href="javascript:detailsLibrary(<?php echo $lib_name; ?>)"><?php echo $lib_name; ?></a></td>
+		                   	<td><a href="javascript:detailsLibrary(<?php echo $row['Name']; ?>)"><?php echo $row['Name']; ?></a></td>
 	                 		<td><?php echo $row['availability']; ?></td>
 	                 		<td><?php echo $row['available_days']; ?></td>
 	                 		<?php $url_path = $_SERVER['QUERY_STRING'];
@@ -266,8 +261,10 @@ class Material{
  public function query_easy_search($term, $genre, $keyword) {
 	if(!empty($term)) {
 		$query = 'select * 
-			      from '  . $genre . ', material where 
-			      material.MaterialID =  ' .$genre.'.MaterialID and  ' . $keyword . ' LIKE ' . '?';
+			      from '  . $genre . ', material,libraries_has_material,libraries 
+				  where material.MaterialID = libraries_has_material.MaterialID and
+				  libraries_has_material.idLibraries = libraries.idLibraries and 
+				  material.MaterialID =  ' .$genre.'.MaterialID and  ' . $keyword . ' LIKE ' . '?';
 		return $query;
 	}
  }
@@ -378,7 +375,7 @@ class Material{
         if(isset($_GET["page_no"]))
         {
              $starting_position=($_GET["page_no"]-1)*$records_per_page;
-        }
+        }   
         $query2=$query." limit $starting_position,$records_per_page ";
         
         return $query2;
