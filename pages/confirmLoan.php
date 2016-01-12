@@ -34,7 +34,8 @@ if(isset($_SESSION['cart'])){
 <h3 style="margin-left:450px;">Επιβεβαίωση Δανεισμού</h3>
 <hr class="style-seven">
 <div>
-		<table>
+		<div class="table-responsive">  
+	    	<table class="table table-striped">
 			<tbody>
 				<thead>
 		         	<tr>
@@ -73,6 +74,7 @@ if(isset($_SESSION['cart'])){
        		?> 
        	</tbody>
 		</table>
+		</div>
 		
 		<div class="checkbox" style="position: relative;left: 450px;top: 30px;">
 		  <label>

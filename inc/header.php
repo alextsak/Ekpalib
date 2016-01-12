@@ -54,10 +54,8 @@ require_once './utilities/helpers.php';
 				
 			} else {
 			?>
-			<!-- style="padding-left: 150px; -->
-		
 			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="left:110px;">
 					<div class="upper-nav pull-right">
 						<ul class="nav navbar-nav">
 							<?php if(isset($_SESSION['username'])) {?>
@@ -154,10 +152,9 @@ require_once './utilities/helpers.php';
 					// if there is no session for the cart then echo just 0
 					if (! isset ( $_SESSION ['cart'])){
 					?>
-						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="left:50px;">
 							<div class="dropdown">
-								<button id="cart" class="btn btn-default " type="button"
-									data-toggle="dropdown">
+								<button id="cart" class="btn btn-default " type="button" data-toggle="dropdown">
 									Καλάθι <i><?php echo '( 0 )';?></i> <i
 										class="glyphicon glyphicon-shopping-cart"></i>
 								</button>
@@ -197,9 +194,8 @@ require_once './utilities/helpers.php';
 					}
 					
 				?>
-				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-						<button id="cart" class="btn btn-default" data-toggle="modal"> 
-							<!-- data-toggle="dropdown" -->
+				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="left:50px;">
+						<button id="cart" class="btn btn-default" data-toggle="modal" href="#cartModal"> 
 							Καλάθι 
 							<i><?php 
 								if(!isset($_SESSION['cart'])) {
@@ -220,6 +216,7 @@ require_once './utilities/helpers.php';
 							         <!--  <button id="header-close-button" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> -->
 							        </div>
 							        <div class="modal-body">
+							          <div class="table-responsive">  
 							          <table class="table table-striped" id="tblGrid">
 							            <thead id="tblHead">
 							              <tr>
@@ -242,6 +239,7 @@ require_once './utilities/helpers.php';
 											?>
 							            </tbody>
 							          </table>
+							          </div>
 									</div>
 							        <div class="modal-footer">
 							          <button type="button" class="btn btn-default " data-dismiss="modal">Κλείσιμο</button>
@@ -259,7 +257,7 @@ require_once './utilities/helpers.php';
 				}
 				
 				?>
-				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="left:25px;">
 					<div id="polyglotLanguageSwitcher">
 						<form action="">
 							<select id="polyglot-language-options">

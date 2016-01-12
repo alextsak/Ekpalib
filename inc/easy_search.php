@@ -1,6 +1,6 @@
 <div >
 	  <!-- Nav tabs -->
-	  <ul id="main-tabs" class="nav nav-tabs" role="tablist">
+	  <ul id="main-tabs" class="nav nav-tabs" role="tablist" data-toggle="collapse">
 	    <li class="active"><a href="#Books" data-toggle="tab">Βιβλία</a></li>
 	    <li><a href="#Articles"  data-toggle="tab">Άρθρα</a></li>
 	    <li><a href="#Journals"  data-toggle="tab">Περιοδικά</a></li>
@@ -19,7 +19,7 @@
 	                    	</div>
 	                  	</div>
 		                <div class="row">
-		                  <form class="form-inline" id="search_books" action="?page=resultsPage" method="POST">
+		                  <form  class="form-inline" id="search_books" action="?page=resultsPage" method="POST">
 				                    <label class="sr-only" for="Search_Argument">Εισάγετε όρους αναζήτησης</label>
 				                    <input id="Search_Argument" class="form-control easy-search-text-input" type="text" placeholder="Εισάγετε όρους αναζήτησης" maxlength="255" size="25" name="term" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Εισάγετε όρους αναζήτησης'">
 				                    <label class="sr-only" for="booksSearch_Code">Book Search</label>
@@ -116,4 +116,4 @@
 			</div>
 			
 			
-			<div>
+			

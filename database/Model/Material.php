@@ -216,7 +216,7 @@ class Material{
                 	?>
 	                   	<tr>
 		                   	<td>
-		                   		<div style="width:100px; text-align:center;">
+		                   		<div >
 		                   			<?php echo $row['title']; ?>
 		                   		</div>		
 		                   	</td>

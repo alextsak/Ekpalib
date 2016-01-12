@@ -28,19 +28,13 @@ class StudyRooms{
 			?>
 		            <tr>
 			            <td>
-			               	<div >
 		                   		<?php echo $row['Name'];?>
-		                   	</div>		
 		                </td>
 		                <td>
-			               	<div >
 		                   		<?php echo $row['Address'];?>
-		                   	</div>		
 		                </td>
 		                <td>
-			               	<div>
 		                   		<?php echo $row['Description'];?>
-		                   	</div>		
 		                </td>
 		            </tr> 
 		        <?php

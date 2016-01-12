@@ -1,13 +1,13 @@
 /* 
 Generic Styling, for Desktops/Laptops 
 */
-table { 
+/* table { 
 	width: 100%; 
 	border-collapse: collapse;
 	margin-top:20px;
-	/* box-shadow: 10px 10px 5px #888888; */
+	box-shadow: 10px 10px 5px #888888;
 }
-/* Zebra striping */
+Zebra striping
 tr:nth-of-type(odd) { 
 	background: #f9f9f9;
 }
@@ -22,7 +22,7 @@ td, th {
 	border: 1px solid #ccc; 
 	text-align: center; 
 }
-
+*/
 
 hr.styled {
 	background:url(../images/hr_design.png) no-repeat top center;
@@ -38,7 +38,7 @@ hr.style-seven {
     border-width: 1px 0 0 0;
     border-radius: 20px;
 }
-hr.style-seven:before { /* Not really supposed to work, but does */
+hr.style-seven:before { 
     display: block;
     content: "";
     height: 30px;
@@ -48,7 +48,7 @@ hr.style-seven:before { /* Not really supposed to work, but does */
     border-width: 0 0 1px 0;
     border-radius: 20px;
 }
-
+ 
 img.details{
 	width:33%;
 	margin: 15px auto;

@@ -169,19 +169,14 @@ class Libraries{
 				?>
 	            <tr>
 		            <td>
-		               	<div >
+		               	
 	                   		<?php echo $row['Name'];?>
-	                   	</div>		
 	                </td>
 	                <td>
-		               	<div >
 	                   		<?php echo $row['Address'];?>
-	                   	</div>		
 	                </td>
 	                <td>
-		               	<div>
 	                   		<?php echo $row['Telephone'];?>
-	                   	</div>		
 	                </td>
 	                <td style="width:120px;">
 						<button class="btn btn-primary btn-sm" type="button" onclick="detailsLibrary(<?php echo $row['idLibraries'];?>)">

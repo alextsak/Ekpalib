@@ -79,21 +79,22 @@ $(document).ready(function(){
           
               
             <div class="tab-pane" id="StudyRooms">
-    			<table>
-					<thead>
-						<th>Όνομα</th>
-						<th>Διεύθυνση</th>
-						<th>Ώρες Λειτουργίας</th>
-						<th>Λεπτομέρειες</th>
-					</thead>
-					
-					<tbody >
-				    	<?php   		
-				       		$studyRooms = new StudyRooms();
-				       		$studyRooms->getAllStudyRooms();
-				 		?> 
-					</tbody>	
-				</table>
+    			<div class="table-responsive">  
+		    		<table class="table table-striped">
+						<thead>
+							<th>Όνομα</th>
+							<th>Διεύθυνση</th>
+							<th>Ώρες Λειτουργίας</th>
+						</thead>
+						
+						<tbody >
+					    	<?php   		
+					       		$studyRooms = new StudyRooms();
+					       		$studyRooms->getAllStudyRooms();
+					 		?> 
+						</tbody>	
+					</table>
+				</div>
 	    	</div>
 	    	
             <div class="tab-pane" id="Libraries">
@@ -105,20 +106,15 @@ $(document).ready(function(){
 												-webkit-border-radius: 10px;
 												height:inherit;
 												border-style: double;">
-												<p class="bg-warning text-center">Εάν επιλέξετε "Κανένα" Τμήμα τότε αναζητείτε βιβλιοθήκες με βάση την διεύθυνση</p>
+					<p class="bg-warning text-center">Εάν επιλέξετε "Κανένα" Τμήμα τότε αναζητείτε βιβλιοθήκες με βάση την διεύθυνση</p>
 	              	<div class="col-md-4">
-	              	 
 		              	<form class="form-horizontal">
 		              		<h5 style="position:relative;top:15px;right: 15px;text-decoration: underline;">Επιλογή τμήματος</h5>
 							<select id="lib-dep" class="form-control" style="position:relative;top:10px;margin-bottom:25px;right:15px;width:250px">
 								  <option>Όλα</option>
 								  <?php 
-								  
-								 
 								  	$libraries = new Libraries();
-								  	$libraries->get_department_names();
-								  
-				       				
+								  	$libraries->get_department_names();	
 				 				   ?>
 				 				   <option>Κανένα</option> 
 							</select>
@@ -134,27 +130,31 @@ $(document).ready(function(){
 						</form>
 	              	</div>
 	              	<div class="col-md-2">
-		              	<a id="lib-search" href="#" class="btn btn-primary" style="position: relative;top: 45px;float: right;">
+		              	<a id="lib-search" href="#" class="btn btn-primary" style="position:relative;top:45px;float:right;">
 					     	<span class="glyphicon glyphicon-search"></span>
 					     	Αναζήτηση
 					     </a>
 	              	</div>
 				</div>
-				<table id="lib-grid">
-					<thead>
-						<th>Όνομα</th>
-						<th>Διεύθυνση</th>
-						<th>Τηλέφωνο</th>
-						<th>Λεπτομέρειες</th>
-					</thead>
-					
-					<tbody >
-				    	<?php   		
-				       		$libraries = new Libraries();
-				       		$libraries->getAllLibraries();
-				 		?> 
-					</tbody>	
-				</table>
+				
+				<!-- class="table-responsive" -->
+				<div >  
+		    		<table  class="table table-striped" id="lib-grid">
+						<thead>
+							<th>Όνομα</th>
+							<th>Διεύθυνση</th>
+							<th>Τηλέφωνο</th>
+							<th>Λεπτομέρειες</th>
+						</thead>
+						
+						<tbody >
+					    	<?php   		
+					       		$libraries = new Libraries();
+					       		$libraries->getAllLibraries();
+					 		?> 
+						</tbody>	
+					</table>
+				</div>
            	</div>
 	  </div>
 </div>

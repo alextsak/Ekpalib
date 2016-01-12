@@ -22,7 +22,7 @@
 </style>
 
 <div class="borderline"></div>
-           <ul id="tabs"  class="nav nav-pills">
+           <ul id="tabs"  class="nav nav-pills" data-toggle="collapse">
            	   <li>
            	   		<a href="">Αρχική</a>
            	   </li>
