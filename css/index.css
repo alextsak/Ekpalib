@@ -1,15 +1,17 @@
 @charset "utf-8";
 .main-body {
 	
-	background-image: url("../images/ekpalib-background.jpg");
+	background-image: url("../images/library-1.jpg");
+	
 	margin-top:20px;
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	
 }
 
-html {
+html, body {
 	height: 100%;
+	
 }
 #main-tabs a{
 	color:black;
@@ -19,9 +21,34 @@ html {
    margin: 0 auto; 
    margin-bottom: 40px;
    max-width: 1200px;
-
+	margin-top: 20px;
+	background-color:#2A0000;
     border-radius: 20px; !important;
 }
+
+
+.container:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.8;
+    background-image: url("../images/library-1.jpg");
+    
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: 100% 100%;
+}
+
+
 .logo
 {
 text-align:center;
@@ -32,9 +59,15 @@ display:block;
 	//background-color: #fff;
 }
 
+#sitemap {
+	
+	margin-top: 2%;
+}
+
 #footer{
 	margin-left: 500px;
     margin-top: 50px;
+   margin: 0 auto;
     margin-bottom: 50px;
 }
 
@@ -56,11 +89,11 @@ display:block;
 }
 
 #tabs-bg{
-	background-color: #DEB887;
+	background-color: #660000;
 }
 
 #news-bg{
-	background-color: #DEB887;
+	background-color: #520000;
 }
 
 .upper-nav ul li {
@@ -116,7 +149,25 @@ display:block;
     margin-top: 20px;
 }
   
-  
+
+#button-ref {
+	
+	 display: block;
+    width: 200px;
+    height: 40px;
+    background: #992B00;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+#search-btn {
+	
+	background-color:  #990000;
+	border-color: #fff;
+}  
 #sidebar-table { 
     width: 200px !important; 
     float: left !important; 

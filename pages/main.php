@@ -59,8 +59,8 @@ $(document).ready(function(){
 	  
             <div class="tab-pane active" id="NewsAndEvents">
             	<div class="col-md-6" id="news-bg">
-            		<h4 style="text-decoration: underline; text-align: center;">Νέα</h4>
-            		 <p>Με την υψηλότερη διάκριση ―worthy of merit― αξιολογήθηκε από τους εξωτερικούς αξιολογητές το 
+            		<h4 style="text-decoration: underline; text-align: center; color:#F5FFFA;">Νέα</h4>
+            		 <p style="color:#FFFAF0;">Με την υψηλότερη διάκριση ―worthy of merit― αξιολογήθηκε από τους εξωτερικούς αξιολογητές το 
            Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών κατά την τελική φάση της διαδικασίας της εξωτερικής 
            ιδρυματικής αξιολόγησης
 
@@ -68,9 +68,9 @@ $(document).ready(function(){
             		</p>
             	</div>
             	<div class="col-md-6" id="news-bg">
-            		<h4 style="text-decoration: underline; text-align: center;">Εκδηλώσεις</h4>
-          			<p>Πρόσκληση σε ομιλία του Καθηγητή και Ακαδημαϊκού κ. Δ. Νανόπουλου 
-Τετάρτη 13 Ιανουαρίου 2016, ώρα 12:00
+            		<h4 style="text-decoration: underline; text-align: center; color:#F5FFFA;">Εκδηλώσεις</h4>
+          			<p style="color:#FFFAF0;">Πρόσκληση σε ομιλία του Καθηγητή και Ακαδημαϊκού κ. Δ. Νανόπουλου 
+Τετάρτη 13 Ιανουαρίου 2016, ώρα 12:00 Πρόσκληση σε ομιλία του Καθηγητή και Ακαδημαϊκού κ. Δ. Νανόπουλου 
 
           			</p>
             	</div>

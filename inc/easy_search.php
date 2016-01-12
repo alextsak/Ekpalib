@@ -12,10 +12,10 @@
 	              <div class="panel-body" id="search-book">
 	              		<div class="row">
 	                    	<div class="col-sm-6">
-	                      		<h3><span class="glyphicon glyphicon-search"></span> Γρήγορη Αναζήτηση</h3>
+	                      		<h3 style="color:#FFFAF0;"><span class="glyphicon glyphicon-search"></span> Γρήγορη Αναζήτηση</h3>
 	                    	</div>
 	                    	<div class="col-sm-6">  
-	                      		<a class="pull-right hidden-xs" href="?page=advancedSearch">Σύνθετη Αναζήτηση</a>
+	                      		<a class="pull-right hidden-xs" href="?page=advancedSearch" id="button-ref">Σύνθετη Αναζήτηση</a>
 	                    	</div>
 	                  	</div>
 		                <div class="row">
@@ -28,13 +28,13 @@
 				                      <option value="title">Τίτλος</option>
 				                      <option value="author">Συγγραφέας</option>
 				                    </select>
-				                    <input type="submit" class="btn btn-primary" alt="submit" value="Αναζήτηση" name="searchbooks">
+				                    <input type="submit" class="btn btn-primary" id="search-btn"alt="submit" value="Αναζήτηση" name="searchbooks">
 				                  </form>
 		    	        </div>
 		                <div class="row hidden-xs">
 		                  <div class="col-sm-6">
 		                  
-		                    <p>Αναζητήστε Βιβλίο με βάση Λέξη-Κλειδί, Τίτλο ή Συγγραφέα</p>
+		                    <p style="color:#FFFAF0;">Αναζητήστε Βιβλίο με βάση Λέξη-Κλειδί, Τίτλο ή Συγγραφέα</p>
 		                  </div>
 		                </div>
 	              </div>
@@ -47,7 +47,7 @@
 	               <div class="panel-body" id="search-article">
 	                  <div class="row">
 	                    <div class="col-sm-6">
-	                      <h3><span class="glyphicon glyphicon-search"></span> Γρήγορη Αναζήτηση</h3>
+	                      <h3 style="color:#FFFAF0;"><span class="glyphicon glyphicon-search"></span> Γρήγορη Αναζήτηση</h3>
 	                    </div>
 	                    <!-- <div class="col-sm-6">  
 	                      <a class="pull-right hidden-xs" href="?page=advancedSearch">Σύνθετη Αναζήτηση</a>
@@ -80,7 +80,7 @@
 	                </div>
 	                <div class="row hidden-xs">
 	                  <div class="col-sm-6">
-	                    <p>Search for articles on a specific topic in magazines and journals.</p>
+	                    <p style="color:#FFFAF0;">Search for articles on a specific topic in magazines and journals.</p>
 	                  </div>
 	                </div>
 	              </div>
@@ -94,7 +94,7 @@
 	                      <h3><span class="glyphicon glyphicon-search"></span> Γρήγορη Αναζήτηση</h3>
 	                    </div>
 	                    <div class="col-sm-6">  
-	                      <a class="pull-right hidden-xs" href="#">Σύνθετη Αναζήτηση</a>
+	                      <a class="pull-right hidden-xs" href="?page=advancedSearch" id="button-ref">Σύνθετη Αναζήτηση</a>
 	                    </div>
 	                  </div>
 		                <div class="row">   
@@ -107,7 +107,7 @@
 				                </div>
 				                <div class="row hidden-xs">
 				                  <div class="col-sm-6">
-				                   <p>Search for specific journal titles both in print and electronic format.</p>
+				                   <p style="color:#FFFAF0;">Search for specific journal titles both in print and electronic format.</p>
 				                  </div>
 				                </div>
                			</div>
