@@ -12,7 +12,7 @@
  }
  
  #tabs{
- 	background:beige;
+ 	/* background:beige; */
  }
  
  #tabs a{
@@ -21,7 +21,8 @@
 
 </style>
 
-<div class="borderline"></div>
+
+	<div class="borderline" >
            <ul id="tabs"  class="nav nav-pills" data-toggle="collapse">
            	   <li>
            	   		<a href="">Αρχική</a>
@@ -76,7 +77,7 @@
           		init_sitepath();
           	}
 ?>
-    	
+  </div>
     	
     	
     	

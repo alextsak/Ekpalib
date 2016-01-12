@@ -1,29 +1,3 @@
-/* 
-Generic Styling, for Desktops/Laptops 
-*/
-/* table { 
-	width: 100%; 
-	border-collapse: collapse;
-	margin-top:20px;
-	box-shadow: 10px 10px 5px #888888;
-}
-Zebra striping
-tr:nth-of-type(odd) { 
-	background: #f9f9f9;
-}
-
-th { 
-	background: grey; 
-	color: white; 
-	font-weight: bold; 
-}
-td, th { 
-	padding: 6px; 
-	border: 1px solid #ccc; 
-	text-align: center; 
-}
-*/
-
 hr.styled {
 	background:url(../images/hr_design.png) no-repeat top center;
 	height:30px;

@@ -1,7 +1,7 @@
 @charset "utf-8";
 .body .html{
 	
-	background-color: #000;
+	/* background-color: #000; */
 	
 }
 
@@ -27,12 +27,12 @@ display:block;
 }
 
 .panel-body#search-book,#search-article,#search-journal{
-	background-color: beige;
+	/* background-color: beige; */
 	margin-bottom:15px;
 }
 
 .panel-body#libraries-tab,#studyRooms-tab,#searchResults{
-	background-color: beige;
+	/* background-color: beige; */
 }
 
 #Search_Argument,#artclSubject,#jnltitle{
