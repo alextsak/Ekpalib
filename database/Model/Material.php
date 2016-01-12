@@ -60,20 +60,14 @@ class Material{
 	function get_categories($material){
 		
 		if($material == "all"){
-			$query = '  SELECT DISTINCT(t1.category) 
-						from 
-						(
-						    SELECT DISTINCT(category) from books
-						    UNION
-						    SELECT DISTINCT(category) from articles
-						    UNION
-						    SELECT DISTINCT(category) from magazines
-						) as t1';
+			$query = 'SELECT DISTINCT category from material';
 		
 			
 		
 		}else {
-			$query = 'SELECT DISTINCT(category) FROM '.$material;
+			$query = 'SELECT DISTINCT(category) 
+					  FROM '.$material.',material 
+					  where material.MaterialID = '.$material.'.MaterialID';
 			
 		}
 			
@@ -185,10 +179,22 @@ class Material{
 	public function results_view($query,$term)
     {
          $stmt = $this->db->prepare($query);
-       
-         $term = '%'.$term.'%';
-         $stmt->bindParam(1,$term);
-        
+         if(is_array($term)){
+         	$i = 1;
+         	$c = 0;
+         	while($c < 4){
+         		if($term[$c]!=""){
+         			$t = '%'.$term[$i-1].'%';
+         			$stmt->bindParam($i,$t);
+         			$i++;
+         		}
+         		$c++;
+         	}
+         }else {
+         	$term = '%'.$term.'%';
+         	$stmt->bindParam(1,$term);
+         }
+	
          $stmt->execute();
         
          if($stmt->rowCount()>0)
@@ -197,10 +203,9 @@ class Material{
          		<tr>
          			<th><?php echo 'Τίτλος';?></th>
          	      					<th><?php echo 'Κατηγορία';?></th>
-         	      					<th><?php echo 'Συγγραφέας(εις)';?></th>
-         	      					<th><?php echo 'ISBN';?></th>
          	      					<th><?php echo 'Βιβλιοθήκη';?></th>
          	      					<th><?php echo 'Διαθεσιμότητα';?></th>
+         	      					<th><?php echo 'Ημέρες Δανεισμού';?></th>
          	      					<th><?php echo 'Προσθήκη στο Καλάθι';?></th>
          	      					<th><?php echo 'Επιλογές'?></th>
          	   	</tr>
@@ -215,16 +220,11 @@ class Material{
                 	}
                 	?>
 	                   	<tr>
-		                   	<td>
-		                   		<div >
-		                   			<?php echo $row['title']; ?>
-		                   		</div>		
-		                   	</td>
+		                   	<td><?php echo $row['title']; ?></td>
 		                   	<td><?php echo $row['category']; ?></td>
-		                    <td><?php echo $row['author']; ?></td>
-		                   	<td><?php echo $row['isbn']; ?></td>
 		                   	<td><a href="javascript:detailsLibrary(<?php echo $lib_name; ?>)"><?php echo $lib_name; ?></a></td>
 	                 		<td><?php echo $row['availability']; ?></td>
+	                 		<td><?php echo $row['available_days']; ?></td>
 	                 		<?php $url_path = $_SERVER['QUERY_STRING'];
         						$url_path = '?' .  $url_path;
         						if(strpos( $url_path, '&action')){
@@ -266,7 +266,6 @@ class Material{
  
  public function query_easy_search($term, $genre, $keyword) {
 	if(!empty($term)) {
-		
 		$query = 'select * from '  . $genre . ' where ' . $keyword . ' LIKE ' . '?';
 		return $query;
 	}
@@ -302,7 +301,34 @@ class Material{
  
  public function advancedSearch($type,$category,$keyword,$author,$publisher,$isbn,$library){
  
- 
+ 	
+ 	$query = '	select * 
+				from material,material_has_author,author,libraries_has_material,libraries
+				where   material.MaterialID = material_has_author.MaterialID and
+				material_has_author.idAuthor = author.idAuthor and
+				material.MaterialID = libraries_has_material.MaterialID and
+				libraries_has_material.idLibraries = libraries.idLibraries
+			';
+ 	
+ 	/* $query+=' and category = '.$category.''; */
+ 	
+ 	if($library!="all")
+ 		$query+=' and libraries.Name LIKE '.$library.' ';
+ 	
+ 	if($keyword!="")
+ 		$query+=' and title LIKE '.' ?';
+ 	
+ 	if($author!="")
+ 		$query+=' and author.Name LIKE '.' ?';
+ 	
+ 	if($publisher!="")
+ 		$query+=' and books.publisher LIKE '.' ?';
+ 	
+ 	if($isbn!="")
+ 		$query+=' and books.isbn LIKE '.' ?';
+ 	
+ 	
+ 	return $query;
  }
  
  /**************************************** LOAN REQUEST AND CONFIRMATION **************************************************/
@@ -357,7 +383,7 @@ class Material{
         {
              $starting_position=($_GET["page_no"]-1)*$records_per_page;
         }
-        $query2=$query." limit $starting_position,$records_per_page";
+        $query2=$query." limit $starting_position,$records_per_page ";
         
         return $query2;
  }
@@ -380,8 +406,21 @@ class Material{
        	}
   		//echo $self;
         $stmt = $this->db->prepare($query);
-        $term = '%'.$term.'%';
-        $stmt->bindParam(1,$term);
+ 		if(is_array($term)){
+         	$i = 1;
+         	$c = 0;
+         	while($c < 4){
+         		if($term[$c]!=""){
+         			$t = '%'.$term[$i-1].'%';
+         			$stmt->bindParam($i,$t);
+         			$i++;
+         		}
+         		$c++;
+         	}
+         }else {
+         	$term = '%'.$term.'%';
+         	$stmt->bindParam(1,$term);
+         }
         $stmt->execute();
   
         $total_no_of_records = $stmt->rowCount();

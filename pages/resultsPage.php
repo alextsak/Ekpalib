@@ -43,7 +43,8 @@ if(isset($_POST['searchbooks'])){
 	    		}
 	    		if(isset($_POST['advancedSearch'])){
 	    			$material = new Material();
-	    			$query = $material->advancedSearch($_POST['type'],
+	    			$records_per_page=5;
+	    			$query = $material->advancedSearch($_POST['radio'],
 	    											   	$_POST['category'],
 	    												$_POST['keyword'],
 	    												$_POST['author'],
@@ -51,8 +52,12 @@ if(isset($_POST['searchbooks'])){
 	    												$_POST['isbn'],
 	    												$_POST['library']);
 	    			$newquery = $material->paging($query,$records_per_page);
-	    			$material->results_view($newquery, $_SESSION['term']);
-	    			$material->paginglink($query,$_SESSION['term'],$records_per_page);
+	    			
+	    			$terms = array($_POST['keyword'],$_POST['author'],
+	    							$_POST['publisher'],$_POST['isbn']);
+	    			
+	    			$material->results_view($newquery, $terms);
+	    			$material->paginglink($newquery,$terms,$records_per_page);
 	    		}
 	 		?> 
 			</tbody>	

@@ -89,7 +89,7 @@
 							<div class="col-md-6">
 								<div class="form-group">
 							    	<div class="col-sm-10">
-							      		<input class="form-control" name="publisher" placeholder="Εκδότης">
+							      		<input class="form-control"  name="publisher" placeholder="Εκδότης" id="publisher">
 							    	</div>
 							  	</div>
 							</div>
@@ -97,7 +97,7 @@
 							<div class="col-md-6">
 								<div class="form-group">
 							    	<div class="col-sm-10">
-							      		<input class="form-control" name="isbn" placeholder="ISBN">
+							      		<input class="form-control" name="isbn" placeholder="ISBN" id="isbn">
 							    	</div>
 							  	</div>
 							</div>
