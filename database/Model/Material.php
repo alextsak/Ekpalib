@@ -181,14 +181,13 @@ class Material{
          $stmt = $this->db->prepare($query);
          if(is_array($term)){
          	$i = 1;
-         	$c = 0;
-         	while($c < 4){
+         	for($c=0;$c<4;$c++)
+            {
          		if($term[$c]!=""){
          			$t = '%'.$term[$i-1].'%';
          			$stmt->bindParam($i,$t);
          			$i++;
          		}
-         		$c++;
          	}
          }else {
          	$term = '%'.$term.'%';
@@ -266,7 +265,9 @@ class Material{
  
  public function query_easy_search($term, $genre, $keyword) {
 	if(!empty($term)) {
-		$query = 'select * from '  . $genre . ' where ' . $keyword . ' LIKE ' . '?';
+		$query = 'select * 
+			      from '  . $genre . ', material where 
+			      material.MaterialID =  ' .$genre.'.MaterialID and  ' . $keyword . ' LIKE ' . '?';
 		return $query;
 	}
  }
@@ -354,11 +355,6 @@ class Material{
 			return $err;*/
 		}
 		if($flag == 1) {
-
-			// return the success but first discard the items from the cart
-			
-			
-			
 			return "inserted";
 		}
 		
@@ -408,14 +404,13 @@ class Material{
         $stmt = $this->db->prepare($query);
  		if(is_array($term)){
          	$i = 1;
-         	$c = 0;
-         	while($c < 4){
+         	for($c=0;$c<4;$c++)
+            {
          		if($term[$c]!=""){
          			$t = '%'.$term[$i-1].'%';
          			$stmt->bindParam($i,$t);
          			$i++;
          		}
-         		$c++;
          	}
          }else {
          	$term = '%'.$term.'%';
