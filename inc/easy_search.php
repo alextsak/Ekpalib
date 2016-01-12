@@ -1,4 +1,4 @@
-<div >
+<div id="easy-search-bg">
 	  <!-- Nav tabs -->
 	  <ul id="main-tabs" class="nav nav-tabs" role="tablist" data-toggle="collapse">
 	    <li class="active"><a href="#Books" data-toggle="tab">Βιβλία</a></li>

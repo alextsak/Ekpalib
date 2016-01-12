@@ -1,23 +1,35 @@
 @charset "utf-8";
-.body .html{
+.main-body {
 	
-	/* background-color: #000; */
+	background-image: url("../images/ekpalib-background.jpg");
+	margin-top:20px;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 	
 }
 
+html {
+	height: 100%;
+}
 #main-tabs a{
 	color:black;
 }
 
-#container{
-   margin: 0 auto;
+.container{
+   margin: 0 auto; 
    margin-bottom: 40px;
    max-width: 1200px;
+
+    border-radius: 20px; !important;
 }
 .logo
 {
 text-align:center;
 display:block;
+}
+
+#logo-bg {
+	//background-color: #fff;
 }
 
 #footer{
@@ -37,6 +49,18 @@ display:block;
 
 #Search_Argument,#artclSubject,#jnltitle{
 	margin-left: 15px;
+}
+
+#easy-search-bg {
+	background-color: #520000;
+}
+
+#tabs-bg{
+	background-color: #DEB887;
+}
+
+#news-bg{
+	background-color: #DEB887;
 }
 
 .upper-nav ul li {

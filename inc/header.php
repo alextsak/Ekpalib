@@ -36,10 +36,10 @@ require_once './utilities/helpers.php';
 <title>Βιβλιοθήκες ΕΚΠΑ</title>
 
 </head>
-<body background="./images/ekpalib-background.jpg"  style="margin-top:10px;">
-		<div class="container" style="background-color:#ddd;">
+<body class="main-body">
+		<div class="container" style="background-color:#2A0000;">
 			<div class="row" style="margin:0px;">
-				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="logo-bg">
 					<header>
 						<div class="logo">
 							<a href=""> <img class="img-responsive"  src="images/ekpalib-logo.png" alt="Smiley face"></a>

@@ -12,7 +12,7 @@
  }
  
  #tabs{
- 	/* background:beige; */
+ 	background-color: #935D24;
  }
  
  #tabs a{

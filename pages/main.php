@@ -34,7 +34,7 @@ $(document).ready(function(){
 
 </script>
 
-			
+	<div id="tabs-bg">		
 			  <!-- Nav tabs -->
 	  <ul id="main-tabs" class="nav nav-tabs" role="tablist">
 	   	
@@ -58,7 +58,7 @@ $(document).ready(function(){
 	  <div  class="tab-content">
 	  
             <div class="tab-pane active" id="NewsAndEvents">
-            	<div class="col-md-6">
+            	<div class="col-md-6" id="news-bg">
             		<h4 style="text-decoration: underline; text-align: center;">Νέα</h4>
             		 <p>Με την υψηλότερη διάκριση ―worthy of merit― αξιολογήθηκε από τους εξωτερικούς αξιολογητές το 
            Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών κατά την τελική φάση της διαδικασίας της εξωτερικής 
@@ -67,7 +67,7 @@ $(document).ready(function(){
  
             		</p>
             	</div>
-            	<div class="col-md-6">
+            	<div class="col-md-6" id="news-bg">
             		<h4 style="text-decoration: underline; text-align: center;">Εκδηλώσεις</h4>
           			<p>Πρόσκληση σε ομιλία του Καθηγητή και Ακαδημαϊκού κ. Δ. Νανόπουλου 
 Τετάρτη 13 Ιανουαρίου 2016, ώρα 12:00
@@ -157,4 +157,4 @@ $(document).ready(function(){
 				</div>
            	</div>
 	  </div>
-
+</div>
