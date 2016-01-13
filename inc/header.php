@@ -6,6 +6,7 @@ include './database/Model/Material.php';
 include './database/Model/User.php';
 include './database/Model/Libraries.php';
 include './database/Model/StudyRooms.php';
+include './database/Model/Article.php';
 require_once './utilities/helpers.php';
 
 ?>

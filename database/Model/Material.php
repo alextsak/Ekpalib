@@ -233,9 +233,10 @@ class Material{
 									<span class="glyphicon glyphicon-info-sign" ></span>
 								</button>
 								&nbsp | &nbsp
-								<button class="btn btn-warning btn-sm" type="button">
-									<span class="glyphicon glyphicon-new-window"  ></span>
+								<button class="btn btn-warning btn-sm" type="submit" onclick="addToCart(<?php echo $row['MaterialID'];?>)">
+									<span class="glyphicon glyphicon-new-window"></span>
 								</button>
+								
 										
 							</td>
 	                   </tr>
@@ -253,14 +254,28 @@ class Material{
  	}
  
  public function query_easy_search($term, $genre, $keyword) {
-	if(!empty($term)) {
-		$query = 'select * 
-			      from '  . $genre . ', material,libraries_has_material,libraries 
-				  where material.MaterialID = libraries_has_material.MaterialID and
-				  libraries_has_material.idLibraries = libraries.idLibraries and 
-				  material.MaterialID =  ' .$genre.'.MaterialID and  ' . $keyword . ' LIKE ' . '?';
-		return $query;
+	
+	$query = 'select * 
+		      from '  . $genre . ', material,libraries_has_material,libraries,material_has_author,author
+			  where material.MaterialID = libraries_has_material.MaterialID and
+			  libraries_has_material.idLibraries = libraries.idLibraries and 
+			  material.MaterialID = material_has_author.MaterialID and
+			  material_has_author.idAuthor = author.idAuthor and
+			  material.MaterialID =  ' .$genre.'.MaterialID ';
+	
+	if($genre == "books"){
+		if($keyword == "Name")
+			$query.= ' and  author.' . $keyword . ' LIKE ' . '?' ;
+		else 
+			$query.= ' and  ' . $keyword . ' LIKE ' . '?' ;
 	}
+		
+	
+	
+	
+	
+	return $query;
+	
  }
  
  public function get_material_library($material_id){

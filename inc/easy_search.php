@@ -26,7 +26,7 @@
 				                    <select id="booksSearch_Code" class="form-control" name="keyword" aria-required="true">
 				                      <option value="key">Λέξη-Κλειδί</option>
 				                      <option value="title">Τίτλος</option>
-				                      <option value="author">Συγγραφέας</option>
+				                      <option value="Name">Συγγραφέας</option>
 				                    </select>
 				                    <input type="submit" class="btn btn-primary" id="search-btn"alt="submit" value="Αναζήτηση" name="searchbooks">
 				                  </form>
@@ -49,38 +49,29 @@
 	                    <div class="col-sm-6">
 	                      <h3 style="color:#FFFAF0;"><span class="glyphicon glyphicon-search"></span> Γρήγορη Αναζήτηση</h3>
 	                    </div>
-	                    <!-- <div class="col-sm-6">  
-	                      <a class="pull-right hidden-xs" href="?page=advancedSearch">Σύνθετη Αναζήτηση</a>
-	                    </div> -->
+	                    <div class="col-sm-6">  
+	                      <a id="button-ref" class="pull-right hidden-xs" href="?page=advancedSearch">Σύνθετη Αναζήτηση</a>
+	                    </div>
 	                  </div>
 	                <div class="row">   
 	                  <form id="search_articles" class="form-inline" action="?page=resultsPage" method="POST">
 	                    <label for="artclSubject" class="sr-only">article</label>
-	                    <input id="artclSubject" class="form-control easy-search-text-input" type="text" placeholder="Εισαγωγή θέματος άρθρου" maxlength="255" size="25" name="keyword" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter article subject'">
+	                    <input id="artclSubject" class="form-control easy-search-text-input" type="text" placeholder="Εισαγωγή λέξης κλειδιού" maxlength="255" size="25" name="keyword" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Εισαγωγή λέξης κλειδιού'">
 	                    <input type="hidden" alt="submit" value="direct" name="s2">
 	                    <input type="hidden" alt="submit" value="gatewayjnlarticle" name="project">
 	                      <label for="selection2" class="sr-only">choose the subject</label>
 	                      <select id="selection2" class="form-control" name="selection" aria-required="true">
-	                        <option value="gen">Multi-Subject Resources</option>
-	                        <option value="news">Current News Sources</option>
-	                        <option value="ArHu">Arts &amp; Humanities</option>
-	                        <option value="Bus">Business</option>
-	                        <option value="Educ">Education</option>
-	                        <option value="EngRes">Engineering</option>
-	                        <option value="health">Health Sciences</option>
-	                        <option value="ias">International &amp; Area Studies</option>
-	                        <option value="LIS">Library &amp; Information Science</option>
-	                        <option value="lifesci">Life Sciences</option>
-	                        <option value="music">Music &amp; Performing Arts</option>
-	                        <option value="Physsci">Physical Sciences/Math</option>
-	                        <option value="Socsci">Social Sciences</option>
+	                        <?php 
+	                        	$articles = new Article();
+	                        	$articles->getArticleCategories();
+	                        ?>
 	                      </select>
-	                      <input type="submit" class="btn btn-primary" alt="submit" value="Αναζήτηση" name="searcharticles">
+	                      <input id="search-btn" type="submit" class="btn btn-primary" alt="submit" value="Αναζήτηση" name="searcharticles">
 	                  </form>
 	                </div>
 	                <div class="row hidden-xs">
 	                  <div class="col-sm-6">
-	                    <p style="color:#FFFAF0;">Search for articles on a specific topic in magazines and journals.</p>
+	                    <p style="color:#FFFAF0;">Αναζήτηση άρθρου συγκεκριμένης θεματολογίας.</p>
 	                  </div>
 	                </div>
 	              </div>

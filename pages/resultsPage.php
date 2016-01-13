@@ -41,6 +41,15 @@ if(isset($_POST['searchbooks'])){
 		       		$material->results_view($newquery, $_SESSION['term']);
 		       		$material->paginglink($query,$_SESSION['term'],$records_per_page);
 	    		}
+	    		if(isset($_POST['searcharticles'])){
+	    			$material = new Material();
+	    			$records_per_page=5;
+	    			 
+	    			$query = $material->query_easy_search($_POST['selection'], 'articles',$_POST['keyword']);
+	    			$newquery = $material->paging($query,$records_per_page);
+	    			$material->results_view($newquery, $_SESSION['term']);
+	    			$material->paginglink($query,$_SESSION['term'],$records_per_page);
+	    		}
 	    		if(isset($_POST['advancedSearch'])){
 	    			$material = new Material();
 	    			$records_per_page=5;
