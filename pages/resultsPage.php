@@ -53,7 +53,8 @@ if(isset($_POST['searchbooks'])){
 	    												$_POST['library']);
 	    			$newquery = $material->paging($query,$records_per_page);
 	    			
-	    			$terms = array($_POST['keyword'],$_POST['author'],
+	    			$terms = array( $_POST['category'],$_POST['library'],
+	    							$_POST['keyword'],$_POST['author'],
 	    							$_POST['publisher'],$_POST['isbn']);
 	    			
 	    			$material->results_view($newquery, $terms);

@@ -59,17 +59,12 @@ class Material{
 	
 	function get_categories($material){
 		
-		if($material == "all"){
+		if($material == "all")
 			$query = 'SELECT DISTINCT category from material';
-		
-			
-		
-		}else {
+		else
 			$query = 'SELECT DISTINCT(category) 
 					  FROM '.$material.',material 
 					  where material.MaterialID = '.$material.'.MaterialID';
-			
-		}
 			
 		$stmt = $this->db->prepare($query);
 		$stmt->execute();
@@ -173,18 +168,19 @@ class Material{
 		}
 	}
 	
-	
-	
-	
+
 	public function results_view($query,$term)
     {
          $stmt = $this->db->prepare($query);
          if(is_array($term)){
          	$i = 1;
-         	for($c=0;$c<4;$c++)
+         	
+         	for($c=0;$c<count($term);$c++)
             {
-         		if($term[$c]!=""){
+         		if($term[$c]!="" && $term[$c]!="all"){
          			$t = '%'.$term[$i-1].'%';
+         			echo $i;
+         			echo $term[$c];
          			$stmt->bindParam($i,$t);
          			$i++;
          		}
@@ -196,8 +192,7 @@ class Material{
 	
          $stmt->execute();
         
-         if($stmt->rowCount()>0)
-         {
+         if($stmt->rowCount()>0){
          	?><thead>
          		<tr>
          			<th><?php echo 'Τίτλος';?></th>
@@ -210,8 +205,7 @@ class Material{
          	   	</tr>
          	  </thead>
          	  <?php 
-                 while($row=$stmt->fetch(PDO::FETCH_ASSOC))
-                {
+                 while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
                 	?>
 	                   	<tr>
 		                   	<td><?php echo $row['title']; ?></td>
@@ -247,8 +241,7 @@ class Material{
                    <?php
                 }
          }
-         else
-         {
+         else{
                 ?>
                 <tr>
                 <td>Nothing here...</td>
@@ -300,32 +293,41 @@ class Material{
  public function advancedSearch($type,$category,$keyword,$author,$publisher,$isbn,$library){
  
  	
- 	$query = '	select * 
-				from material,material_has_author,author,libraries_has_material,libraries
-				where   material.MaterialID = material_has_author.MaterialID and
-				material_has_author.idAuthor = author.idAuthor and
-				material.MaterialID = libraries_has_material.MaterialID and
-				libraries_has_material.idLibraries = libraries.idLibraries
-			';
- 	
- 	/* $query+=' and category = '.$category.''; */
+ 	$query = 'select *
+				from material,material_has_author,author,libraries_has_material,libraries ';
+					
+					
+	if($type!="all")
+		$query.=' , '.$type.' ';
+	
+	
+	$query.=' where   material.MaterialID = material_has_author.MaterialID and
+			  material_has_author.idAuthor = author.idAuthor and
+			  material.MaterialID = libraries_has_material.MaterialID and
+			  libraries_has_material.idLibraries = libraries.idLibraries ';
+				
+	if($type!="all")
+		$query.=' and material.MaterialID = '.$type.'.MaterialID';
+		
+		
+ 	$query.=' and category LIKE '.' ?';
  	
  	if($library!="all")
- 		$query+=' and libraries.Name LIKE '.$library.' ';
+ 		$query.=' and libraries.Name LIKE '.' ?';
  	
  	if($keyword!="")
- 		$query+=' and title LIKE '.' ?';
+ 		$query.=' and title LIKE '.' ?';
  	
  	if($author!="")
- 		$query+=' and author.Name LIKE '.' ?';
+ 		$query.=' and author.Name LIKE '.' ?';
  	
  	if($publisher!="")
- 		$query+=' and books.publisher LIKE '.' ?';
+ 		$query.=' and books.publisher LIKE '.' ?';
  	
  	if($isbn!="")
- 		$query+=' and books.isbn LIKE '.' ?';
+ 		$query.=' and books.isbn LIKE '.' ?';
  	
- 	
+ 	echo $query;
  	return $query;
  }
  
@@ -401,9 +403,9 @@ class Material{
         $stmt = $this->db->prepare($query);
  		if(is_array($term)){
          	$i = 1;
-         	for($c=0;$c<4;$c++)
+         	for($c=0;$c<count($term);$c++)
             {
-         		if($term[$c]!=""){
+         		if($term[$c]!="" && $term[$c]!="all"){
          			$t = '%'.$term[$i-1].'%';
          			$stmt->bindParam($i,$t);
          			$i++;
@@ -416,7 +418,6 @@ class Material{
         $stmt->execute();
   
         $total_no_of_records = $stmt->rowCount();
-  
         if($total_no_of_records > 0)
         {
             ?><tr><td colspan="8" style="text-align: left; "><?php

@@ -6,7 +6,11 @@ $(document).ready(function(){
 			var id = $('input[name=radio]:checked', '#radioButton-From').val();
 			if( id == "magazines" || id == "articles"){
 				$("#isbn").prop('disabled', true);
-				$("#publisher").prop('disabled', true);	
+				$("#isbn-form").append("<input class='form-control' name='isbn' id='isbn' type='hidden' value=''/>");
+				
+				
+				$("#publisher").prop('disabled', true);
+				$("#publisher-form").append("<input class='form-control' name='publisher' id='publisher' type='hidden' value='' />");
 			}
 			
 			$.ajax({
