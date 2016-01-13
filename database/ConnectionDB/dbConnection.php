@@ -37,7 +37,7 @@ class Connection{
 			$this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			
 			/*** echo a message saying we have connected ***/
-			//echo 'Connected to database';
+			echo 'Connected to database';
 			return $this->dbh;
 		}
 		catch(PDOException $e)

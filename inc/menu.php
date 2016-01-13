@@ -68,7 +68,7 @@
 			
 				$sitepath = sitepath_constructor();
 				echo $sitepath;
-				//echo var_dump($_SESSION['sitepath']);
+				echo $_SERVER['DOCUMENT_ROOT'];
 			?>
 			</div>
 			
