@@ -174,23 +174,34 @@ class Material{
          $stmt = $this->db->prepare($query);
          if(is_array($term)){
          	$i = 1;
-         	
+         	// inside this for we use bindValue rather than bindParam because the variable is being unsetted in every iteration
+         	// So bindParam -> binds the variable to the statement, not the value
+         	// bindValue -> binds the value of the variable
          	for($c=0;$c<count($term);$c++)
             {
          		if($term[$c]!="" && $term[$c]!="all"){
          			$t = '%'.$term[$i-1].'%';
+         			echo '<br>';
          			echo $i;
-         			echo $term[$c];
-         			$stmt->bindParam($i,$t);
+         			echo '<br>';
+         			echo $t;
+         			$stmt->bindValue($i,$t);
          			$i++;
          		}
          	}
+         
          }else {
          	$term = '%'.$term.'%';
          	$stmt->bindParam(1,$term);
          }
 	
-         $stmt->execute();
+         if($stmt->execute()){
+         	echo "<br>";
+         	echo $stmt->rowCount();
+         } else {
+         	echo "<br>";
+         	echo "A problem occured";
+         }
         
          if($stmt->rowCount()>0){
          	?><thead>
@@ -301,7 +312,7 @@ class Material{
 		$query.=' , '.$type.' ';
 	
 	
-	$query.=' where   material.MaterialID = material_has_author.MaterialID and
+	$query.='where material.MaterialID = material_has_author.MaterialID and
 			  material_has_author.idAuthor = author.idAuthor and
 			  material.MaterialID = libraries_has_material.MaterialID and
 			  libraries_has_material.idLibraries = libraries.idLibraries ';
@@ -310,22 +321,22 @@ class Material{
 		$query.=' and material.MaterialID = '.$type.'.MaterialID';
 		
 		
- 	$query.=' and category LIKE '.' ?';
+ 	$query.=' and category LIKE '.'?';
  	
  	if($library!="all")
- 		$query.=' and libraries.Name LIKE '.' ?';
+ 		$query.=' and libraries.Name LIKE '.'?';
  	
  	if($keyword!="")
- 		$query.=' and title LIKE '.' ?';
+ 		$query.=' and title LIKE '.'?';
  	
  	if($author!="")
- 		$query.=' and author.Name LIKE '.' ?';
+ 		$query.=' and author.Name LIKE '.'?';
  	
  	if($publisher!="")
- 		$query.=' and books.publisher LIKE '.' ?';
+ 		$query.=' and books.publisher LIKE '.'?';
  	
  	if($isbn!="")
- 		$query.=' and books.isbn LIKE '.' ?';
+ 		$query.=' and books.isbn LIKE '.'?';
  	
  	echo $query;
  	return $query;
