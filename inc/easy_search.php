@@ -21,13 +21,17 @@
 		                <div class="row">
 		                  <form  class="form-inline" id="search_books" action="?page=resultsPage" method="POST">
 				                    <label class="sr-only" for="Search_Argument">Εισάγετε όρους αναζήτησης</label>
-				                    <input id="Search_Argument" class="form-control easy-search-text-input" type="text" placeholder="Εισάγετε όρους αναζήτησης" maxlength="255" size="25" name="term" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Εισάγετε όρους αναζήτησης'">
+				                    <input id="Search_Argument" class="form-control easy-search-text-input" type="text" placeholder="Εισάγετε όρους αναζήτησης" 
+				                    	maxlength="255" size="25" name="term" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Εισάγετε όρους αναζήτησης'"
+				                    	required
+                						data-fv-notempty-message/>
 				                    <label class="sr-only" for="booksSearch_Code">Book Search</label>
 				                    <select id="booksSearch_Code" class="form-control" name="keyword" aria-required="true">
-				                      <option value="key">Λέξη-Κλειδί</option>
+				                      <option value="title">Λέξη-Κλειδί</option>
 				                      <option value="title">Τίτλος</option>
 				                      <option value="Name">Συγγραφέας</option>
 				                    </select>
+				                    <input class='form-control' name='category' type='hidden' value='' />
 				                    <input class='form-control' name='genre' type='hidden' value='books' />
 				                    <input type="submit" class="btn btn-primary" id="search-btn"alt="submit" value="Αναζήτηση" name="searchbooks">
 				                  </form>
@@ -57,17 +61,19 @@
 	                <div class="row">   
 	                  <form id="search_articles" class="form-inline" action="?page=resultsPage" method="POST">
 	                    <label for="artclSubject" class="sr-only">article</label>
-	                    <input id="artclSubject" class="form-control easy-search-text-input" type="text" placeholder="Εισαγωγή λέξης κλειδιού" maxlength="255" size="25" name="keyword" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Εισαγωγή λέξης κλειδιού'">
-	                    <input type="hidden" alt="submit" value="direct" name="s2">
-	                    <input type="hidden" alt="submit" value="gatewayjnlarticle" name="project">
+	                    <input id="artclSubject" class="form-control easy-search-text-input" type="text" placeholder="Εισαγωγή λέξης κλειδιού" 
+	                    	maxlength="255" size="25" name="term" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Εισαγωγή λέξης κλειδιού'"
+	                    	required
+                			data-fv-notempty-message>
 	                      <label for="selection2" class="sr-only">choose the subject</label>
-	                      <select id="selection2" class="form-control" name="selection" aria-required="true">
+	                      <select id="selection2" class="form-control" name="category" aria-required="true">
 	                        <?php 
 	                        	$articles = new Article();
 	                        	$articles->getArticleCategories();
 	                        ?>
 	                      </select>
 	                      <input class='form-control' name='genre' type='hidden' value='articles' />
+	                      <input class='form-control' name='keyword' type='hidden' value='title' />
 	                      <input id="search-btn" type="submit" class="btn btn-primary" alt="submit" value="Αναζήτηση" name="searcharticles">
 	                  </form>
 	                </div>
@@ -93,16 +99,21 @@
 	                    </div>
 	                  </div>
 		                <div class="row">   
-		                  <form class="form-inline" id="search_journals" action="?page=resultsPage" method="get">
+		                  <form class="form-inline" id="search_journals" action="?page=resultsPage" method="post">
 		                    <label for="jnltitle" class="sr-only">Journal Title</label>
-		                    <input id="jnltitle" class="form-control easy-search-text-input es-text-no-select" type="text" placeholder="Enter journal title" maxlength="255" size="25" name="jnltitle" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter journal title'" aria-required="true">
+		                    <input id="jnltitle" class="form-control easy-search-text-input es-text-no-select" type="text" 
+		                    	placeholder="Εισαγωγή τίτλου" maxlength="255" size="25" name="term" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Εισαγωγή τίτλου'" aria-required="true"
+		                    	required
+                				data-fv-notempty-message>
+				                    <input class='form-control' name='category' type='hidden' value='' />
 				                    <input class='form-control' name='genre' type='hidden' value='magazines' />
-				                    <input type="submit" class="btn btn-primary" alt="submit" value="Αναζήτηση" name="searchjournal">
+	                      			<input class='form-control' name='keyword' type='hidden' value='title' />
+				                    <input id="search-btn" type="submit" class="btn btn-primary" alt="submit" value="Αναζήτηση" name="searchjournal">
 				                  </form>
 				                </div>
 				                <div class="row hidden-xs">
 				                  <div class="col-sm-6">
-				                   <p style="color:#FFFAF0;">Search for specific journal titles both in print and electronic format.</p>
+				                   <p style="color:#FFFAF0;">Αναζήτηση περιοδικού βάση τίτλου.</p>
 				                  </div>
 				                </div>
                			</div>

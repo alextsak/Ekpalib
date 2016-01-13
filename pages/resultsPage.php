@@ -1,18 +1,5 @@
 <?php
 error_reporting(E_ALL);
-
-
-if(isset($_POST['searchbooks'])){
-	$_SESSION['genre'] = 'books';
-	$_SESSION['term'] = $_POST['term'];
-	
-	if($_POST['keyword'] == 'key'){
-		$_SESSION['keyword'] = 'title';
-	} else {
-		$_SESSION['keyword'] = $_POST['keyword'];
-	}
-}
-
 ?>
 
 <div>
@@ -54,24 +41,16 @@ if(isset($_POST['searchbooks'])){
 	    			$material = new Material();
 	    			$records_per_page=5;
 	    			
-	    			$query = $material->query_easy_search($_POST['term'], $_POST['genre'],$_SESSION['keyword']);
+	    			$query = $material->query_easy_search($_POST['term'], $_POST['genre'],
+	    													$_POST['keyword'],$_POST['category']);
 	    			$newquery = $material->paging($query,$records_per_page);
-	    			$material->results_view($newquery, $_SESSION['term']);
-	    			$material->paginglink($query,$_SESSION['term'],$records_per_page);
+	    			
+	    			$terms = array( $_POST['term'],$_POST['category']);
+	    			$material->results_view($newquery, $terms);
+	    			$material->paginglink($query,$terms,$records_per_page);
 	    			
 	    			
-	    			if(isset($_POST['searchbooks'])){
-	    				
-	    			}
-	    			if(isset($_POST['searcharticles'])){
-	    				$material = new Material();
-	    				$records_per_page=5;
-	    				 
-	    				$query = $material->query_easy_search($_POST['selection'],'articles',$_POST['keyword']);
-	    				$newquery = $material->paging($query,$records_per_page);
-	    				$material->results_view($newquery, $_SESSION['term']);
-	    				$material->paginglink($query,$_SESSION['term'],$records_per_page);
-	    			}
+	    			
 	    		}
 	 		?> 
 			</tbody>	

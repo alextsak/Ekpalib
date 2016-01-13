@@ -253,9 +253,9 @@ class Material{
   
  	}
  
- public function query_easy_search($term, $genre, $keyword) {
+ public function query_easy_search($term, $genre, $keyword,$category) {
 	
-	$query = 'select material.MaterialID,title,category,libraries.Name,availability,available_days 
+	$query = 'select distinct(material.MaterialID),title,category,libraries.Name,availability,available_days 
 		      from '  . $genre . ', material,libraries_has_material,libraries,material_has_author,author
 			  where material.MaterialID = libraries_has_material.MaterialID and
 			  libraries_has_material.idLibraries = libraries.idLibraries and 
@@ -263,18 +263,15 @@ class Material{
 			  material_has_author.idAuthor = author.idAuthor and
 			  material.MaterialID =  ' .$genre.'.MaterialID ';
 	
-	if($genre == "books"){
-		if($keyword == "Name")
-			$query.= ' and  author.' . $keyword . ' LIKE ' . '?' ;
-		else 
-			$query.= ' and  ' . $keyword . ' LIKE ' . '?' ;
-	}
-	if($genre == "articles")
+	
+	if($keyword == "Name")
+		$query.= ' and  author.' . $keyword . ' LIKE ' . '?' ; 
+	else
 		$query.= ' and  ' . $keyword . ' LIKE ' . '?' ;
 	
-	
-	
-	
+		
+	if($genre == "articles")
+		$query.= ' and  category LIKE '.'?';
 	return $query;
 	
  }
