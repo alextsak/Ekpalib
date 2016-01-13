@@ -3,9 +3,6 @@ html, body {
 	height: 100%;
 	
 }
-#main-tabs a{
-	color:black;
-}
 
 .container{
    margin: 0 auto; 
@@ -65,6 +62,21 @@ html, body {
 #news-bg{
 	background-color: #8B3E2F;
 }
+
+
+
+#main-tabs a{
+	color:#FFFAF0;;
+}
+
+.nav-tabs > li > a:hover{
+  background-color: #992B00 !important;
+}
+
+ .nav-tabs > li.active > a,
+ .nav-tabs > li.active > a:hover{
+ background-color: #992B00 !important;
+ }
 
 .upper-nav ul li {
 	display:inline-block;

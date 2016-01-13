@@ -53,7 +53,7 @@ $(document).ready(function(){
 	    	Βιβλιοθήκες</a>
 	    </li>
 	  </ul>
-	  
+	</div>  
 	  <!-- Tab panes -->
 	  <div  class="tab-content">
 	  
@@ -157,4 +157,4 @@ $(document).ready(function(){
 				</div>
            	</div>
 	  </div>
-</div>
+

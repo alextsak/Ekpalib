@@ -91,7 +91,7 @@
 	    		<div class="panel-body" id="search-journal">
 	                  <div class="row">
 	                    <div class="col-sm-6">
-	                      <h3><span class="glyphicon glyphicon-search"></span> Γρήγορη Αναζήτηση</h3>
+	                      <h3  style="color:#FFFAF0;"><span class="glyphicon glyphicon-search"></span> Γρήγορη Αναζήτηση</h3>
 	                    </div>
 	                    <div class="col-sm-6">  
 	                      <a class="pull-right hidden-xs" href="?page=advancedSearch" id="button-ref">Σύνθετη Αναζήτηση</a>
