@@ -28,6 +28,7 @@
 				                      <option value="title">Τίτλος</option>
 				                      <option value="Name">Συγγραφέας</option>
 				                    </select>
+				                    <input class='form-control' name='genre' type='hidden' value='books' />
 				                    <input type="submit" class="btn btn-primary" id="search-btn"alt="submit" value="Αναζήτηση" name="searchbooks">
 				                  </form>
 		    	        </div>
@@ -66,6 +67,7 @@
 	                        	$articles->getArticleCategories();
 	                        ?>
 	                      </select>
+	                      <input class='form-control' name='genre' type='hidden' value='articles' />
 	                      <input id="search-btn" type="submit" class="btn btn-primary" alt="submit" value="Αναζήτηση" name="searcharticles">
 	                  </form>
 	                </div>
@@ -78,6 +80,8 @@
 	              <!--end articles panel-->
 	            </div>
 	    	</div>
+	    	
+	    	
 	    	<div class="tab-pane" id="Journals">
 	    		<div class="panel-body" id="search-journal">
 	                  <div class="row">
@@ -92,7 +96,7 @@
 		                  <form class="form-inline" id="search_journals" action="?page=resultsPage" method="get">
 		                    <label for="jnltitle" class="sr-only">Journal Title</label>
 		                    <input id="jnltitle" class="form-control easy-search-text-input es-text-no-select" type="text" placeholder="Enter journal title" maxlength="255" size="25" name="jnltitle" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter journal title'" aria-required="true">
-				                    <input type="hidden" alt="submit" value="gatewayjnltitle" name="project">
+				                    <input class='form-control' name='genre' type='hidden' value='magazines' />
 				                    <input type="submit" class="btn btn-primary" alt="submit" value="Αναζήτηση" name="searchjournal">
 				                  </form>
 				                </div>

@@ -255,7 +255,7 @@ class Material{
  
  public function query_easy_search($term, $genre, $keyword) {
 	
-	$query = 'select * 
+	$query = 'select material.MaterialID,title,category,libraries.Name,availability,available_days 
 		      from '  . $genre . ', material,libraries_has_material,libraries,material_has_author,author
 			  where material.MaterialID = libraries_has_material.MaterialID and
 			  libraries_has_material.idLibraries = libraries.idLibraries and 
@@ -269,7 +269,8 @@ class Material{
 		else 
 			$query.= ' and  ' . $keyword . ' LIKE ' . '?' ;
 	}
-		
+	if($genre == "articles")
+		$query.= ' and  ' . $keyword . ' LIKE ' . '?' ;
 	
 	
 	

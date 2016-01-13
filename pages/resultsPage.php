@@ -32,24 +32,6 @@ if(isset($_POST['searchbooks'])){
 	    	<table id="results-grid" class="table table-striped">
 	    	<tbody>
 	    	<?php
-	    		if(isset($_POST['searchbooks'])){
-		       		$material = new Material();
-		       		$records_per_page=5;
-		       		
-		       		$query = $material->query_easy_search($_SESSION['term'], $_SESSION['genre'],$_SESSION['keyword']);
-		       		$newquery = $material->paging($query,$records_per_page);
-		       		$material->results_view($newquery, $_SESSION['term']);
-		       		$material->paginglink($query,$_SESSION['term'],$records_per_page);
-	    		}
-	    		if(isset($_POST['searcharticles'])){
-	    			$material = new Material();
-	    			$records_per_page=5;
-	    			 
-	    			$query = $material->query_easy_search($_POST['selection'], 'articles',$_POST['keyword']);
-	    			$newquery = $material->paging($query,$records_per_page);
-	    			$material->results_view($newquery, $_SESSION['term']);
-	    			$material->paginglink($query,$_SESSION['term'],$records_per_page);
-	    		}
 	    		if(isset($_POST['advancedSearch'])){
 	    			$material = new Material();
 	    			$records_per_page=5;
@@ -68,6 +50,28 @@ if(isset($_POST['searchbooks'])){
 	    			
 	    			$material->results_view($newquery, $terms);
 	    			$material->paginglink($query,$terms,$records_per_page);
+	    		}else{
+	    			$material = new Material();
+	    			$records_per_page=5;
+	    			
+	    			$query = $material->query_easy_search($_POST['term'], $_POST['genre'],$_SESSION['keyword']);
+	    			$newquery = $material->paging($query,$records_per_page);
+	    			$material->results_view($newquery, $_SESSION['term']);
+	    			$material->paginglink($query,$_SESSION['term'],$records_per_page);
+	    			
+	    			
+	    			if(isset($_POST['searchbooks'])){
+	    				
+	    			}
+	    			if(isset($_POST['searcharticles'])){
+	    				$material = new Material();
+	    				$records_per_page=5;
+	    				 
+	    				$query = $material->query_easy_search($_POST['selection'],'articles',$_POST['keyword']);
+	    				$newquery = $material->paging($query,$records_per_page);
+	    				$material->results_view($newquery, $_SESSION['term']);
+	    				$material->paginglink($query,$_SESSION['term'],$records_per_page);
+	    			}
 	    		}
 	 		?> 
 			</tbody>	
