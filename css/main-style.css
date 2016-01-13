@@ -1,0 +1,175 @@
+@charset "utf-8";
+html, body {
+	height: 100%;
+	
+}
+#main-tabs a{
+	color:black;
+}
+
+.container{
+   margin: 0 auto; 
+   margin-bottom: 40px;
+   max-width: 1200px;
+	margin-top: 20px;
+	background-color:#2A0000;
+    border-radius: 20px; !important;
+}
+
+
+.container:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.8;
+    background-image: url("../images/library-1.jpg");
+    
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: 100% 100%;
+}
+
+
+
+
+.panel-body#search-book,#search-article,#search-journal{
+	/* background-color: beige; */
+	margin-bottom:15px;
+}
+
+.panel-body#libraries-tab,#studyRooms-tab,#searchResults{
+	/* background-color: beige; */
+}
+
+#Search_Argument,#artclSubject,#jnltitle{
+	margin-left: 15px;
+}
+
+#easy-search-bg {
+	background-color: #520000;
+}
+
+#tabs-bg{
+	background-color: #8B3E2F;
+}
+
+#news-bg{
+	background-color: #8B3E2F;
+}
+
+.upper-nav ul li {
+	display:inline-block;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.upper-nav ul li:last-child {
+  padding-right: 0;
+}
+
+
+.upper-nav ul li a {
+  background: #FFFFFF;
+  color: #696763;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  padding:0;
+  padding-right: 0;
+  margin-top: 10px;
+}
+
+
+.upper-nav ul li a i{
+	margin-right:3px;
+}
+
+
+.upper-nav ul li a:hover {
+	color:#3071a9;
+	background:#fff;
+}
+
+#lang {
+	border: solid 3px #3071a9;
+	margin-top:10px;
+}
+
+
+#reasultsHeader{
+	margin-top:30px;
+	margin-left:420px;
+}
+
+.panel-body#searchResults{
+	background-color: beige;
+}
+
+#confirmLoan-Button{
+	margin-left: 955px;
+    margin-top: 20px;
+}
+  
+
+#button-ref {
+	
+	 display: block;
+    width: 200px;
+    height: 40px;
+    background: #992B00;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+#search-btn {
+	
+	background-color:  #990000;
+	border-color: #fff;
+}
+
+hr.styled {
+	background:url(../images/hr_design.png) no-repeat top center;
+	height:30px;
+	width:100%;
+	border:none !important;
+}
+
+hr.style-seven {
+    height: 30px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+}
+hr.style-seven:before { 
+    display: block;
+    content: "";
+    height: 30px;
+    margin-top: -31px;
+    border-style: solid;
+    border-color: black;
+    border-width: 0 0 1px 0;
+    border-radius: 20px;
+}
+
+
+  
+#sidebar-table { 
+    width: 200px !important; 
+    float: left !important; 
+}  
+
+
+

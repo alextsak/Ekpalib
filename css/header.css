@@ -1,5 +1,30 @@
 @charset "utf-8";
 
+
+.logo-container {
+    margin: 20px 20px 20px 0;  
+    
+  
+}
+.logo-img {
+    float: left;
+    
+}
+.logo-img img {
+    display: block;
+    margin-bottom: 10px;
+    height:100px;
+    width: 100px;
+}
+.logo-title {
+    margin-left: 120px
+}
+
+
+
+
+
+
 #btn-primary {
 	position:absolute;
 }

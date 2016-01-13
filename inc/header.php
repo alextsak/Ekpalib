@@ -12,14 +12,16 @@ require_once './utilities/helpers.php';
 <!DOCTYPE html>
 <html>
 <head>
-<base href="http://localhost:5555/Ekpalib/">
+<!--  <base href="http://localhost:5555/Ekpalib/">-->
+<base href="<?php echo 'http://' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . '/Ekpalib/';?>">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-<link href="css/index.css" rel="stylesheet">
-<link href="css/main.css" rel="stylesheet">
 <link href="css/header.css" rel="stylesheet">
+<link href="css/main-style.css" rel="stylesheet">
+<link href="css/footer.css" rel="stylesheet">
 <link rel="stylesheet" href="css/login-signup.css" type="text/css"
 	media="all">
 
@@ -41,10 +43,14 @@ require_once './utilities/helpers.php';
 			<div class="row" style="margin:0px;">
 				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="logo-bg">
 					<header>
-						<div class="logo">
-							<a href=""> <img class="img-responsive"  src="images/ekpalib-logo.png" alt="Smiley face"></a>
-							<h3 style="color:#FFFAF0;">Βιβλιοθήκες Πανεπιστημίου ΕΚΠΑ</h3>
-							<h4 style="color:#FFFAF0;">Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</h4>
+						<div class="logo-container">
+							<div class="logo-img">
+							 	<a href=""> <img class="img-responsive" src="images/Drawing.png" alt="Smiley face"></a>
+							</div>
+							<div class="logo-title">
+								<h3 style="color:#FFFAF0;">Βιβλιοθήκες Πανεπιστημίου ΕΚΠΑ</h3>
+								<h4 style="color:#FFFAF0;">Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</h4>
+							</div>
 						</div>
 					</header>
 				</div>
