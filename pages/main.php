@@ -82,9 +82,11 @@ $(document).ready(function(){
     			<div class="table-responsive">  
 		    		<table class="table table-striped">
 						<thead>
-							<th>Όνομα</th>
-							<th>Διεύθυνση</th>
-							<th>Ώρες Λειτουργίας</th>
+							<tr>
+								<th>Όνομα</th>
+								<th>Διεύθυνση</th>
+								<th>Ώρες Λειτουργίας</th>
+							</tr>
 						</thead>
 						
 						<tbody >
@@ -141,10 +143,12 @@ $(document).ready(function(){
 				<div >  
 		    		<table  class="table table-striped" id="lib-grid">
 						<thead>
-							<th>Όνομα</th>
-							<th>Διεύθυνση</th>
-							<th>Τηλέφωνο</th>
-							<th>Λεπτομέρειες</th>
+							<tr>
+								<th>Όνομα</th>
+								<th>Διεύθυνση</th>
+								<th>Τηλέφωνο</th>
+								<th>Λεπτομέρειες</th>
+							</tr>
 						</thead>
 						
 						<tbody >

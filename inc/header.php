@@ -40,7 +40,7 @@ require_once './utilities/helpers.php';
 
 </head>
 <body>
-		<div class="container">
+	<div class="container">
 			<div class="row" style="margin:0px;">
 				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="logo-bg">
 					<header>
@@ -69,15 +69,17 @@ require_once './utilities/helpers.php';
 									 <li
 										style="width: 150px; border: 1px solid #E5E5E5; background-color:#ca641c; margin-top: 6px; border-radius: 3px; margin-right: 40px;">
 										<ul class="nav navbar-nav">
-											<li class="dropdown" style="width: 150px;"><a href="#"
+											<li class="dropdown" style="width: 150px;">
+											<a href="#"
 												class="dropdown-toggle" data-toggle="dropdown"
 												style="font-size: 12px; margin-top: 6px; position: relative; bottom: 4px; right: 20px; padding-left: 0px;">
 													<span class="glyphicon glyphicon-user"
 													style="float: left; top: 3px; margin-right: 5px;"></span>
-													<div
-														style="float: left; width: 100px; overflow: hidden; text-overflow: ellipsis; height: 20px; white-space: nowrap;"><?php echo $_SESSION['username']?>
-														</div> <span class="glyphicon glyphicon-chevron-down"
-													style="font-size: 10px; float: right; top: 5px; right: 7px;">
+													<div style="float: left; width: 100px; overflow: hidden; text-overflow: ellipsis; height: 20px; white-space: nowrap;">
+														<?php echo $_SESSION['username']?>
+													</div> 
+													<span class="glyphicon glyphicon-chevron-down"
+													style="font-size: 10px; float: right; top: 5px; right: 7px;"></span>
 											
 											</a>
 		
