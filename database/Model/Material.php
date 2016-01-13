@@ -181,10 +181,7 @@ class Material{
             {
          		if($term[$c]!="" && $term[$c]!="all"){
          			$t = '%'.$term[$i-1].'%';
-         			echo '<br>';
-         			echo $i;
-         			echo '<br>';
-         			echo $t;
+         			
          			$stmt->bindValue($i,$t);
          			$i++;
          		}
@@ -194,14 +191,7 @@ class Material{
          	$term = '%'.$term.'%';
          	$stmt->bindParam(1,$term);
          }
-	
-         if($stmt->execute()){
-         	echo "<br>";
-         	echo $stmt->rowCount();
-         } else {
-         	echo "<br>";
-         	echo "A problem occured";
-         }
+         $stmt->execute();
         
          if($stmt->rowCount()>0){
          	?><thead>
@@ -291,12 +281,17 @@ class Material{
 
  public function fetch_material_details($material_id, $genre){
  
- 	$query = 'SELECT * FROM ' . $genre . ' where MaterialID=?';
+ 	$query = 'SELECT * FROM material,material_has_author,author,' . $genre . ' 
+			  where material.MaterialID = material_has_author.MaterialID and
+			  material_has_author.idAuthor = author.idAuthor and 
+			  material.MaterialID = '.$genre.'.MaterialID 
+			  and material.MaterialID=?';
+ 	
  	$stmt = $this->db->prepare($query);
  	$stmt->bindParam(1, $material_id);
  	$stmt->execute();
- 	if($stmt->rowCount() == 1){
- 		return $stmt->fetch(PDO::FETCH_ASSOC);
+ 	if($stmt->rowCount() > 0){
+ 		return $stmt;
  	}
  	return -1;
  }
@@ -338,7 +333,7 @@ class Material{
  	if($isbn!="")
  		$query.=' and books.isbn LIKE '.'?';
  	
- 	echo $query;
+ 	/* echo $query; */
  	return $query;
  }
  
@@ -416,9 +411,9 @@ class Material{
          	$i = 1;
          	for($c=0;$c<count($term);$c++)
             {
-         		if($term[$c]!="" && $term[$c]!="all"){
+            	if($term[$c]!="" && $term[$c]!="all"){
          			$t = '%'.$term[$i-1].'%';
-         			$stmt->bindParam($i,$t);
+         			$stmt->bindValue($i,$t);
          			$i++;
          		}
          	}

@@ -4,16 +4,14 @@ require_once '../database/Model/Material.php';
 $material_id = $_POST['id'];
 $material_id = (int)$material_id;
 $material = new Material();
-$book = $material->fetch_material_details($material_id, 'books');
+$stmt = $material->fetch_material_details($material_id, 'books');
 
-if($book == -1) {
+if($stmt == -1) {
 	//echo "Error bookdetails line 10";
 	$message = "Πρόβλημα με τις λεπτομέρειες του Υλικού";
 	echo "<script>error_messages('$message');</script>";
 }
-
-
-
+$book = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 
 
@@ -48,7 +46,20 @@ if($book == -1) {
 						<div class="col-sm-6">
 							<h4 style="color:navy;text-align:center;">Λεπτομέρειες</h4>
 							<p><span style="color:navy;font-weight: bold;">Τίτλος:</span> <?php echo $book['isbn'];?></p>
-							<p><span style="color:navy;font-weight: bold;">Συγγραφέας-εις:</span> <?php echo $book['author'];?></p>
+							<p><span style="color:navy;font-weight: bold;">Συγγραφέας-εις:</span> 
+							<?php
+							echo $book['Name'];
+							echo " ";
+							echo $book['Surname'];
+							
+							while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
+								echo "-";
+								echo $row['Name'];
+								echo $row['Surname'];
+							}
+							?></p>
+							
+							
 							<hr>
 							
 							<p><span style="color:navy;font-weight: bold;">Εκδόσεις:</span> <?php echo $book['publisher'];?></p>
