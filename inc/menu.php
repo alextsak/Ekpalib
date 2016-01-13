@@ -68,7 +68,7 @@
 			
 				$sitepath = sitepath_constructor();
 				echo $sitepath;
-				echo $_SERVER['DOCUMENT_ROOT'];
+				//echo $_SERVER['DOCUMENT_ROOT'];
 			?>
 			</div>
 			

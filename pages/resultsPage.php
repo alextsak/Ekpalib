@@ -38,16 +38,21 @@ error_reporting(E_ALL);
 	    			$material->results_view($newquery, $terms);
 	    			$material->paginglink($query,$terms,$records_per_page);
 	    		}else{
-	    			$material = new Material();
-	    			$records_per_page=5;
+	    			if(isset($_POST['searchbooks'])){
+	    				$_SESSION['genre'] = $_POST['genre'];
+	    				echo $_POST['keyword'];
+	    				$material = new Material();
+	    				$records_per_page=5;
+	    				
+	    				$query = $material->query_easy_search($_POST['term'], $_POST['genre'],
+	    						$_POST['keyword'],$_POST['category']);
+	    				$newquery = $material->paging($query,$records_per_page);
+	    				
+	    				$terms = array( $_POST['term'],$_POST['category']);
+	    				$material->results_view($newquery, $terms);
+	    				$material->paginglink($query,$terms,$records_per_page);
+	    			}
 	    			
-	    			$query = $material->query_easy_search($_POST['term'], $_POST['genre'],
-	    													$_POST['keyword'],$_POST['category']);
-	    			$newquery = $material->paging($query,$records_per_page);
-	    			
-	    			$terms = array( $_POST['term'],$_POST['category']);
-	    			$material->results_view($newquery, $terms);
-	    			$material->paginglink($query,$terms,$records_per_page);
 	    			
 	    			
 	    			
