@@ -60,7 +60,7 @@ class Material{
 	function get_categories($material){
 		
 		if($material == "all")
-			$query = 'SELECT DISTINCT category from material';
+			$query = 'SELECT DISTINCT(category) from material';
 		else
 			$query = 'SELECT DISTINCT(category) 
 					  FROM '.$material.',material 
@@ -118,7 +118,30 @@ class Material{
 		}
 	}
 	
+	public function materialBelongsToTable($materilID){
 	
+		$books = 'SELECT * from books where materialID = ?';
+		$articles = 'SELECT * from articles where materialID = ?';
+		$magazines = 'SELECT * from magazines where materialID = ?';
+		
+		$stmt = $this->db->prepare($books);
+		$stmt->bindParam(1, $materialID);
+		$stmt->execute();
+		if($stmt->rowCount()>0)
+			return "books";
+		
+		$stmt = $this->db->prepare($articles);
+		$stmt->bindParam(1, $materialID);
+		$stmt->execute();
+		if($stmt->rowCount()>0)
+			return "articles";
+		
+		$stmt = $this->db->prepare($magazines);
+		$stmt->bindParam(1, $materialID);
+		$stmt->execute();
+		if($stmt->rowCount()>0)
+			return "magazines";
+	}
 	
 	
 	public function query_data_to_cart($materialID, $genre) {
