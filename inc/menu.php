@@ -1,7 +1,5 @@
 <style>
- .borderline {
- 	border-top: 3px solid #ddd
- }
+
  
  #bottom_borderline{
  	margin-bottom:30px;

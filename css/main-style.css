@@ -52,7 +52,7 @@ html, body {
 }
 
 
-#tabs-bg,#News,#Events,#easy-search-bg,#searchContainer{
+#tabs-bg,#News,#Events,#easy-search-bg,#main-bg,#searchContainer{
 	background-color: #520000;
 }
 
@@ -148,6 +148,14 @@ html, body {
 	border-color: #fff;
 }
 
+#footer{
+	position: relative;
+	margin-top: 150px;
+	background-color: #520000;
+	
+	 display:none;
+}
+
 hr.styled {
 	background:url(../images/hr_design.png) no-repeat top center;
 	height:30px;
@@ -173,7 +181,9 @@ hr.style-seven:before {
     border-radius: 20px;
 }
 
-
+ .borderline {
+ 	border-top: 3px solid #ddd
+ }
   
 #sidebar-table { 
     width: 200px !important; 
@@ -181,4 +191,18 @@ hr.style-seven:before {
 }  
 
 
+img.details{
+	width:33%;
+	margin: 15px auto;
+}
+#sitemap {
+	
+	margin-top: 2%;
+}
+
+#copyright {
+	margin-top: 40px;
+	text-align:center;
+	color:#FFFAF0;
+}
 

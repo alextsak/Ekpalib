@@ -33,7 +33,7 @@ $(document).ready(function(){
 
 
 </script>
-<div id="easy-search-bg">
+<div id="main-bg">
 	 
 	  <ul id="main-tabs" class="nav nav-tabs" role="tablist">
 	   	<li class="active"><a href="#NewsAndEvents"  data-toggle="tab">
