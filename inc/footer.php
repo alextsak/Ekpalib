@@ -1,17 +1,13 @@
 
 	
 	<footer  id="footer">
-	<div class="borderline" >
-		<div>
-			<div id="sitemap">
-				<h5 style="color:#FFFAF0;"><a href="./index.php" style="color:#FFFAF0;">Αρχική</a><a>&nbsp|&nbsp</a><a href="#" style="color:#FFFAF0;">Χάρτης Ιστοτόπου</a></h5>
+			<div>
+					<h5 id="sitemap" style="color:#FFFAF0;">
+					<a href="./index.php" style="color:#FFFAF0;">Αρχική</a><a>&nbsp|&nbsp</a><a href="#" style="color:#FFFAF0;">Χάρτης Ιστοτόπου</a></h5>
+				<p id="copyright">&copy; Copyright 2015-2016 EKPA Libraries </p> 
 			</div>
-			
-			<p id="copyright">&copy; Copyright 2015-2016 EKPA Libraries </p> 
-		</div>
-		<div class="borderline" >
 	</footer>
-	<div class="borderline" >
+	
 </div> <!-- Container -->
 
 

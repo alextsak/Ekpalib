@@ -34,7 +34,6 @@ $(document).ready(function(){
 
 </script>
 <div id="main-bg">
-	 
 	  <ul id="main-tabs" class="nav nav-tabs" role="tablist">
 	   	<li class="active"><a href="#NewsAndEvents"  data-toggle="tab">
 	    	<i class="glyphicon glyphicon-calendar"></i>
@@ -56,106 +55,110 @@ $(document).ready(function(){
 	  <div  class="tab-content" >
 	  
             <div class="tab-pane active" id="NewsAndEvents">
-            	<div class="col-md-6" id="News">
-            		<h4 style="text-decoration: underline; text-align: center; color:#F5FFFA;">Νέα</h4>
-            		 <p style="color:#FFFAF0;">Με την υψηλότερη διάκριση ―worthy of merit― αξιολογήθηκε από τους εξωτερικούς αξιολογητές το 
-           						Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών κατά την τελική φάση της διαδικασίας της εξωτερικής 
-           						ιδρυματικής αξιολόγησης
-
- 
-            		</p>
-            	</div>
-            	<div class="col-md-6" id="Events">
-            		<h4 style="text-decoration: underline; text-align: center; color:#F5FFFA;">Εκδηλώσεις</h4>
-          			<p style="color:#FFFAF0;">Πρόσκληση σε ομιλία του Καθηγητή και Ακαδημαϊκού κ. Δ. Νανόπουλου 
-						Τετάρτη 13 Ιανουαρίου 2016, ώρα 12:00 Πρόσκληση σε ομιλία του Καθηγητή και Ακαδημαϊκού κ. Δ. Νανόπουλου 
-
-          			</p>
-            	</div>
-            	 
+            	<div class="panel-body" >
+	            	<div class="col-md-6" id="News">
+	            		<h4 style="text-decoration: underline; text-align: center; color:#F5FFFA;">Νέα</h4>
+	            		 <p style="color:#FFFAF0;">Με την υψηλότερη διάκριση ―worthy of merit― αξιολογήθηκε από τους εξωτερικούς αξιολογητές το 
+	           						Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών κατά την τελική φάση της διαδικασίας της εξωτερικής 
+	           						ιδρυματικής αξιολόγησης
+	
+	 
+	            		</p>
+	            	</div>
+	            	<div class="col-md-6" id="Events">
+	            		<h4 style="text-decoration: underline; text-align: center; color:#F5FFFA;">Εκδηλώσεις</h4>
+	          			<p style="color:#FFFAF0;">Πρόσκληση σε ομιλία του Καθηγητή και Ακαδημαϊκού κ. Δ. Νανόπουλου 
+							Τετάρτη 13 Ιανουαρίου 2016, ώρα 12:00 Πρόσκληση σε ομιλία του Καθηγητή και Ακαδημαϊκού κ. Δ. Νανόπουλου 
+	
+	          			</p>
+	            	</div>
+            	 </div>
             </div>
           
-              
             <div class="tab-pane" id="StudyRooms">
-    			<div class="table-responsive">  
-		    		<table class="table table-striped">
-						<thead>
-							<tr>
-								<th>Όνομα</th>
-								<th>Διεύθυνση</th>
-								<th>Ώρες Λειτουργίας</th>
-							</tr>
-						</thead>
-						
-						<tbody >
-					    	<?php   		
-					       		$studyRooms = new StudyRooms();
-					       		$studyRooms->getAllStudyRooms();
-					 		?> 
-						</tbody>	
-					</table>
+    			<div class="panel-body" >
+	    			<div class="table-responsive">  
+			    		<table class="table" id="stdr-grid">
+							<thead>
+								<tr>
+									<th>Όνομα</th>
+									<th>Διεύθυνση</th>
+									<th>Ώρες Λειτουργίας</th>
+								</tr>
+							</thead>
+							
+							<tbody >
+						    	<?php   		
+						       		$studyRooms = new StudyRooms();
+						       		$studyRooms->getAllStudyRooms();
+						 		?> 
+							</tbody>	
+						</table>
+					</div>
 				</div>
 	    	</div>
 	    	
             <div class="tab-pane" id="Libraries">
-              	<div class="col-sm-12" style="margin-bottom:30px;
-              									margin-top:20px;
-												border: 1px solid black;
-												border-radius: 10px;
-												-moz-border-radius: 10px;
-												-webkit-border-radius: 10px;
-												height:inherit;
-												border-style: double;">
-					<p class="bg-warning text-center">Εάν επιλέξετε "Κανένα" Τμήμα τότε αναζητείτε βιβλιοθήκες με βάση την διεύθυνση</p>
-	              	<div class="col-md-4">
-		              	<form class="form-horizontal">
-		              		<h5 style="position:relative;top:15px;right: 15px;text-decoration: underline;">Επιλογή τμήματος</h5>
-							<select id="lib-dep" class="form-control" style="position:relative;top:10px;margin-bottom:25px;right:15px;width:250px">
-								  <option>Όλα</option>
-								  <?php 
-								  	$libraries = new Libraries();
-								  	$libraries->get_department_names();	
-				 				   ?>
-				 				   <option>Κανένα</option> 
-							</select>
-						</form>
-	              	</div>
-	              	<div class="col-md-6">
-		              	<form class="form-horizontal" >
-		              		<div class="form-group" style="position:relative;top:45px;margin-bottom:25px;right:110px;width:inherit">
-								    <div class="col-sm-10">
-								      <input class="form-control" id="lib-addr" placeholder="Διεύθυνση">
-								    </div>
-							</div>
-						</form>
-	              	</div>
-	              	<div class="col-md-2">
-		              	<a id="lib-search" href="#" class="btn btn-primary" style="position:relative;top:45px;float:right;">
-					     	<span class="glyphicon glyphicon-search"></span>
-					     	Αναζήτηση
-					     </a>
-	              	</div>
-				</div>
-				
-				<!-- class="table-responsive" -->
-				<div >  
-		    		<table  class="table table-striped" id="lib-grid">
-						<thead>
-							<tr>
-								<th>Όνομα</th>
-								<th>Διεύθυνση</th>
-								<th>Τηλέφωνο</th>
-								<th>Λεπτομέρειες</th>
-							</tr>
-						</thead>
-						
-						<tbody >
-					    	<?php   		
-					       		$libraries = new Libraries();
-					       		$libraries->getAllLibraries();
-					 		?> 
-						</tbody>	
-					</table>
+              	<div class="panel-body" >
+	              	<div class="col-sm-12" style="margin-bottom:30px;
+	              									margin-top:20px;
+													border: 1px solid white;
+													border-radius: 10px;
+													-moz-border-radius: 10px;
+													-webkit-border-radius: 10px;
+													height:inherit;
+													border-style: double;">
+						<p>Εάν επιλέξετε "Κανένα" Τμήμα τότε αναζητείτε βιβλιοθήκες με βάση την διεύθυνση</p>
+		              	<div class="col-md-4">
+			              	<form class="form-horizontal">
+			              		<h5 style="position:relative;top:15px;right: 15px;text-decoration: underline;">Επιλογή τμήματος</h5>
+								<select id="lib-dep" class="form-control" style="position:relative;top:10px;margin-bottom:25px;right:15px;width:250px">
+									  <option>Όλα</option>
+									  <?php 
+									  	$libraries = new Libraries();
+									  	$libraries->get_department_names();	
+					 				   ?>
+					 				   <option>Κανένα</option> 
+								</select>
+							</form>
+		              	</div>
+		              	<div class="col-md-6">
+			              	<form class="form-horizontal" >
+			              		<div class="form-group" style="position:relative;top:45px;margin-bottom:25px;right:110px;width:inherit">
+									    <div class="col-sm-10">
+									      <input class="form-control" id="lib-addr" placeholder="Διεύθυνση">
+									    </div>
+								</div>
+							</form>
+		              	</div>
+		              	<div class="col-md-2">
+			              	<a id="lib-search" href="#" class="btn btn-primary" style="position:relative;top:45px;float:right;">
+						     	<span class="glyphicon glyphicon-search"></span>
+						     	Αναζήτηση
+						     </a>
+		              	</div>
+					</div>
+					
+					<!-- class="table-responsive" -->
+					<div >  
+			    		<table  class="table" id="lib-grid">
+							<thead>
+								<tr>
+									<th>Όνομα</th>
+									<th>Διεύθυνση</th>
+									<th>Τηλέφωνο</th>
+									<th>Λεπτομέρειες</th>
+								</tr>
+							</thead>
+							
+							<tbody >
+						    	<?php   		
+						       		$libraries = new Libraries();
+						       		$libraries->getAllLibraries();
+						 		?> 
+							</tbody>	
+						</table>
+					</div>
 				</div>
            	</div>
 	  </div>

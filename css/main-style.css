@@ -4,10 +4,18 @@ html, body {
 	
 }
 
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,p{
+	color:white;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover {
+    background-color: #992B00 !important;
+}
+
 .container{
-   margin: 0 auto; 
-   margin-bottom: 40px;
-   max-width: 1200px;
+   	margin: 0px auto; 
+   	margin-bottom: 0px;
+   	max-width: 100%;
 	margin-top: 20px;
 	background-color:#2A0000;
     border-radius: 20px; !important;
@@ -16,7 +24,6 @@ html, body {
 
 .container:before {
     content: ' ';
-    display: block;
     position: absolute;
     left: 0;
     top: 0;
@@ -25,13 +32,13 @@ html, body {
     z-index: -1;
     opacity: 0.8;
     background-image: url("../images/library-1.jpg");
-    //background-color: #fff;
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
     background-repeat: no-repeat;
     background-position: 100% 100%;
     -ms-background-size: cover;
-    -o-background-size: cover;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
     background-size: 100% 100%;
 }
 
@@ -52,7 +59,7 @@ html, body {
 }
 
 
-#tabs-bg,#News,#Events,#easy-search-bg,#main-bg,#searchContainer{
+#tabs-bg,#News,#Events,#easy-search-bg,#main-bg,#searchContainer,#results-grid{
 	background-color: #520000;
 }
 
@@ -62,7 +69,7 @@ html, body {
 
 
 
-#main-tabs a,#searchContainer{
+#main-tabs a,#searchContainer,#results-grid,#lib-grid,#stdr-grid{
 	color:#FFFAF0;
 }
 
@@ -124,14 +131,13 @@ html, body {
 }
 
 #confirmLoan-Button{
-	margin-left: 955px;
-    margin-top: 20px;
+position: relative;
+float: right;
 }
   
 
 #button-ref {
-	
-	 display: block;
+	display: block;
     width: 200px;
     height: 40px;
     background: #992B00;
@@ -142,19 +148,16 @@ html, body {
     font-weight: bold;
 }
 
-#search-btn {
-	
-	background-color:  #990000;
-	border-color: #fff;
+#search-btn ,#lib-search,#confirmLoan-Button,#advancedSearchButton{
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+	background: #992B00;
+	border-color: #992B00;
 }
 
-#footer{
-	position: relative;
-	margin-top: 150px;
-	background-color: #520000;
-	
-	 display:none;
-}
+
 
 hr.styled {
 	background:url(../images/hr_design.png) no-repeat top center;
@@ -166,7 +169,7 @@ hr.styled {
 hr.style-seven {
     height: 30px;
     border-style: solid;
-    border-color: black;
+    border-color: white;
     border-width: 1px 0 0 0;
     border-radius: 20px;
 }
@@ -176,7 +179,7 @@ hr.style-seven:before {
     height: 30px;
     margin-top: -31px;
     border-style: solid;
-    border-color: black;
+    border-color: white;
     border-width: 0 0 1px 0;
     border-radius: 20px;
 }
@@ -191,18 +194,5 @@ hr.style-seven:before {
 }  
 
 
-img.details{
-	width:33%;
-	margin: 15px auto;
-}
-#sitemap {
-	
-	margin-top: 2%;
-}
 
-#copyright {
-	margin-top: 40px;
-	text-align:center;
-	color:#FFFAF0;
-}
 

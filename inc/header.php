@@ -39,7 +39,7 @@ require_once './utilities/helpers.php';
 <title>Βιβλιοθήκες ΕΚΠΑ</title>
 
 </head>
-<body>
+<body >
 	<div class="container">
 			<div class="row" style="margin:0px;">
 				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="logo-bg">

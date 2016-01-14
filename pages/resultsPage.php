@@ -16,7 +16,7 @@ error_reporting(E_ALL);
 	<hr class="style-seven">
 	<div>
 		<div class="table-responsive">  
-	    	<table id="results-grid" class="table table-striped">
+	    	<table id="results-grid" class="table ">
 	    	<tbody>
 	    	<?php
 	    		if(isset($_POST['advancedSearch'])){
@@ -40,7 +40,7 @@ error_reporting(E_ALL);
 	    		}else{
 	    			if(isset($_POST['searchbooks'])){
 	    				$_SESSION['genre'] = $_POST['genre'];
-	    				echo $_POST['keyword'];
+	    				
 	    				$material = new Material();
 	    				$records_per_page=5;
 	    				
@@ -60,29 +60,29 @@ error_reporting(E_ALL);
 	 		?> 
 			</tbody>	
 			</table>
+		
+		
+			<?php
+			if(!isset($_SESSION['username'])) {
+				?>
+				<a href="?page=login_signup" id="confirmLoan-Button" type="button" class="btn btn-default">Επιβεβαίωση Δανεισμού
+				<span class="glyphicon glyphicon-chevron-right"></span>
+				</a>
+			<?php }
+			/*elseif(isset($_SESSION['username']) && !isset($_SESSION['cart'])) {
+				$message = "Παρκαλώ εισάγετε αντικείμενα στο καρότσι σας";
+				echo "<script>error_messages('$message');</script>";
+			}*/
+			else {
+				
+				?>
+				<a class="pull-right hidden-xs" href="?page=confirmLoan" id="confirmLoan-Button">Επιβεβαίωση Δανεισμού
+				<span class="glyphicon glyphicon-chevron-right"></span>
+				</a>
+			<?php 
+			}
+			?> 
 		</div>
-		<div>
-		<?php
-		if(!isset($_SESSION['username'])) {
-			?>
-			<a href="?page=login_signup" id="confirmLoan-Button" type="button" class="btn btn-default">Επιβεβαίωση Δανεισμού
-			<span class="glyphicon glyphicon-chevron-right"></span>
-			</a>
-		<?php }
-		/*elseif(isset($_SESSION['username']) && !isset($_SESSION['cart'])) {
-			$message = "Παρκαλώ εισάγετε αντικείμενα στο καρότσι σας";
-			echo "<script>error_messages('$message');</script>";
-		}*/
-		else {
-			
-			?><a href="?page=confirmLoan" id="confirmLoan-Button" type="button" class="btn btn-default">Επιβεβαίωση Δανεισμού
-			<span class="glyphicon glyphicon-chevron-right"></span>
-			</a>
-			
-		<?php 
-		}
-		?> 
-			
-		</div>
+		
    	</div>
 </div>

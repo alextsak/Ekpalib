@@ -1,0 +1,21 @@
+@CHARSET "ISO-8859-1";
+
+#footer{
+	/* position: absolute; */
+	margin-top: 20px;
+	background-color: #520000;
+}	
+img.details{
+	width:33%;
+	margin: 15px auto;
+}
+#sitemap {
+	position: relative;
+	margin-left: 43%;
+	top: 50%;
+}
+
+#copyright {
+	text-align:center;
+	color:#FFFAF0;
+}

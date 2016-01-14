@@ -16,12 +16,14 @@ $row=$libs->fetch(PDO::FETCH_ASSOC);
     vertical-align: middle;
 }
 
+
+
 </style>
 <div class="modal fade" id="library-details-modal" >
 	<div class="modal-dialog">
 		<div class="modal-content">
 		    <div class="modal-header">
-		        <h3><?php echo $row['Name'] ?></h3>
+		        <h3 style="color:black"><?php echo $row['Name'] ?></h3>
 		    </div>
 		    <div class="modal-body">
 		        <div class="tabbable"> 

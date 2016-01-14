@@ -7,7 +7,7 @@
 	  </ul>
 	  <!-- Tab panes -->
 	  <div  class="tab-content">
-            <!--begin books panel-->
+            
             <div class="tab-pane active" class="tab-pane" id="Books">
 	              <div class="panel-body" id="search-book">
 	              		<div class="row">
@@ -44,7 +44,7 @@
 		                </div>
 	              </div>
            	</div>
-            <!--end books panel-->
+            
 	    	
 	    	<div class="tab-pane" id="Articles">
 	    		<div class="tab-pane active" id="articlesTab">
@@ -88,38 +88,42 @@
 	    	</div>
 	    	
 	    	
-	    	<div class="tab-pane" id="Journals">
-	    		<div class="panel-body" id="search-journal">
-	                  <div class="row">
-	                    <div class="col-sm-6">
-	                      <h3  style="color:#FFFAF0;"><span class="glyphicon glyphicon-search"></span> Γρήγορη Αναζήτηση</h3>
-	                    </div>
-	                    <div class="col-sm-6">  
-	                      <a class="pull-right hidden-xs" href="?page=advancedSearch" id="button-ref">Σύνθετη Αναζήτηση</a>
-	                    </div>
-	                  </div>
-		                <div class="row">   
+    		
+    		<div class="tab-pane" id="Journals">
+    			<div class="tab-pane active" id="journalsTab">	
+    				<div class="panel-body" id="search-journal">
+	                  	<div class="row">
+		                    <div class="col-sm-6">
+		                      <h3  style="color:#FFFAF0;"><span class="glyphicon glyphicon-search"></span> Γρήγορη Αναζήτηση</h3>
+		                    </div>
+		                    <div class="col-sm-6">  
+		                      <a class="pull-right hidden-xs" href="?page=advancedSearch" id="button-ref">Σύνθετη Αναζήτηση</a>
+		                    </div>
+	                  	</div>
+	                	<div class="row">   
 		                  <form class="form-inline" id="search_journals" action="?page=resultsPage" method="post">
 		                    <label for="jnltitle" class="sr-only">Journal Title</label>
 		                    <input id="jnltitle" class="form-control easy-search-text-input es-text-no-select" type="text" 
 		                    	placeholder="Εισαγωγή τίτλου" maxlength="255" size="25" name="term" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Εισαγωγή τίτλου'" aria-required="true"
-		                    	required
-                				data-fv-notempty-message>
-				                    <input class='form-control' name='category' type='hidden' value='' />
-				                    <input class='form-control' name='genre' type='hidden' value='magazines' />
-	                      			<input class='form-control' name='keyword' type='hidden' value='title' />
-				                    <input id="search-btn" type="submit" class="btn btn-primary" alt="submit" value="Αναζήτηση" name="searchjournal">
-				                  </form>
-				                </div>
-				                <div class="row hidden-xs">
-				                  <div class="col-sm-6">
-				                   <p style="color:#FFFAF0;">Αναζήτηση περιοδικού βάση τίτλου.</p>
-				                  </div>
-				                </div>
-               			</div>
-			    	</div>
-			  </div>
-			</div>
-			
-			
+			                    	required
+	                				data-fv-notempty-message>
+					                    <input class='form-control' name='category' type='hidden' value='' />
+					                    <input class='form-control' name='genre' type='hidden' value='magazines' />
+		                      			<input class='form-control' name='keyword' type='hidden' value='title' />
+					                    <input id="search-btn" type="submit" class="btn btn-primary" alt="submit" value="Αναζήτηση" name="searchjournal">
+					                  </form>
+					    </div>
+		                <div class="row hidden-xs">
+		                  	<div class="col-sm-6">
+		                   		<p style="color:#FFFAF0;">Αναζήτηση περιοδικού βάση τίτλου.</p>
+		                 	</div>
+		                </div>
+               		</div>
+               	</div>
+			</div>	
+	 
+	 </div>
+	 
+</div>
+		
 			

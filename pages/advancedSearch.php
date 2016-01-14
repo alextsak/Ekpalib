@@ -1,16 +1,16 @@
 <style>
 #category-options,#lib-options{
-	height: 30px;
-    width: 100%
+	/* height: 30px;
+    width: 100% */
 }
 
 #searchContainer{
-	margin-bottom:30px;
-	border: 1px solid black;
+	/* margin-bottom:30px;
+ */	border: 1px solid white;
 	border-radius: 10px;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
-	height:200px;
+	/* height:200px; */
 	border-style: double;
 }
 
@@ -18,7 +18,7 @@
 	margin-top:5px;
 }
 
-#searchButton{
+#advancedSearchButton{
     position: relative;
     float: right;
     margin-top: 80px;
@@ -31,8 +31,9 @@
 
 <h4 style="margin-left:400px;text-decoration: underline;margin-bottom: 25px;color:#FFFAF0">
 		Αναζήτηση βιβλίων, περιοδικών και άρθρων</h4>
+<div id="searchContainer"  class="col-xs-12">
 <form id="advancedSearch" action="?page=resultsPage" method="POST">
-	<div id="searchContainer" class="col-xs-12">		
+	<div >		
 			<div class="col-md-2">
 					<!-- <form id="radioButton-From" class="from-horizontical" > -->
 					<div id="radioButton-From">
@@ -115,10 +116,11 @@
 						   ?>
 						</select>
 			</div>
-		    <input style="background-color: #990000;border-color:#fff;" type="submit" value="Αναζήτηση" id="searchButton" class="btn btn-primary" name="advancedSearch">
+		    <input type="submit" value="Αναζήτηση" id="advancedSearchButton" class="btn btn-primary" name="advancedSearch">
 		     	<!-- <span class="glyphicon glyphicon-search"></span> --> 
 	</div>
 </form> 
+</div>
 <!-- <div id="bottom_borderline" class="borderline"></div> -->
 
 	
