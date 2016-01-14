@@ -33,11 +33,9 @@ $(document).ready(function(){
 
 
 </script>
-
-	<div id="tabs-bg">		
-			  <!-- Nav tabs -->
+<div id="easy-search-bg">
+	 
 	  <ul id="main-tabs" class="nav nav-tabs" role="tablist">
-	   	
 	   	<li class="active"><a href="#NewsAndEvents"  data-toggle="tab">
 	    	<i class="glyphicon glyphicon-calendar"></i>
 	    	Νέα και Εκδηλώσεις</a>
@@ -53,24 +51,24 @@ $(document).ready(function(){
 	    	Βιβλιοθήκες</a>
 	    </li>
 	  </ul>
-	</div>  
+	 
 	  <!-- Tab panes -->
-	  <div  class="tab-content">
+	  <div  class="tab-content" >
 	  
             <div class="tab-pane active" id="NewsAndEvents">
-            	<div class="col-md-6" id="news-bg">
+            	<div class="col-md-6" id="News">
             		<h4 style="text-decoration: underline; text-align: center; color:#F5FFFA;">Νέα</h4>
             		 <p style="color:#FFFAF0;">Με την υψηλότερη διάκριση ―worthy of merit― αξιολογήθηκε από τους εξωτερικούς αξιολογητές το 
-           Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών κατά την τελική φάση της διαδικασίας της εξωτερικής 
-           ιδρυματικής αξιολόγησης
+           						Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών κατά την τελική φάση της διαδικασίας της εξωτερικής 
+           						ιδρυματικής αξιολόγησης
 
  
             		</p>
             	</div>
-            	<div class="col-md-6" id="news-bg">
+            	<div class="col-md-6" id="Events">
             		<h4 style="text-decoration: underline; text-align: center; color:#F5FFFA;">Εκδηλώσεις</h4>
           			<p style="color:#FFFAF0;">Πρόσκληση σε ομιλία του Καθηγητή και Ακαδημαϊκού κ. Δ. Νανόπουλου 
-Τετάρτη 13 Ιανουαρίου 2016, ώρα 12:00 Πρόσκληση σε ομιλία του Καθηγητή και Ακαδημαϊκού κ. Δ. Νανόπουλου 
+						Τετάρτη 13 Ιανουαρίου 2016, ώρα 12:00 Πρόσκληση σε ομιλία του Καθηγητή και Ακαδημαϊκού κ. Δ. Νανόπουλου 
 
           			</p>
             	</div>
@@ -161,4 +159,4 @@ $(document).ready(function(){
 				</div>
            	</div>
 	  </div>
-
+</div>

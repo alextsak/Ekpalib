@@ -51,22 +51,19 @@ html, body {
 	margin-left: 15px;
 }
 
-#easy-search-bg {
+
+#tabs-bg,#News,#Events,#easy-search-bg,#searchContainer{
 	background-color: #520000;
 }
 
-#tabs-bg{
-	background-color: #8B3E2F;
-}
-
 #news-bg{
-	background-color: #8B3E2F;
+	/* background-color: #8B3E2F; */
 }
 
 
 
-#main-tabs a{
-	color:#FFFAF0;;
+#main-tabs a,#searchContainer{
+	color:#FFFAF0;
 }
 
 .nav-tabs > li > a:hover{

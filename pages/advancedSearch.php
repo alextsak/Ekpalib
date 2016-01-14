@@ -29,7 +29,8 @@
 
 
 
-<h4 style="margin-left:400px;text-decoration: underline;margin-bottom: 25px;">Αναζήτηση βιβλίων, περιοδικών και άρθρων</h4>
+<h4 style="margin-left:400px;text-decoration: underline;margin-bottom: 25px;color:#FFFAF0">
+		Αναζήτηση βιβλίων, περιοδικών και άρθρων</h4>
 <form id="advancedSearch" action="?page=resultsPage" method="POST">
 	<div id="searchContainer" class="col-xs-12">		
 			<div class="col-md-2">
@@ -114,7 +115,7 @@
 						   ?>
 						</select>
 			</div>
-		    <input type="submit" value="Αναζήτηση" id="searchButton" class="btn btn-primary" name="advancedSearch">
+		    <input style="background-color: #990000;border-color:#fff;" type="submit" value="Αναζήτηση" id="searchButton" class="btn btn-primary" name="advancedSearch">
 		     	<!-- <span class="glyphicon glyphicon-search"></span> --> 
 	</div>
 </form> 
