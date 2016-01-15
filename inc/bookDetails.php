@@ -101,7 +101,7 @@ $book = $stmt->fetch(PDO::FETCH_ASSOC);
 		}
 
 
-	function addToCart(id){
+	/* function addToCart(id){
 		//console.log("book id: " + id);
 		//console.log(window.location.href);
 		$.ajax({
@@ -116,7 +116,7 @@ $book = $stmt->fetch(PDO::FETCH_ASSOC);
 			    //Do Something to handle error
 			  }
 			});
-		}
+		} */
 
 </script>
 

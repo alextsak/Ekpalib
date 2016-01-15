@@ -104,7 +104,24 @@ else {
 	 		?> 
 			</tbody>	
 			</table>
-		
+			<script type="text/javascript">
+				function addToCart(id){
+					//console.log("book id: " + id);
+					//console.log(window.location.href);
+					$.ajax({
+						  url: window.location.href,
+						  type: "POST", //send it through get method
+						  data:{action : "add", materialID : id},
+						  success: function(response) {
+							  location.reload(true);
+							  closeModal();
+						  },
+						  error: function(xhr) {
+						    //Do Something to handle error
+						  }
+						});
+					}
+			</script>
 		
 			<?php
 			if(!isset($_SESSION['username'])) {

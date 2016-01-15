@@ -217,8 +217,7 @@ require_once './utilities/helpers.php';
 								?></i> 
 								<i class="glyphicon glyphicon-shopping-cart"></i>
 							</button>
-							<!-- <ul class="dropdown-menu" id="dropdown">
-							<li> -->
+							
 							<div class="modal fade" id="cartModal">	
 								<div class="modal-dialog">
 								      <div id="cart-window" class="modal-content">
@@ -227,7 +226,7 @@ require_once './utilities/helpers.php';
 								        </div>
 								        <div class="modal-body">
 								          <div class="table-responsive">  
-								          <table class="table table-striped" id="tblGrid">
+								          <table class="table" id="tblGrid">
 								            <thead id="tblHead">
 								              <tr>
 								                <th>Τίτλος</th>

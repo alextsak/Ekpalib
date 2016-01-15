@@ -35,17 +35,15 @@ if(isset($_SESSION['cart'])){
 <hr class="style-seven">
 <div>
 		<div class="table-responsive">  
-	    	<table class="table table-striped">
-			<tbody>
+	    	<table class="table">
 				<thead>
 		         	<tr>
-		         	<th><?php echo 'Τίτλος';?></th>
-         	      					<th><?php echo 'Κατηγορία';?></th>
-         	      					<th><?php echo 'Βιβλιοθήκη';?></th>
-         	      					<th><?php echo 'Διαθεσιμότητα';?></th>
-         	      					<th><?php echo 'Ημέρες Δανεισμού';?></th>
-         	      					
-         	      					<th><?php echo 'Επιλογές'?></th>
+		         		<th><?php echo 'Τίτλος';?></th>
+         	      		<th><?php echo 'Κατηγορία';?></th>
+         	      		<th><?php echo 'Βιβλιοθήκη';?></th>
+         	      		<th><?php echo 'Διαθεσιμότητα';?></th>
+         	      		<th><?php echo 'Ημέρες Δανεισμού';?></th>
+         	      		<th><?php echo 'Επιλογές'?></th>
 		         	</tr>
 		        </thead>
 			<?php 
