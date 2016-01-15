@@ -17,7 +17,7 @@
  * detailsbook creates an ajax call to show a modal for the book details
  */
 function detailsbook(id){
-	
+	 console.log(id);
 	var data = {"id" : id};
 	jQuery.ajax({
 		url : "/Ekpalib/inc/bookDetails.php",

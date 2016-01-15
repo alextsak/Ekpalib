@@ -56,6 +56,7 @@ require_once './utilities/helpers.php';
 					</header>
 				</div>
 				<?php 
+				//unset($_SESSION['cart']);
 				if(isset($_GET['page']) && $_GET['page'] == 'login_signup') {
 					getPage('pages', $_GET['page'], 'main');
 					
@@ -130,7 +131,7 @@ require_once './utilities/helpers.php';
 							
 								/* make query to database and set the session accordingly */
 								$material = new Material ();
-								$message = $material->query_data_to_cart ( $materialID, $_SESSION ['genre'] );
+								$message = $material->add_to_cart ($materialID);
 								if ($message != "ok") {
 									echo "<script>error_messages('$message');</script>";
 								}
@@ -149,7 +150,7 @@ require_once './utilities/helpers.php';
 								
 								/* make query to database and set the session accordingly */
 								$material = new Material ();
-								$message = $material->query_data_to_cart ( $materialID, $_SESSION ['genre'] );
+								$message = $material->add_to_cart ($materialID);
 								if ($message != "ok") {
 									echo "<script>error_messages('$message');</script>";
 								}
@@ -204,7 +205,7 @@ require_once './utilities/helpers.php';
 						
 					?>
 					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="left:50px;">
-							<button id="cart" class="btn btn-default" data-toggle="modal" href="#cartModal"> 
+							<button id="cart" class="btn btn-default" data-toggle="modal" href="#cartModal" style="background-color:#511515;color:#FFFAF0"> 
 								Καλάθι 
 								<i style="color:#FFFAF0;"><?php 
 									if(!isset($_SESSION['cart'])) {
@@ -231,7 +232,7 @@ require_once './utilities/helpers.php';
 								              <tr>
 								                <th>Τίτλος</th>
 								                <th>Βιβλιοθήκη</th>
-								                <th>Isbn</th>
+								                <th>Κατηγορία</th>
 								                <th>Επιλογή</th>
 								              </tr>
 								            </thead>
@@ -241,7 +242,7 @@ require_once './utilities/helpers.php';
 												if(count($_SESSION['cart']) > 0){
 												
 													$material = new Material();
-													$material->add_to_upper_cart($_SESSION['genre']);
+													$material->update_upper_cart();
 												} else {
 													unset($_SESSION['cart']);
 												}

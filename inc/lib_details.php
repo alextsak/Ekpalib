@@ -19,10 +19,14 @@ $row=$libs->fetch(PDO::FETCH_ASSOC);
 
 
 </style>
-<div class="modal fade" id="library-details-modal" >
+<div class="modal fade library-details-modal" id="library-details-modal" tabindex="-1"
+	role="dialog" aria-labelledby="details-material-modal" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
 		    <div class="modal-header">
+		    <button class="close" type="button" aria-label="Close"  onclick="closeModal()">
+					<span aria-hidden="true">&times;</span>
+				</button>
 		        <h3 style="color:black"><?php echo $row['Name'] ?></h3>
 		    </div>
 		    <div class="modal-body">
@@ -51,7 +55,7 @@ $row=$libs->fetch(PDO::FETCH_ASSOC);
 		        </div>
 		   </div>
 		   <div class="modal-footer">
-		         <a href="#" class="btn btn-primary" onclick="closeModal();">Close</a>
+		         <button class="btn btn-default"  onclick="closeModal()">Κλείσιμο</button>
 		   </div>
 		</div>
 	</div>

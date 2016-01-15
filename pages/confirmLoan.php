@@ -39,13 +39,13 @@ if(isset($_SESSION['cart'])){
 			<tbody>
 				<thead>
 		         	<tr>
-		         		<th><?php echo 'Τίτλος';?></th>
-		         	    <th><?php echo 'Κατηγορία';?></th>
-		         	    <th><?php echo 'Συγγραφέας(εις)';?></th>
-		         	    <th><?php echo 'ISBN';?></th>
-		         	    <th><?php echo 'Βιβλιοθήκη';?></th>
-		         	    <th><?php echo 'Διαθεσιμότητα';?></th>
-		         	    <th><?php echo 'Επιλογές'?></th>
+		         	<th><?php echo 'Τίτλος';?></th>
+         	      					<th><?php echo 'Κατηγορία';?></th>
+         	      					<th><?php echo 'Βιβλιοθήκη';?></th>
+         	      					<th><?php echo 'Διαθεσιμότητα';?></th>
+         	      					<th><?php echo 'Ημέρες Δανεισμού';?></th>
+         	      					
+         	      					<th><?php echo 'Επιλογές'?></th>
 		         	</tr>
 		        </thead>
 			<?php 
@@ -55,10 +55,9 @@ if(isset($_SESSION['cart'])){
         				?><tr>
 							<td><?php echo $_SESSION['cart'][$key]['title']; ?></td>
 				           	<td><?php echo $_SESSION['cart'][$key]['category']; ?></td>
-				            <td><?php echo $_SESSION['cart'][$key]['author']; ?></td>
-				            <td><?php echo $_SESSION['cart'][$key]['ISBN']; ?></td>
-				            <td><a href="javascript:detailsLibrary(<?php echo $_SESSION['cart'][$key]['Library']; ?>)"><?php echo $_SESSION['cart'][$key]['Library']; ?></a></td>
+				           	<td><a href="javascript:detailsLibrary(<?php echo $_SESSION['cart'][$key]['library']; ?>)"><?php echo $_SESSION['cart'][$key]['library']; ?></a></td>
 			                <td><?php echo $_SESSION['cart'][$key]['availability']; ?></td>
+			                <td><?php echo $_SESSION['cart'][$key]['available_days']; ?></td>
 							<td style="width:120px;">
 								<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $_SESSION['cart'][$key]['id'];?>)">
 									<span class="glyphicon glyphicon-info-sign" ></span>

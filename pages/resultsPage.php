@@ -1,15 +1,51 @@
 <?php
 error_reporting(E_ALL);
+if(isset($_POST['advancedSearch'])){
+	$material = new Material();
+	$query = $material->advancedSearch($_POST['radio'],
+			$_POST['category'],
+			$_POST['keyword'],
+			$_POST['author'],
+			$_POST['publisher'],
+			$_POST['isbn'],
+			$_POST['library']);
+	
+	$terms = array( $_POST['category'],$_POST['library'],
+			$_POST['keyword'],$_POST['author'],
+			$_POST['publisher'],$_POST['isbn']);
+	
+	$_SESSION['last_query'] = $query;
+	$_SESSION['last_terms'] = $terms;
+	
+}
+else {
+	if(isset($_POST['searchbooks'])){
+		$material = new Material();
+		$query = $material->query_easy_search($_POST['term'], $_POST['genre'],
+				$_POST['keyword'],$_POST['category']);
+		$terms = array( $_POST['term'],$_POST['category']);
+		
+		$_SESSION['last_query'] = $query;
+		$_SESSION['last_terms'] = $terms;
+	}
+	
+	
+	
+	
+}
+
+
+
+
+
+
 ?>
 
 <div>
 <?php //echo $_SERVER['REQUEST_URI'];?>
 	<div>
 		<h3 id="reasultsHeader">Αποτελέσματα Αναζήτησης</h3>
-		<?php  if(isset($message)){ 
-            echo "<h3 style=\"color:red;\">$message</h3>"; 
-        	}  
-        ?>
+	
 	</div>
 
 	
@@ -19,7 +55,15 @@ error_reporting(E_ALL);
 	    	<table id="results-grid" class="table ">
 	    	<tbody>
 	    	<?php
-	    		if(isset($_POST['advancedSearch'])){
+	    	
+	    	//$material = new Material();
+	    	$material = Material::get();
+	    	$records_per_page=5;
+	    	$newquery = $material->paging($_SESSION['last_query'],$records_per_page);
+	    	$material->results_view($newquery, $_SESSION['last_terms']);
+	    	$material->paginglink($_SESSION['last_query'],$_SESSION['last_terms'],$records_per_page);
+	    	
+	    		/*if(isset($_POST['advancedSearch'])){
 	    			$material = new Material();
 	    			$records_per_page=5;
 	    			$query = $material->advancedSearch($_POST['radio'],
@@ -30,10 +74,10 @@ error_reporting(E_ALL);
 	    												$_POST['isbn'],
 	    												$_POST['library']);
 	    			$newquery = $material->paging($query,$records_per_page);
-	    			
 	    			$terms = array( $_POST['category'],$_POST['library'],
-	    							$_POST['keyword'],$_POST['author'],
-	    							$_POST['publisher'],$_POST['isbn']);
+	    					$_POST['keyword'],$_POST['author'],
+	    					$_POST['publisher'],$_POST['isbn']);
+	    			
 	    			
 	    			$material->results_view($newquery, $terms);
 	    			$material->paginglink($query,$terms,$records_per_page);
@@ -56,7 +100,7 @@ error_reporting(E_ALL);
 	    			
 	    			
 	    			
-	    		}
+	    		}*/
 	 		?> 
 			</tbody>	
 			</table>

@@ -74,11 +74,13 @@ class Material{
 	}
 	
 	public function add_to_upper_cart($genre) {
-		$query = 'select * from ' . $genre . ' where MaterialID IN (';
+		/*$query = 'select * from ' . $genre . ' where MaterialID IN (';
 		foreach($_SESSION['cart'] as $id => $value) {
 			$query.=$id.",";
-		}
-		$query=substr($query, 0, -1).") order by title ASC";
+		}*/
+		
+		
+		//$query=substr($query, 0, -1).") order by title ASC";
 		$stmt = $this->db->prepare($query);
 		$stmt->execute();
 		if($stmt->rowCount()>0)
@@ -118,7 +120,41 @@ class Material{
 		}
 	}
 	
-	public function materialBelongsToTable($materilID){
+	
+	
+	public function update_upper_cart(){
+		
+		foreach($_SESSION['cart'] as $key=>$value){
+			
+			?>
+				<tr>
+					<td>
+						<?php echo $_SESSION['cart'][$key]['title']; ?>
+					</td>
+					<td><a href="javascript:detailsLibrary(<?php echo  $_SESSION['cart'][$key]['library']; ?>)"><?php echo  $_SESSION['cart'][$key]['library']; ?></a></td>
+					<td>
+						<?php $_SESSION['cart'][$key]['category']; ?>
+					</td>
+					<td>
+					<form method="post" action="<?php echo $_SERVER['REQUEST_URI']?>">
+        					
+							<button type="submit" name="removeBtn" class="btn btn-link">
+								<span class="glyphicon glyphicon-remove-circle" style="
+							    font-size: large;"></span>
+							</button>
+        					 <input name="id_to_remove" type="hidden" value="<?php echo $_SESSION['cart'][$key]['id'];?>"/>
+        					
+        			</form>
+						
+					</td>
+				</tr>					
+			<?php 	
+		
+		}
+		
+	}
+	
+	public function materialBelongsToTable($materialID){
 	
 		$books = 'SELECT * from books where materialID = ?';
 		$articles = 'SELECT * from articles where materialID = ?';
@@ -144,15 +180,19 @@ class Material{
 	}
 	
 	
-	public function query_data_to_cart($materialID, $genre) {
+	public function add_to_cart($materialID) {
 		if(!empty($materialID)){
-			$query = 'select * from ' . $genre . ' where MaterialID=?';
+			
+			// Fetch the basic details for this material
+			$query = 'select * from material where MaterialID=?';
 			$stmt = $this->db->prepare($query);
 			$stmt->bindParam(1, $materialID);
 			$stmt->execute();
+			
 			if($stmt->rowCount() != 0) {
 				while($row=$stmt->fetch(PDO::FETCH_ASSOC)) {
 
+					// check if this material is available
 					if(intval($row['availability']) == 0) {
 						$message = "This Material is not available.";
 						return $message;
@@ -160,6 +200,7 @@ class Material{
 					} 
 					else {
 						
+						// if the material is available find where it belongs
 						$library = $this->get_material_library($row['MaterialID']);
 						$lib_name = '';
 						if($library != -1) {
@@ -170,10 +211,10 @@ class Material{
 								"id"	=> $row['MaterialID'],
 								"title" => $row['title'],
 								"category" => $row['category'],
-								"author" => $row['author'],
-								"ISBN" => $row['isbn'],
-								"Library" => $lib_name,
-								"availability" => $row['availability']
+								"library" => $lib_name,
+								"availability" => $row['availability'],
+								"available_days" => $row['available_days']
+								
 						);
 						return "ok";
 					}
@@ -234,7 +275,7 @@ class Material{
 	                   	<tr>
 		                   	<td><?php echo $row['title']; ?></td>
 		                   	<td><?php echo $row['category']; ?></td>
-		                   	<td><a href="javascript:detailsLibrary(<?php echo $row['Name']; ?>)"><?php echo $row['Name']; ?></a></td>
+		                   	<td><a href="javascript:detailsLibrary(<?php echo $row['idLibraries'];?>)"><?php echo $row['Name']; ?></a></td>
 	                 		<td><?php echo $row['availability']; ?></td>
 	                 		<td><?php echo $row['available_days']; ?></td>
 	                 		<?php $url_path = $_SERVER['QUERY_STRING'];
@@ -276,9 +317,9 @@ class Material{
   
  	}
  
- public function query_easy_search($term, $genre, $keyword,$category) {
+ public function query_easy_search($term, $genre, $keyword, $category) {
 	
-	$query = 'select distinct(material.MaterialID),title,category,libraries.Name,availability,available_days 
+	$query = 'select distinct(material.MaterialID),title,category,libraries.Name,libraries.idLibraries,availability,available_days 
 		      from '  . $genre . ', material,libraries_has_material,libraries,material_has_author,author
 			  where material.MaterialID = libraries_has_material.MaterialID and
 			  libraries_has_material.idLibraries = libraries.idLibraries and 
@@ -315,8 +356,12 @@ class Material{
  	return -1;
  }
 
- public function fetch_material_details($material_id, $genre){
- 
+ public function fetch_material_details($materialID){
+ 	
+ 	// firstly determine the genre of the materialID given, e.g Book, Article etc...
+ 	$genre = $this->materialBelongsToTable($materialID);
+ 	//echo $materialID;
+ 	//$genre = "books";
  	$query = 'SELECT * FROM material,material_has_author,author,' . $genre . ' 
 			  where material.MaterialID = material_has_author.MaterialID and
 			  material_has_author.idAuthor = author.idAuthor and 
@@ -324,12 +369,30 @@ class Material{
 			  and material.MaterialID=?';
  	
  	$stmt = $this->db->prepare($query);
- 	$stmt->bindParam(1, $material_id);
+ 	$stmt->bindParam(1, $materialID);
  	$stmt->execute();
  	if($stmt->rowCount() > 0){
  		return $stmt;
+ 		
  	}
  	return -1;
+ }
+ 
+ public function get_authors_of_material($materialID){
+ 	
+ 	$query = 'SELECT Name, Surname FROM material_has_author, author WHERE 
+						material_has_author.idAuthor = author.idAuthor 
+						and material_has_author.MaterialID =?';
+ 	
+ 	$stmt = $this->db->prepare($query);
+ 	$stmt->bindParam(1, $materialID);
+ 	$stmt->execute();
+ 	if($stmt->rowCount() > 0){
+ 		return $stmt;
+ 			
+ 	}
+ 	return -1;
+ 	
  }
  
  public function advancedSearch($type,$category,$keyword,$author,$publisher,$isbn,$library){
