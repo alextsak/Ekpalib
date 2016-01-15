@@ -59,7 +59,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,p{
 }
 
 
-#tabs-bg,#News,#Events,#easy-search-bg,#main-bg,#searchContainer,#results-grid{
+#tabs-bg,#News,#Events,#easy-search-bg,#main-bg,#searchContainer,#results-grid,#confirmLoan-grid{
 	background-color: #520000;
 }
 
@@ -69,7 +69,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,p{
 
 
 
-#main-tabs a,#searchContainer,#results-grid,#lib-grid,#stdr-grid{
+#main-tabs a,#searchContainer,#results-grid,#lib-grid,#stdr-grid,#confirmLoan-grid{
 	color:#FFFAF0;
 }
 
