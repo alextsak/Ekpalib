@@ -12,6 +12,31 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,p{
     background-color: #992B00 !important;
 }
 
+.nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: #1B1818;
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    background-color: black;
+    border-color: #1B1818;
+}
+
+.dropdown-menu {
+    background-color: #992B00;
+}
+
+
+.dropdown-menu > li > a {
+   	color: #1B1818;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    color: #262626;
+    text-decoration: none;
+    background-color: #1B1818;
+}
+
 .container{
    	margin: 0px auto; 
    	margin-bottom: 0px;
@@ -40,6 +65,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,p{
     background-position: 100% 100%;
     -ms-background-size: cover;
     background-size: 100% 100%;
+    
+    
 }
 
 
