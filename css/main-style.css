@@ -136,9 +136,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,p{
 }
   
 
+
 #button-ref ,#confirmLoan-Button{
 	display: block;
-    width: 200px;
+    width: 210px;
     height: 40px;
     background: #992B00;
     padding: 10px;
@@ -148,7 +149,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,p{
     font-weight: bold;
 }
 
-#search-btn ,#lib-search,#confirmLoan-Button,#advancedSearchButton{
+#search-btn ,#lib-search,#confirmLoan-Button,#advancedSearchButton,#loan-Button{
     text-align: center;
     border-radius: 5px;
     color: white;

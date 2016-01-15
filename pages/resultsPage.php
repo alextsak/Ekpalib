@@ -137,7 +137,9 @@ else {
 			else {
 				
 				?>
-				<a class="btn btn-primary"  href="?page=confirmLoan" id="confirmLoan-Button">Επιβεβαίωση Δανεισμού</a>
+				<a class="btn btn-primary"  href="?page=confirmLoan" id="confirmLoan-Button">Επιβεβαίωση Δανεισμού
+					<span class="glyphicon glyphicon-chevron-right"></span> 
+				</a>
 			<?php 
 			}
 			?> 
