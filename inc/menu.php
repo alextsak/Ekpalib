@@ -23,7 +23,7 @@
 	<div class="borderline" >
            <ul id="tabs"  class="nav nav-pills" data-toggle="collapse">
            	   <li>
-           	   		<a href="<?php echo 'http://' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . '/Ekpalib/';?>" style="color:#FFFAF0;">Αρχική</a>
+           	   		<a href="?page=index.php" style="color:#FFFAF0;">Αρχική</a>
            	   </li>
                <li class="dropdown">
                		<a style="color:#FFFAF0;"href="#" data-toggle="dropdown" class="dropdown-toggle">Πληροφορίες <b class="caret"></b></a>
