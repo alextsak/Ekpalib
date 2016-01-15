@@ -14,9 +14,10 @@ if(isset($_GET['page']) && !isset($_GET['page_no'])) {
 	}
 	elseif($_GET['page'] == 'confirmLoan'){
 		
-		if(!isset($_SESSION['username']) || !isset($_SESSION['cart'])){
+		if(!isset($_SESSION['username'])){
 			$problem = 1;
 		}
+		
 		else {
 			include './inc/header.php';
 			include './inc/menu.php';

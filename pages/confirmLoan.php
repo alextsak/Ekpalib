@@ -30,7 +30,7 @@ if(isset($_SESSION['cart'])){
 }
 
 </style>
-
+<?php if(isset($_SESSION['cart'])){ ?>
 <h3 style="margin-left:450px;">Επιβεβαίωση Δανεισμού</h3>
 <hr class="style-seven">
 <div>
@@ -49,26 +49,39 @@ if(isset($_SESSION['cart'])){
 		        <tbody>
 				<?php 
 	        			
-	        			foreach($_SESSION['cart'] as $key=>$value){
 	        				
-	        				?><tr>
-								<td><?php echo $_SESSION['cart'][$key]['title']; ?></td>
-					           	<td><?php echo $_SESSION['cart'][$key]['category']; ?></td>
-					           	<td><a href="javascript:detailsLibrary(<?php echo $_SESSION['cart'][$key]['library']; ?>)"><?php echo $_SESSION['cart'][$key]['library']; ?></a></td>
-				                <td><?php echo $_SESSION['cart'][$key]['availability']; ?></td>
-				                <td><?php echo $_SESSION['cart'][$key]['available_days']; ?></td>
-								<td style="width:120px;">
-									<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $_SESSION['cart'][$key]['id'];?>)">
-										<span class="glyphicon glyphicon-info-sign" ></span>
-									</button>
-										&nbsp | &nbsp
-									<button class="btn btn-warning btn-sm" type="button">
-										<span class="glyphicon glyphicon-new-window" ></span>
-									</button>
-								</td>
-							</tr>
-						<?php 
-	        			}
+	        				$id_array = array();
+	        				
+	        				foreach ($_SESSION['cart'] as $item_array) {
+	        					foreach($item_array as $key=>$value){
+	        						if($key == "id"){
+	        							array_push($id_array, $value);
+	        						}
+	        					}
+	        				}
+	        				foreach($_SESSION['cart'] as $key=>$value){
+	        					 
+	        					?><tr>
+	        						<td><?php echo $_SESSION['cart'][$key]['title']; ?></td>
+	        						<td><?php echo $_SESSION['cart'][$key]['category']; ?></td>
+	        						<td><a href="javascript:detailsLibrary(<?php echo $_SESSION['cart'][$key]['library']; ?>)"><?php echo $_SESSION['cart'][$key]['library']; ?></a></td>
+	        						<td><?php echo $_SESSION['cart'][$key]['availability']; ?></td>
+	        						<td><?php echo $_SESSION['cart'][$key]['available_days']; ?></td>
+	        						<td style="width:120px;">
+	        						<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $_SESSION['cart'][$key]['id'];?>)">
+	        							<span class="glyphicon glyphicon-info-sign" ></span>
+	        						</button>
+	        						&nbsp | &nbsp
+	        						<button class="btn btn-warning btn-sm" type="button">
+	        							<span class="glyphicon glyphicon-new-window" ></span>
+	        						</button>
+	        						</td>
+	        					</tr>
+	        					<?php 
+	        				}
+	        				
+	        			
+	        			
 	       		?> 
        			</tbody>
 		</table>
@@ -82,3 +95,12 @@ if(isset($_SESSION['cart'])){
 		</div>
 	</div>
 </div>
+
+<?php 
+}
+else {
+?>
+<h4 style="margin-left:450px;">Το καλάθι σας είναι άδειο</h3>
+<h5 style="margin-left:450px;">Παρακαλώ επιστρέψτε στην <a href="index.php">Αρχική</a> ή στην Προηγούμενη Σελίδα σας από το μονοπάτι</h5>
+
+<?php }?>
