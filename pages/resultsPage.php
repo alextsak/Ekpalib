@@ -19,7 +19,7 @@ if(isset($_POST['advancedSearch'])){
 	
 }
 else {
-	if(isset($_POST['searchbooks'])){
+	if(isset($_POST['searchbooks']) || isset($_POST['searcharticles']) || isset($_POST['searchmagazines'])){
 		$material = new Material();
 		$query = $material->query_easy_search($_POST['term'], $_POST['genre'],
 				$_POST['keyword'],$_POST['category']);
@@ -132,10 +132,6 @@ else {
 				<span class="glyphicon glyphicon-chevron-right"></span>
 				</a>
 			<?php }
-			/*elseif(isset($_SESSION['username']) && !isset($_SESSION['cart'])) {
-				$message = "Παρκαλώ εισάγετε αντικείμενα στο καρότσι σας";
-				echo "<script>error_messages('$message');</script>";
-			}*/
 			else {
 				
 				?>
@@ -151,14 +147,17 @@ else {
 </div>
 <script>
 $("#confirmLoan-Button").on("click", function (e) {
-	   e.preventDefault(); // --> if this handle didn't run first, this wouldn't work
+	   e.preventDefault(); 
 	   if($("#cart i").html() == "( 0 )"){
-		   console.log("it's empty");
+		  
+		   var message = "Παρακαλώ γεμίστε πρώτα το καλάθι σας";
+		   error_messages(message);
 
 		} else {
 			
-			console.log($("#cart i").html());
-			}
+			window.location.href = "?page=confirmLoan";
+			
+		}
 	});
 
 </script>

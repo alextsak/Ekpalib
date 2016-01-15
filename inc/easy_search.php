@@ -60,12 +60,12 @@
 	                  </div>
 	                <div class="row">   
 	                  <form id="search_articles" class="form-inline" action="?page=resultsPage" method="POST">
-	                    <label for="artclSubject" class="sr-only">article</label>
+	                    <label for="artclSubject" class="sr-only">Άρθρο</label>
 	                    <input id="artclSubject" class="form-control easy-search-text-input" type="text" placeholder="Εισαγωγή λέξης κλειδιού" 
 	                    	maxlength="255" size="25" name="term" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Εισαγωγή λέξης κλειδιού'"
 	                    	required
                 			data-fv-notempty-message>
-	                      <label for="selection2" class="sr-only">choose the subject</label>
+	                      <label for="selection2" class="sr-only">Επιλέξτε Κατηγορία</label>
 	                      <select id="selection2" class="form-control" name="category" aria-required="true">
 	                        <?php 
 	                        	$articles = new Article();
@@ -102,7 +102,7 @@
 	                  	</div>
 	                	<div class="row">   
 		                  <form class="form-inline" id="search_journals" action="?page=resultsPage" method="post">
-		                    <label for="jnltitle" class="sr-only">Journal Title</label>
+		                    <label for="jnltitle" class="sr-only">Τίτλος Περιοδικού</label>
 		                    <input id="jnltitle" class="form-control easy-search-text-input es-text-no-select" type="text" 
 		                    	placeholder="Εισαγωγή τίτλου" maxlength="255" size="25" name="term" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Εισαγωγή τίτλου'" aria-required="true"
 			                    	required
@@ -110,7 +110,7 @@
 					                    <input class='form-control' name='category' type='hidden' value='' />
 					                    <input class='form-control' name='genre' type='hidden' value='magazines' />
 		                      			<input class='form-control' name='keyword' type='hidden' value='title' />
-					                    <input id="search-btn" type="submit" class="btn btn-primary" alt="submit" value="Αναζήτηση" name="searchjournal">
+					                    <input id="search-btn" type="submit" class="btn btn-primary" alt="submit" value="Αναζήτηση" name="searchmagazines">
 					                  </form>
 					    </div>
 		                <div class="row hidden-xs">
