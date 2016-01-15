@@ -170,17 +170,17 @@ class Libraries{
 			{
 				?>
 	            <tr>
-		            <td>
+		            <td style="text-align:center;">
 		               	
 	                   		<?php echo $row['Name'];?>
 	                </td>
-	                <td>
+	                <td style="text-align:center;">
 	                   		<?php echo $row['Address'];?>
 	                </td>
-	                <td>
+	                <td style="text-align:center;">
 	                   		<?php echo $row['Telephone'];?>
 	                </td>
-	                <td style="width:120px;">
+	                <td style="width:120px;text-align:center;">
 						<button class="btn btn-primary btn-sm" type="button" onclick="detailsLibrary(<?php echo $row['idLibraries'];?>)">
 							<span class="glyphicon glyphicon-info-sign" ></span>
 						</button>

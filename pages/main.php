@@ -81,9 +81,9 @@ $(document).ready(function(){
 			    		<table class="table" id="stdr-grid">
 							<thead>
 								<tr>
-									<th>Όνομα</th>
-									<th>Διεύθυνση</th>
-									<th>Ώρες Λειτουργίας</th>
+									<th style="text-align:center;">Όνομα</th>
+									<th style="text-align:center;">Διεύθυνση</th>
+									<th style="text-align:center;">Ώρες Λειτουργίας</th>
 								</tr>
 							</thead>
 							
@@ -144,10 +144,10 @@ $(document).ready(function(){
 			    		<table  class="table" id="lib-grid">
 							<thead>
 								<tr>
-									<th>Όνομα</th>
-									<th>Διεύθυνση</th>
-									<th>Τηλέφωνο</th>
-									<th>Λεπτομέρειες</th>
+									<th style="text-align:center;">Όνομα</th>
+									<th style="text-align:center;">Διεύθυνση</th>
+									<th style="text-align:center;">Τηλέφωνο</th>
+									<th style="text-align:center;">Λεπτομέρειες</th>
 								</tr>
 							</thead>
 							

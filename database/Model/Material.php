@@ -262,24 +262,24 @@ class Material{
          if($stmt->rowCount()>0){
          	?><thead>
          		<tr>
-         			<th><?php echo 'Τίτλος';?></th>
-         	      					<th><?php echo 'Κατηγορία';?></th>
-         	      					<th><?php echo 'Βιβλιοθήκη';?></th>
-         	      					<th><?php echo 'Διαθεσιμότητα';?></th>
-         	      					<th><?php echo 'Ημέρες Δανεισμού';?></th>
-         	      					<th><?php echo 'Προσθήκη στο Καλάθι';?></th>
-         	      					<th><?php echo 'Επιλογές'?></th>
+         			<th style="text-align:center;"><?php echo 'Τίτλος';?></th>
+         	      					<th style="text-align:center;"><?php echo 'Κατηγορία';?></th>
+         	      					<th style="text-align:center;"><?php echo 'Βιβλιοθήκη';?></th>
+         	      					<th style="text-align:center;"><?php echo 'Διαθεσιμότητα';?></th>
+         	      					<th style="text-align:center;"><?php echo 'Ημέρες Δανεισμού';?></th>
+         	      					<th style="text-align:center;"><?php echo 'Προσθήκη στο Καλάθι';?></th>
+         	      					<th style="text-align:center;"><?php echo 'Επιλογές'?></th>
          	   	</tr>
          	  </thead>
          	  <?php 
                  while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
                 	?>
 	                   	<tr>
-		                   	<td><?php echo $row['title']; ?></td>
-		                   	<td><?php echo $row['category']; ?></td>
-		                   	<td><a href="javascript:detailsLibrary(<?php echo $row['idLibraries'];?>)"><?php echo $row['Name']; ?></a></td>
-	                 		<td><?php echo $row['availability']; ?></td>
-	                 		<td><?php echo $row['available_days']; ?></td>
+		                   	<td style="text-align:center;"><?php echo $row['title']; ?></td>
+		                   	<td style="text-align:center;"><?php echo $row['category']; ?></td>
+		                   	<td style="text-align:center;"><a href="javascript:detailsLibrary(<?php echo $row['idLibraries'];?>)"><?php echo $row['Name']; ?></a></td>
+	                 		<td style="text-align:center;"><?php echo $row['availability']; ?></td>
+	                 		<td style="text-align:center;"><?php echo $row['available_days']; ?></td>
 	                 		<?php $url_path = $_SERVER['QUERY_STRING'];
         						$url_path = '?' .  $url_path;
         						if(strpos( $url_path, '&action')){
@@ -291,7 +291,7 @@ class Material{
         						
         						
         						?>
-	                 		<td><a href="<?php echo $url_path."&action=add&materialID=" . $row['MaterialID']?>"><span class="glyphicon glyphicon-shopping-cart"  style="font-size:larger;"></span>
+	                 		<td style="text-align:center;"><a href="<?php echo $url_path."&action=add&materialID=" . $row['MaterialID']?>"><span class="glyphicon glyphicon-shopping-cart"  style="font-size:larger;"></span>
 							</a></td>
 		                   	
 							<td style="width:120px;">
