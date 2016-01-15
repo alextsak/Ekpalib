@@ -137,8 +137,7 @@ else {
 			else {
 				
 				?>
-				<input class="btn btn-primary" id="confirmLoan-Button" href="?page=confirmLoan" type="submit" value="Επιβεβαίωση Δανεισμού">
-				
+				<a class="btn btn-primary"  href="?page=confirmLoan" id="confirmLoan-Button">Επιβεβαίωση Δανεισμού</a>
 			<?php 
 			}
 			?> 
