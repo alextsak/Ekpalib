@@ -131,9 +131,9 @@ class Material{
 					<td>
 						<?php echo $_SESSION['cart'][$key]['title']; ?>
 					</td>
-					<td><a href="javascript:detailsLibrary(<?php echo  $_SESSION['cart'][$key]['library']; ?>)"><?php echo  $_SESSION['cart'][$key]['library']; ?></a></td>
+					<td><a href="javascript:detailsLibrary(<?php echo  $_SESSION['cart'][$key]['lib_id']; ?>)"><?php echo  $_SESSION['cart'][$key]['library']; ?></a></td>
 					<td>
-						<?php $_SESSION['cart'][$key]['category']; ?>
+						<?php echo $_SESSION['cart'][$key]['category']; ?>
 					</td>
 					<td>
 					<form method="post" action="<?php echo $_SERVER['REQUEST_URI']?>">
@@ -205,14 +205,16 @@ class Material{
 						$lib_name = '';
 						if($library != -1) {
 							$lib_name = $library['Name'];
+							$lib_id = $library['idLibraries'];
 						}
 						
 						$_SESSION['cart'][$row['MaterialID']]=array(
-								"id"	=> $row['MaterialID'],
-								"title" => $row['title'],
-								"category" => $row['category'],
-								"library" => $lib_name,
-								"availability" => $row['availability'],
+								"id"			=> $row['MaterialID'],
+								"title" 		=> $row['title'],
+								"category" 		=> $row['category'],
+								"library" 		=> $lib_name,
+								"lib_id" 		=> $lib_id,
+								"availability" 	=> $row['availability'],
 								"available_days" => $row['available_days']
 								
 						);
