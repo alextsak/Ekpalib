@@ -1,6 +1,4 @@
 <style>
-
- 
  #bottom_borderline{
  	margin-bottom:30px;
  }

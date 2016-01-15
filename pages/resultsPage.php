@@ -152,12 +152,12 @@ else {
 <script>
 $("#confirmLoan-Button").on("click", function (e) {
 	   e.preventDefault(); // --> if this handle didn't run first, this wouldn't work
-	   if($("#cart i").attr("value") == "( 0 )"){
+	   if($("#cart i").html() == "( 0 )"){
 		   console.log("it's empty");
 
 		} else {
 			
-			console.log($("#cart i").attr("value"));
+			console.log($("#cart i").html());
 			}
 	});
 
