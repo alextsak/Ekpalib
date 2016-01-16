@@ -68,6 +68,7 @@ function sitepath_constructor(){
 			$sitepath = '<a href="" style="position:relative;top:10px;left:14px;text-decoration:underline;">' . $key . '</a>';
 		} else {
 			// If the requested URI is already in the path, then add it to the path and stop construction.
+			
 			$current = "$_SERVER[REQUEST_URI]";
 			if (strpos($current, $value) !== FALSE) {
 				$sitepath = $sitepath . ' <span class="glyphicon glyphicon-chevron-right" style="color: gray;position:relative;top:12px;left:14px;" aria-hidden="true"></span> ' . "<a href='$value' style=position:relative;top:10px;left:14px;text-decoration:underline;>" . $key . '</a>';
