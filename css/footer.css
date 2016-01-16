@@ -1,9 +1,14 @@
-@CHARSET "ISO-8859-1";
+
+#footer-container{
+	background-color:#992B00;
+	border-radius: 20px;
+}
 
 #footer{
 	/* position: absolute; */
 	margin-top: 20px;
-	background-color: #520000;
+	background-color: #992B00;
+	border-radius: 20px;
 }	
 img.details{
 	width:33%;

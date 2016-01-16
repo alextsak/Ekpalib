@@ -1,7 +1,7 @@
 
 	
 	<footer  id="footer">
-			<div>
+			<div id="footer-container">
 					<h5 id="sitemap" style="color:#FFFAF0;">
 					<a href="./index.php" style="color:#FFFAF0;">Αρχική</a><a>&nbsp|&nbsp</a><a href="#" style="color:#FFFAF0;">Χάρτης Ιστοτόπου</a></h5>
 				<p id="copyright">&copy; Copyright 2015-2016 EKPA Libraries </p> 

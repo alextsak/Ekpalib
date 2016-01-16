@@ -42,7 +42,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,p{
    	margin-bottom: 0px;
    	max-width: 100%;
 	margin-top: 20px;
-	background-color:#2A0000;
+	//background-color:#520000;
+	background-color:#520000;
     border-radius: 20px; !important;
 }
 
@@ -70,28 +71,39 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,p{
 }
 
 
+.panel-body#NewsAndEventsBody,#StudyRoomsBody,#LibrariesBody{
+	
+	background-color: #2C525B;
+}
 
+#News,#Events{
+	background-color: #2C525B;
+}
 
 .panel-body#search-book,#search-article,#search-journal{
-	/* background-color: beige; */
+	background-color: #2C525B;
 	margin-bottom:15px;
 }
 
-.panel-body#libraries-tab,#studyRooms-tab,#searchResults{
-	/* background-color: beige; */
+.panel-body #libraries-tab,#studyRooms-tab,#searchResults{
+	background-color: #992B00; 
 }
 
 #Search_Argument,#artclSubject,#jnltitle{
 	margin-left: 15px;
 }
 
-
-#tabs-bg,#News,#Events,#easy-search-bg,#main-bg,#searchContainer,#results-grid,#confirmLoan-grid{
-	background-color: #520000;
+#results-grid,#confirmLoan-grid {
+	background-color: #2C525B;
+	
+}
+#tabs-bg,#easy-search-bg,#main-bg,#searchContainer{
+	//background-color: #2C525B;
+	background-color:#B8742D
 }
 
 #news-bg{
-	/* background-color: #8B3E2F; */
+	 /*background-color: #992B00;*/ 
 }
 
 
@@ -115,14 +127,16 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,p{
   padding-right: 15px;
 }
 
+
+
 .upper-nav ul li:last-child {
   padding-right: 0;
 }
 
 
 .upper-nav ul li a {
-  background: #FFFFFF;
-  color: #696763;
+  background: #992B00;
+  color: #FFFAF0;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   font-weight: 300;
@@ -138,8 +152,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,p{
 
 
 .upper-nav ul li a:hover {
-	color:#3071a9;
-	background:#fff;
+	color:#996600;
+	background:#992B00;
 }
 
 #lang {

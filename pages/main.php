@@ -55,7 +55,7 @@ $(document).ready(function(){
 	  <div  class="tab-content" >
 	  
             <div class="tab-pane active" id="NewsAndEvents">
-            	<div class="panel-body" >
+            	<div class="panel-body" id="NewsAndEventsBody">
 	            	<div class="col-md-6" id="News">
 	            		<h4 style="text-decoration: underline; text-align: center; color:#F5FFFA;">Νέα</h4>
 	            		 <p style="color:#FFFAF0;">Με την υψηλότερη διάκριση ―worthy of merit― αξιολογήθηκε από τους εξωτερικούς αξιολογητές το 
@@ -76,7 +76,7 @@ $(document).ready(function(){
             </div>
           
             <div class="tab-pane" id="StudyRooms">
-    			<div class="panel-body" >
+    			<div class="panel-body" id="StudyRoomsBody">
 	    			<div class="table-responsive">  
 			    		<table class="table" id="stdr-grid">
 							<thead>
@@ -99,7 +99,7 @@ $(document).ready(function(){
 	    	</div>
 	    	
             <div class="tab-pane" id="Libraries">
-              	<div class="panel-body" >
+              	<div class="panel-body" id="LibrariesBody">
 	              	<div class="col-sm-12" style="margin-bottom:30px;
 	              									margin-top:20px;
 													border: 1px solid white;
