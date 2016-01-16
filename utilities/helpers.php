@@ -18,7 +18,8 @@ function init_sitepath(){
 
 function sitepath_constructor(){
 	
-	$urlpath = $_SERVER['QUERY_STRING'];
+	//$urlpath = $_SERVER['QUERY_STRING'];
+	$urlpath = "$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 	$sitepath = '';
 	
 	$pieces = explode("=", $urlpath);
@@ -66,7 +67,16 @@ function sitepath_constructor(){
 			
 			$sitepath = '<a href="" style="position:relative;top:10px;left:14px;text-decoration:underline;">' . $key . '</a>';
 		} else {
-			$sitepath = $sitepath . ' <span class="glyphicon glyphicon-chevron-right" style="color: gray;position:relative;top:12px;left:14px;" aria-hidden="true"></span> ' . "<a href='$value' style=position:relative;top:10px;left:14px;text-decoration:underline;>" . $key . '</a>';
+			// If the requested URI is already in the path, then stop construction.
+			$current = "$_SERVER[REQUEST_URI]";
+			if (strpos($current, $value) !== FALSE) {
+				$sitepath = $sitepath . ' <span class="glyphicon glyphicon-chevron-right" style="color: gray;position:relative;top:12px;left:14px;" aria-hidden="true"></span> ' . "<a href='$value' style=position:relative;top:10px;left:14px;text-decoration:underline;>" . $key . '</a>';
+				break;
+			}
+			else {
+				$sitepath = $sitepath . ' <span class="glyphicon glyphicon-chevron-right" style="color: gray;position:relative;top:12px;left:14px;" aria-hidden="true"></span> ' . "<a href='$value' style=position:relative;top:10px;left:14px;text-decoration:underline;>" . $key . '</a>';
+			}
+			
 		}
 	}
 	
