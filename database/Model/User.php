@@ -56,6 +56,20 @@ class User{
 		}
 	}
 	
+	public function get_user_transactions($username){
+	
+		$query = 'SELECT MaterialID, Approved FROM academiccommunitymembers_makesrequestfor_material where User=?';
+		$stmt = $this->db->prepare($query);
+		$stmt->bindParam(1, $username);
+		if($stmt->execute()){
+			if($stmt->rowCount() > 0){
+				return $stmt;
+			}
+		}
+		else {
+			echo 'No data found';
+		}
+	}
 	
 	public function get_user_transactions_approved($username){
 		

@@ -37,24 +37,20 @@ class Material{
 		}
 	}
 	
-	public function Search(array $params){
+	public function get_material_by_id($materialID){
 	
-		// it might need another insertion
-	
-		$st = $this->db->prepare("SELECT * FROM books WHERE `isbn`=?,`author`=?,`title`=?,`publisher`=?,`category`=? ");
-		$st->bindParam(1, $params[0]);
-		$st->bindParam(2, $params[1]);
-		$st->bindParam(3, $params[2]);
-		$st->bindParam(4, $params[3]);
-		$st->bindParam(5, $params[4]);
-	
-	
-		if($st->execute()){
-			return $st->get_result();
-		}
-		else {
-			echo 'Values did NOT insert correctly';
-		}
+		// Fetch the basic details for this material
+			$query = 'select * from material where MaterialID=?';
+			$stmt = $this->db->prepare($query);
+			$stmt->bindParam(1, $materialID);
+			$stmt->execute();
+			
+			if($stmt->rowCount() > 0) {
+				return $stmt;
+			}
+			else {
+				return "Το υλικό δεν βρέθηκε.";
+			}
 	}
 	
 	function get_categories($material){
@@ -442,13 +438,15 @@ class Material{
  public function confirmLoan($idArray, $user){
  	// insert the material_id and the user_id to history table
  	if(!empty($idArray) && !empty($user)){
- 		$query = 'INSERT INTO academiccommunitymembers_makesrequestfor_material(User, MaterialID, StartDate, EndDate, Approved) VALUES (?, ?, NOW(), DATE_ADD(NOW(), INTERVAL 30 DAY), 1)';
+ 		$query = 'INSERT INTO academiccommunitymembers_makesrequestfor_material(User, MaterialID, StartDate, EndDate, Approved) VALUES (?, ?, NOW(), DATE_ADD(NOW(), INTERVAL (SELECT available_days FROM material WHERE MaterialID=?) DAY), 1)';
  		
 		$stmt = $this->db->prepare($query);
 		$flag = 0;
 		foreach($idArray as $material_id){
+			//$interval = $_SESSION['cart'][$material_id]['available_days'];
 			$stmt->bindParam(1, $user);
 			$stmt->bindParam(2, intval($material_id));
+			$stmt->bindParam(3, intval($material_id));
 			if($stmt->execute()) {
 				$flag = 1;
 			} else {
