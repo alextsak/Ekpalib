@@ -57,7 +57,7 @@ class User{
 	}
 	
 	
-	public function get_user_transactions($username){
+	public function get_user_transactions_approved($username){
 		
 		$query = 'SELECT MaterialID, StartDate, EndDate FROM academiccommunitymembers_makesrequestfor_material where User=? and Approved=1';
 		$stmt = $this->db->prepare($query);

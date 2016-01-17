@@ -20,10 +20,8 @@ $user_results_history = $user->get_user_history($username);
          		<tr>
          			<th><?php echo 'Τίτλος';?></th>
          	      	<th><?php echo 'Κατηγορία';?></th>
-         	      	<th><?php echo 'Συγγραφέας(εις)';?></th>
-         	      	<th><?php echo 'ISBN';?></th>
          	      	<th><?php echo 'Βιβλιοθήκη';?></th>
-      				<th><?php echo 'Hμέρα Δανεισμού';?>
+         	      	<th><?php echo 'Κατάσταση';?></th>
       				<th><?php echo 'Hμέρα Επιστροφής';?>
          	      	<th><?php echo 'Επιλογές'?></th>
          	   	</tr>
