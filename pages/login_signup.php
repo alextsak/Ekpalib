@@ -186,7 +186,7 @@ if(isset($_POST['register-form'])){
 											<div class="form-group">
 												<div class="row">
 													<div class="col-sm-6 col-sm-offset-3">
-														<input id="register-submit" type="submit" name="register-form" tabindex="4" value=Εγγραφή" class="btn btn-primary form-control"/>
+														<input id="register-submit" type="submit" name="register-form" tabindex="4" value="Εγγραφή" class="btn btn-primary form-control"/>
 													</div>
 												</div>
 											</div>

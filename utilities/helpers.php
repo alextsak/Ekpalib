@@ -9,7 +9,7 @@ function init_sitepath(){
 	if(!isset($_SESSION['sitepath']) && empty($_SESSION['sitepath'])) {
 		// if session variable sitepath is not set then initialize it with home
 		$page = "Αρχική";
-		$href = "index.php";
+		$href = get_basename();
 		
 		$_SESSION['sitepath'][$page] = $href;
 		
@@ -36,7 +36,7 @@ function sitepath_constructor(){
 		$page = $pieces[1];
 	}
 	switch($page){
-			case "resultsPage" :
+		case "resultsPage" :
 			$page = 'Αποτελέσματα Αναζήτησης';
 			$href = '?page=resultsPage';
 			break;
@@ -53,7 +53,8 @@ function sitepath_constructor(){
 			$href = '?page=history';
 			break;
 		default :
-			$page = 'no path :(';
+			$page = 'no path';
+			$href = get_basename();
 	}
 	
 	if (! array_key_exists ( $page, $_SESSION ['sitepath'] )) {
@@ -65,17 +66,17 @@ function sitepath_constructor(){
 	foreach ( $_SESSION ['sitepath'] as $key => $value ) {
 		if ($key == 'Αρχική') {
 			
-			$sitepath = '<a href="" style="position:relative;top:10px;left:14px;text-decoration:underline;">' . $key . '</a>';
+			$sitepath = '<a href="" style="position:relative;top:10px;left:14px;text-decoration:underline;color:#FFFAF0;">' . $key . '</a>';
 		} else {
 			// If the requested URI is already in the path, then add it to the path and stop construction.
 			
 			$current = "$_SERVER[REQUEST_URI]";
 			if (strpos($current, $value) !== FALSE) {
-				$sitepath = $sitepath . ' <span class="glyphicon glyphicon-chevron-right" style="color: gray;position:relative;top:12px;left:14px;" aria-hidden="true"></span> ' . "<a href='$value' style=position:relative;top:10px;left:14px;text-decoration:underline;>" . $key . '</a>';
+				$sitepath = $sitepath . ' <span class="glyphicon glyphicon-chevron-right" style="color: gray;position:relative;top:12px;left:14px;" aria-hidden="true"></span> ' . "<a href='$value' style=position:relative;top:10px;left:14px;text-decoration:underline;color:#FFFAF0;>" . $key . '</a>';
 				break;
 			}
 			else {
-				$sitepath = $sitepath . ' <span class="glyphicon glyphicon-chevron-right" style="color: gray;position:relative;top:12px;left:14px;" aria-hidden="true"></span> ' . "<a href='$value' style=position:relative;top:10px;left:14px;text-decoration:underline;>" . $key . '</a>';
+				$sitepath = $sitepath . ' <span class="glyphicon glyphicon-chevron-right" style="color: gray;position:relative;top:12px;left:14px;" aria-hidden="true"></span> ' . "<a href='$value' style=position:relative;top:10px;left:14px;text-decoration:underline;color:#FFFAF0;>" . $key . '</a>';
 			}
 			
 		}
@@ -146,7 +147,7 @@ function get_title(){
 }
 
 function get_basename(){
-	return "http://"."$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+	return "http://".$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT']."/Ekpalib/";
 }
 
 

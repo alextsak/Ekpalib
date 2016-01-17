@@ -18,7 +18,7 @@ require_once './utilities/helpers.php';
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<link rel="shortcut icon" href="favicon.ico" />
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 <link href="css/header.css" rel="stylesheet">
 <link href="css/main-style.css" rel="stylesheet">
@@ -46,7 +46,7 @@ require_once './utilities/helpers.php';
 					<header>
 						<div class="logo-container">
 							<div class="logo-img">
-							 	<a href=""> <img class="img-responsive" src="images/Drawing.png" alt="Smiley face"></a>
+							 	<a href="<?php echo get_basename();?>"> <img class="img-responsive" src="images/Drawing.png" alt="Smiley face"></a>
 							</div>
 							<div class="logo-title">
 								<h3 style="color:#FFFAF0;">Βιβλιοθήκες Πανεπιστημίου ΕΚΠΑ</h3>

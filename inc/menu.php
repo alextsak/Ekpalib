@@ -21,7 +21,7 @@
 	<div class="borderline" >
            <ul id="tabs"  class="nav nav-pills" >
            	   <li>
-           	   		<a class="nav-link"  href="?page=index.php" style="color:#FFFAF0;">Αρχική</a>
+           	   		<a class="nav-link"  href="<?php echo get_basename();?>" style="color:#FFFAF0;">Αρχική</a>
            	   </li>
                <li class="dropdown">
                		<a style="color:#FFFAF0;"href="#" data-toggle="dropdown" class="dropdown-toggle">Πληροφορίες <b class="caret"></b></a>
