@@ -70,8 +70,21 @@ class User{
 		else {
 			echo 'No data found';
 		}
-		
-		
+	}
+	
+	public function get_user_history($username){
+	
+		$query = 'SELECT MaterialID, received, returned FROM history where User=?';
+		$stmt = $this->db->prepare($query);
+		$stmt->bindParam(1, $user);
+		if($stmt->execute()){
+			if($stmt->rowCount() > 0){
+				return $stmt->fetch(PDO::FETCH_ASSOC);
+			}
+		}
+		else {
+			echo 'No data found';
+		}
 	}
 	 
 }
