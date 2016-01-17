@@ -9,7 +9,7 @@ $user_results_history = $user->get_user_history ( $username );
 ?>
 
 
-	<div id="main-bg">
+<div id="main-bg">
 		<ul id="main-tabs" class="nav nav-tabs" role="tablist">
 			<li class="active"><a href="#NewsAndEvents" data-toggle="tab"> <i
 					class="glyphicon glyphicon-calendar"></i> Πρόσφατες Αιτήσεις
@@ -31,7 +31,7 @@ $user_results_history = $user->get_user_history ( $username );
 				<div class="panel-body" id="NewsAndEventsBody">
 					<div class="table-responsive">
 						<table class="table" id="results-grid">
-							<tbody>
+							
 							
 							
 							<thead>
@@ -43,6 +43,7 @@ $user_results_history = $user->get_user_history ( $username );
 									<th><?php echo 'Επιλογές'?></th> <!-- book details / cancel -->
 								</tr>
 							</thead>
+							<tbody>
     						<?php
 								if ($user_results == "No data found") {
 							?>
@@ -88,7 +89,7 @@ $user_results_history = $user->get_user_history ( $username );
 								}
 							}
 						?>
-   		</tbody>
+   						</tbody>
 						</table>
 					</div>
 				</div>
@@ -98,10 +99,11 @@ $user_results_history = $user->get_user_history ( $username );
 				<div class="panel-body" id="StudyRoomsBody">
 					<div class="table-responsive">
 						<table class="table" id="results-grid">
-							<tbody>
+							
 							
 							
 							<thead>
+							
 								<tr>
 									<th><?php echo 'Τίτλος';?></th>
 									<th><?php echo 'Κατηγορία';?></th>
@@ -111,6 +113,7 @@ $user_results_history = $user->get_user_history ( $username );
 									<th><?php echo 'Επιλογές'?></th> <!-- book details / expansion -->
 								</tr>
 							</thead>
+							<tbody>
     		<?php
 						if ($user_results == "No data found") {
 							?>
@@ -119,15 +122,7 @@ $user_results_history = $user->get_user_history ( $username );
 							</tr>
                 <?php
 						} else {
-							while ( $row = $user_results ) {
-								
-								$material = new Material ();
-								$library = $material->get_material_library ( $row ['MaterialID'] );
-								$lib_name = '';
-								if ($library != - 1) {
-									$lib_name = $library ['Name'];
-								}
-							}
+							
 						}
 						?>
    		</tbody>
@@ -140,10 +135,11 @@ $user_results_history = $user->get_user_history ( $username );
 		<div class="panel-body" id="LibrariesBody">
 			<div class="table-responsive">
 				<table class="table" id="results-grid">
-					<tbody>
+					
 					
 					
 					<thead>
+					
 						<tr>
 							<th><?php echo 'Τίτλος';?></th>
 							<th><?php echo 'Κατηγορία';?></th>
@@ -153,6 +149,7 @@ $user_results_history = $user->get_user_history ( $username );
 							<th><?php echo 'Επιλογές'?></th> <!-- book details -->
 						</tr>
 					</thead>
+					<tbody>
     		<?php
 						if ($user_results == "No data found") {
 							?>
@@ -161,15 +158,7 @@ $user_results_history = $user->get_user_history ( $username );
 					</tr>
                 <?php
 						} else {
-							while ( $row = $user_results_history ) {
-								
-								$material = new Material ();
-								$library = $material->get_material_library ( $row ['MaterialID'] );
-								$lib_name = '';
-								if ($library != - 1) {
-									$lib_name = $library ['Name'];
-								}
-							}
+							
 						}
 						?>
    		</tbody>
@@ -179,3 +168,4 @@ $user_results_history = $user->get_user_history ( $username );
 	</div>
 </div>
 </div>
+

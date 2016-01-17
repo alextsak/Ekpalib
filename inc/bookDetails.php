@@ -2,22 +2,23 @@
 require_once '../database/ConnectionDB/dbConnection.php';
 require_once '../database/Model/Material.php';
 $material_id = $_POST['id'];
-$material_id = (int)$material_id;
+$material_id = intval($material_id);
 $material = new Material();
 $stmt = $material->fetch_material_details($material_id);
 
-if($stmt == -1) {
+if($stmt->rowCount() == 0) {
 	//echo "Error bookdetails line 10";
 	$message = "Πρόβλημα με τις λεπτομέρειες του Υλικού";
 	echo "<script>error_messages('$message');</script>";
 }
-$library = $material->get_material_library($material_id);
-$lib_name = '';
-if($library != -1) {
-	$lib_name = $library['Name'];
-}
-$book = $stmt->fetch(PDO::FETCH_ASSOC);
-?>
+
+	$library = $material->get_material_library($material_id);
+	$lib_name = '';
+	if($library != -1) {
+		$lib_name = $library['Name'];
+	}
+	$result = $stmt->fetch(PDO::FETCH_ASSOC);
+	?>
 
 
 <?php ob_start(); ?>
@@ -36,54 +37,54 @@ $book = $stmt->fetch(PDO::FETCH_ASSOC);
 				<button class="close" type="button" aria-label="Close"  onclick="closeModal()">
 					<span aria-hidden="true">&times;</span>
 				</button>
-				<h4 class="modal-title text-center" style="color:navy;"><?php echo $book['title'];?></h4>
+				<h4 class="modal-title text-center" style="color:navy;"><?php echo $result['title'];?></h4>
 			</div>
 			<div class="modal-body">
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="center-block">
-								<img src="<?php echo $book['image']?>" alt="something"
+								<img src="<?php echo $result['image']?>" alt="something"
 									class="details img-responsive">
 							</div>
 						</div>
 
 						<div class="col-sm-6">
 							<h4 style="color:navy;text-align:center;text-decoration: underline;">Λεπτομέρειες</h4>
-							<p style="color:black"><span style="color:navy;font-weight: bold;">Τίτλος:</span> <?php echo $book['isbn'];?></p>
+							<p style="color:black"><span style="color:navy;font-weight: bold;">Τίτλος:</span> <?php echo $result['isbn'];?></p>
 							<p style="color:black"><span style="color:navy;font-weight: bold;">Συγγραφέας-εις:</span> 
 							<?php
-							echo $book['Name'];
+							echo $result['Name'];
 							echo " ";
-							echo $book['Surname'];
+							echo $result['Surname'];
 							
-							while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
+							while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 								echo " - ";
-								echo $row['Name'];
+								echo $result['Name'];
 								echo " ";
-								echo $row['Surname'];
+								echo $result['Surname'];
 							}
 							?></p>
 							
 							<p style="color:black"><span style="color:navy;font-weight: bold;">Βιβλιοθήκη:</span> <?php echo $lib_name;?></p>
 							<hr>
 							
-							<p style="color:black"><span style="color:navy;font-weight: bold;">Εκδόσεις:</span> <?php echo $book['publisher'];?></p>
-							<p style="color:black"><span style="color:navy;font-weight: bold;">Κατηγορία:</span> <?php echo $book['category'];?></p>
+							<p style="color:black"><span style="color:navy;font-weight: bold;">Εκδόσεις:</span> <?php echo $result['publisher'];?></p>
+							<p style="color:black"><span style="color:navy;font-weight: bold;">Κατηγορία:</span> <?php echo $result['category'];?></p>
 							<p class="align-desc" style="color:black">
 								<label for="textarea" style="color:navy;font-weight: bold;">Περιγραφή:</label>
 							 	<textarea id="textarea" rows="4" cols="40" >
-							 		<?php echo $book['description'];?>
+							 		<?php echo $result['description'];?>
 							 	</textarea>
 							 </p>
-							<p style="color:black"><span style="color:navy;font-weight: bold;">Διαθεσιμότητα:</span> <?php echo $book['availability'];?></p>
+							<p style="color:black"><span style="color:navy;font-weight: bold;">Διαθεσιμότητα:</span> <?php echo $result['availability'];?></p>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="modal-footer">
 				<button class="btn btn-default"  onclick="closeModal()">Κλείσιμο</button>
-				<button class="btn btn-warning" type="submit" onClick="addToCart(<?php echo $book['MaterialID'];?>)">
+				<button class="btn btn-warning" type="submit" onClick="addToCart(<?php echo $result['MaterialID'];?>)">
 					<span class="glyphicon glyphicon-shoppinng-cart"></span>Add To Cart
 				</button>
 			</div>

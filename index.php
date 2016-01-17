@@ -55,6 +55,7 @@ if($problem == 1){
 	echo "Πρόσβαση χωρίς δικαιώματα. Παρακαλώ επιστρέψτε " . "<a href=\"index.php\">πίσω</a>";
 } 
 else {
+	
 	include './inc/footer.php';
 }
 
