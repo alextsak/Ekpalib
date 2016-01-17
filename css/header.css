@@ -106,7 +106,7 @@
 	line-height: normal;
 	position: relative; /* sets the initial position for the drop-down menu */	
 	z-index: 100;
-	background-color:#511515;
+	background-color:#5B2A2A;
 	color:#FFFAF0;
 }
 
@@ -134,7 +134,7 @@
 
 #polyglotLanguageSwitcher a.current:link, #polyglotLanguageSwitcher a.current:visited, #polyglotLanguageSwitcher a.current:active {
 	position: relative; /* sets the initial position for the trigger arrow */
-	background-color:#CD3700;
+	background-color:#5B2A2A;
 	
 	border: 1px solid #E5E5E5;
 	border-radius: 3px;
@@ -143,7 +143,7 @@
 
 #polyglotLanguageSwitcher a.current:hover, 
 #polyglotLanguageSwitcher ul.dropdown li:hover {
-	background-color:#992B00;
+	background-color:#5B2A2A;
 }
 
 #polyglotLanguageSwitcher a.active { /* This style is applied as long as the drop-down menu is visible. */

@@ -13,8 +13,8 @@ require_once './utilities/helpers.php';
 <!DOCTYPE html>
 <html>
 <head>
- <base href="http://localhost:5555/Ekpalib/">
-
+ <!--  <base href="http://localhost:5555/Ekpalib/">-->
+<base href="<?php echo get_basename();?>">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,7 +36,7 @@ require_once './utilities/helpers.php';
 <script src="js/advancedSearch.js"></script>
 <script src="bootstrap/bootstrap.js"></script>
 <script src="js/Login-Signup.js"></script>
-<title>Βιβλιοθήκες ΕΚΠΑ</title>
+<title><?php echo get_title();?></title>
 
 </head>
 <body >
@@ -50,7 +50,7 @@ require_once './utilities/helpers.php';
 							</div>
 							<div class="logo-title">
 								<h3 style="color:#FFFAF0;">Βιβλιοθήκες Πανεπιστημίου ΕΚΠΑ</h3>
-								<h4 style="color:#FFFAF0;">Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</h4>
+							<h4 style="color:#FFFAF0;">Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</h4>
 							</div>
 						</div>
 					</header>
@@ -68,7 +68,7 @@ require_once './utilities/helpers.php';
 							<ul class="nav navbar-nav">
 								<?php if(isset($_SESSION['username'])) {?>
 									 <li
-										style="width: 150px; border: 1px solid #E5E5E5; background-color:#ca641c; margin-top: 6px; border-radius: 3px; margin-right: 40px;">
+										style="width: 150px; border: 1px solid #E5E5E5; background-color:#992B00; margin-top: 6px; border-radius: 3px; margin-right: 40px;">
 										<ul class="nav navbar-nav">
 											<li class="dropdown" style="width: 150px;">
 											<a href="#"
@@ -110,9 +110,9 @@ require_once './utilities/helpers.php';
 								} else {
 									/* <i class="glyphicon glyphicon-log-in" style="right: -5px;"></i> */
 									?><li
-										style="width: 120px; border: 1px solid #E5E5E5; background-color:#511515;margin-top: 6px; border-radius: 3px; margin-right: 40px;">
+										style="width: 120px; border: 1px solid #E5E5E5; background-color:#992B00;margin-top: 6px; border-radius: 3px; margin-right: 40px;">
 										<a href="?page=login_signup"
-											style="color:#FFFAF0; font-size: 12px; margin-top: 6px;background-color:#511515; position: relative; bottom: 4px; right: 5px;">
+											style="color:#FFFAF0; font-size: 12px; margin-top: 6px;background-color:#992B00; position: relative; bottom: 4px; right: 5px;">
 											Είσοδος | Εγγραφή
 										</a>
 									</li>
@@ -164,13 +164,13 @@ require_once './utilities/helpers.php';
 						?>
 							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="left:50px;">
 								<div class="dropdown">
-									<button id="cart" class="btn btn-default " type="button" data-toggle="dropdown" style="background-color:#511515;color:#FFFAF0">
+									<button id="cart" class="btn btn-default " type="button" data-toggle="dropdown" style="background-color:#992B00;color:#FFFAF0">
 										Καλάθι <i style="color:color:#FFFAF0;"><?php echo '( 0 )';?></i> <i
 											class="glyphicon glyphicon-shopping-cart"></i>
 									</button>
 									<ul id="cart-menu" class="dropdown-menu"
 										aria-labelledby="dropdownMenu1">
-										<li><p style="text-align: center; color: blue;">Το καλάθι είναι
+										<li><p style="text-align: center; color: #FFFAF0;">Το καλάθι είναι
 												άδειο</p></li>
 									</ul>
 								</div>
@@ -205,7 +205,7 @@ require_once './utilities/helpers.php';
 						
 					?>
 					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="left:50px;">
-							<button id="cart" class="btn btn-default" data-toggle="modal" href="#cartModal" style="background-color:#511515;color:#FFFAF0"> 
+							<button id="cart" class="btn btn-default" data-toggle="modal" href="#cartModal" style="background-color:#992B00;color:#FFFAF0"> 
 								Καλάθι 
 								<i style="color:#FFFAF0;"><?php 
 									if(!isset($_SESSION['cart'])) {

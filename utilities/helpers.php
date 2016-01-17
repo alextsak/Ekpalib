@@ -95,6 +95,60 @@ function key_val_exists($key, $val) {
 }
 
 
+function get_title(){
+	
+	$urlpath = "$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+	$title = '';
+	
+	if (strpos($urlpath,'?') !== false) {
+		
+		$pieces = explode("=", $urlpath);
+		if(strpos($pieces[1], '&') !== FALSE) {
+			// if the url string contains & then trim the pieces[1]
+			$pieces_inside = explode("&", $pieces[1]);
+		
+			//Now pieces_inside[0] contains the desired path
+			$page = $pieces_inside[0];
+		
+		}
+		else {
+			// if the url string does not contain &, just create the desired path
+			$page = $pieces[1];
+		}
+		switch($page){
+			case "resultsPage" :
+				$title = 'Αποτελέσματα Αναζήτησης';
+					
+				break;
+			case "confirmLoan" :
+				$title = 'Επιβεβαίωση Δανεισμού';
+					
+				break;
+			case "advancedSearch" :
+				$title = 'Σύνθετη Αναζήτηση';
+					
+				break;
+			case "history" :
+				$title = 'Ιστορικό Χρήστη';
+					
+				break;
+			default :
+				$title = 'Βιβλιοθήκες ΕΚΠΑ';
+		}
+	}
+	else {
+		// set up  a default title
+		$title = 'Βιβλιοθήκες ΕΚΠΑ';
+		
+	}
+	return $title;
+	
+}
+
+function get_basename(){
+	return "http://"."$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+}
+
 
 
 ?>

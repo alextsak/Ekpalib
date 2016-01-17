@@ -73,15 +73,16 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,p{
 
 .panel-body#NewsAndEventsBody,#StudyRoomsBody,#LibrariesBody{
 	
-	background-color: #2C525B;
+	background-color: #5B2A2A;
 }
 
 #News,#Events{
-	background-color: #2C525B;
+	background-color: #5B2A2A;
 }
 
 .panel-body#search-book,#search-article,#search-journal{
-	background-color: #2C525B;
+	//background-color: #2C525B;
+	background-color: #5B2A2A;
 	margin-bottom:15px;
 }
 
@@ -94,7 +95,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,p{
 }
 
 #results-grid,#confirmLoan-grid {
-	background-color: #2C525B;
+	background-color: #5B2A2A;
 	
 }
 #tabs-bg,#easy-search-bg,#main-bg,#searchContainer{
