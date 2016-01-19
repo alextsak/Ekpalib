@@ -2,6 +2,7 @@
 a.my-tool-tip, a.my-tool-tip:hover, a.my-tool-tip:visited {
 
     color: black;
+    max-width: 350px;
 }
 
 .logo
@@ -138,3 +139,6 @@ div .panel,.panel-login {
 	background-color: #1CA347;
 	border-color: #1CA347;
 }
+
+
+

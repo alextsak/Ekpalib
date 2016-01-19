@@ -4,23 +4,15 @@
 class Material{
 
 	private $db;
-	public static $instance;
+	
 	
 	public function __construct(){
-		self::$instance = $this;
-		//$this->db = Connection::getInstance();
-		$this->db = new Connection();
-		$this->db->ini_parser();
-		$this->db = $this->db->dbConnect();
+	
+		$pdo = Connection::instance();
+		$this->db = $pdo->dbConnect();
 	}
 	
-	public static function get() {
-		if (self::$instance === null) {
-			self::$instance = new Material();
-		}
-		return self::$instance;
-	}
-	
+
 	public function QuickSearch($params){
 	
 		// it might need another insertion

@@ -6,10 +6,9 @@ class User{
 	private $db;
 	
 	public function __construct(){
-		//$this->db = new Connection();
-		$this->db = new Connection();
-		$this->db->ini_parser();
-		$this->db = $this->db->dbConnect();
+		
+		$pdo = Connection::instance();
+		$this->db = $pdo->dbConnect();
 	}
 	
 	public function Login($username, $password){

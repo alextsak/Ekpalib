@@ -162,7 +162,7 @@ if(isset($_POST['register-form'])){
 												    <div class="input-group add-on">
 													    <input type="text" name="academicID" id="sign-up-street" tabindex="2" class="form-control" placeholder="Ακαδημαϊκό Α.Μ.*">
 													        <span class="input-group-addon">
-													            <a class='my-tool-tip' data-toggle="tooltip" data-placement="top" title="Tooltip here">
+													            <a class='my-tool-tip' data-toggle="tooltip" data-placement="top" title="Εισάγετε τον Αριθμό Μητρώου που σας έχει δοθεία από την γραμματεία του τμηματός σας">
 													                <i class='glyphicon glyphicon-question-sign'></i>
 													            </a>
 													        </span>

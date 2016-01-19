@@ -3,53 +3,67 @@
 class Connection{
 
 	
-	private $hostname; /* MySQL server name */
-	private $username; /* MySQL username */
-	private $dbname;   /* MySQL database name */
-	private $password; /* MySQL password */
-	private $dbh; /* PDO Handler */
+	private static $hostname; /* MySQL server name */
+	private static $username; /* MySQL username */
+	private static $dbname;   /* MySQL database name */
+	private static $password; /* MySQL password */
+	//private $db;
 
-	
-	public static $instance;
-	
-	public function __construct(){}
-	
-	public static function getInstance() {
-		if (self::$instance === null) {
-			self::$instance = new self();
-		}
-		return self::$instance;
+	protected static $_instance = null;
+	 
+	public static function instance() {
+	 
+		if ( !isset( self::$_instance ) ) {
+	 		self::$_instance = new Connection();
+	 	}
+	 
+	 	return self::$_instance;
 	}
-	public function ini_parser(){
+	
+	protected function __construct(){
+		Connection::ini_parser();
+	}
+
+	static function ini_parser(){
 		// Parse from configuration.ini file
 		
 		$path = $_SERVER['DOCUMENT_ROOT'] . '/Ekpalib' . '/configurations' . '.ini';
 		$ini_array = parse_ini_file($path);
-		$this->hostname = $ini_array['server'];
-		$this->username = $ini_array['username'];
-		$this->dbname = $ini_array['dbname'];
-		$this->password = $ini_array['password'];
+		self::$hostname = $ini_array['server'];
+		self::$username = $ini_array['username'];
+		self::$dbname = $ini_array['dbname'];
+		self::$password = $ini_array['password'];
 		
 	}
 	public function dbConnect(){
+		$conn = null;
 		try {
-			$this->dbh = new PDO("mysql:host=$this->hostname;dbname=$this->dbname", $this->username, $this->password, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
-			$this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$conn  = new PDO("mysql:host=".self::$hostname.";" . "dbname=" . self::$dbname, self::$username, self::$password, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));;
+			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+			// The following are for debugging purposes...
 			
-			/*** echo a message saying we have connected ***/
-			//echo 'Connected to database';
-			return $this->dbh;
+			//$message = 'connected';
+			//echo "<script>error_messages('$message');</script>";
+			
+			return $conn;
 		}
 		catch(PDOException $e)
 		{
-			echo $e->getMessage();
+			
+			$message = $e->getMessage();
+			echo "<script>error_messages('$message');</script>";
 			die();
 		}
+		
 	}
 	
-	public function dbClose(){
-		$this->dbh = null;
-	}
+	/*public function getDb() {
+		if ($this->db instanceof PDO) {
+			return $this->db;
+		}
+	}*/
+	
 
 }
 
