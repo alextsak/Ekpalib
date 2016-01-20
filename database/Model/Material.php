@@ -427,10 +427,32 @@ class Material{
  }
  
  /**************************************** LOAN REQUEST AND CONFIRMATION **************************************************/
+ public function autoApprove($material_id){
+ /* Dummy function to auto approve requests for materials with over 50 unit in availability,
+  * for presentation purposes */
+ 	if (!empty($material_id)){
+ 		$query = 'UPDATE academiccommunitymembers_makesrequestfor_material SET Approved=1 WHERE MaterialID=? and (SELECT availability FROM material WHERE MaterialID=?) >= 50';
+ 		$stmt = $this->db->prepare($query);
+ 		$flag = 0;
+ 		$stmt->bindValue(1, intval($material_id));
+ 		$stmt->bindValue(2, intval($material_id));
+ 		if($stmt->execute()) {
+ 			$flag = 1;
+ 			return "ok";
+ 		}
+ 		else {
+ 			return "error";
+ 		}
+ 	}
+ 	else {
+ 		return "empty argument";
+ 	}
+ }
+ 
  public function confirmLoan($idArray, $user){
  	// insert the material_id and the user_id to history table
  	if(!empty($idArray) && !empty($user)){
- 		$query = 'INSERT INTO academiccommunitymembers_makesrequestfor_material(User, MaterialID, StartDate, EndDate, Approved) VALUES (?, ?, NOW(), DATE_ADD(NOW(), INTERVAL (SELECT available_days FROM material WHERE MaterialID=?) DAY), 1)';
+ 		$query = 'INSERT INTO academiccommunitymembers_makesrequestfor_material(User, MaterialID, StartDate, EndDate, Approved) VALUES (?, ?, NOW(), DATE_ADD(NOW(), INTERVAL (SELECT available_days FROM material WHERE MaterialID=?) DAY), 0)';
  		
 		$stmt = $this->db->prepare($query);
 		$flag = 0;
@@ -451,6 +473,7 @@ class Material{
 			return $err;*/
 		}
 		if($flag == 1) {
+			$this->autoApprove($material_id);
 			return "inserted";
 		}
 		

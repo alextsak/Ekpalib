@@ -70,6 +70,17 @@ class User{
 		}
 	}
 	
+	public function get_user_transactions_not_approved($username){
+	
+		$query = 'SELECT MaterialID, StartDate, EndDate FROM academiccommunitymembers_makesrequestfor_material where User=? and Approved=0';
+		$stmt = $this->db->prepare($query);
+		$stmt->bindParam(1, $username);
+		if($stmt->execute()){
+			return $stmt;
+		}
+		echo $stmt->errorInfo();
+	}
+	
 	public function get_user_transactions_approved($username){
 	
 		$query = 'SELECT MaterialID, StartDate, EndDate FROM academiccommunitymembers_makesrequestfor_material where User=? and Approved=1';
