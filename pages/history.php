@@ -85,7 +85,7 @@ $user_results_history = $user->get_user_history ( $username );
 									<span class="glyphicon glyphicon-info-sign" ></span>
 									</button>
 									&nbsp | &nbsp
-									<button class="btn btn-danger btn-sm" type="submit" onclick="removeRequest(<?php echo $username;?>,<?php echo $row['MaterialID'];?>)">
+									<button class="btn btn-danger btn-sm" type="submit" onclick="removeRequest('<?php echo $username;?>',<?php echo $row['MaterialID'];?>)">
 									<span class="glyphicon glyphicon-remove"></span>
 									</button>
 									</td>
@@ -148,7 +148,7 @@ $user_results_history = $user->get_user_history ( $username );
 									</button>
 									&nbsp | &nbsp
 									<!-- Need to add expand function -->
-									<button class="btn btn-warning btn-sm" type="submit" onclick="expand(<?php echo $username;?>,<?php echo $row['MaterialID'];?>)">
+									<button class="btn btn-warning btn-sm" type="submit" onclick="expand('<?php echo $username;?>',<?php echo $row['MaterialID'];?>)">
 									<span class="glyphicon glyphicon-pencil"></span>
 									</button>
 									</td>
