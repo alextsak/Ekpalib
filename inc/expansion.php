@@ -124,18 +124,13 @@ if($stmt->rowCount() == 0) {
 							 </p>
 							 <?php } ?>
 							<p style="color:black;"><span style="color:navy;font-weight: bold;">Διαθεσιμότητα:</span> <?php echo $result['availability'];?></p>
-						 	
-						 	<div class="row">
-        						<div class="span4 collapse-group">
-           						 <div class="input-group spinner">
-    							    <input type="text" class="form-control" value="42">
+						 	<div class="input-group spinner">
+    							    <input type="number" id="spinId" class="form-control" value="1">
     						        <div class="input-group-btn-vertical">
-                                    <button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
-                                    <button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
-                                 </div>
-          						<p><a class="btn" href="#">Αίτηση επέκτασης <span class="glyphicon glyphicon-plus"></span></a></p>
-        						</div>
-      						</div>
+                                    <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-triangle-top"></i></button>
+                                    <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-triangle-bottom"></i></button>
+                                    </div>
+                            </div>
       						
 						</div>
 						
@@ -159,18 +154,13 @@ if($stmt->rowCount() == 0) {
 			},500);
 		}
 
-	$('.row .btn').on('click', function(e) {
-	    e.preventDefault();
-	    var $this = $(this);
-	    var $collapse = $this.closest('.collapse-group').find('.collapse');
-	    $collapse.collapse('toggle');
-	});
-
 	(function ($) {
 		  $('.spinner .btn:first-of-type').on('click', function() {
-		    $('.spinner input').val( parseInt($('.spinner input').val(), 10) + 1);
+			$('#spinId').spinner('option', 'min', 1);
+			$('.spinner input').val( parseInt($('.spinner input').val(), 10) + 1);
 		  });
 		  $('.spinner .btn:last-of-type').on('click', function() {
+			$('#spinId').spinner('option', 'max', 7); 
 		    $('.spinner input').val( parseInt($('.spinner input').val(), 10) - 1);
 		  });
 		})(jQuery);
