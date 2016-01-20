@@ -20,6 +20,10 @@ switch ($result) {
 	case "inserted": $flag = 1;
 					$message = "Η υποβολή του αιτήματος έγινε με επιτυχία";
 					break;
+	case "request_denied": 
+	                $message = "Έχετε ήδη κάνει αίτηση για αυτό το βιβλίο.";
+	                echo "<script>error_messages('$message');</script>";
+	                break;	
 					
 	default: 
 }

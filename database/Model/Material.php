@@ -479,15 +479,16 @@ class Material{
 		$flag = 0;
 		foreach($idArray as $material_id){
 			//$interval = $_SESSION['cart'][$material_id]['available_days'];
-			$stmt->bindValue(1, $user);
-			$stmt->bindValue(2, intval($material_id));
-			$stmt->bindValue(3, intval($material_id));
-			if($stmt->execute()) {
+			try {
+				$stmt->bindValue(1, $user);
+				$stmt->bindValue(2, intval($material_id));
+				$stmt->bindValue(3, intval($material_id));
+				$stmt->execute();
 				$flag = 1;
-			} else {
-				return "problem";
-		}
-		
+			} catch (PDOException $e) {
+				return "request_denied";
+			}
+			
 			
 			/*$err = $sth->errorInfo();
 			$err;
