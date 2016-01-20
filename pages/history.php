@@ -143,6 +143,7 @@ $user_results_history = $user->get_user_history ( $username );
 									<span class="glyphicon glyphicon-info-sign" ></span>
 									</button>
 									&nbsp | &nbsp
+									<!-- Need to add expand function -->
 									<button class="btn btn-warning btn-sm" type="submit" onclick="removeRequest(<?php echo $username;?>,<?php echo $row['MaterialID'];?>)">
 									<span class="glyphicon glyphicon-expand"></span>
 									</button>
