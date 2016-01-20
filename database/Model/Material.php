@@ -449,6 +449,26 @@ class Material{
  	}
  }
  
+ public function remove_request($material_id){
+ 	// Remove the request with given ID
+ 	if (!empty($material_id)){
+ 		$query = 'DELETE FROM academiccommunitymembers_makesrequestfor_material WHERE MaterialID=?';
+ 		$stmt = $this->db->prepare($query);
+ 		$flag = 0;
+ 		$stmt->bindValue(1, intval($material_id));
+ 		if($stmt->execute()) {
+ 			$flag = 1;
+ 			return "ok";
+ 		}
+ 		else {
+ 			return "error";
+ 		}
+ 	}
+ 	else {
+ 		return "empty argument";
+ 	}
+ }
+ 
  public function confirmLoan($idArray, $user){
  	// insert the material_id and the user_id to history table
  	if(!empty($idArray) && !empty($user)){
