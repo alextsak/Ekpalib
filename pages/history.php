@@ -54,6 +54,9 @@ $user_results_history = $user->get_user_history ( $username );
                 			<?php
 								
 									while ( $row = $user_results->fetch(PDO::FETCH_ASSOC) ) {
+									if ($row['Approved'] == 2) {
+										continue;
+									}
 									$material = new Material ();
 									$material_info = $material->get_material_by_id($row ['MaterialID'])->fetch(PDO::FETCH_ASSOC);
 									$library = $material->get_material_library ( $row ['MaterialID'] );
@@ -83,7 +86,7 @@ $user_results_history = $user->get_user_history ( $username );
 									</button>
 									&nbsp | &nbsp
 									<button class="btn btn-danger btn-sm" type="submit" onclick="removeRequest(<?php echo $username;?>,<?php echo $row['MaterialID'];?>)">
-									<span class="glyphicon glyphicon-remove-circle"></span>
+									<span class="glyphicon glyphicon-remove"></span>
 									</button>
 									</td>
 		                   			</tr><?php 
