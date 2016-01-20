@@ -107,7 +107,11 @@ require_once './utilities/helpers.php';
 									</li>
 								<?php
 									if(isset($_POST['request']) && $_POST['request'] == "remove"){
-									
+										$material = new Material();
+										$message = $material->remove_request($_POST['username'],$_POST['materialID']);
+										if ($message != "ok") {
+											echo "<script>error_messages('$message');</script>";
+										}
 									}
 								} else {
 									/* <i class="glyphicon glyphicon-log-in" style="right: -5px;"></i> */

@@ -449,19 +449,20 @@ class Material{
  	}
  }
  
- public function remove_request($material_id){
+ public function remove_request($username,$material_id){
  	// Remove the request with given ID
  	if (!empty($material_id)){
- 		$query = 'DELETE FROM academiccommunitymembers_makesrequestfor_material WHERE MaterialID=?';
+ 		$query = 'DELETE FROM academiccommunitymembers_makesrequestfor_material WHERE User=? and MaterialID=?';
  		$stmt = $this->db->prepare($query);
  		$flag = 0;
- 		$stmt->bindValue(1, intval($material_id));
+ 		$stmt->bindValue(1, intval($username));
+ 		$stmt->bindValue(2, intval($material_id));
  		if($stmt->execute()) {
  			$flag = 1;
  			return "ok";
  		}
  		else {
- 			return "error";
+ 			return "Η διαγραφή της αίτησης δεν είναι δυνατή.";
  		}
  	}
  	else {

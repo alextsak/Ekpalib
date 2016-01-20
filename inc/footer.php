@@ -76,7 +76,8 @@ function expand(username, materialID){
 }
 
 function removeRequest(username, materialID){
-	
+
+	console.log(username);
 	var data = {request : "remove", "username" : username, "materialID" : materialID};
 	jQuery.ajax({
 		url : window.location.href,
