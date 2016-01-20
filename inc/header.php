@@ -106,7 +106,9 @@ require_once './utilities/helpers.php';
 										</ul>
 									</li>
 								<?php
-						
+									if(isset($_POST['request']) && $_POST['request'] == "remove"){
+									
+									}
 								} else {
 									/* <i class="glyphicon glyphicon-log-in" style="right: -5px;"></i> */
 									?><li

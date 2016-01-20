@@ -75,6 +75,23 @@ function expand(username, materialID){
 	
 }
 
+function removeRequest(username, materialID){
+	
+	var data = {request : "remove", "username" : username, "materialID" : materialID};
+	jQuery.ajax({
+		url : window.location.href,
+		method: "post",
+		data : data,
+		success : function(data){
+			location.reload(true);
+			},
+		error : function(){
+		alert("Something went wrong");
+			}
+
+		});
+}
+
 
 
 </script>
