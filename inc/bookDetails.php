@@ -1,6 +1,7 @@
 <?php 
 require_once '../database/ConnectionDB/dbConnection.php';
 require_once '../database/Model/Material.php';
+require_once '../utilities/helpers.php';
 $material_id = $_POST['id'];
 $material_id = intval($material_id);
 $material = new Material();
@@ -84,9 +85,18 @@ if($stmt->rowCount() == 0) {
 			</div>
 			<div class="modal-footer">
 				<button class="btn btn-default"  onclick="closeModal()">Κλείσιμο</button>
+				<?php 
+					$page = get_title();
+					if($page != "Ιστορικό Χρήστη"){
+			
+				?>
 				<button class="btn btn-warning" type="submit" onClick="addToCart(<?php echo $result['MaterialID'];?>)">
 					<span class="glyphicon glyphicon-shoppinng-cart"></span>Add To Cart
 				</button>
+				<?php 
+					}
+				
+				?>
 			</div>
 		</div>
 	</div>
