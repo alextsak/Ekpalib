@@ -4,7 +4,13 @@ require_once '../database/Model/Material.php';
 require_once '../utilities/helpers.php';
 $material_id = $_POST['id'];
 $material_id = intval($material_id);
+
+$flag = 0;
 $material = new Material();
+$genre = $material->materialBelongsToTable($material_id);
+if($genre == "books"){
+	$flag = 1;
+}
 $stmt = $material->fetch_material_details($material_id);
 
 if($stmt->rowCount() == 0) {
@@ -45,14 +51,18 @@ if($stmt->rowCount() == 0) {
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="center-block">
-								<img src="<?php echo $result['image']?>" alt="something"
+								<img src="<?php echo $result['image']?>" alt="Μη διαθέσιμο εξώφυλλο"
 									class="details img-responsive">
 							</div>
 						</div>
 
 						<div class="col-sm-6">
 							<h4 style="color:navy;text-align:center;text-decoration: underline;">Λεπτομέρειες</h4>
-							<p style="color:black"><span style="color:navy;font-weight: bold;">Τίτλος:</span> <?php echo $result['isbn'];?></p>
+							<?php 
+							if($flag == 1){
+							?>
+							<p style="color:black"><span style="color:navy;font-weight: bold;">ISBN:</span> <?php echo $result['isbn'];?></p>
+							<?php }?>
 							<p style="color:black"><span style="color:navy;font-weight: bold;">Συγγραφέας-εις:</span> 
 							<?php
 							echo $result['Name'];
@@ -69,15 +79,18 @@ if($stmt->rowCount() == 0) {
 							
 							<p style="color:black"><span style="color:navy;font-weight: bold;">Βιβλιοθήκη:</span> <?php echo $lib_name;?></p>
 							<hr>
-							
+							<?php if($flag == 1){ ?>
 							<p style="color:black"><span style="color:navy;font-weight: bold;">Εκδόσεις:</span> <?php echo $result['publisher'];?></p>
+							<?php } ?>
 							<p style="color:black"><span style="color:navy;font-weight: bold;">Κατηγορία:</span> <?php echo $result['category'];?></p>
+							<?php if($flag == 1){ ?>
 							<p class="align-desc" style="color:black">
 								<label for="textarea" style="color:navy;font-weight: bold;">Περιγραφή:</label>
 							 	<textarea id="textarea" rows="4" cols="40" >
 							 		<?php echo $result['description'];?>
 							 	</textarea>
 							 </p>
+							 <?php } ?>
 							<p style="color:black"><span style="color:navy;font-weight: bold;">Διαθεσιμότητα:</span> <?php echo $result['availability'];?></p>
 						</div>
 					</div>

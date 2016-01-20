@@ -55,6 +55,26 @@ function detailsLibrary(id){
 		});
 }
 
+function expand(username, materialID){
+
+	var data = {"username" : username, "materialID" : materialID};
+	jQuery.ajax({
+		url : "/Ekpalib/inc/expansion.php",
+		method: "post",
+		data : data,
+		success : function(data){
+			console.log(data);
+			$('body').append(data);
+			$('#expansion-modal').modal('toggle');
+			},
+		error : function(){
+		alert("Something went wrong");
+			}
+
+		});
+	
+}
+
 
 
 </script>

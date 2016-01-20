@@ -464,6 +464,22 @@ class Material{
  }
  
 
+ public function request_expansion($username, $materialID, $days){
+ 	
+	if(!empty($username) && !empty($materialID) && !empty($days)){
+		$query = "UPDATE academiccommunitymembers_makesrequestfor_material SET EndDate = DATE_ADD(EndDate,INTERVAL ? DAY) WHERE User=? and MaterialID=?";	
+		$stmt = $this->db->prepare($query);
+		$stmt->bindParam(1, $days);
+		$stmt->bindParam(2, $username);
+		$stmt->bindParam(1, $materialID);
+		if($stmt->execute()) {
+			return "Η επέκταση έγινε με επιτυχία";
+		} 
+		return "Πρόβλημα επέκτασης";
+		
+	}
+ }
+ 
  
  
  /****************************************** START OF PAGINATION ***********************************************/
