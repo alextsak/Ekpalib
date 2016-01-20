@@ -56,8 +56,8 @@ else {
 	    	<tbody>
 	    	<?php
 	    	
-	    	//$material = new Material();
-	    	$material = Material::get();
+	    	$material = new Material();
+	    	//$material = Material::get();
 	    	$records_per_page=5;
 	    	$newquery = $material->paging($_SESSION['last_query'],$records_per_page);
 	    	$material->results_view($newquery, $_SESSION['last_terms']);
