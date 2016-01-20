@@ -455,7 +455,7 @@ class Material{
  		$query = 'DELETE FROM academiccommunitymembers_makesrequestfor_material WHERE User=? and MaterialID=?';
  		$stmt = $this->db->prepare($query);
  		$flag = 0;
- 		$stmt->bindValue(1, intval($username));
+ 		$stmt->bindparam(1, $username);
  		$stmt->bindValue(2, intval($material_id));
  		if($stmt->execute()) {
  			$flag = 1;
