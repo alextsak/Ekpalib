@@ -74,10 +74,10 @@ class User{
 		
 		$query = 'SELECT MaterialID, StartDate, EndDate FROM academiccommunitymembers_makesrequestfor_material where User=? and Approved=1';
 		$stmt = $this->db->prepare($query);
-		$stmt->bindParam(1, $user);
+		$stmt->bindParam(1, $username);
 		if($stmt->execute()){
 			if($stmt->rowCount() > 0){
-				return $stmt->fetch(PDO::FETCH_ASSOC);
+				return $stmt;
 			}
 		}
 		else {
@@ -89,10 +89,10 @@ class User{
 	
 		$query = 'SELECT MaterialID, received, returned FROM history where User=?';
 		$stmt = $this->db->prepare($query);
-		$stmt->bindParam(1, $user);
+		$stmt->bindParam(1, $username);
 		if($stmt->execute()){
 			if($stmt->rowCount() > 0){
-				return $stmt->fetch(PDO::FETCH_ASSOC);
+				return $stmt;
 			}
 		}
 		else {
