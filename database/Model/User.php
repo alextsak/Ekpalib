@@ -76,13 +76,9 @@ class User{
 		$stmt = $this->db->prepare($query);
 		$stmt->bindParam(1, $username);
 		if($stmt->execute()){
-			if($stmt->rowCount() > 0){
-				return $stmt;
-			}
+			return $stmt;
 		}
-		
-		return $stmt;
-		
+		echo $stmt->errorInfo();
 	}
 	
 	public function get_user_transactions_received($username){
@@ -91,13 +87,9 @@ class User{
 		$stmt = $this->db->prepare($query);
 		$stmt->bindParam(1, $username);
 		if($stmt->execute()){
-			if($stmt->rowCount() > 0){
-				return $stmt;
-			}
+			return $stmt;
 		}
-		
-		return $stmt;
-		
+		echo $stmt->errorInfo();
 	}
 	
 	public function get_user_history($username){
@@ -106,13 +98,9 @@ class User{
 		$stmt = $this->db->prepare($query);
 		$stmt->bindParam(1, $username);
 		if($stmt->execute()){
-			if($stmt->rowCount() > 0){
-				return $stmt;
-			}
+			return $stmt;
 		}
-		
-		return $stmt;
-		
+		echo $stmt->errorInfo();
 	}
 	 
 }
