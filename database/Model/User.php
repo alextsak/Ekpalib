@@ -66,7 +66,7 @@ class User{
 			}
 		}
 		else {
-			echo 'No data found';
+			return $stmt->errorInfo();
 		}
 	}
 	
@@ -80,9 +80,9 @@ class User{
 				return $stmt;
 			}
 		}
-		else {
-			echo 'No data found';
-		}
+		
+		return $stmt;
+		
 	}
 	
 	public function get_user_transactions_received($username){
@@ -95,9 +95,9 @@ class User{
 				return $stmt;
 			}
 		}
-		else {
-			echo 'No data found';
-		}
+		
+		return $stmt;
+		
 	}
 	
 	public function get_user_history($username){
@@ -110,9 +110,9 @@ class User{
 				return $stmt;
 			}
 		}
-		else {
-			echo 'No data found';
-		}
+		
+		return $stmt;
+		
 	}
 	 
 }

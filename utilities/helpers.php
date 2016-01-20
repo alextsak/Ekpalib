@@ -101,7 +101,7 @@ function get_title(){
 	$urlpath = "$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 	$title = '';
 	
-	if (strpos($urlpath,'?') !== false) {
+	if (strpos($urlpath,'?') !== FALSE) {
 		
 		$pieces = explode("=", $urlpath);
 		if(strpos($pieces[1], '&') !== FALSE) {

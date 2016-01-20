@@ -98,18 +98,11 @@ if($stmt->rowCount() == 0) {
 			</div>
 			<div class="modal-footer">
 				<button class="btn btn-default"  onclick="closeModal()">Κλείσιμο</button>
-				<?php 
-					$page = get_title();
-					if($page != "Ιστορικό Χρήστη"){
-			
-				?>
+				
 				<button class="btn btn-warning" type="submit" onClick="addToCart(<?php echo $result['MaterialID'];?>)">
 					<span class="glyphicon glyphicon-shoppinng-cart"></span>Add To Cart
 				</button>
-				<?php 
-					}
-				
-				?>
+			
 			</div>
 		</div>
 	</div>
@@ -125,22 +118,6 @@ if($stmt->rowCount() == 0) {
 		}
 
 
-	/* function addToCart(id){
-		//console.log("book id: " + id);
-		//console.log(window.location.href);
-		$.ajax({
-			  url: window.location.href,
-			  type: "POST", //send it through get method
-			  data:{action : "add", materialID : id},
-			  success: function(response) {
-				  location.reload(true);
-				  closeModal();
-			  },
-			  error: function(xhr) {
-			    //Do Something to handle error
-			  }
-			});
-		} */
 
 </script>
 

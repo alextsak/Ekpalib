@@ -32,8 +32,14 @@ $user_results_history = $user->get_user_history ( $username );
 					<div class="table-responsive">
 						<table class="table" id="results-grid">
 							
+							<?php
+								if ($user_results->rowCount() == 0) {
+							?>
+							<h3 style="text-align: center; color: #FFF;"><?php echo "Δεν υπάρχουν πρόσφατες Αιτήσεις";?></h3>
 							
-							
+							<?php
+								} else {
+							?>
 							<thead>
 								<tr>
 									<th style="text-align:center;"><?php echo 'Τίτλος';?></th>
@@ -44,14 +50,9 @@ $user_results_history = $user->get_user_history ( $username );
 								</tr>
 							</thead>
 							<tbody>
-    						<?php
-								if ($user_results == "No data found") {
-							?>
-                			<tr>
-								<td style="text-align:center;"><?php echo "Δεν υπάρχουν πρόσφατες αιτήσεις";?></td>
-							</tr>
+    					
                 			<?php
-								} else {
+								
 									while ( $row = $user_results->fetch(PDO::FETCH_ASSOC) ) {
 									$material = new Material ();
 									$material_info = $material->get_material_by_id($row ['MaterialID'])->fetch(PDO::FETCH_ASSOC);
@@ -81,7 +82,7 @@ $user_results_history = $user->get_user_history ( $username );
 									<span class="glyphicon glyphicon-info-sign" ></span>
 									</button>
 									&nbsp | &nbsp
-									<button class="btn btn-warning btn-sm" type="submit" onclick="removeRequest(<?php echo $username;?>,<?php echo $row['MaterialID'];?>)">
+									<button class="btn btn-danger btn-sm" type="submit" onclick="removeRequest(<?php echo $username;?>,<?php echo $row['MaterialID'];?>)">
 									<span class="glyphicon glyphicon-remove-circle"></span>
 									</button>
 									</td>
@@ -100,8 +101,14 @@ $user_results_history = $user->get_user_history ( $username );
 					<div class="table-responsive">
 						<table class="table" id="results-grid">
 							
+							<?php
+								if ($user_results_received->rowCount() == 0) {
+							?>
+							<h3 style="text-align: center; color: #FFF;"><?php echo "Δεν υπάρχουν Ενεργοί Δανειμοί";?></h3>
 							
-							
+							<?php
+								} else {
+							?>
 							<thead>
 							
 								<tr>
@@ -114,14 +121,8 @@ $user_results_history = $user->get_user_history ( $username );
 								</tr>
 							</thead>
 							<tbody>
-    		<?php
-								if ($user_results == "No data found") {
-							?>
-                			<tr>
-								<td style="text-align:center;"><?php echo "Δεν υπάρχουν πρόσφατες αιτήσεις";?></td>
-							</tr>
-                			<?php
-								} else {
+    						<?php 
+                			
 									while ( $row = $user_results_received->fetch(PDO::FETCH_ASSOC) ) {
 									$material = new Material ();
 									$material_info = $material->get_material_by_id($row ['MaterialID'])->fetch(PDO::FETCH_ASSOC);
@@ -163,7 +164,14 @@ $user_results_history = $user->get_user_history ( $username );
 			<div class="table-responsive">
 				<table class="table" id="results-grid">
 					
-					
+					<?php
+								if ($user_results_received->rowCount() == 0) {
+							?>
+							<h3 style="text-align: center; color: #FFF;"><?php echo "Δεν υπάρχουν Παλαιοί Δανειμοί";?></h3>
+							
+							<?php
+								} else {
+							?>
 					
 					<thead>
 					
@@ -177,14 +185,9 @@ $user_results_history = $user->get_user_history ( $username );
 						</tr>
 					</thead>
 					<tbody>
-    		<?php
-								if ($user_results == "No data found") {
-							?>
-                			<tr>
-								<td style="text-align:center;"><?php echo "Δεν υπάρχουν πρόσφατες αιτήσεις";?></td>
-							</tr>
+    		
                 			<?php
-								} else {
+								
 									while ( $row = $user_results_history->fetch(PDO::FETCH_ASSOC) ) {
 									$material = new Material ();
 									$material_info = $material->get_material_by_id($row ['MaterialID'])->fetch(PDO::FETCH_ASSOC);

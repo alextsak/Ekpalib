@@ -36,7 +36,7 @@ if($flag == 1){
 		<button class="close" type="button" aria-label="Close"  onclick="closeModal()">
 		<span aria-hidden="true">&times;</span>
 		</button>
-		<h3 class="modal-title text-center" >Επιτυχές Αίτημα</h3>
+		<h3 class="modal-title text-center" style="color:navy;">Επιτυχές Αίτημα</h3>
 
 
 		</div>

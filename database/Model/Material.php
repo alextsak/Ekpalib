@@ -436,9 +436,9 @@ class Material{
 		$flag = 0;
 		foreach($idArray as $material_id){
 			//$interval = $_SESSION['cart'][$material_id]['available_days'];
-			$stmt->bindParam(1, $user);
-			$stmt->bindParam(2, intval($material_id));
-			$stmt->bindParam(3, intval($material_id));
+			$stmt->bindValue(1, $user);
+			$stmt->bindValue(2, intval($material_id));
+			$stmt->bindValue(3, intval($material_id));
 			if($stmt->execute()) {
 				$flag = 1;
 			} else {
