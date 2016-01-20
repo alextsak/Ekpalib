@@ -30,6 +30,43 @@ if($stmt->rowCount() == 0) {
 
 
 <?php ob_start(); ?>
+<style>
+.spinner {
+  width: 100px;
+}
+.spinner input {
+  text-align: right;
+}
+.input-group-btn-vertical {
+  position: relative;
+  white-space: nowrap;
+  width: 1%;
+  vertical-align: middle;
+  display: table-cell;
+}
+.input-group-btn-vertical > .btn {
+  display: block;
+  float: none;
+  width: 100%;
+  max-width: 100%;
+  padding: 8px;
+  margin-left: -1px;
+  position: relative;
+  border-radius: 0;
+}
+.input-group-btn-vertical > .btn:first-child {
+  border-top-right-radius: 4px;
+}
+.input-group-btn-vertical > .btn:last-child {
+  margin-top: -2px;
+  border-bottom-right-radius: 4px;
+}
+.input-group-btn-vertical i{
+  position: absolute;
+  top: 0;
+  left: 4px;
+}
+</style>
 <div class="modal fade expansion-modal" id="expansion-modal" tabindex="-1"
 		role="dialog" aria-labelledby="expansion-modal" aria-hidden="true">
 		<div class="modal-dialog modal-lg">
@@ -86,13 +123,17 @@ if($stmt->rowCount() == 0) {
 							 	</textarea>
 							 </p>
 							 <?php } ?>
-							<p style="color:black"><span style="color:navy;font-weight: bold;">Διαθεσιμότητα:</span> <?php echo $result['availability'];?></p>
+							<p style="color:black;"><span style="color:navy;font-weight: bold;">Διαθεσιμότητα:</span> <?php echo $result['availability'];?></p>
 						 	
 						 	<div class="row">
         						<div class="span4 collapse-group">
-          						<h2>Heading</h2>
-           						<p class="collapse">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          						<p><a class="btn" href="#">View details &raquo;</a></p>
+           						 <div class="input-group spinner">
+    							    <input type="text" class="form-control" value="42">
+    						        <div class="input-group-btn-vertical">
+                                    <button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
+                                    <button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+                                 </div>
+          						<p><a class="btn" href="#">Αίτηση επέκτασης <span class="glyphicon glyphicon-plus"></span></a></p>
         						</div>
       						</div>
       						
@@ -125,6 +166,14 @@ if($stmt->rowCount() == 0) {
 	    $collapse.collapse('toggle');
 	});
 
+	(function ($) {
+		  $('.spinner .btn:first-of-type').on('click', function() {
+		    $('.spinner input').val( parseInt($('.spinner input').val(), 10) + 1);
+		  });
+		  $('.spinner .btn:last-of-type').on('click', function() {
+		    $('.spinner input').val( parseInt($('.spinner input').val(), 10) - 1);
+		  });
+		})(jQuery);
 
 
 </script>
