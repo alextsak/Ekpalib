@@ -6,10 +6,11 @@ class Article{
 	public function __construct(){
 	
 		$pdo = Connection::instance();
+		
 		$this->db = $pdo->dbConnect();
 	}
 
-
+	
 	
 	public function getArticleCategories(){
 	
