@@ -4,7 +4,7 @@
 $username = $_SESSION ['username'];
 $user = new User ();
 $user_results = $user->get_user_transactions ( $username );
-$user_results_approved = $user->get_user_transactions_approved ( $username );
+$user_results_received = $user->get_user_transactions_received ( $username );
 $user_results_history = $user->get_user_history ( $username );
 ?>
 
@@ -122,7 +122,7 @@ $user_results_history = $user->get_user_history ( $username );
 							</tr>
                 			<?php
 								} else {
-									while ( $row = $user_results_approved->fetch(PDO::FETCH_ASSOC) ) {
+									while ( $row = $user_results_received->fetch(PDO::FETCH_ASSOC) ) {
 									$material = new Material ();
 									$material_info = $material->get_material_by_id($row ['MaterialID'])->fetch(PDO::FETCH_ASSOC);
 									$library = $material->get_material_library ( $row ['MaterialID'] );
@@ -144,7 +144,7 @@ $user_results_history = $user->get_user_history ( $username );
 									</button>
 									&nbsp | &nbsp
 									<!-- Need to add expand function -->
-									<button class="btn btn-warning btn-sm" type="submit" onclick="removeRequest(<?php echo $username;?>,<?php echo $row['MaterialID'];?>)">
+									<button class="btn btn-warning btn-sm" type="submit" onclick="expand(<?php echo $username;?>,<?php echo $row['MaterialID'];?>)">
 									<span class="glyphicon glyphicon-pencil"></span>
 									</button>
 									</td>
