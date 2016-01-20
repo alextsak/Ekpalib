@@ -45,7 +45,7 @@ if($stmt->rowCount() == 0) {
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="center-block">
-								<img src="<?php echo $book['image']?>" alt="Μη διαθέσιμο εξώφυλλο"
+								<img src="<?php echo $result['image']?>" alt="Μη διαθέσιμο εξώφυλλο"
 									class="details img-responsive">
 							</div>
 						</div>
@@ -111,9 +111,9 @@ if($stmt->rowCount() == 0) {
 <script type="text/javascript">
 
 	function closeModal(){
-		jQuery('#details-material-modal').modal('hide');
+		jQuery('#expansion-modal').modal('hide');
 		setTimeout(function(){
-			jQuery('#details-material-modal').remove();
+			jQuery('#expansion-modal').remove();
 			jQuery('.modal-backdrop').remove();
 			},500);
 		}
