@@ -36,11 +36,11 @@ $user_results_history = $user->get_user_history ( $username );
 							
 							<thead>
 								<tr>
-									<td style="text-align:center;"><?php echo 'Τίτλος';?></th>
-									<td style="text-align:center;"><?php echo 'Κατηγορία';?></th>
-									<td style="text-align:center;"><?php echo 'Βιβλιοθήκη';?></th>
-									<td style="text-align:center;"><?php echo 'Κατάσταση';?></th>
-									<td style="text-align:center;"><?php echo 'Επιλογές'?></th> <!-- book details / cancel -->
+									<th style="text-align:center;"><?php echo 'Τίτλος';?></th>
+									<th style="text-align:center;"><?php echo 'Κατηγορία';?></th>
+									<th style="text-align:center;"><?php echo 'Βιβλιοθήκη';?></th>
+									<th style="text-align:center;"><?php echo 'Κατάσταση';?></th>
+									<th style="text-align:center;"><?php echo 'Επιλογές'?></th> <!-- book details / cancel -->
 								</tr>
 							</thead>
 							<tbody>
@@ -105,12 +105,12 @@ $user_results_history = $user->get_user_history ( $username );
 							<thead>
 							
 								<tr>
-									<td style="text-align:center;"><?php echo 'Τίτλος';?></th>
-									<td style="text-align:center;"><?php echo 'Κατηγορία';?></th>
-									<td style="text-align:center;"><?php echo 'Βιβλιοθήκη';?></th>
-									<td style="text-align:center;"><?php echo 'Hμέρα Παραλαβής';?></th>
-									<td style="text-align:center;"><?php echo 'Hμέρα Επιστροφής';?></th>
-									<td style="text-align:center;"><?php echo 'Επιλογές'?></th> <!-- book details / expansion -->
+									<th style="text-align:center;"><?php echo 'Τίτλος';?></th>
+									<th style="text-align:center;"><?php echo 'Κατηγορία';?></th>
+									<th style="text-align:center;"><?php echo 'Βιβλιοθήκη';?></th>
+									<th style="text-align:center;"><?php echo 'Hμέρα Παραλαβής';?></th>
+									<th style="text-align:center;"><?php echo 'Hμέρα Επιστροφής';?></th>
+									<th style="text-align:center;"><?php echo 'Επιλογές'?></th> <!-- book details / expansion -->
 								</tr>
 							</thead>
 							<tbody>
@@ -145,7 +145,7 @@ $user_results_history = $user->get_user_history ( $username );
 									&nbsp | &nbsp
 									<!-- Need to add expand function -->
 									<button class="btn btn-warning btn-sm" type="submit" onclick="removeRequest(<?php echo $username;?>,<?php echo $row['MaterialID'];?>)">
-									<span class="glyphicon glyphicon-expand"></span>
+									<span class="glyphicon glyphicon-pencil"></span>
 									</button>
 									</td>
 		                   			</tr><?php 
@@ -168,12 +168,12 @@ $user_results_history = $user->get_user_history ( $username );
 					<thead>
 					
 						<tr>
-							<td style="text-align:center;"><?php echo 'Τίτλος';?></th>
-							<td style="text-align:center;"><?php echo 'Κατηγορία';?></th>
-							<td style="text-align:center;"><?php echo 'Βιβλιοθήκη';?></th>
-							<td style="text-align:center;"><?php echo 'Hμέρα Παραλαβής';?></th>
-							<td style="text-align:center;"><?php echo 'Hμέρα Παράδοσης';?></th>
-							<td style="text-align:center;"><?php echo 'Επιλογές'?></th> <!-- book details -->
+							<th style="text-align:center;"><?php echo 'Τίτλος';?></th>
+							<th style="text-align:center;"><?php echo 'Κατηγορία';?></th>
+							<th style="text-align:center;"><?php echo 'Βιβλιοθήκη';?></th>
+							<th style="text-align:center;"><?php echo 'Hμέρα Παραλαβής';?></th>
+							<th style="text-align:center;"><?php echo 'Hμέρα Παράδοσης';?></th>
+							<th style="text-align:center;"><?php echo 'Επιλογές'?></th> <!-- book details -->
 						</tr>
 					</thead>
 					<tbody>
