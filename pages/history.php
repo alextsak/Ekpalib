@@ -81,7 +81,7 @@ $user_results_history = $user->get_user_history ( $username );
 									}
 									?></td>
 									<td style="width:120px;">
-									<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>)">
+									<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>, '<?php echo get_title();?>')">
 									<span class="glyphicon glyphicon-info-sign" ></span>
 									</button>
 									&nbsp | &nbsp
@@ -143,12 +143,12 @@ $user_results_history = $user->get_user_history ( $username );
 		                   			<td style="text-align:center;"><?php echo $row['StartDate']; ?></td>
 		                   			<td style="text-align:center;"><?php echo $row['EndDate']; ?></td>
 									<td style="width:120px;">
-									<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>)">
+									<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>, '<?php echo get_title();?>')">
 									<span class="glyphicon glyphicon-info-sign" ></span>
 									</button>
 									&nbsp | &nbsp
 									<!-- Need to add expand function -->
-									<button class="btn btn-warning btn-sm" type="submit" onclick="expand('<?php echo $username;?>',<?php echo $row['MaterialID'];?>)">
+									<button class="btn btn-warning btn-sm" type="submit" onclick="expand('<?php echo $username;?>', <?php echo $row['MaterialID'];?>)">
 									<span class="glyphicon glyphicon-pencil"></span>
 									</button>
 									</td>
@@ -222,5 +222,6 @@ $user_results_history = $user->get_user_history ( $username );
 		</div>
 	</div>
 </div>
+
 </div>
 

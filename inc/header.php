@@ -115,6 +115,22 @@ require_once './utilities/helpers.php';
 											echo "<script>error_messages('$message');</script>";
 										}
 									}
+									if(isset($_POST['request']) && $_POST['request'] == "expand"){
+										$mat = $_POST['materialID'];
+										$user = $_POST['username'];
+										$days = $_POST['days'];
+										$m = new Material();
+										$res = $m->request_expansion($user, $mat, $days);
+										if($res == 1){
+											$message = "Η επέκταση έγινε με επιτυχία";
+											echo "<script>success_messages('$message');</script>";
+										} else {
+											$message = "Πρόβλημα επέκτασης";
+											echo "<script>success_messages('$message');</script>";
+										}
+										
+									}
+									
 								} else {
 									/* <i class="glyphicon glyphicon-log-in" style="right: -5px;"></i> */
 									?><li
@@ -188,17 +204,15 @@ require_once './utilities/helpers.php';
 					}
 					if(isset($_SESSION['cart'])) {
 					
-						if(isset($_POST['removeBtn']) && $_POST['id_to_remove']!=""){
+					
+						if(isset($_POST['id_to_remove'])){
 							$materialID=intval($_POST['id_to_remove']);
 							if(count($_SESSION['cart']) == 0) {
 								//if the cart is empty unset the cart session variable
 								unset($_SESSION['cart']);
-							 
 							}
 							else {
-						
 								unset($_SESSION['cart'][$materialID]);
-						
 							}
 						}
 						else if(isset($_POST['action']) && $_POST['action'] == "removeAll"){

@@ -42,7 +42,7 @@ else {
 ?>
 
 <div>
-<?php //echo $_SERVER['REQUEST_URI'];?>
+
 	<div>
 		<h3 id="reasultsHeader">Αποτελέσματα Αναζήτησης</h3>
 	

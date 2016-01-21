@@ -3,6 +3,7 @@ require_once '../database/ConnectionDB/dbConnection.php';
 require_once '../database/Model/Material.php';
 require_once '../utilities/helpers.php';
 $material_id = $_POST['id'];
+$page_title = $_POST['page_title'];
 $material_id = intval($material_id);
 
 $flag = 0;
@@ -141,12 +142,21 @@ if($stmt->rowCount() == 0) {
   *border-left-color: #ffffff;
 }
 
+#spinner {
+	width: 40px;
+	color: #000;
+	text-align: center;
+}
+
 </style>
 <div class="modal fade details-material-modal" id="details-material-modal" tabindex="-1"
 	role="dialog" aria-labelledby="details-material-modal" aria-hidden="true">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content" style="background-color: #520000;">
 			<div class="modal-header">
+				<button class="close" type="button" style="color:#fff;" aria-label="Close"  onclick="closeModal()">
+					<span aria-hidden="true">&times;</span>
+				</button>
 				<h4 class="modal-title text-center" style="color:white;"><?php echo $result['title'];?></h4>
 			</div>
 			<div class="modal-body" style="background-color: #5B2A2A;margin: 10px; border-radius: 10px;">
@@ -162,13 +172,29 @@ if($stmt->rowCount() == 0) {
 						<div class="col-md-6">
 							<div class="tabbable tabs-left"> 
 						        <ul class="nav nav-tabs"  data-tabs="tabs" style="background-color:#B8742D;">
+						        	<?php 
+						            if($flag == 1){
+									?>
 						        	<li  ><a href="#tab1" data-toggle="tab" style="color:white;">ISBN</a></li>
+						        	<?php }?>
 						        	<li><a href="#tab2" data-toggle="tab" style="color:white">Συγγραφέας-εις</a></li>
 						        	<li><a href="#tab3" data-toggle="tab" style="color:white">Βιβλιοθήκη</a></li>
+						        	<?php 
+						            if($flag == 1){
+									?>
 						        	<li><a href="#tab4" data-toggle="tab" style="color:white">Εκδόσεις</a></li>
+						        	<?php }?>
 						        	<li><a href="#tab5" data-toggle="tab" style="color:white">Κατηγορία</a></li>
+						        	<?php 
+						            if($flag == 1){
+									?>
 						        	<li class="active"><a href="#tab6" data-toggle="tab" style="color:white">Περιγραφή</a></li>
+						        	<?php }?>
 						        	<li><a href="#tab7" data-toggle="tab" style="color:white">Διαθεσιμότητα</a></li>
+						        	
+						        	<?php if($page_title == "Ιστορικό Χρήστη") { ?>
+						        	<li><a href="#tab8" data-toggle="tab" style="color:white">Επέκταση</a></li>
+						        	<?php } ?>
 						        </ul>
 						        
 						        <div class="tab-content" >
@@ -196,18 +222,32 @@ if($stmt->rowCount() == 0) {
 						        	<div class="tab-pane" id="tab3" style="color:white;margin-top: 10px;">
 						        		<?php echo $lib_name;?>
 						        	</div>
+						        	<?php 
+						            if($flag == 1){
+									?>
 						        	<div class="tab-pane" id="tab4" style="color:white;margin-top: 10px;">
 						        		<?php echo $result['publisher'];?>
 						        	</div>
+						        	<?php }?>
 						        	<div class="tab-pane" id="tab5" style="color:white;margin-top: 10px;">
 						        		<?php echo $result['category'];?>
 						        	</div>
+						        	<?php 
+						            if($flag == 1){
+									?>
 						        	<div class="tab-pane active" id="tab6" style="color:white;margin-top: 10px;">
 						        		<?php echo nl2br($result['description']);?>
 						        	</div>
+						        	<?php }?>
 						        	<div class="tab-pane" id="tab7" style="color:white;margin-top: 10px;">
 						        		<?php echo $result['availability'];?>
 						        	</div>
+						        	<?php if($page_title == "Ιστορικό Χρήστη") { ?>
+						        	<div class="tab-pane" id="tab8" style="color:white;margin-top: 10px;">
+						        		<input id="spinner" name="value" value="<?php echo $result['available_days']; ?>">
+						        	</div>
+						        	<?php } ?>
+						        	
 						        </div>
 					        </div>
 						</div>
@@ -217,10 +257,12 @@ if($stmt->rowCount() == 0) {
 			<div class="modal-footer">
 				<button id="modal-button" class="btn btn-default"  onclick="closeModal()">Κλείσιμο</button>
 				
+				<?php if($page_title != "Ιστορικό Χρήστη" && $page_title != "Επιβεβαίωση Δανεισμού") {?>
 				<button class="btn btn-warning" type="submit" onClick="addToCart(<?php echo $result['MaterialID'];?>)">
-					<span class="glyphicon glyphicon-shoppinng-cart"></span>Add To Cart
+					<span class="glyphicon glyphicon-shoppinng-cart"></span>Προσθήκη στο Καλάθι
 				</button>
-			
+				<?php } ?>
+				
 			</div>
 		</div>
 	</div>
@@ -234,8 +276,12 @@ if($stmt->rowCount() == 0) {
 			jQuery('.modal-backdrop').remove();
 			},500);
 		}
-
-
+	var current_val = parseInt($('#spinner').val());
+	$('#spinner').spinner({
+		max: current_val + 7,
+		min: current_val,
+		step: 1
+	});
 
 </script>
 

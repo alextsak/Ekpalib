@@ -33,4 +33,22 @@ function error_messages(message){
 }
 
 
+function success_messages(message){
+	console.log(message);
+	var data = {"message" : message};
+	jQuery.ajax({
+		url : "/Ekpalib/inc/success.php",
+		method: "post",
+		data : data,
+		success : function(data){
+			jQuery('body').append(data);
+			jQuery('#success-modal').modal('toggle');
+			},
+		error : function(){
+		alert("Something went wrong");
+			}
+
+		});
+}
+
 

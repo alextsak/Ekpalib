@@ -283,12 +283,12 @@ class Material{
 							</a></td>
 		                   	
 							<td style="width:120px;">
-								<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>)"
+								<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>, '<?php echo get_title();?>')"
 								style="background-color: rgb(153, 43, 0); border-color: rgb(153, 43, 0);">
 									<span class="glyphicon glyphicon-info-sign" ></span>
 								</button>
 								&nbsp | &nbsp
-								<button class="btn btn-warning btn-sm" type="submit" onclick="addToCart(<?php echo $row['MaterialID'];?>)">
+								<button class="btn btn-warning btn-sm" type="submit" >
 									<span class="glyphicon glyphicon-new-window"></span>
 								</button>
 								
@@ -471,19 +471,20 @@ class Material{
  	}
  }
  
- public function confirmLoan($idArray, $user){
+ public function confirmLoan($idArray, $user, $days_array){
  	// insert the material_id and the user_id to history table
+ 	//(SELECT available_days FROM material WHERE MaterialID=?)
  	if(!empty($idArray) && !empty($user)){
- 		$query = 'INSERT INTO academiccommunitymembers_makesrequestfor_material(User, MaterialID, StartDate, EndDate, Approved) VALUES (?, ?, NOW(), DATE_ADD(NOW(), INTERVAL (SELECT available_days FROM material WHERE MaterialID=?) DAY), 0)';
+ 		$query = 'INSERT INTO academiccommunitymembers_makesrequestfor_material(User, MaterialID, StartDate, EndDate, Approved) VALUES (?, ?, NOW(), DATE_ADD(NOW(), INTERVAL ? DAY), 0)';
  		
 		$stmt = $this->db->prepare($query);
 		$flag = 0;
-		foreach($idArray as $material_id){
+		for($i=0; $i<count($idArray); $i++) {
 			//$interval = $_SESSION['cart'][$material_id]['available_days'];
 			try {
 				$stmt->bindValue(1, $user);
-				$stmt->bindValue(2, intval($material_id));
-				$stmt->bindValue(3, intval($material_id));
+				$stmt->bindValue(2, intval($idArray[$i]));
+				$stmt->bindValue(3, intval($days_array[$i]));
 				$stmt->execute();
 				$flag = 1;
 			} catch (PDOException $e) {
@@ -519,9 +520,9 @@ class Material{
 		$stmt->bindParam(2, $username);
 		$stmt->bindParam(1, $materialID);
 		if($stmt->execute()) {
-			return "Η επέκταση έγινε με επιτυχία";
+			return 1;
 		} 
-		return "Πρόβλημα επέκτασης";
+		return -1;
 		
 	}
  }

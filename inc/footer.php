@@ -16,9 +16,11 @@
 /**
  * detailsbook creates an ajax call to show a modal for the book details
  */
-function detailsbook(id){
+function detailsbook(id, page_title){
+	 console.log("hii");
 	 console.log(id);
-	var data = {"id" : id};
+	 console.log(page_title);
+	var data = {"id" : id, "page_title" : page_title};
 	jQuery.ajax({
 		url : "/Ekpalib/inc/bookDetails.php",
 		method: "post",
@@ -66,6 +68,24 @@ function expand(username, materialID){
 			console.log(data);
 			$('body').append(data);
 			$('#expansion-modal').modal('toggle');
+			},
+		error : function(){
+		alert("Something went wrong");
+			}
+
+		});
+	
+}
+
+function request_expand(username, materialID, days){
+	var data = {"request" : "expand" , "username" : username, "materialID" : materialID, "days" : days};
+	jQuery.ajax({
+		url : window.location.href,
+		method: "post",
+		data : data,
+		success : function(data){
+			console.log(data);
+			location.reload(true);
 			},
 		error : function(){
 		alert("Something went wrong");

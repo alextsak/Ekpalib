@@ -35,6 +35,16 @@ if(isset($_SESSION['cart'])){
 	text-align: center;
 }
 
+#border-box {
+  background-color: #5B2A2A;
+    width: 400px;
+    padding: 25px;
+    margin: 5% auto 5% auto;
+    
+    border: 25px #992B00;
+    //margin: 25px;
+}
+
 </style>
 <?php if(isset($_SESSION['cart'])){ ?>
 <h3 style="margin-left:450px;">Επιβεβαίωση Δανεισμού</h3>
@@ -76,13 +86,13 @@ if(isset($_SESSION['cart'])){
 	        							<input id="spinner" name="value" value="<?php echo $_SESSION['cart'][$key]['available_days']; ?>">
 	        						</td>
 	        						<td style="width:120px;">
-	        						<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $_SESSION['cart'][$key]['id'];?>)">
-	        							<span class="glyphicon glyphicon-info-sign" ></span>
-	        						</button>
-	        						&nbsp | &nbsp
-	        						<button class="btn btn-danger btn-sm" type="button">
-	        							<span class="glyphicon glyphicon-remove" ></span>
-	        						</button>
+	        							<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $_SESSION['cart'][$key]['id'];?>,'<?php echo get_title();?>')">
+	        								<span class="glyphicon glyphicon-info-sign" ></span>
+	        							</button>
+	        							&nbsp | &nbsp
+	        							<button class="btn btn-danger btn-sm" type="button" onclick="removeMaterial(<?php echo $_SESSION['cart'][$key]['id'];?>)">
+	        								<span class="glyphicon glyphicon-remove" ></span>
+	        							</button>
 	        						</td>
 	        					</tr>
 	        					<?php 
@@ -121,7 +131,8 @@ $('#confirmLoan-grid > tbody  > tr').each(function() {
 }
 else {
 ?>
-<h4 style="margin-left:450px;">Το καλάθι σας είναι άδειο</h3>
-<h5 style="margin-left:450px;">Παρακαλώ επιστρέψτε στην <a href="index.php">Αρχική</a> ή στην Προηγούμενη Σελίδα σας από το μονοπάτι</h5>
-
+<div id="border-box">
+<h4 style="text-align:center;">Το καλάθι σας είναι άδειο</h3>
+<h5 style="text-align:center;">Παρακαλώ επιστρέψτε στην <a href="index.php">Αρχική</a> ή στην Προηγούμενη Σελίδα σας από το μονοπάτι</h5>
+</div>
 <?php }?>

@@ -55,13 +55,8 @@
         	<div  id="bottom_borderline"></div>
           	<!-- <div  id="bottom_borderline" class="borderline"></div> -->
           	<?php 
-          	if(!empty($_SERVER['QUERY_STRING'])) {
-          		
-          	
-          	?> 
-		
-
-		
+          	if(!empty($_SERVER['QUERY_STRING'])) {	
+          	?> 	
 			<div id="site-path">
 			<?php
 			
@@ -71,11 +66,11 @@
 			?>
 			</div>
 			
-<?php 
+			<?php 
           	} else {
           		init_sitepath();
           	}
-?>
+			?>
   </div>
     	
     	

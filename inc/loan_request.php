@@ -4,8 +4,9 @@ require_once '../database/Model/Material.php';
 
 $idArray = $_POST['idArray'];
 $user = $_POST['user'];
+$days_array = $_POST['request_days'];
 $material = new Material();
-$result = $material->confirmLoan($idArray, $user);
+$result = $material->confirmLoan($idArray, $user, $days_array);
 $flag = 0;
 $message = '';
 switch ($result) {
