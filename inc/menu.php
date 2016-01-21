@@ -18,7 +18,8 @@
 </style>
 
 
-	<div class="borderline" >
+	<!-- <div class="borderline" > -->
+		<div>
            <ul id="tabs"  class="nav nav-pills" >
            	   <li>
            	   		<a class="nav-link"  href="<?php echo get_basename();?>" style="color:#FFFAF0;">Αρχική</a>
@@ -50,7 +51,9 @@
                
               
           	</ul>
-          	<div  id="bottom_borderline" class="borderline"></div>
+        	
+        	<div  id="bottom_borderline"></div>
+          	<!-- <div  id="bottom_borderline" class="borderline"></div> -->
           	<?php 
           	if(!empty($_SERVER['QUERY_STRING'])) {
           		

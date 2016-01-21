@@ -34,19 +34,122 @@ if($stmt->rowCount() == 0) {
 .align-desc * {
     vertical-align: middle;
 }
+/* custom inclusion of right, left and below tabs */
+
+.tabs-below > .nav-tabs,
+.tabs-right > .nav-tabs,
+.tabs-left > .nav-tabs {
+  border-bottom: 0;
+}
+
+.tab-content > .tab-pane,
+.pill-content > .pill-pane {
+  display: none;
+}
+
+.tab-content > .active,
+.pill-content > .active {
+  display: block;
+}
+
+.tabs-below > .nav-tabs {
+  border-top: 1px solid #ddd;
+}
+
+.tabs-below > .nav-tabs > li {
+  margin-top: -1px;
+  margin-bottom: 0;
+}
+
+.tabs-below > .nav-tabs > li > a {
+  -webkit-border-radius: 0 0 4px 4px;
+     -moz-border-radius: 0 0 4px 4px;
+          border-radius: 0 0 4px 4px;
+}
+
+.tabs-below > .nav-tabs > li > a:hover,
+.tabs-below > .nav-tabs > li > a:focus {
+  border-top-color: #ddd;
+  border-bottom-color: transparent;
+}
+
+.tabs-below > .nav-tabs > .active > a,
+.tabs-below > .nav-tabs > .active > a:hover,
+.tabs-below > .nav-tabs > .active > a:focus {
+  border-color: transparent #ddd #ddd #ddd;
+}
+
+.tabs-left > .nav-tabs > li,
+.tabs-right > .nav-tabs > li {
+  float: none;
+}
+
+.tabs-left > .nav-tabs > li > a,
+.tabs-right > .nav-tabs > li > a {
+  min-width: 74px;
+  margin-right: 0;
+  margin-bottom: 3px;
+}
+
+.tabs-left > .nav-tabs {
+  float: left;
+  margin-right: 19px;
+  border-right: 1px solid #ddd;
+}
+
+.tabs-left > .nav-tabs > li > a {
+  margin-right: -1px;
+  -webkit-border-radius: 4px 0 0 4px;
+     -moz-border-radius: 4px 0 0 4px;
+          border-radius: 4px 0 0 4px;
+}
+
+.tabs-left > .nav-tabs > li > a:hover,
+.tabs-left > .nav-tabs > li > a:focus {
+  border-color: #eeeeee #dddddd #eeeeee #eeeeee;
+}
+
+.tabs-left > .nav-tabs .active > a,
+.tabs-left > .nav-tabs .active > a:hover,
+.tabs-left > .nav-tabs .active > a:focus {
+  border-color: #ddd transparent #ddd #ddd;
+  *border-right-color: #ffffff;
+}
+
+.tabs-right > .nav-tabs {
+  float: right;
+  margin-left: 19px;
+  border-left: 1px solid #ddd;
+}
+
+.tabs-right > .nav-tabs > li > a {
+  margin-left: -1px;
+  -webkit-border-radius: 0 4px 4px 0;
+     -moz-border-radius: 0 4px 4px 0;
+          border-radius: 0 4px 4px 0;
+}
+
+.tabs-right > .nav-tabs > li > a:hover,
+.tabs-right > .nav-tabs > li > a:focus {
+  border-color: #eeeeee #eeeeee #eeeeee #dddddd;
+}
+
+.tabs-right > .nav-tabs .active > a,
+.tabs-right > .nav-tabs .active > a:hover,
+.tabs-right > .nav-tabs .active > a:focus {
+  border-color: #ddd #ddd #ddd transparent;
+  *border-left-color: #ffffff;
+}
 
 </style>
 <div class="modal fade details-material-modal" id="details-material-modal" tabindex="-1"
 	role="dialog" aria-labelledby="details-material-modal" aria-hidden="true">
 	<div class="modal-dialog modal-lg">
-		<div class="modal-content">
+		<div class="modal-content" style="background-color: #520000;">
 			<div class="modal-header">
-				<button class="close" type="button" aria-label="Close"  onclick="closeModal()">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				<h4 class="modal-title text-center" style="color:navy;"><?php echo $result['title'];?></h4>
+				<h4 class="modal-title text-center" style="color:white;"><?php echo $result['title'];?></h4>
 			</div>
-			<div class="modal-body">
+			<div class="modal-body" style="background-color: #5B2A2A;margin: 10px; border-radius: 10px;">
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-sm-6">
@@ -56,48 +159,63 @@ if($stmt->rowCount() == 0) {
 							</div>
 						</div>
 
-						<div class="col-sm-6">
-							<h4 style="color:navy;text-align:center;text-decoration: underline;">Λεπτομέρειες</h4>
-							<?php 
-							if($flag == 1){
-							?>
-							<p style="color:black"><span style="color:navy;font-weight: bold;">ISBN:</span> <?php echo $result['isbn'];?></p>
-							<?php }?>
-							<p style="color:black"><span style="color:navy;font-weight: bold;">Συγγραφέας-εις:</span> 
-							<?php
-							echo $result['Name'];
-							echo " ";
-							echo $result['Surname'];
-							
-							while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-								echo " - ";
-								echo $result['Name'];
-								echo " ";
-								echo $result['Surname'];
-							}
-							?></p>
-							
-							<p style="color:black"><span style="color:navy;font-weight: bold;">Βιβλιοθήκη:</span> <?php echo $lib_name;?></p>
-							<hr>
-							<?php if($flag == 1){ ?>
-							<p style="color:black"><span style="color:navy;font-weight: bold;">Εκδόσεις:</span> <?php echo $result['publisher'];?></p>
-							<?php } ?>
-							<p style="color:black"><span style="color:navy;font-weight: bold;">Κατηγορία:</span> <?php echo $result['category'];?></p>
-							<?php if($flag == 1){ ?>
-							<p class="align-desc" style="color:black">
-								<label for="textarea" style="color:navy;font-weight: bold;">Περιγραφή:</label>
-							 	<textarea id="textarea" rows="4" cols="40" >
-							 		<?php echo $result['description'];?>
-							 	</textarea>
-							 </p>
-							 <?php } ?>
-							<p style="color:black"><span style="color:navy;font-weight: bold;">Διαθεσιμότητα:</span> <?php echo $result['availability'];?></p>
+						<div class="col-md-6">
+							<div class="tabbable tabs-left"> 
+						        <ul class="nav nav-tabs"  data-tabs="tabs" style="background-color:#B8742D;">
+						        	<li  ><a href="#tab1" data-toggle="tab" style="color:white;">ISBN</a></li>
+						        	<li><a href="#tab2" data-toggle="tab" style="color:white">Συγγραφέας-εις</a></li>
+						        	<li><a href="#tab3" data-toggle="tab" style="color:white">Βιβλιοθήκη</a></li>
+						        	<li><a href="#tab4" data-toggle="tab" style="color:white">Εκδόσεις</a></li>
+						        	<li><a href="#tab5" data-toggle="tab" style="color:white">Κατηγορία</a></li>
+						        	<li class="active"><a href="#tab6" data-toggle="tab" style="color:white">Περιγραφή</a></li>
+						        	<li><a href="#tab7" data-toggle="tab" style="color:white">Διαθεσιμότητα</a></li>
+						        </ul>
+						        
+						        <div class="tab-content" >
+						        	<div class="tab-pane " id="tab1" style="color:white;margin-top: 10px;">
+						            	<?php 
+						            	if($flag == 1){
+										?>
+										<?php echo $result['isbn'];?>
+										<?php }?>
+						        	</div>
+						        	<div class="tab-pane" id="tab2" style="color:white;margin-top: 10px;">
+						        		<?php
+											echo $result['Name'];
+											echo " ";
+											echo $result['Surname'];
+											
+											while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+												echo " - ";
+												echo $result['Name'];
+												echo " ";
+												echo $result['Surname'];
+											}
+										?>
+						        	</div>
+						        	<div class="tab-pane" id="tab3" style="color:white;margin-top: 10px;">
+						        		<?php echo $lib_name;?>
+						        	</div>
+						        	<div class="tab-pane" id="tab4" style="color:white;margin-top: 10px;">
+						        		<?php echo $result['publisher'];?>
+						        	</div>
+						        	<div class="tab-pane" id="tab5" style="color:white;margin-top: 10px;">
+						        		<?php echo $result['category'];?>
+						        	</div>
+						        	<div class="tab-pane active" id="tab6" style="color:white;margin-top: 10px;">
+						        		<?php echo nl2br($result['description']);?>
+						        	</div>
+						        	<div class="tab-pane" id="tab7" style="color:white;margin-top: 10px;">
+						        		<?php echo $result['availability'];?>
+						        	</div>
+						        </div>
+					        </div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button class="btn btn-default"  onclick="closeModal()">Κλείσιμο</button>
+				<button id="modal-button" class="btn btn-default"  onclick="closeModal()">Κλείσιμο</button>
 				
 				<button class="btn btn-warning" type="submit" onClick="addToCart(<?php echo $result['MaterialID'];?>)">
 					<span class="glyphicon glyphicon-shoppinng-cart"></span>Add To Cart

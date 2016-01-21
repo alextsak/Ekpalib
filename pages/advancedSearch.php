@@ -11,9 +11,7 @@
 }
 
 
-.col-md-2,.col-md-6{
-	margin-top:5px;
-}
+
 
 #advancedSearchButton{
     position: relative;
@@ -60,9 +58,9 @@
 			
 			
 			<div class="col-md-6 col-xs-6">
-					<h5 style="text-decoration: underline;padding-left:30px;">3.Όροι αναζήτησης</h5> 
+					<h5 style="text-decoration: underline;padding-left:45px;">3.Όροι αναζήτησης</h5> 
 						<div class="col-sm-12 col-xs-12">
-							<div class="col-md-6">
+							<div class="col-md-6" >
 					        	<div class="form-group">
 									    <div class="col-sm-10">
 									      <input class="form-control" name="keyword" placeholder="Λέξη κλειδί">
@@ -80,7 +78,7 @@
 						</div>
 						
 						<div class="col-sm-12" >
-							<div class="col-md-6">
+							<div class="col-md-6" style="margin-top:5px;">
 								<div class="form-group">
 							    	<div class="col-sm-10" id="publisher-form"> 
 							      		<input class="form-control"  name="publisher" placeholder="Εκδότης" id="publisher">
@@ -90,7 +88,7 @@
 							
 							<div class="col-md-6">
 								<div class="form-group">
-							    	<div class="col-sm-10" id="isbn-form">
+							    	<div class="col-sm-10" id="isbn-form" style="margin-top:5px;">
 							      		<input class="form-control" name="isbn" placeholder="ISBN" id="isbn">
 							    	</div>
 							  	</div>

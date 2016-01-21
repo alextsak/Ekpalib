@@ -268,7 +268,7 @@
                 if (length > 0) {
                     ulElement.append(liElement);
                 } else {
-                    aElement = $("<a id=\"" + $(this).attr("id") + "\" class=\"current\" href=\"#\">" + $(this).text() + " <span class=\"trigger\">&raquo;</span></a>");
+                    aElement = $("<a id=\"" + $(this).attr("id") + "\" class=\"current\" href=\"#\">" + $(this).text() + " <span class=\"glyphicon glyphicon-chevron-down\" style='left: 25%; font-size: 10px;top:0px;'></span></a>");
                     if (settings.openMode == 'hover') {
                         aElement.hover(function () {
                             open();

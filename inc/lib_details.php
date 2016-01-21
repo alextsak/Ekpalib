@@ -21,41 +21,38 @@ $row=$libs->fetch(PDO::FETCH_ASSOC);
 </style>
 <div class="modal fade library-details-modal" id="library-details-modal" tabindex="-1"
 	role="dialog" aria-labelledby="details-material-modal" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
+	<div class="modal-dialog" >
+		<div class="modal-content" style="background-color: #520000;">
 		    <div class="modal-header">
-		    <button class="close" type="button" aria-label="Close"  onclick="closeModal()">
-					<span aria-hidden="true">&times;</span>
-				</button>
-		        <h3 style="color:black"><?php echo $row['Name'] ?></h3>
+		        <h3 ><?php echo $row['Name'] ?></h3>
 		    </div>
-		    <div class="modal-body">
+		    <div class="modal-body" style="background-color: #5B2A2A;margin: 10px; border-radius: 10px;">
 		        <div class="tabbable"> 
-			        <ul class="nav nav-tabs">
-			        	<li class="active"><a href="#tab1" data-toggle="tab">Προσωπικό</a></li>
-			        	<li><a href="#tab2" data-toggle="tab">Γενικές Πληροφορίες</a></li>
-			        	<li><a href="#tab3" data-toggle="tab">Συλλογή</a></li>
-			        	<li><a href="#tab4" data-toggle="tab">Υπηρεσίες</a></li>
+			        <ul class="nav nav-tabs" style="background-color:#B8742D;">
+			        	<li class="active" ><a href="#tab1" data-toggle="tab"style="color:white;">Προσωπικό</a></li>
+			        	<li><a href="#tab2" data-toggle="tab"style="color:white">Γενικές Πληροφορίες</a></li>
+			        	<li><a href="#tab3" data-toggle="tab"style="color:white">Συλλογή</a></li>
+			        	<li><a href="#tab4" data-toggle="tab"style="color:white">Υπηρεσίες</a></li>
 			        </ul>
 			        
-			        <div class="tab-content">
-			        	<div class="tab-pane active" id="tab1">
-			            	<?php echo $row['faculty'] ?>
+			        <div class="tab-content" >
+			        	<div class="tab-pane active" id="tab1" style="color:white;margin-top: 10px;">
+			            	<?php echo nl2br ( $row['faculty']  )?>
 			        	</div>
-			        	<div class="tab-pane" id="tab2">
-			        		<?php echo $row['information'] ?>
+			        	<div class="tab-pane" id="tab2" style="color:white;margin-top: 10px;">
+			        		<?php echo nl2br( $row['information']) ?>
 			        	</div>
-			        	<div class="tab-pane" id="tab3">
-			        		<?php echo $row['collection'] ?>
+			        	<div class="tab-pane" id="tab3" style="color:white;margin-top: 10px;">
+			        		<?php echo nl2br($row['collection']) ?>
 			        	</div>
-			        	<div class="tab-pane" id="tab4">
-			        		<?php echo $row['services'] ?>
+			        	<div class="tab-pane" id="tab4" style="color:white;margin-top: 10px;">
+			        		<?php echo nl2br($row['services']) ?>
 			        	</div>
 			        </div>
 		        </div>
 		   </div>
 		   <div class="modal-footer">
-		         <button class="btn btn-default"  onclick="closeModal()">Κλείσιμο</button>
+		         <button id="modal-button" class="btn btn-default"  onclick="closeModal()">Κλείσιμο</button>
 		   </div>
 		</div>
 	</div>

@@ -226,19 +226,19 @@ require_once './utilities/helpers.php';
 							
 							<div class="modal fade" id="cartModal">	
 								<div class="modal-dialog">
-								      <div id="cart-window" class="modal-content">
-								        <div class="modal-header">
-								         <!--  <button id="header-close-button" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> -->
-								        </div>
-								        <div class="modal-body">
+								      <div id="cart-window" class="modal-content" style="background-color: #520000;">
+								         <div class="modal-header">
+									    </div>
+								        
+								        <div class="modal-body" style="background-color: #5B2A2A;margin: 10px; border-radius: 10px;">
 								          <div class="table-responsive">  
 								          <table class="table" id="tblGrid">
 								            <thead id="tblHead">
 								              <tr>
-								                <th>Τίτλος</th>
-								                <th>Βιβλιοθήκη</th>
-								                <th>Κατηγορία</th>
-								                <th>Επιλογή</th>
+								                <th style="color:white">Τίτλος</th>
+								                <th style="color:white">Βιβλιοθήκη</th>
+								                <th style="color:white">Κατηγορία</th>
+								                <th style="color:white">Επιλογή</th>
 								              </tr>
 								            </thead>
 								            
@@ -257,8 +257,8 @@ require_once './utilities/helpers.php';
 								          </div>
 										</div>
 								        <div class="modal-footer">
-								          <button type="button" class="btn btn-default " data-dismiss="modal">Κλείσιμο</button>
-								          <a href="?page=confirmLoan" class="btn btn-primary">Επιβεβαίωση Δανεισμού</a>
+								          <button id="modal-button" type="button" class="btn btn-default " data-dismiss="modal">Κλείσιμο</button>
+								          <a href="?page=confirmLoan" style="background-color: #EC971F;border-color:#EC971F;" class="btn btn-primary">Επιβεβαίωση Δανεισμού</a>
 								        </div>
 												
 								      </div><!-- /.modal-content -->
@@ -274,6 +274,7 @@ require_once './utilities/helpers.php';
 					?>
 					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="left:25px;">
 						<div id="polyglotLanguageSwitcher">
+						
 							<form action="">
 								<select id="polyglot-language-options">
 									<option id="gr" value="gr" selected>Greek</option>

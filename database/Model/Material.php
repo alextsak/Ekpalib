@@ -90,7 +90,7 @@ class Material{
 					<td>
 						<?php echo $row['isbn']; ?>
 					</td>
-					<td>
+					<td >
 					<form method="post" action="<?php echo $_SERVER['REQUEST_URI']?>">
         					
 							<button type="submit" name="removeBtn" class="btn btn-link">
@@ -116,18 +116,18 @@ class Material{
 			
 			?>
 				<tr>
-					<td>
+					<td style="color:white">
 						<?php echo $_SESSION['cart'][$key]['title']; ?>
 					</td>
 					<td><a href="javascript:detailsLibrary(<?php echo  $_SESSION['cart'][$key]['lib_id']; ?>)"><?php echo  $_SESSION['cart'][$key]['library']; ?></a></td>
-					<td>
+					<td style="color:white">
 						<?php echo $_SESSION['cart'][$key]['category']; ?>
 					</td>
-					<td>
+					<td style="text-align: center;">
 					<form method="post" action="<?php echo $_SERVER['REQUEST_URI']?>">
         					
-							<button type="submit" name="removeBtn" class="btn btn-link">
-								<span class="glyphicon glyphicon-remove-circle" style="
+							<button type="submit" name="removeBtn" class="btn btn-danger btn-xs">
+								<span class="glyphicon glyphicon-remove" style="
 							    font-size: large;"></span>
 							</button>
         					 <input name="id_to_remove" type="hidden" value="<?php echo $_SESSION['cart'][$key]['id'];?>"/>
@@ -283,7 +283,8 @@ class Material{
 							</a></td>
 		                   	
 							<td style="width:120px;">
-								<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>)">
+								<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>)"
+								style="background-color: rgb(153, 43, 0); border-color: rgb(153, 43, 0);">
 									<span class="glyphicon glyphicon-info-sign" ></span>
 								</button>
 								&nbsp | &nbsp

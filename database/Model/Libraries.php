@@ -177,7 +177,10 @@ class Libraries{
 	                   		<?php echo $row['Telephone'];?>
 	                </td>
 	                <td style="width:120px;text-align:center;">
-						<button class="btn btn-primary btn-sm" type="button" onclick="detailsLibrary(<?php echo $row['idLibraries'];?>)">
+						<button class="btn btn-primary btn-sm" type="button" 
+						onclick="detailsLibrary(<?php echo $row['idLibraries'];?>)"
+						style="background-color: rgb(153, 43, 0); border-color: rgb(153, 43, 0);">
+							
 							<span class="glyphicon glyphicon-info-sign" ></span>
 						</button>
 					</td>
