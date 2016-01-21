@@ -11,6 +11,8 @@ $(document).ready(function(){
 		   else
 			   $('#loan-Button').attr("disabled", true);
 	});
+	
+	
 
 });
 
@@ -18,8 +20,11 @@ function loan_request(idArray, user){
 	
 	
 	var json_id_array = jQuery.parseJSON(idArray);
-	
-	
+	var days_array = [];
+	$('#confirmLoan-grid tr').each(function() {
+		var current_val = parseInt($( "#spinner" ).val()); 
+		console.log(current_val);
+	 });
 	if(json_id_array == null || user == null){
 		alert("NUUUUULLLL");
 	}else {

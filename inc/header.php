@@ -25,7 +25,8 @@ require_once './utilities/helpers.php';
 <link href="css/footer.css" rel="stylesheet">
 <link rel="stylesheet" href="css/login-signup.css" type="text/css"
 	media="all">
-
+<link href="css/jquery/jquery-ui.css" rel="stylesheet">
+	
 <script src="js/jquery/jquery-2.1.4.min.js"></script>
 <script src="js/jquery.polyglot.language.switcher.js"
 	type="text/javascript"></script>
@@ -36,6 +37,7 @@ require_once './utilities/helpers.php';
 <script src="js/advancedSearch.js"></script>
 <script src="bootstrap/bootstrap.js"></script>
 <script src="js/Login-Signup.js"></script>
+<script src="js/jquery/jquery-ui.js"></script>
 <title><?php echo get_title();?></title>
 
 </head>

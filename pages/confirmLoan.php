@@ -29,6 +29,12 @@ if(isset($_SESSION['cart'])){
     float: right;
 }
 
+#spinner {
+	width: 40px;
+	color: #000;
+	text-align: center;
+}
+
 </style>
 <?php if(isset($_SESSION['cart'])){ ?>
 <h3 style="margin-left:450px;">Επιβεβαίωση Δανεισμού</h3>
@@ -66,14 +72,14 @@ if(isset($_SESSION['cart'])){
 	        						<td><?php echo $_SESSION['cart'][$key]['category']; ?></td>
 	        						<td><a href="javascript:detailsLibrary(<?php echo $_SESSION['cart'][$key]['library']; ?>)"><?php echo $_SESSION['cart'][$key]['library']; ?></a></td>
 	        						<td><?php echo $_SESSION['cart'][$key]['availability']; ?></td>
-	        						<td><?php echo $_SESSION['cart'][$key]['available_days']; ?></td>
+	        						<td id="av_days" style="text-align:center;"><input id="spinner" name="value" value="<?php echo $_SESSION['cart'][$key]['available_days']; ?>"></td>
 	        						<td style="width:120px;">
 	        						<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $_SESSION['cart'][$key]['id'];?>)">
 	        							<span class="glyphicon glyphicon-info-sign" ></span>
 	        						</button>
 	        						&nbsp | &nbsp
-	        						<button class="btn btn-warning btn-sm" type="button">
-	        							<span class="glyphicon glyphicon-new-window" ></span>
+	        						<button class="btn btn-danger btn-sm" type="button">
+	        							<span class="glyphicon glyphicon-remove" ></span>
 	        						</button>
 	        						</td>
 	        					</tr>
@@ -95,7 +101,31 @@ if(isset($_SESSION['cart'])){
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+var table = $("#confirmLoan-grid tbody");
 
+table.find('tr').each(function (i) {
+    var $tds = $(this).find('td');
+    var  id = $tds.eq(4);
+    var value = id.val();
+       
+    // do something with productId, product, Quantity
+    alert('Row ' + (i + 1) + ':\nId: ' + value);
+});
+
+
+	
+$('confirmLoan-grid tr td').each(function() {
+	var current_val = parseInt($( "#spinner" ).val());
+	console.log(current_val);
+	$( "#spinner" ).spinner({
+	
+		max: current_val + 7,
+		min: current_val,
+		step: 1
+		});
+});
+</script>
 <?php 
 }
 else {
