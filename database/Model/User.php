@@ -57,7 +57,18 @@ class User{
 	
 	public function get_user_transactions($username){
 	
-		$query = 'SELECT MaterialID, Approved FROM academiccommunitymembers_makesrequestfor_material where User=? and Approved=0 or Approved=1';
+		$query = 'SELECT MaterialID, Approved FROM academiccommunitymembers_makesrequestfor_material where User=? and (Approved=0 or Approved=1)';
+		$stmt = $this->db->prepare($query);
+		$stmt->bindParam(1, $username);
+		if($stmt->execute()){
+			return $stmt;
+		}
+		echo $stmt->errorInfo();
+	}
+	
+	public function get_user_transactions_all($username){
+	
+		$query = 'SELECT MaterialID, Approved FROM academiccommunitymembers_makesrequestfor_material where User=?';
 		$stmt = $this->db->prepare($query);
 		$stmt->bindParam(1, $username);
 		if($stmt->execute()){

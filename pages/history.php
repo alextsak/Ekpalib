@@ -54,9 +54,6 @@ $user_results_history = $user->get_user_history ( $username );
                 			<?php
 								
 									while ( $row = $user_results->fetch(PDO::FETCH_ASSOC) ) {
-									if ($row['Approved'] == 2) {
-										continue;
-									}
 									$material = new Material ();
 									$material_info = $material->get_material_by_id($row ['MaterialID'])->fetch(PDO::FETCH_ASSOC);
 									$library = $material->get_material_library ( $row ['MaterialID'] );
