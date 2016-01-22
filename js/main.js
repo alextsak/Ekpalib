@@ -11,8 +11,20 @@ $(document).ready(function(){
 		  if($( "#lib-dep option:selected" ).text() == "Όλα"){
 			  window.reload(true);
 		  }
+		  else if($("#lib-dep option:selected" ).text() == "Κανένα"){
+			 
+			  $("#lib-addr").show();
+		  }
+		  else {
+			  $("#lib-addr").hide();
+		  }
 		});
+	
+	
 });
+
+
+
 
 function searchLibraries(address,department){
 	

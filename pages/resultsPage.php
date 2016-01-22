@@ -53,7 +53,7 @@ else {
 	<div>
 		<div class="table-responsive">  
 	    	<table id="results-grid" class="table ">
-	    	<tbody>
+	    	
 	    	<?php
 	    	
 	    	$material = new Material();
@@ -102,7 +102,7 @@ else {
 	    			
 	    		}*/
 	 		?> 
-			</tbody>	
+				
 			</table>
 			<script type="text/javascript">
 				function addToCart(id){

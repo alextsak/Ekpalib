@@ -78,7 +78,8 @@ $user_results_history = $user->get_user_history ( $username );
 									}
 									?></td>
 									<td style="width:120px;">
-									<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>, '<?php echo get_title();?>')">
+									<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>, '<?php echo get_title();?>')"
+									style="background-color: rgb(153, 43, 0); border-color: rgb(153, 43, 0);">
 									<span class="glyphicon glyphicon-info-sign" ></span>
 									</button>
 									&nbsp | &nbsp
@@ -140,7 +141,8 @@ $user_results_history = $user->get_user_history ( $username );
 		                   			<td style="text-align:center;"><?php echo $row['StartDate']; ?></td>
 		                   			<td style="text-align:center;"><?php echo $row['EndDate']; ?></td>
 									<td style="width:120px;">
-									<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>, '<?php echo get_title();?>')">
+									<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>, '<?php echo get_title();?>')"
+									style="background-color: rgb(153, 43, 0); border-color: rgb(153, 43, 0);">
 									<span class="glyphicon glyphicon-info-sign" ></span>
 									</button>
 									&nbsp | &nbsp
@@ -205,7 +207,8 @@ $user_results_history = $user->get_user_history ( $username );
 		                   			<td style="text-align:center;"><?php echo $row['received']; ?></td>
 		                   			<td style="text-align:center;"><?php echo $row['returned']; ?></td>
 									<td style="width:120px;">
-									<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>)">
+									<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>)"
+									style="background-color: rgb(153, 43, 0); border-color: rgb(153, 43, 0);">
 									<span class="glyphicon glyphicon-info-sign" ></span>
 									</button>
 									</td>

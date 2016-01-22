@@ -259,13 +259,14 @@ class Material{
          	      					<th style="text-align:center;"><?php echo 'Επιλογές'?></th>
          	   	</tr>
          	  </thead>
+         	  <tbody>
          	  <?php 
                  while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
                 	?>
 	                   	<tr>
 		                   	<td style="text-align:center;"><?php echo $row['title']; ?></td>
 		                   	<td style="text-align:center;"><?php echo $row['category']; ?></td>
-		                   	<td style="text-align:center;"><a href="javascript:detailsLibrary(<?php echo $row['idLibraries'];?>)"><?php echo $row['Name']; ?></a></td>
+		                   	<td style="text-align:center;"><a href="javascript:detailsLibrary(<?php echo $row['idLibraries'];?>)" style="text-decoration: underline; color:#FFFAF0;"><?php echo $row['Name']; ?></a></td>
 	                 		<td style="text-align:center;"><?php echo $row['availability']; ?></td>
 	                 		<td style="text-align:center;"><?php echo $row['available_days']; ?></td>
 	                 		<?php $url_path = $_SERVER['QUERY_STRING'];
@@ -282,27 +283,29 @@ class Material{
 	                 		<td style="text-align:center;"><a href="<?php echo $url_path."&action=add&materialID=" . $row['MaterialID']?>"><span class="glyphicon glyphicon-shopping-cart"  style="font-size:larger;"></span>
 							</a></td>
 		                   	
-							<td style="width:120px;">
+							<td style="width:120px;text-align:center;">
 								<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>, '<?php echo get_title();?>')"
 								style="background-color: rgb(153, 43, 0); border-color: rgb(153, 43, 0);">
 									<span class="glyphicon glyphicon-info-sign" ></span>
 								</button>
-								&nbsp | &nbsp
-								<button class="btn btn-warning btn-sm" type="submit" >
+								
+								<!--  <button class="btn btn-warning btn-sm" type="submit" >
 									<span class="glyphicon glyphicon-new-window"></span>
-								</button>
+								</button>-->
 								
 										
 							</td>
 	                   </tr>
+	                   </tbody>
                    <?php
                 }
          }
          else{
                 ?>
                 <tr>
-                <td>Nothing here...</td>
+                <td>Δεν υπάρχουν εγγραφές :( ...</td>
                 </tr>
+                </tbody>
                 <?php
          }
   

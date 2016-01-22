@@ -86,7 +86,8 @@ if(isset($_SESSION['cart'])){
 	        							<input id="spinner" name="value" value="<?php echo $_SESSION['cart'][$key]['available_days']; ?>">
 	        						</td>
 	        						<td style="width:120px;">
-	        							<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $_SESSION['cart'][$key]['id'];?>,'<?php echo get_title();?>')">
+	        							<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $_SESSION['cart'][$key]['id'];?>,'<?php echo get_title();?>')"
+	        							style="background-color: rgb(153, 43, 0); border-color: rgb(153, 43, 0);">
 	        								<span class="glyphicon glyphicon-info-sign" ></span>
 	        							</button>
 	        							&nbsp | &nbsp
