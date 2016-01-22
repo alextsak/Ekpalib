@@ -62,11 +62,6 @@ function searchLibraries(address,department){
 			    }
 			    $("#lib-grid tbody").append(html);
 			}
-			
-			
-	
-			
-			
 		},
 		error : function(){
 			alert("Something went wrong");

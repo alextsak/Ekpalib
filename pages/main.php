@@ -126,7 +126,11 @@ $(document).ready(function(){
 			              	<form class="form-horizontal" >
 			              		<div class="form-group" style="position:relative;top:45px;margin-bottom:25px;right:110px;width:inherit">
 									    <div class="col-sm-10">
-									      <input class="form-control" id="lib-addr" placeholder="Διεύθυνση" disabled>
+									      <input class="form-control" id="lib-addr" placeholder="Εισάγετε διεύθυνση" disabled
+									      	type="text" placeholder="Εισάγετε διεύθυνση" 
+				                    		maxlength="255" size="25" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Εισάγετε διεύθυνση'"
+				                    		required
+                							data-fv-notempty-message/>
 									    </div>
 								</div>
 							</form>

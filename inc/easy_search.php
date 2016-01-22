@@ -34,7 +34,7 @@
 				                    <input class='form-control' name='category' type='hidden' value='' />
 				                    <input class='form-control' name='genre' type='hidden' value='books' />
 				                    <input type="submit" class="btn btn-primary" id="search-btn"alt="submit" value="Αναζήτηση" name="searchbooks">
-				                  </form>
+				         </form>
 		    	        </div>
 		                <div class="row hidden-xs">
 		                  <div class="col-sm-6">
