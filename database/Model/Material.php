@@ -233,9 +233,9 @@ class Material{
          	// bindValue -> binds the value of the variable
          	for($c=0;$c<count($term);$c++)
             {
-         		if($term[$c]!="" && $term[$c]!="all"){
-         			$t = '%'.$term[$i-1].'%';
-         			
+            	
+            	if($term[$c]!="" && $term[$c]!="all"){
+         			$t = '%'.$term[$c].'%';
          			$stmt->bindValue($i,$t);
          			$i++;
          		}
@@ -399,12 +399,19 @@ class Material{
 	if($type!="all")
 		$query.=' , '.$type.' ';
 	
+	if($publisher!="" || $isbn!="")
+		$query.=',books ';
+		
+	$query.='where 
+			 material.MaterialID = material_has_author.MaterialID and
+			 material_has_author.idAuthor = author.idAuthor and
+			 material.MaterialID = libraries_has_material.MaterialID and
+			 libraries_has_material.idLibraries = libraries.idLibraries ';
 	
-	$query.='where material.MaterialID = material_has_author.MaterialID and
-			  material_has_author.idAuthor = author.idAuthor and
-			  material.MaterialID = libraries_has_material.MaterialID and
-			  libraries_has_material.idLibraries = libraries.idLibraries ';
-				
+	if($publisher!="" || $isbn!="")
+		$query.=' and material.MaterialID = books.MaterialID ';
+	
+		
 	if($type!="all")
 		$query.=' and material.MaterialID = '.$type.'.MaterialID';
 		

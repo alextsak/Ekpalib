@@ -15,12 +15,12 @@ img.details{
 	margin: 15px auto;
 }
 #sitemap {
-	position: relative;
-	margin-left: 43%;
-	top: 50%;
+	text-align: center;
+	padding-top: 15px;
 }
 
 #copyright {
 	text-align:center;
 	color:#FFFAF0;
+	padding-bottom:15px;
 }

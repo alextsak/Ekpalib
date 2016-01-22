@@ -28,17 +28,7 @@ else {
 		$_SESSION['last_query'] = $query;
 		$_SESSION['last_terms'] = $terms;
 	}
-	
-	
-	
-	
 }
-
-
-
-
-
-
 ?>
 
 <div>

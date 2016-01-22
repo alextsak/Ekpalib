@@ -126,7 +126,7 @@ $(document).ready(function(){
 			              	<form class="form-horizontal" >
 			              		<div class="form-group" style="position:relative;top:45px;margin-bottom:25px;right:110px;width:inherit">
 									    <div class="col-sm-10">
-									      <input class="form-control" id="lib-addr" placeholder="Διεύθυνση" >
+									      <input class="form-control" id="lib-addr" placeholder="Διεύθυνση" disabled>
 									    </div>
 								</div>
 							</form>

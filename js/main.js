@@ -3,24 +3,15 @@
  */
 $(document).ready(function(){
 	$("#lib-search").on("click",function(event){
-    	console.log($("#lib-addr").val());
-    	console.log($( "#lib-dep option:selected" ).text());
     	searchLibraries($("#lib-addr").val() ,$( "#lib-dep option:selected" ).text() );
 	});
 	$('#lib-dep').on('change', function() {
-		  if($( "#lib-dep option:selected" ).text() == "Όλα"){
-			  window.reload(true);
-		  }
-		  else if($("#lib-dep option:selected" ).text() == "Κανένα"){
-			 
-			  $("#lib-addr").show();
-		  }
-		  else {
-			  $("#lib-addr").hide();
-		  }
-		});
-	
-	
+		  if($( "#lib-dep option:selected" ).text() == "Κανένα")
+			  $("input").prop('disabled', false);
+		  else
+			  $("input").prop('disabled', true);
+		  	
+	});
 });
 
 

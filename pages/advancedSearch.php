@@ -10,9 +10,6 @@
 	padding-bottom: 20px;
 }
 
-
-
-
 #advancedSearchButton{
     position: relative;
 	float: right;

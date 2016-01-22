@@ -268,7 +268,7 @@
                 if (length > 0) {
                     ulElement.append(liElement);
                 } else {
-                    aElement = $("<a id=\"" + $(this).attr("id") + "\" class=\"current\" href=\"#\">" + $(this).text() + " <span class=\"glyphicon glyphicon-chevron-down\" style='left: 25%; font-size: 10px;top:0px;'></span></a>");
+                    aElement = $("<a id=\"" + $(this).attr("id") + "\" class=\"current\">" + $(this).text() + " <span class=\"glyphicon glyphicon-chevron-down\" style='float:right; font-size: 10px;top:2px;'></span></a>");
                     if (settings.openMode == 'hover') {
                         aElement.hover(function () {
                             open();
@@ -303,7 +303,7 @@
                 var url = window.location.href;
                 var page = url.substring(url.lastIndexOf("/")+1);
                 var urlPage = 'http://' + document.domain + '/' + settings.pagePrefix + id + '/' + page;
-                liElement = $("<li><a id=\"" + id + "\" href=\"" + urlPage + "\">" + text + "</a></li>");
+                liElement = $("<li><a id=\"" + id + "\">" + text + "</a></li>");
             } else {
                 var href = document.URL.replace('#', '');
                 var params = parseQueryString();
@@ -312,7 +312,7 @@
                     href = href.substring(0, href.indexOf('?'));
                 }
                 href += toQueryString(params);
-                liElement = $("<li><a id=\"" + id + "\" href=\"" + href + "\">" + text + "</a></li>");
+                liElement = $("<li><a id=\"" + id + "\">" + text + "</a></li>");
             }
             liElement.bind('click', function () {
                 triggerEvent({name:'onChange', selectedItem: $(this).children(":first").attr('id'), element:rootElement, instance:ls});
