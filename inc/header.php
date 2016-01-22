@@ -115,13 +115,15 @@ require_once './utilities/helpers.php';
 											echo "<script>error_messages('$message');</script>";
 										}
 									}
-									if(isset($_POST['request']) && $_POST['request'] == "expand"){
+									else if(isset($_POST['request']) && $_POST['request'] == "expand"){
 										$mat = $_POST['materialID'];
 										$user = $_POST['username'];
 										$days = $_POST['days'];
 										$m = new Material();
 										$res = $m->request_expansion($user, $mat, $days);
-										if($res == 1){
+										echo "<script>success_messages('OOOOOOKKKKK');</script>";
+										if(strcmp($res, "ok") == 0){
+											
 											$message = "Η επέκταση έγινε με επιτυχία";
 											echo "<script>success_messages('$message');</script>";
 										} else {

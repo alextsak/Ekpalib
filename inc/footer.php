@@ -65,7 +65,6 @@ function expand(username, materialID){
 		method: "post",
 		data : data,
 		success : function(data){
-			console.log(data);
 			$('body').append(data);
 			$('#expansion-modal').modal('toggle');
 			},
@@ -84,8 +83,8 @@ function request_expand(username, materialID, days){
 		method: "post",
 		data : data,
 		success : function(data){
-			console.log(data);
 			location.reload(true);
+			closeModal();
 			},
 		error : function(){
 		alert("Something went wrong");

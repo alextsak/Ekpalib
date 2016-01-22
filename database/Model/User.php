@@ -57,17 +57,13 @@ class User{
 	
 	public function get_user_transactions($username){
 	
-		$query = 'SELECT MaterialID, Approved FROM academiccommunitymembers_makesrequestfor_material where User=?';
+		$query = 'SELECT MaterialID, Approved FROM academiccommunitymembers_makesrequestfor_material where User=? and Approved=0 or Approved=1';
 		$stmt = $this->db->prepare($query);
 		$stmt->bindParam(1, $username);
 		if($stmt->execute()){
-			if($stmt->rowCount() > 0){
-				return $stmt;
-			}
+			return $stmt;
 		}
-		else {
-			return $stmt->errorInfo();
-		}
+		echo $stmt->errorInfo();
 	}
 	
 	public function get_user_transactions_not_approved($username){

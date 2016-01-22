@@ -173,40 +173,51 @@ if($stmt->rowCount() == 0) {
 						<div class="col-md-6">
 							<div class="tabbable tabs-left"> 
 						        <ul class="nav nav-tabs"  data-tabs="tabs" style="background-color:#B8742D;">
+						        	<li  class="active"><a href="#tab1" data-toggle="tab" style="color:white">Επέκταση</a></li>
+						        	<li ><a href="#tab2" data-toggle="tab" style="color:white;">Τίτλος</a></li>
 						        	<?php 
 						            if($flag == 1){
 									?>
-						        	<li  ><a href="#tab1" data-toggle="tab" style="color:white;">ISBN</a></li>
+						        	<li ><a href="#tab3" data-toggle="tab" style="color:white;">ISBN</a></li>
 						        	<?php }?>
-						        	<li><a href="#tab2" data-toggle="tab" style="color:white">Συγγραφέας-εις</a></li>
-						        	<li><a href="#tab3" data-toggle="tab" style="color:white">Βιβλιοθήκη</a></li>
+						        	<li><a href="#tab4" data-toggle="tab" style="color:white">Συγγραφέας-εις</a></li>
+						        	<li><a href="#tab5" data-toggle="tab" style="color:white">Βιβλιοθήκη</a></li>
 						        	<?php 
 						            if($flag == 1){
 									?>
-						        	<li><a href="#tab4" data-toggle="tab" style="color:white">Εκδόσεις</a></li>
+						        	<li><a href="#tab6" data-toggle="tab" style="color:white">Εκδόσεις</a></li>
 						        	<?php }?>
-						        	<li><a href="#tab5" data-toggle="tab" style="color:white">Κατηγορία</a></li>
+						        	<li><a href="#tab7" data-toggle="tab" style="color:white">Κατηγορία</a></li>
 						        	<?php 
 						            if($flag == 1){
 									?>
-						        	<li><a href="#tab6" data-toggle="tab" style="color:white">Περιγραφή</a></li>
+						        	<li><a href="#tab8" data-toggle="tab" style="color:white">Περιγραφή</a></li>
 						        	<?php }?>
-						        	<li><a href="#tab7" data-toggle="tab" style="color:white">Διαθεσιμότητα</a></li>
+						        	<li><a href="#tab9" data-toggle="tab" style="color:white">Διαθεσιμότητα</a></li>
 						        	
 						        	
-						        	<li  class="active"><a href="#tab8" data-toggle="tab" style="color:white">Επέκταση</a></li>
+						        	
 						        	
 						        </ul>
 						        
 						        <div class="tab-content" >
-						        	<div class="tab-pane " id="tab1" style="color:white;margin-top: 10px;">
+						        
+						        	<div class="tab-pane active" id="tab1" style="color:white;margin-top: 10px;">
+						        		<h4 style="color:#fff;text-align:center;">Το βιβλίο σας είναι διαθέσιμο για <?php echo $result['available_days']; ?></h3>
+						        		<h4 style="color:#fff;text-align:center;"> Μπορείτε να κάνετε επέκταση του δανεισμού σας ως 7 ημέρες </h4>
+						        		<input id="spinner" name="value" value="1">
+						        	</div>
+						        	<div class="tab-pane " id="tab2" style="color:white;margin-top: 10px;">
+						        		<?php echo $result['title'];?>
+						        	</div>
+						        	<div class="tab-pane " id="tab3" style="color:white;margin-top: 10px;">
 						            	<?php 
 						            	if($flag == 1){
 										?>
 										<?php echo $result['isbn'];?>
 										<?php }?>
 						        	</div>
-						        	<div class="tab-pane" id="tab2" style="color:white;margin-top: 10px;">
+						        	<div class="tab-pane" id="tab4" style="color:white;margin-top: 10px;">
 						        		<?php
 											echo $result['Name'];
 											echo " ";
@@ -220,35 +231,31 @@ if($stmt->rowCount() == 0) {
 											}
 										?>
 						        	</div>
-						        	<div class="tab-pane" id="tab3" style="color:white;margin-top: 10px;">
+						        	<div class="tab-pane" id="tab5" style="color:white;margin-top: 10px;">
 						        		<?php echo $lib_name;?>
 						        	</div>
 						        	<?php 
 						            if($flag == 1){
 									?>
-						        	<div class="tab-pane" id="tab4" style="color:white;margin-top: 10px;">
+						        	<div class="tab-pane" id="tab6" style="color:white;margin-top: 10px;">
 						        		<?php echo $result['publisher'];?>
 						        	</div>
 						        	<?php }?>
-						        	<div class="tab-pane" id="tab5" style="color:white;margin-top: 10px;">
+						        	<div class="tab-pane" id="tab7" style="color:white;margin-top: 10px;">
 						        		<?php echo $result['category'];?>
 						        	</div>
 						        	<?php 
 						            if($flag == 1){
 									?>
-						        	<div class="tab-pane" id="tab6" style="color:white;margin-top: 10px;">
+						        	<div class="tab-pane" id="tab8" style="color:white;margin-top: 10px;">
 						        		<?php echo nl2br($result['description']);?>
 						        	</div>
 						        	<?php }?>
-						        	<div class="tab-pane" id="tab7" style="color:white;margin-top: 10px;">
+						        	<div class="tab-pane" id="tab9" style="color:white;margin-top: 10px;">
 						        		<?php echo $result['availability'];?>
 						        	</div>
 						        	
-						        	<div class="tab-pane active" id="tab8" style="color:white;margin-top: 10px;">
-						        		<h4 style="color:#fff;text-align:center;">Το βιβλίο σας είναι διαθέσιμο για <?php echo $result['available_days']; ?></h3>
-						        		<h4 style="color:#fff;text-align:center;"> Μπορείτε να κάνετε επέκταση του δανεισμού σας ως 7 ημέρες </h4>
-						        		<input id="spinner" name="value" value="1">
-						        	</div>
+						        
 						        	<input id="materialID" type="hidden" value="<?php echo $result['MaterialID'];?>">
 						        	<input id="username" type="hidden" value="<?php echo $username;?>">
 						        </div>
@@ -261,7 +268,7 @@ if($stmt->rowCount() == 0) {
 				<button id="modal-button" class="btn btn-default"  onclick="closeModal()">Κλείσιμο</button>
 				
 				
-				<button id="expand-btn" class="btn btn-warning" type="submit">
+				<button id="expand-btn" class="btn btn-warning" type="button">
 					<span class="glyphicon glyphicon-shoppinng-cart"></span>Επέκταση
 				</button>
 				
@@ -287,9 +294,10 @@ if($stmt->rowCount() == 0) {
 	});
 
 	$('#expand-btn').click(function(){
-	    var materialID = $('materialID').val();
-	    var username = $('username').val();
+	    var materialID = $('#materialID').val();
+	    var username = $('#username').val();
 	    var days = parseInt($('#spinner').val());
+	    console.log("materialID: " + materialID + " username: " + username + " days: " + days);
 	    request_expand(username, materialID, days);
 	});
 

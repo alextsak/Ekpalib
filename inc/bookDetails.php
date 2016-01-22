@@ -192,9 +192,7 @@ if($stmt->rowCount() == 0) {
 						        	<?php }?>
 						        	<li><a href="#tab7" data-toggle="tab" style="color:white">Διαθεσιμότητα</a></li>
 						        	
-						        	<?php if($page_title == "Ιστορικό Χρήστη") { ?>
-						        	<li><a href="#tab8" data-toggle="tab" style="color:white">Επέκταση</a></li>
-						        	<?php } ?>
+						        	
 						        </ul>
 						        
 						        <div class="tab-content" >
@@ -242,11 +240,7 @@ if($stmt->rowCount() == 0) {
 						        	<div class="tab-pane" id="tab7" style="color:white;margin-top: 10px;">
 						        		<?php echo $result['availability'];?>
 						        	</div>
-						        	<?php if($page_title == "Ιστορικό Χρήστη") { ?>
-						        	<div class="tab-pane" id="tab8" style="color:white;margin-top: 10px;">
-						        		<input id="spinner" name="value" value="<?php echo $result['available_days']; ?>">
-						        	</div>
-						        	<?php } ?>
+						        	
 						        	
 						        </div>
 					        </div>

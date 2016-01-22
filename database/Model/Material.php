@@ -516,13 +516,13 @@ class Material{
 	if(!empty($username) && !empty($materialID) && !empty($days)){
 		$query = "UPDATE academiccommunitymembers_makesrequestfor_material SET EndDate = DATE_ADD(EndDate,INTERVAL ? DAY) WHERE User=? and MaterialID=?";	
 		$stmt = $this->db->prepare($query);
-		$stmt->bindParam(1, $days);
+		$stmt->bindValue(1, intval($days));
 		$stmt->bindParam(2, $username);
-		$stmt->bindParam(1, $materialID);
+		$stmt->bindValue(3, intval($materialID));
 		if($stmt->execute()) {
-			return 1;
+			return "ok";
 		} 
-		return -1;
+		return "error";
 		
 	}
  }
