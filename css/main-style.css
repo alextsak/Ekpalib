@@ -1,6 +1,6 @@
 @charset "utf-8";
 html, body {
-	height: 100%;
+	
 	
 }
 
@@ -41,6 +41,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,p{
    	margin: 0px auto; 
    	margin-bottom: 0px;
    	max-width: 100%;
+   	height:auto;
 	margin-top: 20px;
 	//background-color:#520000;
 	background-color:#520000;
@@ -50,7 +51,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,p{
 
 .container:before {
     content: ' ';
+    display: block;
     position: fixed;
+	overflow: hidden;
     left: 0;
     top: 0;
     width: 100%;
@@ -58,15 +61,14 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,p{
     z-index: -1;
     opacity: 0.8;
     background-image: url("../images/library-1.jpg");
-    
+    background-attachment: fixed;
 	  -webkit-background-size: cover;
 	  -moz-background-size: cover;
 	  -o-background-size: cover;
 	  background-size: cover;
     background-repeat: no-repeat;
-    background-position: 100% 100%;
     -ms-background-size: cover;
-    background-size: 100% 100%;
+   
     
     
 }
