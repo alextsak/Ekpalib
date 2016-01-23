@@ -114,13 +114,15 @@ require_once './utilities/helpers.php';
 										if ($message != "ok") {
 											echo "<script>error_messages('$message');</script>";
 										}
+										else {
+											$massage = "Επιτυχής διαγραφή της αιτησής σας";
+											echo "<script>error_messages('$message');</script>";
+										}
 									}
 									else if(isset($_POST['request']) && $_POST['request'] == "expand"){
-										$mat = $_POST['materialID'];
-										$user = $_POST['username'];
-										$days = $_POST['days'];
+										
 										$m = new Material();
-										$res = $m->request_expansion($user, $mat, $days);
+										$res = $m->request_expansion($_POST['username'], $_POST['materialID'], $_POST['days']);
 										echo "<script>success_messages('OOOOOOKKKKK');</script>";
 										if(strcmp($res, "ok") == 0){
 											

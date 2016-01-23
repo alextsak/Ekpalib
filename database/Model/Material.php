@@ -62,13 +62,7 @@ class Material{
 	}
 	
 	public function add_to_upper_cart($genre) {
-		/*$query = 'select * from ' . $genre . ' where MaterialID IN (';
-		foreach($_SESSION['cart'] as $id => $value) {
-			$query.=$id.",";
-		}*/
-		
-		
-		//$query=substr($query, 0, -1).") order by title ASC";
+	
 		$stmt = $this->db->prepare($query);
 		$stmt->execute();
 		if($stmt->rowCount()>0)

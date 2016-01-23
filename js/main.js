@@ -29,12 +29,8 @@ function searchLibraries(address,department){
 		data : data,
 		dataType: 'json',
 		success : function(data){
-			//var myObj = JSON.stringify(data);
-			//var myObj = $.parseJSON(data);
+		
 			var myObj = data;
-			console.log(myObj);
-			
-			console.log("data length: " + data.length);
 			$("#lib-grid").find("tbody").empty();
 			
 			var datalength = data.length;
@@ -44,21 +40,18 @@ function searchLibraries(address,department){
 			    	
 			    	if(key == "id"){
 			    		html = html +
-			    		"<td style=\"width:120px;\">"+
-						"<button class='btn btn-primary btn-sm' type='button' onclick=detailsLibrary(" + data[i][key] + ")>" +
+			    		"<td style=\"width:120px;text-align:center;\">"+
+						"<button class='btn btn-primary btn-sm' type='button' style=\"background-color: rgb(153, 43, 0); border-color: rgb(153, 43, 0);\" onclick=detailsLibrary(" + data[i][key] + ")>" +
 								"<span class='glyphicon glyphicon-info-sign'></span>"+
 						"</button></td>"
 			    	} else {
 			    		html = html +
-						"<td>" + 
+						"<td style=\"text-align:center;\">" + 
 							data[i][key] 
 						+ "</td> " 
 			    	}
 	
-				"</tr>";
-					
-				
-			        
+				"</tr>";    
 			    }
 			    $("#lib-grid tbody").append(html);
 			}

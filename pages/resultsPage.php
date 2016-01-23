@@ -122,6 +122,7 @@ else {
 				<span class="glyphicon glyphicon-chevron-right"></span>
 				</a>
 			<?php }
+			
 			else {
 				
 				?>
@@ -134,16 +135,23 @@ else {
 		</div>
 		
    	</div>
+
 </div>
-<script>
+
+   	<script>
 $("#confirmLoan-Button").on("click", function (e) {
 	   e.preventDefault(); 
-	   if($("#cart i").html() == "( 0 )"){
+	   	if($("#cart i").html() == "( 0 )"){
 		  
 		   var message = "Παρακαλώ γεμίστε πρώτα το καλάθι σας";
 		   error_messages(message);
 
-		} else {
+		} 
+	   	else if($(this).attr('href') == "?page=login_signup"){
+		   	
+		   window.location.href = "?page=login_signup";
+		}
+		else {
 			
 			window.location.href = "?page=confirmLoan";
 			
