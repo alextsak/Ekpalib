@@ -52,7 +52,7 @@ require_once './utilities/helpers.php';
 							</div>
 							<div class="logo-title">
 								<h3 style="color:#FFFAF0;">Βιβλιοθήκες Πανεπιστημίου ΕΚΠΑ</h3>
-							<h4 style="color:#FFFAF0;">Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</h4>
+							
 							</div>
 						</div>
 					</header>
@@ -65,48 +65,37 @@ require_once './utilities/helpers.php';
 				} else {
 				?>
 				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="left:110px;">
-						<div class="upper-nav pull-right">
-							<ul class="nav navbar-nav">
-								<?php if(isset($_SESSION['username'])) {?>
-									 <li
-										style="width: 150px; border: 1px solid #E5E5E5; background-color:#992B00; margin-top: 6px; border-radius: 3px; margin-right: 40px;">
-										<ul class="nav navbar-nav">
-											<li class="dropdown" style="width: 150px;">
-											<a href="#"
-												class="dropdown-toggle" data-toggle="dropdown"
-												style="font-size: 12px; margin-top: 6px; position: relative; bottom: 4px; right: 20px; padding-left: 0px;">
-													<span class="glyphicon glyphicon-user"
-													style="float: left; top: 3px; margin-right: 5px;"></span>
-													<div style="float: left; width: 100px; overflow: hidden; text-overflow: ellipsis; height: 20px; white-space: nowrap;">
-														<?php echo $_SESSION['username']?>
-													</div> 
-													<span class="glyphicon glyphicon-chevron-down"
-													style="font-size: 10px; float: right; top: 5px; right: 7px;"></span>
-											
-											</a>
-		
-												<ul class="dropdown-menu"
-													style="border-radius: 3px; left: -16px;">
-													<li style="width: 100%;"><a href="#" style="font-size: 12px;">Προφίλ
-															<span class="glyphicon glyphicon-cog" style="left: 8px;"></span>
-													</a></li>
-		
-													<li class="divider" style="width: 100%"></li>
-		
-													<li style="width: 100%;"><a href="?page=history" style="font-size: 12px;">Ιστορικό
-															<span class="glyphicon glyphicon-stats" style="left: 8px;"></span>
-													</a></li>
-		
-													<li class="divider" style="width: 100%"></li>
-		
-													<li style="width: 100%;"><a href="./pages/logout.php"
-														style="font-size: 12px;">Έξοδος<span
-															class="glyphicon glyphicon-log-out" style="left: 8px;"></span>
-													</a></li>
-												</ul></li>
-										</ul>
-									</li>
+					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="left: 13%;" >
+							<?php if(isset($_SESSION['username'])) {?>
+								<div class="dropdown" style="float: right;">
+								  <button id="user"  class="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+								   	<span class="glyphicon glyphicon-user" style="float: left; top: 3px; margin-right: 5px;"></span>
+								   	<?php echo $_SESSION['username']?>
+								    <span class="glyphicon glyphicon-chevron-down"
+									style="font-size: 10px;"></span>
+								  </button>
+								  
+								  <ul class="dropdown-menu" aria-labelledby="user" style="border-radius: 3px;border: 1px solid #E5E5E5;">
+								    <li>
+								    	<a href="#" style="color:white;font-size: 12px;">Προφίλ
+								    		<span class="glyphicon glyphicon-cog"></span>
+								    	</a>
+								    </li>
+								    <li class="divider" style="width: 100%;"></li>
+								    <li>
+								    	<a href="?page=history" style="color:white;font-size: 12px;">Ιστορικό
+								    		<span class="glyphicon glyphicon-stats"></span>
+								    	</a>
+								    </li>
+								    <li class="divider" style="width: 100%"></li>
+								    <li>
+								    	<a href="./pages/logout.php" style="color:white;font-size: 12px;">Έξοδος
+								    		<span class="glyphicon glyphicon-log-out"></span>
+								    	</a>
+								    </li>
+								    
+								  </ul>
+								</div>
 								<?php
 									if(isset($_POST['request']) && $_POST['request'] == "remove"){
 										$material = new Material();
@@ -134,21 +123,19 @@ require_once './utilities/helpers.php';
 										}
 										
 									}
-									
-								} else {
+							} else {
 									/* <i class="glyphicon glyphicon-log-in" style="right: -5px;"></i> */
-									?><li
-										style="width: 120px; border: 1px solid #E5E5E5; background-color:#992B00;margin-top: 6px; border-radius: 3px; margin-right: 40px;">
-										<a href="?page=login_signup"
-											style="color:#FFFAF0; font-size: 12px; margin-top: 6px;background-color:#992B00; position: relative; bottom: 4px; right: 5px;">
+									?>
+										
+									 <button id="user"  class="btn btn-default dropdown-toggle" type="button" onclick="window.location.href='?page=login_signup'"
+								  		 href="?page=login_signup"
+											style="float: right; color:#FFFAF0; font-size: 12px; margin-top: 6px;background-color:#992B00; position: relative;">
 											Είσοδος | Εγγραφή
-										</a>
-									</li>
+										
+								  	</button>
 									<?php
-								}
-								?>
-							</ul>
-						</div>
+							}
+							?>
 					</div>
 					<?php
 						// create session cart and add the item given
@@ -192,8 +179,8 @@ require_once './utilities/helpers.php';
 						?>
 							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="left:50px;">
 								<div class="dropdown">
-									<button id="cart" class="btn btn-default " type="button" data-toggle="dropdown" style="background-color:#992B00;color:#FFFAF0">
-										Καλάθι <i style="color:color:#FFFAF0;"><?php echo '( 0 )';?></i> <i
+									<button id="cart" class="btn btn-default " type="button" data-toggle="dropdown">
+										Καλάθι <i><?php echo '( 0 )';?></i> <i
 											class="glyphicon glyphicon-shopping-cart"></i>
 									</button>
 									<ul id="cart-menu" class="dropdown-menu"

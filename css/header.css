@@ -20,11 +20,6 @@
     margin-left: 120px
 }
 
-
-
-
-
-
 #btn-primary {
 	position:absolute;
 }
@@ -58,13 +53,22 @@
 	overflow-y:scroll;
 }
 
-#cart{
+#user{
+	width: 130px; 
+	overflow: hidden; 
+	text-overflow: ellipsis;  
+	white-space: nowrap;
+}
+
+#cart,#user{
 	border: 1px solid #E5E5E5;
 	margin-top:6px;
 	border-radius: 3px;
 	/* margin-left: -60px; */
 	font-size:12px;
 	height: 28px;
+	background-color: #992B00;
+	color: #FFFAF0;	
 }
 
 #tblGrid{
@@ -133,7 +137,8 @@
 }
 
 #polyglotLanguageSwitcher a:hover {
-	color: #FFFAF0;	
+	color: #FFFAF0;
+	background-color: #5B2A2A;	
 }
 
 #polyglotLanguageSwitcher a.current:link, #polyglotLanguageSwitcher a.current:visited, #polyglotLanguageSwitcher a.current:active {

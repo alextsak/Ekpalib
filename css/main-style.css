@@ -117,18 +117,18 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,p{
 }
 
 .nav-tabs > li > a:hover{
-  background-color: #992B00 !important;
+  background-color:#5B2A2A; !important;
 }
 
  .nav-tabs > li.active > a,
  .nav-tabs > li.active > a:hover{
- background-color: #992B00 !important;
+ background-color:#5B2A2A; !important;
  }
 
 .upper-nav ul li {
-	display:inline-block;
+	/* display:inline-block; */
   padding-left: 15px;
-  padding-right: 15px;
+ /*  padding-right: 15px; */
 }
 
 
@@ -157,7 +157,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,p{
 
 .upper-nav ul li a:hover {
 	color:#996600;
-	background:#992B00;
+	background-color:#5B2A2A;
 }
 
 #lang {
