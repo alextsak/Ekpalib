@@ -50,7 +50,7 @@ $row=$libs->fetch(PDO::FETCH_ASSOC);
 			        		<?php echo nl2br($row['services']) ?>
 			        	</div>
 			        	<div class="tab-pane" id="tab5" style="color:white;margin-top: 10px;">
-			        		<?php echo nl2br($row['services']) ?>
+			        		<a href=" <?php echo 'http://www.' .  $row['Site']; ?>" target="_blanc"><?php echo nl2br($row['Site']) ?></a>
 			        	</div>
 			        </div>
 		        </div>

@@ -137,6 +137,10 @@ class Libraries{
 			$stmt->bindParam(1, $lib_addr);
 			
 		}
+		else if($lib_dep == "Όλα") {
+			$query3 = 'SELECT DISTINCT(libraries.idLibraries),libraries.Name,libraries.Address,libraries.Telephone FROM libraries';
+			$stmt = $this->db->prepare($query3);
+		}
 		else {
 			$query = 'SELECT DISTINCT(libraries.idLibraries),libraries.Name,libraries.Address,libraries.Telephone'.
 					' FROM   libraries,universitydepartment'.

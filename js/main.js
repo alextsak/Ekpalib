@@ -22,6 +22,10 @@ function searchLibraries(address,department){
 	if(department == "Κανένα"){
 		department = '';
 	}
+	if(department == "Όλα") {
+		console.log(department);
+		address="";
+	}
 	var data = {"address" :address,"department":department};
 	$.ajax({
 		url : "/Ekpalib/inc/lib_requests.php",
