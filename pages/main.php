@@ -59,19 +59,39 @@ $(document).ready(function(){
             	<div id="bg-news-img-container">
 	            	<div class="col-md-6" id="News">
 	            		<h4 style="text-decoration: underline; text-align: center; color:#F5FFFA;">Νέα</h4>
-	            			<p style="color:#FFFAF0;">Με την υψηλότερη διάκριση ―worthy of merit― αξιολογήθηκε από τους εξωτερικούς αξιολογητές το 
-	           						Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών κατά την τελική φάση της διαδικασίας της εξωτερικής 
-	           						ιδρυματικής αξιολόγησης
-	
-	 
-	            			</p>
+	            			<hr>
+	            			<p>
+	            				<img class="img-responsive"style="float: left; margin: 0px 15px 15px 0px;" src="images/news.png" width="100" />
+								<h5><a href="#">Προκήρυξη εκλογών για την ανάδειξη αιρετού εκπροσώπου Διοικητικού Προσωπικού στη Σύγκλητο</a></h5>
+								<p>Πέμπτη 11 Φεβρουαρίου 2016, 8.30-16.00</p>
+								<br style="clear: both;" />
+							</p>
+							
+							<hr>
+	            			<p>
+	            				<img class="img-responsive"style="float: left; margin: 0px 15px 15px 0px;" src="images/news.png" width="100" />
+								<h5><a href="#">Προκήρυξη εκλογών για την ανάδειξη αιρετού εκπροσώπου Ειδικού Τεχνικού Εργαστηριακού Προσωπικού (ΕΤΕΠ) στη Σύγκλητο</a></h5>
+								<p>Πέμπτη 11 Φεβρουαρίου 2016, 8.30-16.00</p>
+								<br style="clear: both;" />
+							</p>
 	            	</div>
 	            	<div class="col-md-6" id="Events">
 	            		<h4 style="text-decoration: underline; text-align: center; color:#F5FFFA;">Εκδηλώσεις</h4>
-	          			<p style="color:#FFFAF0;">Πρόσκληση σε ομιλία του Καθηγητή και Ακαδημαϊκού κ. Δ. Νανόπουλου 
-							Τετάρτη 13 Ιανουαρίου 2016, ώρα 12:00 Πρόσκληση σε ομιλία του Καθηγητή και Ακαδημαϊκού κ. Δ. Νανόπουλου 
-	
-	          			</p>
+	            			<hr>
+	            			<p>
+	            				<img class="img-responsive"style="float: left; margin: 0px 15px 15px 0px;" src="images/events.png" width="100" />
+								<h5><a href="#">Ομιλία με θέμα "Οι Αρχαίοι Έλληνες, οι Άραβες και η Ιστορία των Μαθηματικών: Διαμάχες για την πρώιμη ιστορία της άλγεβρας"</a></h5>
+								<p>Τρίτη 26 Ιανουαρίου 2016, ώρα 19:00</p>
+								<br style="clear: both;" />
+							</p>
+							
+							<hr>
+	            			<p>
+	            				<img class="img-responsive"style="float: left; margin: 0px 15px 15px 0px;" src="images/events.png" width="100" />
+								<h5><a href="#">Επιστημονική εκδήλωση "Σύγχρονος Επαγγελματικός Αθλητισμός και οι Αλλαγές του Αθλητικού Νόμου"</a></h5>
+								<p>Τετάρτη 27 Ιανουαρίου 2016, ώρα 18.00</p>
+								<br style="clear: both;" />
+							</p>
 	            	</div>
             	 </div>
             </div>

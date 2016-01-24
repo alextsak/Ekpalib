@@ -52,6 +52,10 @@ function sitepath_constructor(){
 			$page = 'Ιστορικό Χρήστη';
 			$href = '?page=history';
 			break;
+		case "under_construction" :
+			$page = 'Υπο Κατασκευή';
+			$href = get_basename();
+			break;
 		default :
 			$page = 'no path';
 			$href = get_basename();

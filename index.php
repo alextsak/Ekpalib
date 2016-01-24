@@ -5,7 +5,7 @@ require_once './controller/pageController.php';
 
 $problem = 0;
 
-$exclude_easy_search = array('confirmLoan', 'advancedSearch', 'history');
+$exclude_easy_search = array('confirmLoan', 'advancedSearch', 'history', 'under_construction');
 
 if(isset($_GET['page']) && !isset($_GET['page_no'])) {
 	
