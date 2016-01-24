@@ -44,14 +44,7 @@ $(document).ready(function(){
 
 
 function searchLibraries(address,department){
-	
-	if(department == "Κανένα"){
-		department = '';
-	}
-	if(department == "Όλα") {
-		console.log(department);
-		address="";
-	}
+
 	var data = {"address" :address,"department":department};
 	console.log(data);
 	$.ajax({
@@ -88,7 +81,9 @@ function searchLibraries(address,department){
 			}
 		},
 		error : function(){
-			alert("Something went wrong");
+			$("#lib-grid").find("tbody").empty();
+			var html =  "Δεν βρέθηκαν εγγραφές";
+			$("#lib-grid tbody").append(html);
 			}
 
 		});
