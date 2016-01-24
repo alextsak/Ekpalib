@@ -206,7 +206,7 @@ $user_results_history = $user->get_user_history ( $username );
 		                   			<td style="text-align:center;"><a href="javascript:detailsLibrary(<?php echo $lib_id;?>)"><?php echo $lib_name; ?></a></td>
 		                   			<td style="text-align:center;"><?php echo $row['received']; ?></td>
 		                   			<td style="text-align:center;"><?php echo $row['returned']; ?></td>
-									<td style="width:120px;">
+									<td style="width:120px; text-align:center;">
 									<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>)"
 									style="background-color: rgb(153, 43, 0); border-color: rgb(153, 43, 0);">
 									<span class="glyphicon glyphicon-info-sign" ></span>
