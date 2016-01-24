@@ -23,7 +23,7 @@ class User{
 				return "User found";
 			}
 			else{
-				return "No user found. Please try again";
+				return "The information given is not correct. Please try again.";
 			}
 		}
 		else {
