@@ -118,13 +118,20 @@ class Libraries{
 	public function searchLibraries($lib_addr,$lib_dep){
 		
 		if($lib_addr == "" && $lib_dep != ""){
-			$query1 = 'SELECT DISTINCT(libraries.idLibraries),libraries.Name,libraries.Address,libraries.Telephone'.
-					' FROM   libraries,universitydepartment'.
-					' where  libraries.idLibraries = universitydepartment.idLibraries and'.
-					' universitydepartment.Name = ?';
 			
-			$stmt = $this->db->prepare($query1);
-			$stmt->bindParam(1, $lib_dep);
+			if($lib_dep == "Όλα"){
+				$query1 = 'SELECT DISTINCT(libraries.idLibraries),libraries.Name,libraries.Address,libraries.Telephone FROM libraries';
+				$stmt = $this->db->prepare($query1);
+			}
+			else {
+				$query1 = 'SELECT DISTINCT(libraries.idLibraries),libraries.Name,libraries.Address,libraries.Telephone'.
+						' FROM   libraries,universitydepartment'.
+						' where  libraries.idLibraries = universitydepartment.idLibraries and'.
+						' universitydepartment.Name = ?';
+					
+				$stmt = $this->db->prepare($query1);
+				$stmt->bindParam(1, $lib_dep);
+			}
 		}
 		elseif($lib_addr != "" && $lib_dep == ""){
 			$query2 = 'SELECT DISTINCT(libraries.idLibraries),libraries.Name,libraries.Address,libraries.Telephone'.
@@ -137,10 +144,7 @@ class Libraries{
 			$stmt->bindParam(1, $lib_addr);
 			
 		}
-		else if($lib_dep == "Όλα") {
-			$query3 = 'SELECT DISTINCT(libraries.idLibraries),libraries.Name,libraries.Address,libraries.Telephone FROM libraries';
-			$stmt = $this->db->prepare($query3);
-		}
+		
 		else {
 			$query = 'SELECT DISTINCT(libraries.idLibraries),libraries.Name,libraries.Address,libraries.Telephone'.
 					' FROM   libraries,universitydepartment'.
