@@ -167,7 +167,7 @@ $user_results_history = $user->get_user_history ( $username );
 				<table class="table" id="results-grid">
 					
 					<?php
-								if ($user_results_received->rowCount() == 0) {
+								if ($user_results_history->rowCount() == 0) {
 							?>
 							<h3 style="text-align: center; color: #FFF;"><?php echo "Δεν υπάρχουν Παλαιοί Δανειμοί";?></h3>
 							
