@@ -113,7 +113,7 @@ require_once './utilities/helpers.php';
 										
 										$m = new Material();
 										$res = $m->request_expansion($_POST['username'], $_POST['materialID'], $_POST['days']);
-										echo "<script>success_messages('OOOOOOKKKKK');</script>";
+										
 										if(strcmp($res, "ok") == 0){
 											
 											$message = "Η επέκταση έγινε με επιτυχία";
@@ -125,7 +125,7 @@ require_once './utilities/helpers.php';
 										
 									}
 							} else {
-									/* <i class="glyphicon glyphicon-log-in" style="right: -5px;"></i> */
+									
 									?>
 										
 									 <button id="user"  class="btn btn-default dropdown-toggle" type="button" onclick="window.location.href='?page=login_signup'"
@@ -157,24 +157,7 @@ require_once './utilities/helpers.php';
 								echo "<script>error_messages('$message');</script>";
 							}
 						}
-						if ((isset ( $_GET ['action'] ) && $_GET ['action'] == "add")) {
-							
-							
-							$materialID = intval ( $_GET ['materialID'] );
-							
-							if (! isset ( $_SESSION ['cart'] [$materialID] )) {
-								
-								/* make query to database and set the session accordingly */
-								$material = new Material ();
-								$message = $material->add_to_cart ($materialID);
-								if ($message != "ok") {
-									echo "<script>error_messages('$message');</script>";
-								}
-							}else {
-								$message = "Το βιβλίο " . "<span style=\"color:black;font-weight:bold;text-decoration: underline;\">".$_SESSION ['cart'] [$materialID]['title'] ."</span> περιέχεται ήδη στο καλάθι σας";
-								echo "<script>error_messages('$message');</script>";
-							}
-						}
+					
 						// if there is no session for the cart then echo just 0
 						if (! isset ( $_SESSION ['cart'])){
 						?>
@@ -266,6 +249,7 @@ require_once './utilities/helpers.php';
 										</div>
 								        <div class="modal-footer">
 								          <button id="modal-button" type="button" class="btn btn-default " data-dismiss="modal">Κλείσιμο</button>
+								          <button type="button" class="btn btn-danger " data-dismiss="modal" onclick='cleanCart()'>Διαγραφή Όλων</button>
 								          <a href="?page=confirmLoan" style="background-color: #EC971F;border-color:#EC971F;" class="btn btn-primary">Επιβεβαίωση Δανεισμού</a>
 								        </div>
 												

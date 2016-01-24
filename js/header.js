@@ -1,5 +1,5 @@
 /**
- * 
+ * Header functions, messages in particular
  */
 $(document).ready(function(){
 	
@@ -7,7 +7,7 @@ $(document).ready(function(){
 		effect: 'fade',
         testMode: true,
         onChange: function(evt){
-            //alert("The selected language is: "+evt.selectedItem);
+            
         }
 	});
 	
@@ -43,6 +43,26 @@ function success_messages(message){
 		success : function(data){
 			jQuery('body').append(data);
 			jQuery('#success-modal').modal('toggle');
+			},
+		error : function(){
+		alert("Something went wrong");
+			}
+
+		});
+}
+
+
+function cleanCart(){
+	/*
+	 * Removes every item from the cart
+	 * */
+	var data = {"action" : "removeAll"};
+	jQuery.ajax({
+		url : window.location.href,
+		method: "post",
+		data : data,
+		success : function(data){
+			location.reload(true);
 			},
 		error : function(){
 		alert("Something went wrong");

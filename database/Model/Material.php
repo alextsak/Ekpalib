@@ -257,18 +257,13 @@ class Material{
 		                   	<td style="text-align:center;"><a href="javascript:detailsLibrary(<?php echo $row['idLibraries'];?>)" style="text-decoration: underline; color:#FFFAF0;"><?php echo $row['Name']; ?></a></td>
 	                 		<td style="text-align:center;"><?php echo $row['availability']; ?></td>
 	                 		<td style="text-align:center;"><?php echo $row['available_days']; ?></td>
-	                 		<?php 
-	                 			$url_path = $_SERVER['QUERY_STRING'];
-        						$url_path = '?' .  $url_path;
-        						if(strpos( $url_path, '&action')){
-        							$last_amber = strrpos( $url_path, '&action');
-        							$last_word = substr( $url_path, $last_amber);
-        							$url_path = substr( $url_path, 0, $last_amber);
-        							
-        						}
-        						?>
-	                 		<td style="text-align:center;"><a href="<?php echo $url_path."&action=add&materialID=" . $row['MaterialID']?>"><span class="glyphicon glyphicon-shopping-cart"  style="font-size:larger;"></span>
-							</a></td>
+	                 		
+	                 		<td style="text-align:center;">
+	                 			<button class="btn btn-default btn-sm" type="button" onclick="addToCart(<?php echo $row['MaterialID'];?>)">
+									<span class="glyphicon glyphicon-shopping-cart"></span> 
+								</button>
+	                 		  
+							</td>
 		                   	
 							<td style="width:120px;text-align:center;">
 								<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>, '<?php echo get_title();?>')"
