@@ -3,7 +3,7 @@
 	<footer  id="footer">
 			<div id="footer-container">
 					<h5 id="sitemap" style="color:#FFFAF0;">
-					<a href="<?php echo get_basename();?>" style="color:#FFFAF0;">Αρχική</a><a>&nbsp|&nbsp</a><a href="#" style="color:#FFFAF0;">Χάρτης Ιστοτόπου</a></h5>
+					<a href="<?php echo get_basename();?>" style="color:#FFFAF0;">Αρχική</a><a>&nbsp|&nbsp</a><a href="?page=under_construction" style="color:#FFFAF0;">Χάρτης Ιστοτόπου</a></h5>
 				<p id="copyright">&copy;2016 Βιβλιοθήκες ΕΚΠΑ </p> 
 			</div>
 	</footer>

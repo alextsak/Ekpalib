@@ -22,17 +22,18 @@ function init(){
 	
 	
 	$("a.my-tool-tip").tooltip();
+	$("#sign-up-confirm-password").keyup(checkPasswordMatch);
+
 	
-	/*$("#register-submit").on("click",function(event){
-    	event.preventDefault();
-    	var input = {};
-    	
-    	var password = $("#sign-up-password").val();
-    	var verifiedPassword = $("#sign-up-confirm-password").val();
-    	
-    	if(verifiedPassword != password){
-    		alert("Password is not verified!");
-    	}
-    });	*/
-	
+}
+
+
+function checkPasswordMatch() {
+    var password = $("#sign-up-password").val();
+    var confirmPassword = $("#sign-up-confirm-password").val();
+
+    if (password != confirmPassword)
+        $("#divCheckPasswordMatch").html("Passwords do not match!");
+    else
+        $("#divCheckPasswordMatch").html("Passwords match.");
 }
