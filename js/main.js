@@ -4,9 +4,9 @@
 $(document).ready(function(){
 	$("#lib-search").on("click",function(event){
 		if ( $("#addr-content").css("display") == "none")
-			searchLibraries($( "#lib-dep option:selected" ).text(),"" );
+			searchLibraries("",$( "#lib-dep option:selected" ).text() );
 		else
-			searchLibraries("",$("#lib-addr").val());
+			searchLibraries($("#lib-addr").val(),"");
 	});
 	
 	if ( $("#addr-content").css("display") == "block")
