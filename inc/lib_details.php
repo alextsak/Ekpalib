@@ -33,7 +33,7 @@ $row=$libs->fetch(PDO::FETCH_ASSOC);
 			        	<li><a href="#tab2" data-toggle="tab"style="color:white">Γενικές Πληροφορίες</a></li>
 			        	<li><a href="#tab3" data-toggle="tab"style="color:white">Συλλογή</a></li>
 			        	<li><a href="#tab4" data-toggle="tab"style="color:white">Υπηρεσίες</a></li>
-			        	<li><a href="#tab5" data-toggle="tab"style="color:white">Ιστοσελίδα</a></li>
+			        	<li><a href="#tab5" data-toggle="tab"style="color:white">Επικοινωνία</a></li>
 			        </ul>
 			        
 			        <div class="tab-content" >
@@ -50,7 +50,11 @@ $row=$libs->fetch(PDO::FETCH_ASSOC);
 			        		<?php echo nl2br($row['services']) ?>
 			        	</div>
 			        	<div class="tab-pane" id="tab5" style="color:white;margin-top: 10px;">
-			        		<a href=" <?php echo 'http://www.' .  $row['Site']; ?>" target="_blanc"><?php echo nl2br($row['Site']) ?></a>
+			        		<h4>Ιστοδελίδα: 
+			        			<a href=" <?php echo 'http://www.' .  $row['Site']; ?>" target="_blanc"><?php echo nl2br($row['Site']) ?></a>
+			        		</h4>
+			        		<h4>Τηλέφωνο:  <?php echo nl2br($row['Telephone'])?></h4>
+			        		<h4>Fax:  <?php echo nl2br($row['Fax']) ?></h4>
 			        	</div>
 			        </div>
 		        </div>
