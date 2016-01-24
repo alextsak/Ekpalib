@@ -135,7 +135,7 @@ $(document).ready(function(){
 			              	<div id="dep-header" class="header" style="width: 140px;"> 
 			              		<h5>
 			              			<span class="glyphicon glyphicon-plus-sign"></span>
-			              			Επιλογή τμήματος
+			              			Επιλογή Τμήματος
 			              		</h5>
 			              	</div>
     						<div id="dep-content" class="content">
@@ -146,7 +146,7 @@ $(document).ready(function(){
 										  	$libraries = new Libraries();
 										  	$libraries->get_department_names();	
 						 				   ?>
-						 				   <option>Κανένα</option> 
+						 				    
 									</select>
 								</form>
 		              		</div>

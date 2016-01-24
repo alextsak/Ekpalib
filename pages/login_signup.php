@@ -1,56 +1,39 @@
 <?php 
 error_reporting(E_ALL);
 
+/*
+ * Creating the logic for the login and the registration process
+ */
 
 if(isset($_POST['login-form-btn']) && !empty($_POST['login-form-btn'])){
 	$username = $_POST['username'];
 	$password = $_POST['password'];
-	//echo $username;
-	
-	// check here if the user  is already logged in 
-	
 	$user = new User();
 	$message = "";
 	$message = $user->Login($username, $password);
 	if($message == "User found"){
 		$_SESSION['username'] = $username;
-		//echo "Welcome " . $username . " ! ";
-		if(isset($_SESSION['cart'])){
-			if(count($_SESSION['cart']) > 0) {
-				
-			}
-			header('Location: index.php');
-		}
-		
-		else {
-			
-			
-			header('Location: index.php');
-		}
-		
+		$base = get_basename();
+		header('Location: ' . $base);	
 	}
 
 }
 if(isset($_POST['register-form-btn']) && !empty($_POST['register-form-btn'])){
 	$reg_array = array();
-	if(empty($_POST['username']) || empty($_POST['password']) || empty($_POST['email']) || empty($_POST['academicID']) || empty($_POST['academicPass'])){
-		$message_error = "Παρακαλώ συμπληρώστε όλα τα απαιτούμενα πεδία";
-		echo "<script>error_messages('$message_error');</script>";
+	array_push($reg_array,$_POST['username'], $_POST['password'],$_POST['firstName'], $_POST['lastName'], $_POST['phonenumber'], $_POST['email'], $_POST['academicID'], $_POST['academicPass']);
+	$user = new User();
+	$username = $_POST['username'];
+	$message = $user->RegisterUser($reg_array);
+	if($message == "registered"){
+		$_SESSION['username'] = $username;
+		$base = get_basename();
+		header('Location: ' . $base);
 	}
 	else {
-		array_push($reg_array,$_POST['username'], $_POST['password'],$_POST['firstName'], $_POST['lastName'], $_POST['phonenumber'], $_POST['email'], $_POST['academicID'], $_POST['academicPass']);
-		$user = new User();
-		$username = $_POST['username'];
-		$message = $user->RegisterUser($reg_array);
-		if($message == "registered"){
-			$_SESSION['username'] = $username;
-			header('Location: index.php');
-		}
-		else {
-			$message_error = "Η εγγραφη σας δεν ολοκληρώθηκε σωστά";
-			echo "<script>error_messages('$message_error');</script>";
-		}
+		$message_error = "Η εγγραφη σας δεν ολοκληρώθηκε σωστά";
+		echo "<script>error_messages('$message_error');</script>";
 	}
+	
 	
 }
 
@@ -97,9 +80,6 @@ if(isset($_POST['register-form-btn']) && !empty($_POST['register-form-btn'])){
 														?>
 															 
 														</div>
-														<!-- <div class="col-sm-4 col-sm-offset-4">
-															<button  name="guest-submit" id="guest-submit" tabindex="4" class="form-control btn btn-primary ">Enter as guest</button>
-														</div> -->
 													</div>
 												</div>
 											</div>
@@ -134,13 +114,9 @@ if(isset($_POST['register-form-btn']) && !empty($_POST['register-form-btn'])){
 													<div class="form-group">
 														<input type="text" name="phonenumber" id="sign-up-phonenumber" tabindex="2" class="form-control" placeholder="Αριθμός Τηλεφώνου">
 													</div>
-												</div>
-											  	
-												
-												
+												</div>												
 											</div>  
-											<!-- row1 -->
-										
+
 											<div class="row">
 												<div class="col-md-6" role="form">
 													<div class="form-group">
@@ -153,14 +129,12 @@ if(isset($_POST['register-form-btn']) && !empty($_POST['register-form-btn'])){
 														<input type="text" name="lastName" id="sign-up-lastname" tabindex="2" class="form-control" placeholder="Επώνυμο">
 													</div>
 												</div>
-												
-												
 											</div>
 											<!-- row2 -->
 											<div class="row">
 												<div class="col-md-6" role="form">
 												    <div class="input-group add-on">
-													    <input type="text" name="academicID" id="sign-up-street" tabindex="2" class="form-control" placeholder="Ακαδημαϊκό Α.Μ.*">
+													    <input type="text" name="academicID" id="sign-up-academic-id" tabindex="2" class="form-control" placeholder="Ακαδημαϊκό Α.Μ.*">
 													        <span class="input-group-addon">
 													            <a class='my-tool-tip' data-toggle="tooltip" data-placement="top" title="Εισάγετε τον Αριθμό Μητρώου που σας έχει δοθεί από την γραμματεία του τμηματός σας">
 													                <i class='glyphicon glyphicon-question-sign'></i>
@@ -170,13 +144,12 @@ if(isset($_POST['register-form-btn']) && !empty($_POST['register-form-btn'])){
 												</div>
 												<div class="col-md-6" role="form">
 													<div class="input-group add-on">
-														<input type="password" name="academicPass" id="sign-up-street" tabindex="2" class="form-control" placeholder="Ακαδημαϊκός Κωδικός*">
+														<input type="password" name="academicPass" id="sign-up-academic-pass" tabindex="2" class="form-control" placeholder="Ακαδημαϊκός Κωδικός*">
 															<span class="input-group-addon">
 													            <a class='my-tool-tip' data-toggle="tooltip" data-placement="top" title="Εισάγετε τον ακαδημαϊκό κωδικό που χρησιμοποιείτε">
 													                <i class='glyphicon glyphicon-question-sign'></i>
 													            </a>
 													        </span>
-
 													</div>
 												</div>
 												
@@ -190,7 +163,9 @@ if(isset($_POST['register-form-btn']) && !empty($_POST['register-form-btn'])){
 													</div>
 												</div>
 											</div>
-											<div style="text-align: center; color:orange;">Τα πεδία με αστερίσκο(*) είναι απαραίτητο να συμπληρωθούν</div>
+											<div id="empty-fields" style="text-align: center; color:orange;">
+												Τα πεδία με αστερίσκο(*) είναι απαραίτητο να συμπληρωθούν
+											</div>
 										</form>
 									
 									</div>
