@@ -5,23 +5,32 @@ $(document).ready(function(){
 	$("#lib-search").on("click",function(event){
     	searchLibraries($("#lib-addr").val() ,$( "#lib-dep option:selected" ).text() );
 	});
-	/*$('#lib-dep').on('change', function() {
-		  if($( "#lib-dep option:selected" ).text() == "Κανένα")
-			  $("input").prop('disabled', false);
-		  else
-			  $("input").prop('disabled', true);
-	});
-	*/
-	$(".header").click(function () {
+	
+	if ( $("#addr-content").css("display") == "block")
+		$("#addr-content").hide();
+	
+	$("#addr-header").click(function () {
 
 	    $header = $(this);
-	    //getting the next element
 	    $content = $header.next();
-	    //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
 	    $content.slideToggle(500, function () {
-	        //execute this after slideToggle is done
-	        //change text of header based on visibility of content div
-	        
+	    	
+	    	if ( $("#dep-content").css("display") != "block")
+	    		$("#dep-content").show();
+	    	else 
+	    		$("#dep-content").hide();
+	    });
+
+	});
+	
+	$("#dep-header").click(function () {
+	    $header = $(this);
+	    $content = $header.next();
+	    $content.slideToggle(500, function () {
+	    	if ( $("#addr-content").css("display") != "block")
+	    		$("#addr-content").show();
+	    	else
+	    		$("#addr-content").hide();
 	    });
 
 	});

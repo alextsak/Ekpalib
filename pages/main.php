@@ -130,14 +130,15 @@ $(document).ready(function(){
 													-webkit-border-radius: 10px;
 													height:inherit;
 													border-style: double;">
-						<!-- <p>Εάν επιλέξετε "Κανένα" Τμήμα τότε αναζητείτε βιβλιοθήκες με βάση την διεύθυνση</p> -->
+						
 		              	<div class="col-md-4">
-			              	<div class="header">
-			              		<span>
-			              			<h5>Επιλογή τμήματος</h5>
-			              		</span>
+			              	<div id="dep-header" class="header" style="width: 140px;"> 
+			              		<h5>
+			              			<span class="glyphicon glyphicon-plus-sign"></span>
+			              			Επιλογή τμήματος
+			              		</h5>
 			              	</div>
-    						<div class="content">
+    						<div id="dep-content" class="content">
 				              	<form class="form-horizontal">
 									<select id="lib-dep" class="form-control" style="position:relative;top:10px;margin-bottom:25px;right:15px;width:250px">
 										  <option>Όλα</option>
@@ -151,12 +152,13 @@ $(document).ready(function(){
 		              		</div>
 		              	</div>
 		              	<div class="col-md-6">
-			              	<div class="header" style="right: 0px; left: -22%;">
-			              		<span>
-			              			<h5>Επιλογή Διεύθυνσης</h5>
-			              		</span>
+			              	<div id="addr-header" class="header" style="right: 0px; left: -22%;width: 150px;">
+			              		<h5>
+			              			<span class="glyphicon glyphicon-plus-sign"></span>
+			              			Επιλογή Διεύθυνσης
+			              		</h5>
 			              	</div>
-    						<div class="content">
+    						<div id="addr-content" class="content">
 				              	<form class="form-horizontal" >
 				              		<div class="form-group" style="position:relative;top:10px;right:110px;width:inherit">
 										    <div class="col-sm-10">
