@@ -437,6 +437,28 @@ class Material{
  	}
  }
  
+ public function autoReceive($material_id){
+ 	/* Dummy function to auto approve requests for materials with over 50 unit in availability,
+ 	 * for presentation purposes */
+ 	if (!empty($material_id)){
+ 		$query = 'UPDATE academiccommunitymembers_makesrequestfor_material SET Approved=1 WHERE MaterialID=? and (SELECT availability FROM material WHERE MaterialID=?) >= 100';
+ 		$stmt = $this->db->prepare($query);
+ 		$flag = 0;
+ 		$stmt->bindValue(1, intval($material_id));
+ 		$stmt->bindValue(2, intval($material_id));
+ 		if($stmt->execute()) {
+ 			$flag = 1;
+ 			return "ok";
+ 		}
+ 		else {
+ 			return "error";
+ 		}
+ 	}
+ 	else {
+ 		return "empty argument";
+ 	}
+ }
+ 
  public function remove_request($username,$material_id){
  	// Remove the user request with given ID
  	if (!empty($material_id)){
@@ -474,12 +496,13 @@ class Material{
 				$stmt->bindValue(3, intval($days_array[$i]));
 				$stmt->execute();
 				$flag = 1;
+				$this->autoApprove(intval($idArray[$i]));
+				$this->autoReceive(intval($idArray[$i]));
 			} catch (PDOException $e) {
 				return "request_denied";
 			}
 		}
 		if($flag == 1) {
-			$this->autoApprove($material_id);
 			return "inserted";
 		}
 		

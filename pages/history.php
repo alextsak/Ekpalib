@@ -45,7 +45,7 @@ $user_results_history = $user->get_user_history ( $username );
 									<th style="text-align:center;"><?php echo 'Τίτλος';?></th>
 									<th style="text-align:center;"><?php echo 'Κατηγορία';?></th>
 									<th style="text-align:center;"><?php echo 'Βιβλιοθήκη';?></th>
-									<th style="text-align:center;"><?php echo 'Κατάσταση';?></th>
+									<th style="text-align:center;"><?php echo 'Κατάσταση Αίτησης';?></th>
 									<th style="text-align:center;"><?php echo 'Επιλογές'?></th> <!-- book details / cancel -->
 								</tr>
 							</thead>
@@ -69,11 +69,11 @@ $user_results_history = $user->get_user_history ( $username );
 		                   			<td style="text-align:center;"><a href="javascript:detailsLibrary(<?php echo $lib_id;?>)"><?php echo $lib_name; ?></a></td>
 									<td style="text-align:center;">
 									<?php if ($row['Approved'] == 1) {?>
-											<span class="glyphicon glyphicon-ok"></span>
+											<?php echo "<span style='color: #ace600;' >Εγκρίθη</span>"; ?>
 											<?php 
 									}
 									else {
-										?><span class="glyphicon glyphicon-minus"></span>
+										?><?php echo "<span style='color: #ff9900;' >Εκκρεμεί</span>"; ?>
 										<?php 
 									}
 									?></td>
