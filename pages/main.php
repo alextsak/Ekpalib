@@ -54,16 +54,17 @@ $(document).ready(function(){
 	  <!-- Tab panes -->
 	  <div  class="tab-content" >
 	  
-            <div class="tab-pane active" id="NewsAndEvents">
-            	<div class="panel-body" id="NewsAndEventsBody">
+		<div class="tab-pane active" id="NewsAndEvents">
+        	<div class="panel-body" id="NewsAndEventsBody">
+            	<div id="bg-news-img-container">
 	            	<div class="col-md-6" id="News">
 	            		<h4 style="text-decoration: underline; text-align: center; color:#F5FFFA;">Νέα</h4>
-	            		 <p style="color:#FFFAF0;">Με την υψηλότερη διάκριση ―worthy of merit― αξιολογήθηκε από τους εξωτερικούς αξιολογητές το 
+	            			<p style="color:#FFFAF0;">Με την υψηλότερη διάκριση ―worthy of merit― αξιολογήθηκε από τους εξωτερικούς αξιολογητές το 
 	           						Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών κατά την τελική φάση της διαδικασίας της εξωτερικής 
 	           						ιδρυματικής αξιολόγησης
 	
 	 
-	            		</p>
+	            			</p>
 	            	</div>
 	            	<div class="col-md-6" id="Events">
 	            		<h4 style="text-decoration: underline; text-align: center; color:#F5FFFA;">Εκδηλώσεις</h4>
@@ -74,6 +75,7 @@ $(document).ready(function(){
 	            	</div>
             	 </div>
             </div>
+		</div>
           
             <div class="tab-pane" id="StudyRooms">
     			<div class="panel-body" id="StudyRoomsBody">
