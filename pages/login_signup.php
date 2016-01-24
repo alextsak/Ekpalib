@@ -1,16 +1,8 @@
 <?php 
 error_reporting(E_ALL);
-function abspath()
-{
-	return $_SERVER['DOCUMENT_ROOT'];
-}
 
-function directory()
-{
-	return '/Ekpalib/index.php';
-}
 
-if(isset($_POST['login-form'])){
+if(isset($_POST['login-form-btn']) && !empty($_POST['login-form-btn'])){
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 	//echo $username;
@@ -39,20 +31,27 @@ if(isset($_POST['login-form'])){
 	}
 
 }
-if(isset($_POST['register-form'])){
+if(isset($_POST['register-form-btn']) && !empty($_POST['register-form-btn'])){
 	$reg_array = array();
-	array_push($reg_array,$_POST['username'], $_POST['password'],$_POST['firstName'], $_POST['lastName'], $_POST['phonenumber'], $_POST['email'], $_POST['academicID'], $_POST['academicPass']);
-	$user = new User();
-	$username = $_POST['username'];
-	$message = $user->RegisterUser($reg_array);
-	if($message == "registered"){
-		//echo "Welcome " . $username . " ! ";
-		$_SESSION['username'] = $username;
-		header('Location: index.php');
+	if(empty($_POST['username']) || empty($_POST['password']) || empty($_POST['email']) || empty($_POST['academicID']) || empty($_POST['academicPass'])){
+		$message_error = "Παρακαλώ συμπληρώστε όλα τα απαιτούμενα πεδία";
+		echo "<script>error_messages('$message_error');</script>";
 	}
 	else {
-		echo 'Something went wrong :(';
+		array_push($reg_array,$_POST['username'], $_POST['password'],$_POST['firstName'], $_POST['lastName'], $_POST['phonenumber'], $_POST['email'], $_POST['academicID'], $_POST['academicPass']);
+		$user = new User();
+		$username = $_POST['username'];
+		$message = $user->RegisterUser($reg_array);
+		if($message == "registered"){
+			$_SESSION['username'] = $username;
+			header('Location: index.php');
+		}
+		else {
+			$message_error = "Η εγγραφη σας δεν ολοκληρώθηκε σωστά";
+			echo "<script>error_messages('$message_error');</script>";
+		}
 	}
+	
 }
 
 ?>
@@ -84,7 +83,7 @@ if(isset($_POST['register-form'])){
 											<div class="form-group">
 												<div class="row">
 													<div class="col-sm-6 col-sm-offset-3">
-														 <input id="login-submit" type="submit" name="login-form" value="Είσοδος" tabindex="4" class="form-control btn btn-primary"/> 
+														 <input id="login-submit" type="submit" name="login-form-btn" value="Είσοδος" tabindex="4" class="form-control btn btn-primary"/> 
 													</div>
 												</div>
 											</div>
@@ -124,7 +123,8 @@ if(isset($_POST['register-form'])){
 														<input type="password" name="confirm-password" id="sign-up-confirm-password" tabindex="2" class="form-control" placeholder="Επιβεβαίωση Κωδικού*">
 													</div>
 												</div>
-												
+												<div id="divCheckPasswordMatch" style="text-align:center; color:orange; margin-bottom:2em;">
+												</div>
 											  	<div class="col-md-6" role="form">
 												  	<div class="form-group">
 														<input type="email" name="email" id="sign-up-email" tabindex="2" class="form-control" placeholder="Διεύθυνση ηλ. ταχυδρομείου*" value="">
@@ -186,26 +186,18 @@ if(isset($_POST['register-form'])){
 											<div class="form-group">
 												<div class="row">
 													<div class="col-sm-6 col-sm-offset-3">
-														<input id="register-submit" type="submit" name="register-form" tabindex="4" value="Εγγραφή" class="btn btn-primary form-control"/>
+														<input id="register-submit" type="submit" name="register-form-btn" tabindex="4" value="Εγγραφή" class="btn btn-primary form-control"/>
 													</div>
 												</div>
 											</div>
+											<div style="text-align: center; color:orange;">Τα πεδία με αστερίσκο(*) είναι απαραίτητο να συμπληρωθούν</div>
 										</form>
-
+									
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-		
-		
-		<script>
-
-  		$(document).ready(function(){
-  		    $('[data-toggle="popover"]').popover(); 
-  			//$("[rel='popover']").popover();  
-  		});   
-
-</script>
+				
 	

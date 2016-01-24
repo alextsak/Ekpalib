@@ -23,7 +23,7 @@ function init(){
 	
 	$("a.my-tool-tip").tooltip();
 	$("#sign-up-confirm-password").keyup(checkPasswordMatch);
-
+	
 	
 }
 
@@ -31,9 +31,12 @@ function init(){
 function checkPasswordMatch() {
     var password = $("#sign-up-password").val();
     var confirmPassword = $("#sign-up-confirm-password").val();
-
-    if (password != confirmPassword)
-        $("#divCheckPasswordMatch").html("Passwords do not match!");
-    else
-        $("#divCheckPasswordMatch").html("Passwords match.");
+    
+    if (password != confirmPassword){
+    	$("#divCheckPasswordMatch").html("Passwords do not match!");
+    }
+    else {
+    	$("#divCheckPasswordMatch").html("Passwords match");	
+    }
+        
 }
