@@ -23,11 +23,11 @@ class User{
 				return "User found";
 			}
 			else{
-				return "The information given is not correct. Please try again.";
+				return "Τα στοιχεία είναι εσφαλμένα. Προσπαθήστε ξανά.";
 			}
 		}
 		else {
-			 return "Please fill all the values!";
+			 return "Συμπληρώστε όλα τα πεδία!";
 		}
 	}
 	
