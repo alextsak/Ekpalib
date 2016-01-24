@@ -130,39 +130,53 @@ $(document).ready(function(){
 													-webkit-border-radius: 10px;
 													height:inherit;
 													border-style: double;">
-						<p>Εάν επιλέξετε "Κανένα" Τμήμα τότε αναζητείτε βιβλιοθήκες με βάση την διεύθυνση</p>
+						<!-- <p>Εάν επιλέξετε "Κανένα" Τμήμα τότε αναζητείτε βιβλιοθήκες με βάση την διεύθυνση</p> -->
 		              	<div class="col-md-4">
-			              	<form class="form-horizontal">
-			              		<h5 style="position:relative;top:15px;right: 15px;text-decoration: underline;">Επιλογή τμήματος</h5>
-								<select id="lib-dep" class="form-control" style="position:relative;top:10px;margin-bottom:25px;right:15px;width:250px">
-									  <option>Όλα</option>
-									  <?php 
-									  	$libraries = new Libraries();
-									  	$libraries->get_department_names();	
-					 				   ?>
-					 				   <option>Κανένα</option> 
-								</select>
-							</form>
+			              	<div class="header">
+			              		<span>
+			              			<h5>Επιλογή τμήματος</h5>
+			              		</span>
+			              	</div>
+    						<div class="content">
+				              	<form class="form-horizontal">
+									<select id="lib-dep" class="form-control" style="position:relative;top:10px;margin-bottom:25px;right:15px;width:250px">
+										  <option>Όλα</option>
+										  <?php 
+										  	$libraries = new Libraries();
+										  	$libraries->get_department_names();	
+						 				   ?>
+						 				   <option>Κανένα</option> 
+									</select>
+								</form>
+		              		</div>
 		              	</div>
 		              	<div class="col-md-6">
-			              	<form class="form-horizontal" >
-			              		<div class="form-group" style="position:relative;top:45px;margin-bottom:25px;right:110px;width:inherit">
-									    <div class="col-sm-10">
-									      <input class="form-control" id="lib-addr" placeholder="Εισάγετε διεύθυνση" disabled
-									      	type="text" placeholder="Εισάγετε διεύθυνση" 
-				                    		maxlength="255" size="25" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Εισάγετε διεύθυνση'"
-				                    		required
-                							data-fv-notempty-message/>
-									    </div>
-								</div>
-							</form>
+			              	<div class="header" style="right: 0px; left: -22%;">
+			              		<span>
+			              			<h5>Επιλογή Διεύθυνσης</h5>
+			              		</span>
+			              	</div>
+    						<div class="content">
+				              	<form class="form-horizontal" >
+				              		<div class="form-group" style="position:relative;top:10px;right:110px;width:inherit">
+										    <div class="col-sm-10">
+										      <input class="form-control" id="lib-addr" placeholder="Εισάγετε διεύθυνση" 
+										      	type="text" placeholder="Εισάγετε διεύθυνση" 
+					                    		maxlength="255" size="25" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Εισάγετε διεύθυνση'"
+					                    		required
+	                							data-fv-notempty-message/>
+										    </div>
+									</div>
+								</form>
+		              		</div>
 		              	</div>
-		              	<div class="col-md-2">
-			              	<a id="lib-search" href="#" class="btn btn-primary" style="position:relative;top:45px;float:right;">
-						     	<span class="glyphicon glyphicon-search"></span>
-						     	Αναζήτηση
-						     </a>
-		              	</div>
+		              	
+		              	<div>
+			              	<a id="lib-search" href="#" class="btn btn-primary" style="position:relative;float:right;margin-top: 5%; margin-bottom: 2%;">
+							     	<span class="glyphicon glyphicon-search"></span>
+							     	Αναζήτηση
+							</a>
+						</div>
 					</div>
 					
 					<!-- class="table-responsive" -->
