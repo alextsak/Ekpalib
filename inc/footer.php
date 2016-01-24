@@ -4,6 +4,7 @@
 			<div id="footer-container">
 					<h5 id="sitemap" style="color:#FFFAF0;">
 					<a href="<?php echo get_basename();?>" style="color:#FFFAF0;">Αρχική</a><a>&nbsp|&nbsp</a><a href="?page=under_construction" style="color:#FFFAF0;">Χάρτης Ιστοτόπου</a></h5>
+
 				<p id="copyright">&copy;2016 Βιβλιοθήκες ΕΚΠΑ </p> 
 			</div>
 	</footer>
@@ -13,20 +14,18 @@
 
 <script>
 
-/**
- * detailsbook creates an ajax call to show a modal for the book details
- */
+
 function detailsbook(id, page_title){
-	 console.log("hii");
-	 console.log(id);
-	 console.log(page_title);
+	/**
+	 * detailsbook creates an ajax call to show a modal for the book details
+	 */
 	var data = {"id" : id, "page_title" : page_title};
 	jQuery.ajax({
-		url : "/Ekpalib/inc/bookDetails.php",
+		url : "/Ekpalib/inc/materialDetails.php",
 		method: "post",
 		data : data,
 		success : function(data){
-			console.log(data);
+			
 			jQuery('body').append(data);
 			jQuery('#details-material-modal').modal('toggle');
 			},
@@ -46,7 +45,7 @@ function detailsLibrary(id){
 		method: "post",
 		data : data,
 		success : function(data){
-			console.log(data);
+			
 			$('body').append(data);
 			$('#library-details-modal').modal('toggle');
 			},
@@ -96,7 +95,7 @@ function request_expand(username, materialID, days){
 
 function removeRequest(username, materialID){
 
-	console.log(username);
+	
 	var data = {request : "remove", "username" : username, "materialID" : materialID};
 	jQuery.ajax({
 		url : window.location.href,

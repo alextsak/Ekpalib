@@ -41,7 +41,7 @@ require_once './utilities/helpers.php';
 <title><?php echo get_title();?></title>
 
 </head>
-<body >
+<body>
 	<div class="container">
 			<div class="row" style="margin:0px;">
 				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="logo-bg">
@@ -58,11 +58,12 @@ require_once './utilities/helpers.php';
 					</header>
 				</div>
 				<?php 
-				//unset($_SESSION['cart']);
+				
 				if(isset($_GET['page']) && $_GET['page'] == 'login_signup') {
 					getPage('pages', $_GET['page'], 'main');
 					
 				} else {
+					
 				?>
 				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="left: 13%;" >

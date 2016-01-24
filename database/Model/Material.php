@@ -1,5 +1,5 @@
 <?php
-//require './database/ConnectionDB/dbConnection.php';
+// Class for handling material requests...
 
 class Material{
 
@@ -14,8 +14,6 @@ class Material{
 	
 
 	public function QuickSearch($params){
-	
-		// it might need another insertion
 	
 		$st = $this->db->prepare("SELECT * FROM books WHERE title LIKE (?)");
 		$st->bindParam(1, $params);
@@ -201,18 +199,14 @@ class Material{
 								
 						);
 						return "ok";
-					}
-					
-					 
+					}	 
 				}
 				
 			}
 			else {
 				$message="This material id is invalid!";
 				return $message;
-			}
-				
-				
+			}		
 		}
 	}
 	
@@ -263,7 +257,8 @@ class Material{
 		                   	<td style="text-align:center;"><a href="javascript:detailsLibrary(<?php echo $row['idLibraries'];?>)" style="text-decoration: underline; color:#FFFAF0;"><?php echo $row['Name']; ?></a></td>
 	                 		<td style="text-align:center;"><?php echo $row['availability']; ?></td>
 	                 		<td style="text-align:center;"><?php echo $row['available_days']; ?></td>
-	                 		<?php $url_path = $_SERVER['QUERY_STRING'];
+	                 		<?php 
+	                 			$url_path = $_SERVER['QUERY_STRING'];
         						$url_path = '?' .  $url_path;
         						if(strpos( $url_path, '&action')){
         							$last_amber = strrpos( $url_path, '&action');
@@ -271,8 +266,6 @@ class Material{
         							$url_path = substr( $url_path, 0, $last_amber);
         							
         						}
-        						
-        						
         						?>
 	                 		<td style="text-align:center;"><a href="<?php echo $url_path."&action=add&materialID=" . $row['MaterialID']?>"><span class="glyphicon glyphicon-shopping-cart"  style="font-size:larger;"></span>
 							</a></td>
@@ -281,13 +274,7 @@ class Material{
 								<button class="btn btn-primary btn-sm" type="button" onclick="detailsbook(<?php echo $row['MaterialID'];?>, '<?php echo get_title();?>')"
 								style="background-color: rgb(153, 43, 0); border-color: rgb(153, 43, 0);">
 									<span class="glyphicon glyphicon-info-sign" ></span>
-								</button>
-								
-								<!--  <button class="btn btn-warning btn-sm" type="submit" >
-									<span class="glyphicon glyphicon-new-window"></span>
-								</button>-->
-								
-										
+								</button>	
 							</td>
 	                   </tr>
 	                   </tbody>
@@ -297,7 +284,7 @@ class Material{
          else{
                 ?>
                 <tr>
-                <td>Δεν υπάρχουν εγγραφές :( ...</td>
+                <td>Δεν βρέθηκαν εγγραφές :( ...</td>
                 </tr>
                 </tbody>
                 <?php
@@ -348,8 +335,6 @@ class Material{
  	
  	// firstly determine the genre of the materialID given, e.g Book, Article etc...
  	$genre = $this->materialBelongsToTable($materialID);
- 	//echo $materialID;
- 	//$genre = "books";
  	$query = 'SELECT * FROM material,material_has_author,author,' . $genre . ' 
 			  where material.MaterialID = material_has_author.MaterialID and
 			  material_has_author.idAuthor = author.idAuthor and 
@@ -386,10 +371,8 @@ class Material{
  public function advancedSearch($type,$category,$keyword,$author,$publisher,$isbn,$library){
  
  	
- 	$query = 'select *
-				from material,material_has_author,author,libraries_has_material,libraries ';
-					
-					
+ 	$query = 'select * from material,material_has_author,author,libraries_has_material,libraries ';
+									
 	if($type!="all")
 		$query.=' , '.$type.' ';
 	
@@ -455,7 +438,7 @@ class Material{
  }
  
  public function remove_request($username,$material_id){
- 	// Remove the request with given ID
+ 	// Remove the user request with given ID
  	if (!empty($material_id)){
  		$query = 'DELETE FROM academiccommunitymembers_makesrequestfor_material WHERE User=? and MaterialID=?';
  		$stmt = $this->db->prepare($query);
@@ -476,15 +459,15 @@ class Material{
  }
  
  public function confirmLoan($idArray, $user, $days_array){
- 	// insert the material_id and the user_id to history table
- 	//(SELECT available_days FROM material WHERE MaterialID=?)
+ 	// insert the material_id, user_id and the days he wishes to loan the material 
+ 	
  	if(!empty($idArray) && !empty($user)){
  		$query = 'INSERT INTO academiccommunitymembers_makesrequestfor_material(User, MaterialID, StartDate, EndDate, Approved) VALUES (?, ?, NOW(), DATE_ADD(NOW(), INTERVAL ? DAY), 0)';
  		
 		$stmt = $this->db->prepare($query);
 		$flag = 0;
 		for($i=0; $i<count($idArray); $i++) {
-			//$interval = $_SESSION['cart'][$material_id]['available_days'];
+			
 			try {
 				$stmt->bindValue(1, $user);
 				$stmt->bindValue(2, intval($idArray[$i]));
@@ -494,11 +477,6 @@ class Material{
 			} catch (PDOException $e) {
 				return "request_denied";
 			}
-			
-			
-			/*$err = $sth->errorInfo();
-			$err;
-			return $err;*/
 		}
 		if($flag == 1) {
 			$this->autoApprove($material_id);
@@ -509,9 +487,6 @@ class Material{
  	else {
  		return "empty";
  	}
- 	
- 
- 
  }
  
 
@@ -563,7 +538,7 @@ class Material{
        	else {
        		$self = $url_path;
        	}
-  		//echo $self;
+  		
         $stmt = $this->db->prepare($query);
  		if(is_array($term)){
          	$i = 1;

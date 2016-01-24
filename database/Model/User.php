@@ -32,9 +32,7 @@ class User{
 	}
 	
 	public function RegisterUser(array $params){
-		
-		// it might need another insertion
-		
+
 		$st = $this->db->prepare("INSERT INTO user (User, Password, Name, Surname, Phone_Number, Email, academicID, academicPass) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 		$st->bindParam(1, $params[0]);
 		$st->bindParam(2, $params[1]);
@@ -47,7 +45,7 @@ class User{
 		
 		
 		if($st->execute()){
-			//echo 'Values were inserted';
+			
 			return 'registered';
 		}
 		else {

@@ -11,10 +11,7 @@ class Libraries{
 		$pdo = Connection::instance();
 		$this->db = $pdo->dbConnect();
 	}
-	
-	
-	
-	
+
 	public function get_department_names(){
 		$st = $this->db->prepare("SELECT Name FROM universitydepartment");
 		

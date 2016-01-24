@@ -7,8 +7,9 @@ class Connection{
 	private static $username; /* MySQL username */
 	private static $dbname;   /* MySQL database name */
 	private static $password; /* MySQL password */
-	//private $db;
-
+	
+	/* Singletton Pattern usage
+	 * */
 	protected static $_instance = null;
 	 
 	public static function instance() {
@@ -57,15 +58,6 @@ class Connection{
 		}
 		
 	}
-	
-
-	
-	/*public function getDb() {
-		if ($this->db instanceof PDO) {
-			return $this->db;
-		}
-	}*/
-	
 
 }
 

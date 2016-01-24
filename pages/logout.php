@@ -1,8 +1,10 @@
 <?php
+require_once '../utilities/helpers.php';
 session_start();
 /*Destroy Session*/
 session_destroy();
 //reinitialize the session array
 $_SESSION = array();
-header("Location: ../index.php");
+$base = get_basename();
+header("Location: " . $base);
 ?>

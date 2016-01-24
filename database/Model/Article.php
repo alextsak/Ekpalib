@@ -1,4 +1,5 @@
 <?php
+//Class for handling the article's requests
 class Article{
 
 	private $db;

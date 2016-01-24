@@ -1,5 +1,5 @@
 /**
- * 
+ *  This scipt include's functions for the main content in general
  */
 $(document).ready(function(){
 	$("#lib-search").on("click",function(event){

@@ -1,7 +1,9 @@
 <script type="text/javascript">
 
 $(document).ready(function(){
-
+	/*
+		These two listeners act as validators for the form before submitting it...	
+	*/
 	$('#search_books').on('submit', function(e){
 		var term = $("#Search_Argument").val();
 		if(term == ""){

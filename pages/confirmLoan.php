@@ -1,25 +1,5 @@
 <?php 
-//session_start();
 error_reporting(E_ALL);
-
-
-if(isset($_SESSION['cart'])){
-	$id_array = array();
-	
-	foreach ($_SESSION['cart'] as $item_array) {
-		foreach($item_array as $key=>$value){
-			if($key == "id"){
-				array_push($id_array, $value);
-			}
-		}
-	}
-	
-	
-}
-
-
-
-
 
 ?>
 <style>
