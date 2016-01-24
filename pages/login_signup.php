@@ -93,7 +93,7 @@ if(isset($_POST['register-form'])){
 													<div class="col-lg-12">
 														<div class="form-group text-center">
 														<?php if(isset($message) && $message != 'User found') {
-															echo '<label style="color:red;">'.  $message . '</label>';
+															echo '<label style="color:orange;">'.  $message . '</label>';
 															}
 														?>
 															 
