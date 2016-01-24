@@ -50,11 +50,11 @@ $row=$libs->fetch(PDO::FETCH_ASSOC);
 			        		<?php echo nl2br($row['services']) ?>
 			        	</div>
 			        	<div class="tab-pane" id="tab5" style="color:white;margin-top: 10px;">
-			        		<h4>Ιστοδελίδα: 
+			        		<p>Ιστοδελίδα: 
 			        			<a href=" <?php echo 'http://www.' .  $row['Site']; ?>" target="_blanc"><?php echo nl2br($row['Site']) ?></a>
-			        		</h4>
-			        		<h4>Τηλέφωνο:  <?php echo nl2br($row['Telephone'])?></h4>
-			        		<h4>Fax:  <?php echo nl2br($row['Fax']) ?></h4>
+			        		</p>
+			        		<p>Τηλέφωνο:  <?php echo nl2br($row['Telephone'])?></p>
+			        		<p>Fax:  <?php echo nl2br($row['Fax']) ?></p>
 			        	</div>
 			        </div>
 		        </div>
