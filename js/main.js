@@ -3,7 +3,10 @@
  */
 $(document).ready(function(){
 	$("#lib-search").on("click",function(event){
-    	searchLibraries($("#lib-addr").val() ,$( "#lib-dep option:selected" ).text() );
+		if ( $("#addr-content").css("display") == "none")
+			searchLibraries($( "#lib-dep option:selected" ).text(),"" );
+		else
+			searchLibraries("",$("#lib-addr").val());
 	});
 	
 	if ( $("#addr-content").css("display") == "block")
@@ -50,6 +53,7 @@ function searchLibraries(address,department){
 		address="";
 	}
 	var data = {"address" :address,"department":department};
+	console.log(data);
 	$.ajax({
 		url : "/Ekpalib/inc/lib_requests.php",
 		method: "post",
