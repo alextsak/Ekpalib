@@ -410,10 +410,10 @@ class Material{
  }
  
  /**************************************** LOAN REQUEST AND CONFIRMATION **************************************************/
- public function autoApprove($material_id){
+ public function autoApprove($username,$material_id){
  /* Dummy function to auto approve requests for materials with over 50 unit in availability,
   * for presentation purposes */
- 	if (!empty($material_id)){
+ 	if (!empty($material_id) && !empty($username)){
  		$query = 'UPDATE academiccommunitymembers_makesrequestfor_material SET Approved=1 WHERE MaterialID=? and (SELECT availability FROM material WHERE MaterialID=?) >= 50';
  		$stmt = $this->db->prepare($query);
  		$flag = 0;
@@ -421,7 +421,7 @@ class Material{
  		$stmt->bindValue(2, intval($material_id));
  		if($stmt->execute()) {
  			$flag = 1;
- 			$this->reduceAvailability($material_id);
+ 			$this->reduceAvailability($username,$material_id);
  			return "ok";
  		}
  		else {
@@ -433,10 +433,10 @@ class Material{
  	}
  }
  
- public function autoReceive($material_id){
+ public function autoReceive($username,$material_id){
  	/* Dummy function to auto receive the materials with over 100 unit in availability,
  	 * for presentation purposes */
- 	if (!empty($material_id)){
+ 	if (!empty($material_id) && !empty($username)){
  		$query = 'UPDATE academiccommunitymembers_makesrequestfor_material SET Approved=2 WHERE MaterialID=? and (SELECT availability FROM material WHERE MaterialID=? and Approved=1) >= 100';
  		$stmt = $this->db->prepare($query);
  		$flag = 0;
@@ -457,7 +457,8 @@ class Material{
  
  public function remove_request($username,$material_id){
  	// Remove the user request with given ID
- 	if (!empty($material_id)){
+ 	if (!empty($material_id) && !empty($username)){
+ 		$this->increaseAvailability($username,$material_id);
  		$query = 'DELETE FROM academiccommunitymembers_makesrequestfor_material WHERE User=? and MaterialID=?';
  		$stmt = $this->db->prepare($query);
  		$flag = 0;
@@ -465,7 +466,6 @@ class Material{
  		$stmt->bindValue(2, intval($material_id));
  		if($stmt->execute()) {
  			$flag = 1;
- 			$this->increaseAvailability($material_id);
  			return "ok";
  		}
  		else {
@@ -477,13 +477,15 @@ class Material{
  	}
  }
  
- public function reduceAvailability($material_id){
+ public function reduceAvailability($username,$material_id){
  	/* Function to reduce the availability of a book */
- 	if (!empty($material_id)){
- 		$query = 'UPDATE material SET material.availability=material.availability-1 WHERE MaterialID=?';
+ 	if (!empty($material_id) && !empty($username)){
+ 		$query = 'UPDATE material SET material.availability=material.availability-1 WHERE MaterialID=? and (SELECT Approved FROM academiccommunitymembers_makesrequestfor_material WHERE User=? and MaterialID=?)>0';
  		$stmt = $this->db->prepare($query);
  		$flag = 0;
  		$stmt->bindValue(1, intval($material_id));
+ 		$stmt->bindparam(2, $username);
+ 		$stmt->bindValue(3, intval($material_id));
  		if($stmt->execute()) {
  			$flag = 1;
  			return "ok";
@@ -497,13 +499,15 @@ class Material{
  	}
  }
  
- public function increaseAvailability($material_id){
+ public function increaseAvailability($username,$material_id){
  	/* Function to reduce the availability of a book */
- 	if (!empty($material_id)){
- 		$query = 'UPDATE material SET material.availability=material.availability+1 WHERE MaterialID=?';
+ 	if (!empty($material_id) && !empty($username)){
+ 		$query = 'UPDATE material SET material.availability=material.availability+1 WHERE MaterialID=? and (SELECT Approved FROM academiccommunitymembers_makesrequestfor_material WHERE User=? and MaterialID=?)>0';
  		$stmt = $this->db->prepare($query);
  		$flag = 0;
  		$stmt->bindValue(1, intval($material_id));
+ 		$stmt->bindparam(2, $username);
+ 		$stmt->bindValue(3, intval($material_id));
  		if($stmt->execute()) {
  			$flag = 1;
  			return "ok";
@@ -533,8 +537,8 @@ class Material{
 				$stmt->bindValue(3, intval($days_array[$i]));
 				$stmt->execute();
 				$flag = 1;
-				$this->autoApprove(intval($idArray[$i]));
-				$this->autoReceive(intval($idArray[$i]));
+				$this->autoApprove($user,intval($idArray[$i]));
+				$this->autoReceive($user,intval($idArray[$i]));
 			} catch (PDOException $e) {
 				return "request_denied";
 			}
