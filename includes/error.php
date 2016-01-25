@@ -11,7 +11,7 @@ $message = $_POST['message'];
 				<button class="close" type="button" style="color:#fff;" aria-label="Close"  onclick="closeModal()">
 					<span aria-hidden="true">&times;</span>
 				</button>
-				<h3 class="modal-title text-center" style="color:white;">Προσοχή!</h3>
+				<h3 class="modal-title text-center" style="color:orange;">Προσοχή!</h3>
 				
 				
 			</div>
