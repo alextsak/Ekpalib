@@ -82,30 +82,39 @@ else {
 
 <script>
 
-function addToCart(id){
-	
-		var upper_cart_id = $('#upper-cart-id').val();
-		console.log(upper_cart_id);
-		if(upper_cart_id == id){
-			console.log("heeeeerreeeeeeee");
-			var message = "Το αντικείμενο αυτό περιέχεται ήδη στο καλάθι σας";
-			error_messages(message);
-		}
-		else {
+function addToCart(id, title){
+
+	var duplicate = 0;
+	$("tr.cart-items").each(function() {
+        var upper_id = $(this).find("#upper-cart-id").val();
+        
+         if(upper_id == id){
+        	duplicate = 1;
+			return false; 
+          }
+         
+	});
+		
+	if(duplicate == 1){
+		
+		var message = "Το αντικείμενο " + " << " + title + " >> " + " περιέχεται ήδη στο καλάθι σας!";
+		error_messages(message);
+		closeModal();
+	}
+	else {
 			$.ajax({
 				  url: window.location.href,
 				  type: "POST", 
 				  data:{action : "add", materialID : id},
 				  success: function(response) {
-					 
-					  location.reload(true);
+					location.reload(true);
 				  },
 				  error: function(xhr) {
 				    
 				  }
 				});
 
-		}
+	}
 		
 }
 

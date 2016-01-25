@@ -82,6 +82,7 @@ function request_expand(username, materialID, days){
 		method: "post",
 		data : data,
 		success : function(data){
+			
 			location.reload(true);
 			closeModal();
 			},

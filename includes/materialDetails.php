@@ -164,7 +164,13 @@ if($stmt->rowCount() == 0) {
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="center-block">
-								<img src="<?php echo $result['image']?>" alt="Μη διαθέσιμο εξώφυλλο"
+								<img src="<?php if($flag == 1){
+									echo $result['image'];
+									} else {
+										echo './images/covers/Not_available.jpg';
+									}
+									
+									?> " alt="Μη διαθέσιμο εξώφυλλο"
 									class="details img-responsive">
 							</div>
 						</div>
@@ -252,7 +258,7 @@ if($stmt->rowCount() == 0) {
 				<button id="modal-button" class="btn btn-default"  onclick="closeModal()">Κλείσιμο</button>
 				
 				<?php if($page_title != "Ιστορικό Χρήστη" && $page_title != "Επιβεβαίωση Δανεισμού") {?>
-				<button class="btn btn-warning" type="submit" onClick="addToCart(<?php echo $result['MaterialID'];?>)">
+				<button class="btn btn-warning" type="submit" onClick="addToCart(<?php echo $result['MaterialID'];?>,'<?php echo $result['title'];?>')">
 					<span class="glyphicon glyphicon-shoppinng-cart"></span>Προσθήκη στο Καλάθι
 				</button>
 				<?php } ?>

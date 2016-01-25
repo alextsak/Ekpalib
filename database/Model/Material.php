@@ -120,7 +120,7 @@ class Material{
 		foreach($_SESSION['cart'] as $key=>$value){
 			
 			?>
-				<tr>
+				<tr class="cart-items">
 					<td style="color:white">
 						<?php echo $_SESSION['cart'][$key]['title']; ?>
 					</td>
@@ -272,7 +272,7 @@ class Material{
 	                 		<td style="text-align:center;"><?php echo $row['available_days']; ?></td>
 	                 		
 	                 		<td style="text-align:center;">
-	                 			<button class="btn btn-default btn-sm" type="button" onclick="addToCart(<?php echo $row['MaterialID'];?>)">
+	                 			<button class="btn btn-default btn-sm" type="button" onclick="addToCart(<?php echo $row['MaterialID'];?>,'<?php echo $row['title'];?>')">
 									<span class="glyphicon glyphicon-shopping-cart"></span> 
 								</button>
 	                 		  

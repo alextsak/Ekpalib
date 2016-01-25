@@ -143,7 +143,7 @@ require_once './utilities/helpers.php';
 					<?php
 						// create session cart and add the item given
 						if(isset($_POST['action']) && $_POST['action'] == "add"){
-							echo '<script>console.log(\"again\");</script>';
+							
 							$materialID = intval ( $_POST ['materialID'] );
 								
 							if (! isset ( $_SESSION ['cart'] [$materialID] )) {
@@ -152,12 +152,8 @@ require_once './utilities/helpers.php';
 								$material = new Material ();
 								$message = $material->add_to_cart ($materialID);
 								if ($message != "ok") {
-									echo "<script>error_messages('$message');</script>";
+									echo "ERROR DURING CART ADDITION";
 								}
-							}else {
-								$message = "Το βιβλίο " . "<span style=\"color:black;font-weight:bold;text-decoration: underline;\">".$_SESSION ['cart'] [$materialID]['title'] ."</span> περιέχεται ήδη στο καλάθι σας";
-								
-								echo "<script>error_messages('$message');</script>";
 							}
 						}
 					

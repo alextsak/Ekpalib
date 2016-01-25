@@ -274,7 +274,7 @@ if($stmt->rowCount() == 0) {
 				
 				
 				<button id="expand-btn" class="btn btn-warning" type="button">
-					<span class="glyphicon glyphicon-shoppinng-cart"></span>Επέκταση
+					<span class="glyphicon glyphicon-ok"></span>&nbspΕπέκταση
 				</button>
 				
 				
