@@ -66,7 +66,7 @@ $user_results_history = $user->get_user_history ( $username );
 									<tr>
 									<td style="text-align:center;"><?php echo $material_info['title']; ?></td>
 		                   			<td style="text-align:center;"><?php echo $material_info['category']; ?></td>
-		                   			<td style="text-align:center;"><a href="javascript:detailsLibrary(<?php echo $lib_id;?>)"><?php echo $lib_name; ?></a></td>
+		                   			<td style="text-align:center;"><a href="javascript:detailsLibrary(<?php echo $lib_id;?>)" style="text-decoration: none; font-weight: bold; color:#6699CC;"><?php echo $lib_name; ?></a></td>
 									<td style="text-align:center;">
 									<?php if ($row['Approved'] == 1) {?>
 											<?php echo "<span style='color: #ace600;' >Εγκρίθη</span>"; ?>
@@ -137,7 +137,7 @@ $user_results_history = $user->get_user_history ( $username );
 									<tr>
 									<td style="text-align:center;"><?php echo $material_info['title']; ?></td>
 		                   			<td style="text-align:center;"><?php echo $material_info['category']; ?></td>
-		                   			<td style="text-align:center;"><a href="javascript:detailsLibrary(<?php echo $lib_id;?>)"><?php echo $lib_name; ?></a></td>
+		                   			<td style="text-align:center;"><a href="javascript:detailsLibrary(<?php echo $lib_id;?>)" style="text-decoration: none; font-weight: bold; color:#6699CC;"><?php echo $lib_name; ?></a></td>
 		                   			<td style="text-align:center;"><?php echo $row['StartDate']; ?></td>
 		                   			<td style="text-align:center;"><?php echo $row['EndDate']; ?></td>
 									<td style="width:120px;">
@@ -203,7 +203,7 @@ $user_results_history = $user->get_user_history ( $username );
 									<tr>
 									<td style="text-align:center;"><?php echo $material_info['title']; ?></td>
 		                   			<td style="text-align:center;"><?php echo $material_info['category']; ?></td>
-		                   			<td style="text-align:center;"><a href="javascript:detailsLibrary(<?php echo $lib_id;?>)"><?php echo $lib_name; ?></a></td>
+		                   			<td style="text-align:center;"><a href="javascript:detailsLibrary(<?php echo $lib_id;?>)" style="text-decoration: none; font-weight:bold; color:#6699CC;"><?php echo $lib_name; ?></a></td>
 		                   			<td style="text-align:center;"><?php echo $row['received']; ?></td>
 		                   			<td style="text-align:center;"><?php echo $row['returned']; ?></td>
 									<td style="width:120px; text-align:center;">

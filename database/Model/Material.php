@@ -91,7 +91,7 @@ class Material{
 					<td>
 						<?php echo $row['title']; ?>
 					</td>
-					<td><a href="javascript:detailsLibrary(<?php echo $lib_name; ?>)"><?php echo $lib_name; ?></a></td>
+					<td><a href="javascript:detailsLibrary(<?php echo $lib_name; ?>)" style="text-decoration: none; font-weight:bold; color:#6699CC;"><?php echo $lib_name; ?></a></td>
 					<td>
 						<?php echo $row['isbn']; ?>
 					</td>
@@ -124,7 +124,7 @@ class Material{
 					<td style="color:white">
 						<?php echo $_SESSION['cart'][$key]['title']; ?>
 					</td>
-					<td><a href="javascript:detailsLibrary(<?php echo  $_SESSION['cart'][$key]['lib_id']; ?>)"><?php echo  $_SESSION['cart'][$key]['library']; ?></a></td>
+					<td><a href="javascript:detailsLibrary(<?php echo  $_SESSION['cart'][$key]['lib_id']; ?>)" style="text-decoration: none; font-weight:bold; color:#6699CC;"><?php echo  $_SESSION['cart'][$key]['library']; ?></a></td>
 					<td style="color:white">
 						<?php echo $_SESSION['cart'][$key]['category']; ?>
 					</td>
@@ -267,7 +267,7 @@ class Material{
 	                   	<tr>
 		                   	<td style="text-align:center;"><?php echo $row['title']; ?></td>
 		                   	<td style="text-align:center;"><?php echo $row['category']; ?></td>
-		                   	<td style="text-align:center;"><a href="javascript:detailsLibrary(<?php echo $row['idLibraries'];?>)" style="text-decoration: underline; color:#FFFAF0;"><?php echo $row['Name']; ?></a></td>
+		                   	<td style="text-align:center;"><a href="javascript:detailsLibrary(<?php echo $row['idLibraries'];?>)" style="text-decoration: none; font-weight:bold; color:#6699CC;"><?php echo $row['Name']; ?></a></td>
 	                 		<td style="text-align:center;"><?php echo $row['availability']; ?></td>
 	                 		<td style="text-align:center;"><?php echo $row['available_days']; ?></td>
 	                 		
