@@ -27,6 +27,17 @@ class Material{
 		}
 	}
 	
+	public function getArticleCategories(){ 
+		
+		$query = 'select distinct(category) from articles, material where material.MaterialID = articles.MaterialID '; 
+		$stmt = $this->db->prepare($query); 
+		$stmt->execute();
+		
+		while($row=$stmt->fetch(PDO::FETCH_ASSOC)) { 
+			?> <option><?php echo $row['category']?></option> <?php 
+		} 
+	}
+	
 	public function get_material_by_id($materialID){
 	
 		// Fetch the basic details for this material
@@ -43,7 +54,9 @@ class Material{
 			}
 	}
 	
-	function get_categories($material){
+	
+	
+	public function get_categories($material){
 		
 		if($material == "all")
 			$query = 'SELECT DISTINCT(category) from material';

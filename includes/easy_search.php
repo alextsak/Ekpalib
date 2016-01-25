@@ -68,8 +68,8 @@
 	                      <label for="selection2" class="sr-only">Επιλέξτε Κατηγορία</label>
 	                      <select id="selection2" class="form-control" name="category" aria-required="true">
 	                        <?php 
-	                        	$articles = new Article();
-	                        	$articles->getArticleCategories();
+	                        	$mat = new Material();
+	                        	$mat->getArticleCategories();
 	                        ?>
 	                      </select>
 	                      <input class='form-control' name='genre' type='hidden' value='articles' />
