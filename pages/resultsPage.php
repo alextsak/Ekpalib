@@ -83,19 +83,31 @@ else {
 <script>
 
 function addToCart(id){
-		
-		$.ajax({
-			  url: window.location.href,
-			  type: "POST", 
-			  data:{action : "add", materialID : id},
-			  success: function(response) {
-				  location.reload(true);
-			  },
-			  error: function(xhr) {
-			    
-			  }
-			});
+	
+		var upper_cart_id = $('#upper-cart-id').val();
+		console.log(upper_cart_id);
+		if(upper_cart_id == id){
+			console.log("heeeeerreeeeeeee");
+			var message = "Το αντικείμενο αυτό περιέχεται ήδη στο καλάθι σας";
+			error_messages(message);
 		}
+		else {
+			$.ajax({
+				  url: window.location.href,
+				  type: "POST", 
+				  data:{action : "add", materialID : id},
+				  success: function(response) {
+					 
+					  location.reload(true);
+				  },
+				  error: function(xhr) {
+				    
+				  }
+				});
+
+		}
+		
+}
 
    	
 $("#confirmLoan-Button").on("click", function (e) {

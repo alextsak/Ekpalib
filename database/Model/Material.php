@@ -135,7 +135,7 @@ class Material{
 								<span class="glyphicon glyphicon-remove" style="
 							    font-size: large;"></span>
 							</button>
-        					 <input name="id_to_remove" type="hidden" value="<?php echo $_SESSION['cart'][$key]['id'];?>"/>
+        					 <input id="upper-cart-id" name="id_to_remove" type="hidden" value="<?php echo $_SESSION['cart'][$key]['id'];?>"/>
         					
         			</form>
 						

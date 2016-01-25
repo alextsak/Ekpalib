@@ -143,6 +143,7 @@ require_once './utilities/helpers.php';
 					<?php
 						// create session cart and add the item given
 						if(isset($_POST['action']) && $_POST['action'] == "add"){
+							echo '<script>console.log(\"again\");</script>';
 							$materialID = intval ( $_POST ['materialID'] );
 								
 							if (! isset ( $_SESSION ['cart'] [$materialID] )) {
