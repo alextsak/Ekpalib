@@ -60,7 +60,7 @@
 							<div class="col-md-6" >
 					        	<div class="form-group">
 									    <div class="col-sm-10">
-									      <input class="form-control" name="keyword" placeholder="Λέξη κλειδί">
+									      <input class="form-control" name="keyword" placeholder="Τίτλος">
 									    </div>
 								</div>
 							</div>

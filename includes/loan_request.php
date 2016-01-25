@@ -35,30 +35,30 @@ if($flag == 1){
 
 <div class="modal fade success-loan-modal" id="success-loan-modal" tabindex="-1"
 		role="dialog" aria-labelledby="success-loan-modal" aria-hidden="true">
-		<div class="modal-dialog modal-lg">
+		<div class="modal-dialog modal-lg" style="background-color: #520000;>
 		<div class="modal-content">
 		<div class="modal-header">
-		<button class="close" type="button" aria-label="Close"  onclick="closeModal()">
-		<span aria-hidden="true">&times;</span>
-		</button>
-		<h3 class="modal-title text-center" style="color:navy;">Επιτυχές Αίτημα</h3>
+		<button class="close" type="button" style="color:#fff;" aria-label="Close"  onclick="closeModal()">
+					<span aria-hidden="true">&times;</span>
+				</button>
+		<h3 class="modal-title text-center" style="color:white;">Επιτυχές Αίτημα</h3>
 
 
 		</div>
-		<div class="modal-body">
+		<div class="modal-body" style="background-color:#B8742D;margin: 10px; border-radius: 10px;">
 				<div class="container-fluid">
 					<div class="row">
 
 					<div class="col-sm-12">
-							<h4 class="bg-success text-center" style="color:black;"><?php echo $message;?></h4>
-							<h5 class="text-info text-center"><?php echo "Πατώντας το κουμπί <b>Συνέχεια</b> μπορείτε να μεταφερθείτε στην αρχική σελίδα σας"?></h5>
+							<h4 class="text-info text-center" style="color:white;"><?php echo $message;?></h4>
+							<h5 style="color:white;" class="text-info text-center"><?php echo "Πατώντας το κουμπί <b>Συνέχεια</b> μπορείτε να μεταφερθείτε στην αρχική σελίδα σας"?></h5>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="modal-footer">
 		
-				<button class="btn btn-default"  onclick="homeRedirect()">Συνέχεια</button>
+				<button id="modal-button" class="btn btn-default"  onclick="homeRedirect()">Συνέχεια</button>
 			
 			</div>
 		</div>
