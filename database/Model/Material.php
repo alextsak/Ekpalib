@@ -475,6 +475,26 @@ class Material{
  	}
  }
  
+ public function reduceAvailability($material_id){
+ 	/* Function to reduce the availability of a book */
+ 	if (!empty($material_id)){
+ 		$query = 'UPDATE material SET material.availability=material.availability-1 WHERE MaterialID=?';
+ 		$stmt = $this->db->prepare($query);
+ 		$flag = 0;
+ 		$stmt->bindValue(1, intval($material_id));
+ 		if($stmt->execute()) {
+ 			$flag = 1;
+ 			return "ok";
+ 		}
+ 		else {
+ 			return "error";
+ 		}
+ 	}
+ 	else {
+ 		return "empty argument";
+ 	}
+ }
+ 
  public function confirmLoan($idArray, $user, $days_array){
  	// insert the material_id, user_id and the days he wishes to loan the material 
  	
