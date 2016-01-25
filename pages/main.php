@@ -58,7 +58,7 @@ $(document).ready(function(){
 	  
 		<div class="tab-pane active" id="NewsAndEvents">
         	<div class="panel-body" id="NewsAndEventsBody">
-            	<div id="bg-news-img-container">
+            
 	            	<div class="col-md-6" id="News">
 	            		<h4 style="text-decoration: underline; text-align: center; color:#F5FFFA;">Νέα</h4>
 	            			<hr>
@@ -95,7 +95,7 @@ $(document).ready(function(){
 								<br style="clear: both;" />
 							</p>
 	            	</div>
-            	 </div>
+            	
             </div>
 		</div>
           

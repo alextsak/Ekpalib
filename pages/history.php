@@ -11,15 +11,15 @@ $user_results_history = $user->get_user_history ( $username );
 
 <div id="main-bg">
 		<ul id="main-tabs" class="nav nav-tabs" role="tablist">
-			<li class="active"><a href="#NewsAndEvents" data-toggle="tab"> <i
+			<li class="active"><a href="#applications" data-toggle="tab"> <i
 					class="glyphicon glyphicon-calendar"></i> Πρόσφατες Αιτήσεις
 			</a></li>
 
-			<li><a href="#StudyRooms" data-toggle="tab"> <i
+			<li><a href="#activeLoans" data-toggle="tab"> <i
 					class="glyphicon glyphicon-edit"></i> Ενεργοί Δανεισμοί
 			</a></li>
 
-			<li><a href="#Libraries" data-toggle="tab"> <i
+			<li><a href="#oldLoans" data-toggle="tab"> <i
 					class="glyphicon glyphicon-time"></i> Παλαιοί Δανεισμοί
 			</a></li>
 		</ul>
@@ -27,8 +27,8 @@ $user_results_history = $user->get_user_history ( $username );
 		<!-- Tab panes -->
 		<div class="tab-content">
 
-			<div class="tab-pane active" id="NewsAndEvents">
-				<div class="panel-body" id="NewsAndEventsBody">
+			<div class="tab-pane active" id="applications">
+				<div class="panel-body" id="applicationsBody">
 					<div class="table-responsive">
 						<table class="table" id="results-grid">
 							
@@ -45,6 +45,7 @@ $user_results_history = $user->get_user_history ( $username );
 									<th style="text-align:center;"><?php echo 'Τίτλος';?></th>
 									<th style="text-align:center;"><?php echo 'Κατηγορία';?></th>
 									<th style="text-align:center;"><?php echo 'Βιβλιοθήκη';?></th>
+									<th style="text-align:center;"><?php echo 'Hμέρα Επιστροφής';?></th>
 									<th style="text-align:center;"><?php echo 'Κατάσταση Αίτησης';?></th>
 									<th style="text-align:center;"><?php echo 'Επιλογές'?></th> <!-- book details / cancel -->
 								</tr>
@@ -67,6 +68,22 @@ $user_results_history = $user->get_user_history ( $username );
 									<td style="text-align:center;"><?php echo $material_info['title']; ?></td>
 		                   			<td style="text-align:center;"><?php echo $material_info['category']; ?></td>
 		                   			<td style="text-align:center;"><a href="javascript:detailsLibrary(<?php echo $lib_id;?>)" style="text-decoration: none; font-weight: bold; color:#6699CC;"><?php echo $lib_name; ?></a></td>
+									
+									<td id="av_days" style="text-align:center;">
+	        							<?php if ($row['Approved'] == 1) {?>
+											<?php echo "<span style='color: #fff;' >" . $row['EndDate'] . "</span>"; ?>
+											<?php 
+										}
+										else {
+										?><?php echo $row['EndDate']; ?>&nbsp
+										<button class="btn btn-warning btn-sm" type="submit" onclick="expand('<?php echo $username;?>', <?php echo $row['MaterialID'];?>)">
+											<span class="glyphicon glyphicon-plus"></span>
+										</button>
+										<?php 
+										}
+										?>
+	        							
+	        						</td>
 									<td style="text-align:center;">
 									<?php if ($row['Approved'] == 1) {?>
 											<?php echo "<span style='color: #ace600;' >Εγκρίθη</span>"; ?>
@@ -97,8 +114,8 @@ $user_results_history = $user->get_user_history ( $username );
 				</div>
 			</div>
 
-			<div class="tab-pane" id="StudyRooms">
-				<div class="panel-body" id="StudyRoomsBody">
+			<div class="tab-pane" id="activeLoans">
+				<div class="panel-body" id="activeLoansBody">
 					<div class="table-responsive">
 						<table class="table" id="results-grid">
 							
@@ -148,7 +165,7 @@ $user_results_history = $user->get_user_history ( $username );
 									&nbsp | &nbsp
 									<!-- Need to add expand function -->
 									<button class="btn btn-warning btn-sm" type="submit" onclick="expand('<?php echo $username;?>', <?php echo $row['MaterialID'];?>)">
-									<span class="glyphicon glyphicon-pencil"></span>
+									<span class="glyphicon glyphicon-plus"></span>
 									</button>
 									</td>
 		                   			</tr><?php 
@@ -161,8 +178,8 @@ $user_results_history = $user->get_user_history ( $username );
 				</div>
 			</div>
 
-	<div class="tab-pane" id="Libraries">
-		<div class="panel-body" id="LibrariesBody">
+	<div class="tab-pane" id="oldLoans">
+		<div class="panel-body" id="oldLoansBody">
 			<div class="table-responsive">
 				<table class="table" id="results-grid">
 					
