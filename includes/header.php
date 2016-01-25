@@ -78,8 +78,14 @@ require_once './utilities/helpers.php';
 								  
 								  <ul class="dropdown-menu" aria-labelledby="user" style="border-radius: 3px;border: 1px solid #E5E5E5;">
 								    <li>
-								    	<a href="#" style="color:white;font-size: 12px;">Προφίλ
+								    	<a href="?page=under_construction" style="color:white;font-size: 12px;">Προφίλ
 								    		<span class="glyphicon glyphicon-cog"></span>
+								    	</a>
+								    </li>
+								    	    <li class="divider" style="width: 100%;"></li>
+								    <li>
+								    	<a href="?page=under_construction" style="color:white;font-size: 12px;">Μηνύματα
+								    		<span class="glyphicon glyphicon-envelope"></span>
 								    	</a>
 								    </li>
 								    <li class="divider" style="width: 100%;"></li>
@@ -114,11 +120,8 @@ require_once './utilities/helpers.php';
 										$m = new Material();
 										$res = $m->request_expansion($_POST['username'], $_POST['materialID'], $_POST['days']);
 										
-										if(strcmp($res, "ok") == 0){
-											
-											$message = "Η επέκταση έγινε με επιτυχία";
-											echo "<script>success_messages('$message');</script>";
-										} else {
+										if(strcmp($res, "ok") != 0){
+									
 											$message = "Πρόβλημα επέκτασης";
 											echo "<script>success_messages('$message');</script>";
 										}

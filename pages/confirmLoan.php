@@ -25,6 +25,12 @@ error_reporting(E_ALL);
     //margin: 25px;
 }
 
+table th {
+text-align:center;
+}
+table td {
+text-align:center;
+}
 </style>
 <?php if(isset($_SESSION['cart'])){ ?>
 <h3 style="margin-left:450px;">Επιβεβαίωση Δανεισμού</h3>

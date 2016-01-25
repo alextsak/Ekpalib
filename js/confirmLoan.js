@@ -44,7 +44,7 @@ function loan_request(idArray, user){
 		days_array.push(current_val);
 		console.log(current_val);
 	});
-	//days_array = jQuery.parseJSON(days_array);
+
 	if(json_id_array == null || user == null){
 		alert("a problem occured during loan request");
 	}

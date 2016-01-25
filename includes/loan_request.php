@@ -50,7 +50,7 @@ if($flag == 1){
 					<div class="row">
 
 					<div class="col-sm-12">
-							<h4 class="bg-success text-center"><?php echo $message;?></h4>
+							<h4 class="bg-success text-center" style="color:black;"><?php echo $message;?></h4>
 							<h5 class="text-info text-center"><?php echo "Πατώντας το κουμπί <b>Συνέχεια</b> μπορείτε να μεταφερθείτε στην αρχική σελίδα σας"?></h5>
 						</div>
 					</div>
