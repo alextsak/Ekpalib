@@ -12,7 +12,7 @@ require_once './utilities/helpers.php';
 <!DOCTYPE html>
 <html>
 <head>
- <!--  <base href="http://localhost:5555/Ekpalib/">-->
+
 <base href="<?php echo get_basename();?>">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">

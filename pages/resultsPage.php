@@ -83,7 +83,10 @@ else {
 <script>
 
 function addToCart(id, title){
-
+/**
+ * addToCart send's an ajax request to add an item to cart
+ * Duplicate variable determines if the user tries to add an item that already exists in the cart
+ */
 	var duplicate = 0;
 	$("tr.cart-items").each(function() {
         var upper_id = $(this).find("#upper-cart-id").val();
@@ -120,7 +123,9 @@ function addToCart(id, title){
 		
 }
 
-   	
+
+
+
 $("#confirmLoan-Button").on("click", function (e) {
 	   e.preventDefault(); 
 	   	if($("#cart i").html() == "( 0 )"){

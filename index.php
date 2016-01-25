@@ -1,5 +1,9 @@
 <?php 
 error_reporting(E_ALL);
+/**
+ * Index start's the session and then serves the correct content to the user
+ * 
+ */
 session_start();
 require_once './controller/pageController.php';
 
@@ -52,6 +56,7 @@ else {
 }
 
 if($problem == 1){
+	// if someone tries to get via the url to specific pages that are not allowed this message is being presented
 	echo "Πρόσβαση χωρίς δικαιώματα. Παρακαλώ επιστρέψτε " . "<a href=\"index.php\">πίσω</a>";
 } 
 else {

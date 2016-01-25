@@ -1,4 +1,10 @@
 <?php
+/**
+ * This script handle's the loan request.
+ * If everything goes well then it send's back a successful response to the user
+ * 
+ */
+
 require_once '../database/ConnectionDB/dbConnection.php';
 require_once '../database/Model/Material.php';
 

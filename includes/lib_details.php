@@ -1,6 +1,11 @@
 <?php 
 require_once '../database/ConnectionDB/dbConnection.php';
 require_once '../database/Model/Libraries.php';
+/**
+ * 
+ * Send's an modal object to the jquery with the library details
+ */
+
 $lib_id = $_POST['id'];
 $lib_id = (int)$lib_id;
 $libraries = new Libraries();

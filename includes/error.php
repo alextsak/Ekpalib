@@ -1,4 +1,9 @@
 <?php 
+/**
+ * This file toggles a modal with error info to the user
+ *
+ */
+
 $message = $_POST['message'];
 
 ?>

@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * 
+ * Class dealing with the user requests
+ * 
+ * 
+ *
+ */
 
 class User{
 	
@@ -54,7 +60,11 @@ class User{
 	}
 	
 	public function get_user_transactions($username){
-	
+	/**
+	 * Retrieve's all the recent transactions for the user ( approved or not approved from the librarian )
+	 * 
+	 */
+		
 		$query = 'SELECT MaterialID, Approved, EndDate FROM academiccommunitymembers_makesrequestfor_material where User=? and (Approved=0 or Approved=1)';
 		$stmt = $this->db->prepare($query);
 		$stmt->bindParam(1, $username);
@@ -65,7 +75,10 @@ class User{
 	}
 	
 	public function get_user_transactions_all($username){
-	
+		/**
+		 * Retrieve's all the recent transactions for the user 
+		 *
+		 */
 		$query = 'SELECT MaterialID, Approved FROM academiccommunitymembers_makesrequestfor_material where User=?';
 		$stmt = $this->db->prepare($query);
 		$stmt->bindParam(1, $username);
@@ -76,7 +89,10 @@ class User{
 	}
 	
 	public function get_user_transactions_not_approved($username){
-	
+		/**
+		 * Retrieve's all the recent transactions for the user that are not approved
+		 *
+		 */
 		$query = 'SELECT MaterialID, StartDate, EndDate FROM academiccommunitymembers_makesrequestfor_material where User=? and Approved=0';
 		$stmt = $this->db->prepare($query);
 		$stmt->bindParam(1, $username);
@@ -87,7 +103,10 @@ class User{
 	}
 	
 	public function get_user_transactions_approved($username){
-	
+		/**
+		 * Retrieve's all the recent transactions for the user that are approved
+		 *
+		 */
 		$query = 'SELECT MaterialID, StartDate, EndDate FROM academiccommunitymembers_makesrequestfor_material where User=? and Approved=1';
 		$stmt = $this->db->prepare($query);
 		$stmt->bindParam(1, $username);
@@ -98,6 +117,10 @@ class User{
 	}
 	
 	public function get_user_transactions_received($username){
+		/**
+		 * Retrieve's all the active transactions for the user 
+		 * By this we mean that the user has received the material from the library 
+		 */
 		
 		$query = 'SELECT MaterialID, StartDate, EndDate FROM academiccommunitymembers_makesrequestfor_material where User=? and Approved=2';
 		$stmt = $this->db->prepare($query);
@@ -110,6 +133,11 @@ class User{
 	
 	public function get_user_history($username){
 	
+		/**
+		 * Retrieve's user's history
+		 *
+		 */
+		
 		$query = 'SELECT MaterialID, received, returned FROM history where User=?';
 		$stmt = $this->db->prepare($query);
 		$stmt->bindParam(1, $username);
@@ -120,7 +148,11 @@ class User{
 	}
 	
 	public function get_endDate($username, $materialID){
-	
+		/**
+		 * Retrieve's the end date for a material for a specific user
+		 * This is required for the expansion request
+		 */
+		
 		$query = 'SELECT EndDate FROM academiccommunitymembers_makesrequestfor_material where User=? and MaterialID=?';
 		$stmt = $this->db->prepare($query);
 		$stmt->bindParam(1, $username);

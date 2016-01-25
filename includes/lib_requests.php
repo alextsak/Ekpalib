@@ -1,4 +1,10 @@
 <?php 
+/**
+ * 
+ * Handle's the request's for the libraries search
+ * 
+ */
+
 require_once '../database/ConnectionDB/dbConnection.php';
 require_once '../database/Model/Libraries.php';
 $lib_addr = $_POST['address'];
@@ -15,6 +21,6 @@ while($row=$libs->fetch(PDO::FETCH_ASSOC)){
 }
 
 echo json_encode($retlib);
-//echo json_encode($row);
+
  
 ?>		

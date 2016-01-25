@@ -22,7 +22,7 @@ error_reporting(E_ALL);
     margin: 5% auto 5% auto;
     
     border: 25px #992B00;
-    //margin: 25px;
+    
 }
 
 table th {

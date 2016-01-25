@@ -18,7 +18,7 @@ function init_sitepath(){
 
 function sitepath_constructor(){
 	
-	//$urlpath = $_SERVER['QUERY_STRING'];
+	
 	$urlpath = "$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 	$sitepath = '';
 	
@@ -93,6 +93,10 @@ function sitepath_constructor(){
 
 
 function key_val_exists($key, $val) {
+	/**
+	 * Check if a key exist's in array
+	 * 
+	 */
 	foreach ($_SESSION['sitepath'] as $item)
 		if (isset($item[$key]) && $item[$key] == $val)
 			return true;
@@ -101,7 +105,10 @@ function key_val_exists($key, $val) {
 
 
 function get_title(){
-	
+	/**
+	 * Create's the title for every page. It dynamically create's the title via the url
+	 * 
+	 */
 	$urlpath = "$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 	$title = '';
 	
@@ -151,6 +158,8 @@ function get_title(){
 }
 
 function get_basename(){
+	// constructs the site basename
+	
 	return "http://".$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT']."/Ekpalib/";
 }
 

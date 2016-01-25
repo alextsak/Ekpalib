@@ -59,15 +59,16 @@
           	?> 	
 			<div id="site-path">
 			<?php
-			
+				// continue creating the site path
 				$sitepath = sitepath_constructor();
 				echo $sitepath;
-				//echo $_SERVER['DOCUMENT_ROOT'];
+				
 			?>
 			</div>
 			
 			<?php 
           	} else {
+          		// initiallize the sitepath
           		init_sitepath();
           	}
 			?>

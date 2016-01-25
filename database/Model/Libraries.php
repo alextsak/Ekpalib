@@ -1,5 +1,5 @@
 <?php
-
+// A class which handles functions and requests about the libraries
 
 class Libraries{
 	
@@ -13,6 +13,9 @@ class Libraries{
 	}
 
 	public function get_department_names(){
+		/**
+		 * Retrieves all the departments
+		 */
 		$st = $this->db->prepare("SELECT Name FROM universitydepartment");
 		
 		$st->execute();
@@ -61,7 +64,7 @@ class Libraries{
 	
 	public function Add_New_Lib(array $params){
 	
-		// it might need another insertion
+		// For future use...
 	
 		$st = $this->db->prepare("INSERT INTO Libraries (`idLibraries`,`Name`,`Site`,`Address`,`Telephone`,`Fax`,`Informations`) VALUES (?,?�?�?,?,?,?);");
 		$st->bindParam(1, $params[0]);
@@ -85,6 +88,10 @@ class Libraries{
 	/********************************************************************************************************************/
 	
 	public function get_libraries($param){
+		/**
+		 * Retrieve's all the libraries - not used
+		 *
+		 */
 		$query = 'SELECT * FROM libraries';
 		
 	
@@ -99,6 +106,10 @@ class Libraries{
 	}
 	
 	public function get_library_details($lib_id){
+		/**
+		 * Retrieve's the details for a specific library
+		 * 
+		 */
 		$query = 'select * from libraries where idlibraries =  ?';
 			
 		$stmt = $this->db->prepare($query);
@@ -113,6 +124,10 @@ class Libraries{
 	
 	
 	public function searchLibraries($lib_addr,$lib_dep){
+		/**
+		 * 
+		 * Search for library given it's address OR the department
+		 */
 		
 		if($lib_addr == "" && $lib_dep != ""){
 			
@@ -163,7 +178,10 @@ class Libraries{
 	}
 	
 	public function getAllLibraries(){
-		
+		/**
+		 * Retrieve's all the libraries 
+		 *
+		 */
 			$query = 'SELECT * FROM libraries';
 			$stmt = $this->db->prepare($query);
 			$stmt->execute();

@@ -1,4 +1,11 @@
 <?php
+/**
+ * 
+ * Class dealing with the study rooms
+ * 
+ *
+ */
+
 class StudyRooms{
 
 	private $db;

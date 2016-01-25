@@ -1,4 +1,8 @@
 <?php 
+/**
+ * This file toggles a modal with success info to the user
+ *
+ */
 
 $message = $_POST['message'];
 

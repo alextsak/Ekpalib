@@ -1,4 +1,9 @@
 <?php 
+/**
+ * Create's and send's an object with the material details
+ * 
+ */
+
 require_once '../database/ConnectionDB/dbConnection.php';
 require_once '../database/Model/Material.php';
 require_once '../utilities/helpers.php';
@@ -15,7 +20,7 @@ if($genre == "books"){
 $stmt = $material->fetch_material_details($material_id);
 
 if($stmt->rowCount() == 0) {
-	//echo "Error bookdetails line 10";
+	
 	$message = "Πρόβλημα με τις λεπτομέρειες του Υλικού";
 	echo "<script>error_messages('$message');</script>";
 }

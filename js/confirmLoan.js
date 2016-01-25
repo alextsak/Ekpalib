@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 
 $(document).ready(function(){
 	$('#loan-Button').attr("disabled", true);

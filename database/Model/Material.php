@@ -28,7 +28,7 @@ class Material{
 	}
 	
 	public function getArticleCategories(){ 
-		
+	
 		$query = 'select distinct(category) from articles, material where material.MaterialID = articles.MaterialID '; 
 		$stmt = $this->db->prepare($query); 
 		$stmt->execute();
@@ -57,7 +57,10 @@ class Material{
 	
 	
 	public function get_categories($material){
-		
+		/**
+		 * Get all the categories for a material(Σύγγραμα, Άρθρο, Περιοδικό) chosen by the user at the advanced search page
+		 * 
+		 */
 		if($material == "all")
 			$query = 'SELECT DISTINCT(category) from material';
 		else
@@ -73,7 +76,11 @@ class Material{
 	}
 	
 	public function add_to_upper_cart($genre) {
-	
+	/**
+	 * If the upper cart has nothing the create it and add the items
+	 * 
+	 */
+		
 		$stmt = $this->db->prepare($query);
 		$stmt->execute();
 		if($stmt->rowCount()>0)
@@ -116,7 +123,10 @@ class Material{
 	
 	
 	public function update_upper_cart(){
-		
+		/**
+		 * Update's the upper cart every time an item is added
+		 * 
+		 */
 		foreach($_SESSION['cart'] as $key=>$value){
 			
 			?>
@@ -148,7 +158,10 @@ class Material{
 	}
 	
 	public function materialBelongsToTable($materialID){
-	
+	/**
+	 * Determine's whether a material belongs to one of the 3 tables (articles, books, magazines)
+	 * 
+	 */
 		$books = 'SELECT * from books where materialID = ?';
 		$articles = 'SELECT * from articles where materialID = ?';
 		$magazines = 'SELECT * from magazines where materialID = ?';
@@ -174,6 +187,11 @@ class Material{
 	
 	
 	public function add_to_cart($materialID) {
+		/**
+		 * Create's the session variable cart and add's the id of the item as an identifier
+		 * 
+		 */
+		
 		if(!empty($materialID)){
 			
 			// Fetch the basic details for this material
@@ -226,6 +244,10 @@ class Material{
 
 	public function results_view($query,$term)
     {
+    	/**
+    	 * Create's the vies for the result's 
+    	 * 
+    	 */
          $stmt = $this->db->prepare($query);
          if(is_array($term)){
          	$i = 1;
@@ -301,7 +323,11 @@ class Material{
  	}
  
  public function query_easy_search($term, $genre, $keyword, $category) {
-	
+	/**
+	 * 
+	 * Construct's the query for the easy search
+	 * 
+	 */
 	$query = 'select distinct(material.MaterialID),title,category,libraries.Name,libraries.idLibraries,availability,available_days 
 		      from '  . $genre . ', material,libraries_has_material,libraries,material_has_author,author
 			  where material.MaterialID = libraries_has_material.MaterialID and
@@ -324,7 +350,10 @@ class Material{
  }
  
  public function get_material_library($material_id){
- 
+ /**
+  * Retrieve's library info where the material given, belongs
+  * 
+  */
  	$query = 'select libraries.Name, libraries.idLibraries
  		from material,libraries_has_material,libraries
  		where material.MaterialID = ? and libraries_has_material.MaterialID = material.MaterialID
@@ -340,6 +369,10 @@ class Material{
  }
 
  public function fetch_material_details($materialID){
+ 	/**
+ 	 * Retrieve's more specific details for the material
+ 	 * 
+ 	 */
  	
  	// firstly determine the genre of the materialID given, e.g Book, Article etc...
  	$genre = $this->materialBelongsToTable($materialID);
@@ -360,7 +393,10 @@ class Material{
  }
  
  public function get_authors_of_material($materialID){
- 	
+ 	/**
+ 	 * 
+ 	 * Retrieve's the author's of the given material
+ 	 */
  	$query = 'SELECT Name, Surname FROM material_has_author, author WHERE 
 						material_has_author.idAuthor = author.idAuthor 
 						and material_has_author.MaterialID =?';
@@ -378,7 +414,10 @@ class Material{
  
  public function advancedSearch($type,$category,$keyword,$author,$publisher,$isbn,$library){
  
- 	
+ 	/**
+ 	 * Construct's the query for the advanced search 
+ 	 * 
+ 	 */
  	$query = 'select * from material,material_has_author,author,libraries_has_material,libraries ';
 									
 	if($type!="all")
@@ -491,7 +530,7 @@ class Material{
  }
  
  public function reduceAvailability($username,$material_id){
- 	/* Function to reduce the availability of a book */
+ 	/* Function to reduce the availability of a material */
  	if (!empty($material_id) && !empty($username)){
  		$query = 'UPDATE material SET material.availability=material.availability-1 WHERE MaterialID=? and (SELECT Approved FROM academiccommunitymembers_makesrequestfor_material WHERE User=? and MaterialID=?)>0';
  		$stmt = $this->db->prepare($query);
@@ -568,7 +607,10 @@ class Material{
  
 
  public function request_expansion($username, $materialID, $days){
- 	
+ 	/**
+ 	 * Add's the expansion dates. The system accepts the request immediatelly because we don't include a librarian yet
+ 	 * 
+ 	 */
 	if(!empty($username) && !empty($materialID) && !empty($days)){
 		$query = "UPDATE academiccommunitymembers_makesrequestfor_material SET EndDate = DATE_ADD(EndDate,INTERVAL ? DAY) WHERE User=? and MaterialID=?";	
 		$stmt = $this->db->prepare($query);
