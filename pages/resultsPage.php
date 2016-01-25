@@ -99,7 +99,9 @@ function addToCart(id, title){
 		
 		var message = "Το αντικείμενο " + " << " + title + " >> " + " περιέχεται ήδη στο καλάθι σας!";
 		error_messages(message);
-		closeModal();
+		if ( $('#details-material-modal').is(':visible') ) {
+			closeModal();
+		}
 	}
 	else {
 			$.ajax({
