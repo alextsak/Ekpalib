@@ -437,14 +437,13 @@ class Material{
  	/* Dummy function to auto receive the materials with over 100 unit in availability,
  	 * for presentation purposes */
  	if (!empty($material_id)){
- 		$query = 'UPDATE academiccommunitymembers_makesrequestfor_material SET Approved=2 WHERE MaterialID=? and (SELECT availability FROM material WHERE MaterialID=?) >= 100';
+ 		$query = 'UPDATE academiccommunitymembers_makesrequestfor_material SET Approved=2 WHERE MaterialID=? and (SELECT availability FROM material WHERE MaterialID=? and Approved=1) >= 100';
  		$stmt = $this->db->prepare($query);
  		$flag = 0;
  		$stmt->bindValue(1, intval($material_id));
  		$stmt->bindValue(2, intval($material_id));
  		if($stmt->execute()) {
  			$flag = 1;
- 			$this->reduceAvailability($material_id);
  			return "ok";
  		}
  		else {
