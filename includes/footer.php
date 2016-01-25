@@ -21,7 +21,7 @@ function detailsbook(id, page_title){
 	 */
 	var data = {"id" : id, "page_title" : page_title};
 	jQuery.ajax({
-		url : "/Ekpalib/inc/materialDetails.php",
+		url : "/Ekpalib/includes/materialDetails.php",
 		method: "post",
 		data : data,
 		success : function(data){
@@ -41,7 +41,7 @@ function detailsLibrary(id){
 	var data = {"id" : id};
 
 	jQuery.ajax({
-		url : "/Ekpalib/inc/lib_details.php",
+		url : "/Ekpalib/includes/lib_details.php",
 		method: "post",
 		data : data,
 		success : function(data){
@@ -60,7 +60,7 @@ function expand(username, materialID){
 
 	var data = {"username" : username, "materialID" : materialID};
 	jQuery.ajax({
-		url : "/Ekpalib/inc/expansion.php",
+		url : "/Ekpalib/includes/expansion.php",
 		method: "post",
 		data : data,
 		success : function(data){

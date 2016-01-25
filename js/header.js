@@ -15,10 +15,10 @@ $(document).ready(function(){
 });
 
 function error_messages(message){
-	console.log(message);
+	//console.log(message);
 	var data = {"message" : message};
 	jQuery.ajax({
-		url : "/Ekpalib/inc/error.php",
+		url : "/Ekpalib/includes/error.php",
 		method: "post",
 		data : data,
 		success : function(data){
@@ -34,10 +34,10 @@ function error_messages(message){
 
 
 function success_messages(message){
-	console.log(message);
+	//console.log(message);
 	var data = {"message" : message};
 	jQuery.ajax({
-		url : "/Ekpalib/inc/success.php",
+		url : "/Ekpalib/includes/success.php",
 		method: "post",
 		data : data,
 		success : function(data){

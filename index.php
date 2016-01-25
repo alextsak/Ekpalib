@@ -10,7 +10,7 @@ $exclude_easy_search = array('confirmLoan', 'advancedSearch', 'history', 'under_
 if(isset($_GET['page']) && !isset($_GET['page_no'])) {
 	
 	if($_GET['page'] == 'login_signup'){
-		include './inc/header.php';
+		include './includes/header.php';
 	}
 	elseif($_GET['page'] == 'confirmLoan'){
 		
@@ -19,18 +19,18 @@ if(isset($_GET['page']) && !isset($_GET['page_no'])) {
 		}
 		
 		else {
-			include './inc/header.php';
-			include './inc/menu.php';
+			include './includes/header.php';
+			include './includes/menu.php';
 			getPage('pages', $_GET['page'], 'main');
 		}
 	}
 	else {
-		include './inc/header.php';
-		include './inc/menu.php';
+		include './includes/header.php';
+		include './includes/menu.php';
 		
 		// check if we need to exclude easy search
 		if(!in_array($_GET['page'], $exclude_easy_search)){
-			include './inc/easy_search.php';
+			include './includes/easy_search.php';
 		}
 		getPage('pages', $_GET['page'], 'main');
 	}
@@ -38,16 +38,16 @@ if(isset($_GET['page']) && !isset($_GET['page_no'])) {
 	
 } 
 elseif (isset($_GET['page_no'])) {
-	include './inc/header.php';
-	include './inc/menu.php';
-	include './inc/easy_search.php';
+	include './includes/header.php';
+	include './includes/menu.php';
+	include './includes/easy_search.php';
 	getPage('pages', $_GET['page'], 'search_pagination');
 }
 else {
 	
-	include './inc/header.php';
-	include './inc/menu.php';
-	include './inc/easy_search.php';
+	include './includes/header.php';
+	include './includes/menu.php';
+	include './includes/easy_search.php';
 	getPage('pages', 'main');
 }
 
@@ -56,7 +56,7 @@ if($problem == 1){
 } 
 else {
 	
-	include './inc/footer.php';
+	include './includes/footer.php';
 }
 
 

@@ -76,8 +76,12 @@ if($flag == 1){
 			},500);
 		
 		var data = {"action" : "removeAll"};
+		var host = window.location.host;
+		var protocol = window.location.protocol;
+		var urlpath = protocol + "//" + host + "/Ekpalib/";
 		jQuery.ajax({
-			url : "/Ekpalib/index.php",
+			
+			url : urlpath,
 			method: "post",
 			data : data,
 			success : function(data){

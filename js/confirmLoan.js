@@ -46,14 +46,12 @@ function loan_request(idArray, user){
 	});
 	//days_array = jQuery.parseJSON(days_array);
 	if(json_id_array == null || user == null){
-		alert("NUUUUULLLL");
-	}else {
-		console.log("confirm loan send: " + json_id_array + " and " + user + " and " + days_array);
+		alert("a problem occured during loan request");
 	}
 	
 	var data = {"idArray" : json_id_array, "user" : user, "request_days" : days_array};
 	jQuery.ajax({
-		url : "/Ekpalib/inc/loan_request.php",
+		url : "/Ekpalib/includes/loan_request.php",
 		method: "post",
 		data : data,
 		success : function(data){

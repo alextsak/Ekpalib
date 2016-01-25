@@ -118,5 +118,17 @@ class User{
 		}
 		echo $stmt->errorInfo();
 	}
+	
+	public function get_endDate($username, $materialID){
+	
+		$query = 'SELECT EndDate FROM academiccommunitymembers_makesrequestfor_material where User=? and MaterialID=?';
+		$stmt = $this->db->prepare($query);
+		$stmt->bindParam(1, $username);
+		$stmt->bindParam(2, $materialID);
+		if($stmt->execute()){
+			return $stmt;
+		}
+		echo $stmt->errorInfo();
+	}
 	 
 }

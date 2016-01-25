@@ -1,22 +1,25 @@
 <?php 
+// Expansion logic... 
+
 require_once '../database/ConnectionDB/dbConnection.php';
 require_once '../database/Model/Material.php';
+require_once '../database/Model/User.php';
 require_once '../utilities/helpers.php';
-$material_id = $_POST['materialID'];
+$material_id = intval($_POST['materialID']);
 $username = $_POST['username'];
-//$page_title = $_POST['page_title'];
-$material_id = intval($material_id);
 
 $flag = 0;
 $material = new Material();
+// determine what is the material, book ,article etc
 $genre = $material->materialBelongsToTable($material_id);
 if($genre == "books"){
 	$flag = 1;
 }
+// fetch the material details
 $stmt = $material->fetch_material_details($material_id);
 
 if($stmt->rowCount() == 0) {
-	//echo "Error bookdetails line 10";
+	
 	$message = "Πρόβλημα με τις λεπτομέρειες του Υλικού";
 	echo "<script>error_messages('$message');</script>";
 }
@@ -27,6 +30,9 @@ if($stmt->rowCount() == 0) {
 		$lib_name = $library['Name'];
 	}
 	$result = $stmt->fetch(PDO::FETCH_ASSOC);
+	// fetch the endDate for the material
+	$user = new User();
+	$endDate = $user->get_endDate($username, $material_id)->fetch(PDO::FETCH_ASSOC);
 	?>
 
 
@@ -146,7 +152,7 @@ if($stmt->rowCount() == 0) {
 #spinner {
 	width: 40px;
 	color: #000;
-	text-align: center;
+	margin-left:5%;
 }
 
 </style>
@@ -194,18 +200,17 @@ if($stmt->rowCount() == 0) {
 						        	<li><a href="#tab8" data-toggle="tab" style="color:white">Περιγραφή</a></li>
 						        	<?php }?>
 						        	<li><a href="#tab9" data-toggle="tab" style="color:white">Διαθεσιμότητα</a></li>
-						        	
-						        	
-						        	
-						        	
 						        </ul>
 						        
 						        <div class="tab-content" >
 						        
 						        	<div class="tab-pane active" id="tab1" style="color:white;margin-top: 10px;">
-						        		<h4 style="color:#fff;text-align:center;">Το βιβλίο σας είναι διαθέσιμο για <?php echo $result['available_days']; ?></h3>
-						        		<h4 style="color:#fff;text-align:center;"> Μπορείτε να κάνετε επέκταση του δανεισμού σας ως 7 ημέρες </h4>
-						        		<input id="spinner" name="value" value="1">
+						        		<h4 style="color:#fff;text-align:center;">Το αντικείμενο αυτό το έχετε δανειστεί μέχρι τις</h4>
+						        		 <h3 style="color:#fff; text-decoration: underline; text-align: center;"><?php echo $endDate['EndDate']; ?></h3>
+						        		<h5 style="color:orange;text-align:center;"> Μπορείτε να κάνετε επέκταση του δανεισμού σας από 1 ως 7 ημέρες</h5>
+						        		<div style="text-align: center;">
+						        			<input id="spinner" name="value" value="1">
+						        		</div>
 						        	</div>
 						        	<div class="tab-pane " id="tab2" style="color:white;margin-top: 10px;">
 						        		<?php echo $result['title'];?>
@@ -286,7 +291,7 @@ if($stmt->rowCount() == 0) {
 			jQuery('.modal-backdrop').remove();
 			},500);
 		}
-	//var current_val = parseInt($('#spinner').val());
+	
 	$('#spinner').spinner({
 		max: 7,
 		min: 1,
@@ -297,7 +302,7 @@ if($stmt->rowCount() == 0) {
 	    var materialID = $('#materialID').val();
 	    var username = $('#username').val();
 	    var days = parseInt($('#spinner').val());
-	    console.log("materialID: " + materialID + " username: " + username + " days: " + days);
+	    //console.log("materialID: " + materialID + " username: " + username + " days: " + days);
 	    request_expand(username, materialID, days);
 	});
 

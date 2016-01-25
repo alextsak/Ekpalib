@@ -48,7 +48,7 @@ function searchLibraries(address,department){
 	var data = {"address" :address,"department":department};
 	console.log(data);
 	$.ajax({
-		url : "/Ekpalib/inc/lib_requests.php",
+		url : "/Ekpalib/includes/lib_requests.php",
 		method: "post",
 		data : data,
 		dataType: 'json',

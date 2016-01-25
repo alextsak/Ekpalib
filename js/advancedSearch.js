@@ -14,7 +14,7 @@ $(document).ready(function(){
 			}
 			
 			$.ajax({
-	    		url: '/Ekpalib/inc/material_categories.php',
+	    		url: '/Ekpalib/includes/material_categories.php',
 	    		type: 'POST',
 	    		data: {material : id},
 	    		dataType: 'json',
@@ -33,7 +33,7 @@ $(document).ready(function(){
 	
 	if($('#all').prop('checked')){
 		$.ajax({
-    		url: '/Ekpalib/inc/material_categories.php',
+    		url: '/Ekpalib/includes/material_categories.php',
     		type: 'POST',
     		data: {material : 'all'},
     		dataType: 'json',
