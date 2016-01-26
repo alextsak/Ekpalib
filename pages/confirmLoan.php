@@ -66,7 +66,7 @@ text-align:center;
 	        					?><tr>
 	        						<td><?php echo $_SESSION['cart'][$key]['title']; ?></td>
 	        						<td><?php echo $_SESSION['cart'][$key]['category']; ?></td>
-	        						<td><a href="javascript:detailsLibrary(<?php echo $_SESSION['cart'][$key]['library']; ?>)"><?php echo $_SESSION['cart'][$key]['library']; ?></a></td>
+	        						<td><a href="javascript:detailsLibrary(<?php echo $_SESSION['cart'][$key]['lib_id']; ?>)" style="text-decoration: none; font-weight:bold; color:#6699CC;"><?php echo $_SESSION['cart'][$key]['library']; ?></a></td>
 	        						<td><?php echo $_SESSION['cart'][$key]['availability']; ?></td>
 	        						<td id="av_days" style="text-align:center;">
 	        							<input id="spinner" name="value" value="<?php echo $_SESSION['cart'][$key]['available_days']; ?>">
